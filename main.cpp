@@ -188,7 +188,7 @@ void clockThread(Alarm &alarm, Timer &timer) {
 
             // Wyświetlanie promptu i aktualnego wejścia
             if (czekajNaPotwierdzenie) {
-                cout << "[Aby zakończyć alarm/timer, wciśnij Enter] ";
+                cout << "[Enter - stop | s - drzemka 5min] ";
             } else {
                 cout << "[Komenda] Ustaw alarm (a HH:MM), timer (t MM:SS), reset (r), wyjść (q): ";
             }
@@ -236,7 +236,25 @@ void commandThread(Alarm &alarm, Timer &timer) {
     while (true) {
         if (read(STDIN_FILENO, &ch, 1) > 0) {
             if (czekajNaPotwierdzenie) {
-                if (ch == '\n') {
+                if (ch == 's' || ch == 'd') { // drzemka (snooze)
+                    time_t now = time(nullptr) + 5 * 60; // domyślna drzemka 5 min
+                    tm *t = localtime(&now);
+                    {
+                        lock_guard<mutex> lock(globalMutex);
+                        alarm.hour = t->tm_hour;
+                        alarm.min = t->tm_min;
+                        alarm.set = true;
+                        alarm.triggered = false;
+                    }
+                    displayAlarm = false;
+                    displayTimerUp = false;
+                    blinkClock = false;
+                    czekajNaPotwierdzenie = false;
+                    lastStatus = "";
+                    currentInput = "";
+                    lastResponse = "✓ Drzemka na 5 minut";
+                    needsUpdate = true;
+                } else if (ch == '\n') {
                     displayAlarm = false;
                     displayTimerUp = false;
                     blinkClock = false;
