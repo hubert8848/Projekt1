@@ -25,11 +25,11 @@
       (place "J1" 600000 -460000 front 0)
     )
     (component "ScrewTerminal_1x02_P5.08mm"
-      (place "J2" 195000 -90000 front 0)
+      (place "J2" 195000 -55400 front 0)
     )
     (component "RJ45_8P8C"
-      (place "J3" 440000 -90000 front 0)
-      (place "J4" 709200 -90000 front 0)
+      (place "J3" 440000 -115000 front 0)
+      (place "J4" 709200 -115000 front 0)
     )
     (component "F_1206"
       (place "F1" 258000 -286000 front 0)
@@ -85,7 +85,7 @@
       (place "SW2" 326000 -581000 front 0)
     )
     (component "PinHeader_1x06_P2.54mm"
-      (place "J5" 979600 -90000 front 0)
+      (place "J5" 979600 -32700 front 0)
     )
     (component "D_SOD-323"
       (place "D3" 522500 -559300 front 0)
@@ -99,13 +99,13 @@
       (place "D11" 914500 -559300 front 0)
     )
     (component "ScrewTerminal_1x03_P5.08mm"
-      (place "J6" 156700 -830000 front 0)
-      (place "J7" 835500 -830000 front 0)
-      (place "J8" 1043300 -830000 front 0)
+      (place "J6" 156700 -864600 front 180)
+      (place "J7" 835500 -864600 front 180)
+      (place "J8" 1043300 -864600 front 180)
     )
     (component "Relay_SPDT_SRD"
-      (place "K1" 378300 -830000 front 0)
-      (place "K2" 613800 -830000 front 0)
+      (place "K1" 378300 -830000 front 180)
+      (place "K2" 613800 -830000 front 180)
     )
     (component "SOT-23-3"
       (place "Q1" 965000 -567000 front 0)

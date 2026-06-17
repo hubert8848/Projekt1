@@ -74,8 +74,14 @@ def _overlaps(box, boxes, gap=0.5) -> bool:
     return False
 
 
-def _place_row(items: List[Component], y: float, x0: float, x1: float):
-    """Rozklada komponenty rownomiernie w poziomie na wysokosci y."""
+def _place_row(items: List[Component], x0: float, x1: float, *,
+               outer_y: float, side: str, edge_inset: float = 1.5):
+    """Rozklada zlacza wzdluz krawedzi, ZLICOWANE zewnetrzna krawedzia do brzegu
+    (bez zygzakow) i obrocone wejsciem do krawedzi.
+
+    side="top": zewnetrzna (gorna) krawedz ciala na linii outer_y; rotacja 0.
+    side="bottom": zewnetrzna (dolna) krawedz na linii outer_y; rotacja 180.
+    """
     if not items:
         return
     widths = [_fp(c).body_w * 2 for c in items]
@@ -84,9 +90,14 @@ def _place_row(items: List[Component], y: float, x0: float, x1: float):
     gap = max((x1 - x0 - total) / (n + 1), 2.0)
     x = x0 + gap
     for c, w in zip(items, widths):
+        fp = _fp(c)
         c.x = round(x + w / 2, 2)
-        c.y = round(y, 2)
-        c.rotation = 0
+        if side == "top":
+            c.y = round(outer_y + edge_inset + fp.body_h, 2)   # gorna krawedz ciala zlicowana
+            c.rotation = 0
+        else:
+            c.y = round(outer_y - edge_inset - fp.body_h, 2)   # dolna krawedz ciala zlicowana
+            c.rotation = 180
         c.pinned = True
         x += w + gap
 
@@ -149,11 +160,12 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
     cx0, cy0, cx1, cy1 = frame.central
 
     if not is_top:
-        # I/O niskonapieciowe -> GORNA krawedz (dostep srubokretem)
-        _place_row(io, frame.io_band / 2, frame.margin, frame.width - frame.margin)
-        # strefa 230V (przekazniki + zaciski sieciowe) -> DOLNA krawedz, z dala od I/O
-        mains_y = frame.height - frame.io_band / 2
-        _place_row(relays, mains_y, frame.margin, frame.width - frame.margin)
+        # I/O niskonapieciowe -> GORNA krawedz (zlicowane, wejsciem do krawedzi)
+        _place_row(io, frame.margin, frame.width - frame.margin,
+                   outer_y=0.0, side="top")
+        # strefa 230V (przekazniki + zaciski) -> DOLNA krawedz, zlicowane, z dala od I/O
+        _place_row(relays, frame.margin, frame.width - frame.margin,
+                   outer_y=frame.height, side="bottom")
         for c in io + relays:
             fp = _fp(c)
             obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
