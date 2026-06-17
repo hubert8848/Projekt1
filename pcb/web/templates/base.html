@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pcbforge — edytor PCB KiCad</title>
+  <style>
+    :root { --bg:#0f1419; --card:#1a2230; --ink:#e6edf3; --muted:#8b98a9;
+            --acc:#4cc2ff; --ok:#3fb950; --warn:#d29922; --err:#f85149; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:15px/1.5 system-ui,Segoe UI,Roboto,sans-serif;
+           background:var(--bg); color:var(--ink); }
+    header { background:#11161f; padding:14px 22px; border-bottom:1px solid #222c3a; }
+    header a { color:var(--acc); text-decoration:none; font-weight:600; }
+    main { max-width:1000px; margin:0 auto; padding:22px; }
+    h1 { font-size:22px; margin:0; } h2 { font-size:17px; margin:22px 0 10px; }
+    .card { background:var(--card); border:1px solid #222c3a; border-radius:10px;
+            padding:16px 18px; margin:14px 0; }
+    table { width:100%; border-collapse:collapse; font-size:14px; }
+    th,td { text-align:left; padding:6px 8px; border-bottom:1px solid #222c3a; }
+    th { color:var(--muted); font-weight:600; }
+    code,.mono { font-family:ui-monospace,Menlo,Consolas,monospace; font-size:13px; }
+    .ok{color:var(--ok)} .warn{color:var(--warn)} .err{color:var(--err)} .muted{color:var(--muted)}
+    .btn { display:inline-block; background:var(--acc); color:#001019; border:0;
+           padding:8px 14px; border-radius:7px; font-weight:600; cursor:pointer;
+           text-decoration:none; }
+    .btn.ghost { background:transparent; color:var(--acc); border:1px solid var(--acc); }
+    input,select { background:#0d1117; color:var(--ink); border:1px solid #30363d;
+                   border-radius:6px; padding:7px 9px; font-size:14px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:end; }
+    .pill { background:#0d2231; color:var(--acc); border-radius:20px; padding:2px 10px;
+            font-size:12px; margin:2px; display:inline-block; }
+    label { display:block; font-size:12px; color:var(--muted); margin-bottom:3px; }
+  </style>
+</head>
+<body>
+  <header><a href="{{ url_for('index') }}">⚡ pcbforge</a>
+    <span class="muted">— generator schematów i PCB dla KiCad + Freerouting</span></header>
+  <main>{% block body %}{% endblock %}</main>
+</body>
+</html>

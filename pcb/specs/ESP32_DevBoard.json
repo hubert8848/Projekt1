@@ -1,0 +1,197 @@
+{
+  "name": "ESP32_DevBoard",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4
+  },
+  "components": [
+    {
+      "ref": "U1",
+      "part": "ESP32-WROOM-32",
+      "value": "ESP32-WROOM-32",
+      "footprint": "ESP32-WROOM-32",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "15": "GND",
+        "38": "GND",
+        "25": "IO0",
+        "24": "IO2",
+        "35": "TXD0",
+        "34": "RXD0",
+        "26": "IO4",
+        "29": "IO5",
+        "14": "IO12",
+        "16": "IO13",
+        "13": "IO14",
+        "23": "IO15",
+        "27": "IO16",
+        "28": "IO17",
+        "30": "IO18",
+        "31": "IO19"
+      }
+    },
+    {
+      "ref": "U2",
+      "part": "AMS1117-3.3",
+      "value": "AMS1117-3.3",
+      "footprint": "SOT-223",
+      "connections": {
+        "3": "VBUS",
+        "1": "GND",
+        "2": "3V3",
+        "4": "3V3"
+      }
+    },
+    {
+      "ref": "J1",
+      "part": "USB_Micro-B",
+      "value": "USB_Micro-B",
+      "footprint": "USB_Micro-B",
+      "connections": {
+        "1": "VBUS",
+        "5": "GND",
+        "MP": "GND"
+      }
+    },
+    {
+      "ref": "C1",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "VBUS",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C2",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C3",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C4",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EN"
+      }
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "IO0"
+      }
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "330",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "IO2",
+        "2": "LED_A"
+      }
+    },
+    {
+      "ref": "LED1",
+      "part": "LED",
+      "value": "GREEN",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "LED_A",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "SW1",
+      "part": "SW_Push",
+      "value": "EN",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "EN",
+        "2": "EN",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "SW2",
+      "part": "SW_Push",
+      "value": "BOOT",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "IO0",
+        "2": "IO0",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "J2",
+      "part": "Header_1x06",
+      "value": "UART",
+      "footprint": "Header_1x06",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "4": "IO0",
+        "5": "TXD0",
+        "6": "RXD0"
+      }
+    },
+    {
+      "ref": "J3",
+      "part": "Header_1x10",
+      "value": "GPIO",
+      "footprint": "Header_1x10",
+      "connections": {
+        "1": "IO4",
+        "2": "IO5",
+        "3": "IO12",
+        "4": "IO13",
+        "5": "IO14",
+        "6": "IO15",
+        "7": "IO16",
+        "8": "IO17",
+        "9": "IO18",
+        "10": "IO19"
+      }
+    }
+  ]
+}

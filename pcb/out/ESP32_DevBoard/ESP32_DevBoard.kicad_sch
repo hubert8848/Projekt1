@@ -1,0 +1,5669 @@
+(kicad_sch
+  (version 20230121)
+  (generator eeschema)
+  (uuid "7d4215fa-bb4a-414d-9c28-53ca2534707f")
+  (paper "A4")
+  (lib_symbols
+    (symbol
+      "pcbforge:ESP32-WROOM-32"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "U"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "ESP32-WROOM-32"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "ESP32-WROOM-32_0_1"
+        (rectangle
+          (start -15.24 -25.4)
+          (end 15.24 25.4)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "ESP32-WROOM-32_1_1"
+        (pin
+          power_in
+          line
+          (at -19.05 22.86 0)
+          (length 3.81)
+          (name
+            "GND"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_in
+          line
+          (at -19.05 20.32 0)
+          (length 3.81)
+          (name
+            "3V3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at -19.05 17.78 0)
+          (length 3.81)
+          (name
+            "EN"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at -19.05 15.24 0)
+          (length 3.81)
+          (name
+            "SENSOR_VP/IO36"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at -19.05 12.7 0)
+          (length 3.81)
+          (name
+            "SENSOR_VN/IO39"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at -19.05 10.16 0)
+          (length 3.81)
+          (name
+            "IO34"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at -19.05 7.62 0)
+          (length 3.81)
+          (name
+            "IO35"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 5.08 0)
+          (length 3.81)
+          (name
+            "IO32"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 2.54 0)
+          (length 3.81)
+          (name
+            "IO33"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "9"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 0 0)
+          (length 3.81)
+          (name
+            "IO25"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -2.54 0)
+          (length 3.81)
+          (name
+            "IO26"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "11"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -5.08 0)
+          (length 3.81)
+          (name
+            "IO27"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "12"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -7.62 0)
+          (length 3.81)
+          (name
+            "IO14"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "13"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -10.16 0)
+          (length 3.81)
+          (name
+            "IO12"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "14"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_in
+          line
+          (at -19.05 -12.7 0)
+          (length 3.81)
+          (name
+            "GND"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "15"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -15.24 0)
+          (length 3.81)
+          (name
+            "IO13"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "16"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -17.78 0)
+          (length 3.81)
+          (name
+            "SD2/IO9"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "17"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -20.32 0)
+          (length 3.81)
+          (name
+            "SD3/IO10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "18"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -19.05 -22.86 0)
+          (length 3.81)
+          (name
+            "CMD/IO11"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "19"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 22.86 180)
+          (length 3.81)
+          (name
+            "CLK/IO6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "20"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 20.32 180)
+          (length 3.81)
+          (name
+            "SD0/IO7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "21"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 17.78 180)
+          (length 3.81)
+          (name
+            "SD1/IO8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "22"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 15.24 180)
+          (length 3.81)
+          (name
+            "IO15"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "23"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 12.7 180)
+          (length 3.81)
+          (name
+            "IO2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "24"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 10.16 180)
+          (length 3.81)
+          (name
+            "IO0"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "25"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 7.62 180)
+          (length 3.81)
+          (name
+            "IO4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "26"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 5.08 180)
+          (length 3.81)
+          (name
+            "IO16"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "27"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 2.54 180)
+          (length 3.81)
+          (name
+            "IO17"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "28"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 0 180)
+          (length 3.81)
+          (name
+            "IO5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "29"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 -2.54 180)
+          (length 3.81)
+          (name
+            "IO18"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "30"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 -5.08 180)
+          (length 3.81)
+          (name
+            "IO19"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "31"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          no_connect
+          line
+          (at 19.05 -7.62 180)
+          (length 3.81)
+          (name
+            "NC"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "32"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 -10.16 180)
+          (length 3.81)
+          (name
+            "IO21"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "33"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          input
+          line
+          (at 19.05 -12.7 180)
+          (length 3.81)
+          (name
+            "RXD0/IO3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "34"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          output
+          line
+          (at 19.05 -15.24 180)
+          (length 3.81)
+          (name
+            "TXD0/IO1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "35"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 -17.78 180)
+          (length 3.81)
+          (name
+            "IO22"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "36"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at 19.05 -20.32 180)
+          (length 3.81)
+          (name
+            "IO23"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "37"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_in
+          line
+          (at 19.05 -22.86 180)
+          (length 3.81)
+          (name
+            "GND"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "38"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:AMS1117"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "U"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "AMS1117"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "AMS1117_0_1"
+        (rectangle
+          (start -10.16 -3.81)
+          (end 10.16 3.81)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "AMS1117_1_1"
+        (pin
+          power_in
+          line
+          (at -13.97 1.27 0)
+          (length 3.81)
+          (name
+            "GND"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_in
+          line
+          (at -13.97 -1.27 0)
+          (length 3.81)
+          (name
+            "VIN"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_out
+          line
+          (at 13.97 1.27 180)
+          (length 3.81)
+          (name
+            "VOUT"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_out
+          line
+          (at 13.97 -1.27 180)
+          (length 3.81)
+          (name
+            "VOUT(tab)"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:USB_Micro-B"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "J"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "USB_Micro-B"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "USB_Micro-B_0_1"
+        (rectangle
+          (start -10.16 -7.62)
+          (end 10.16 7.62)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "USB_Micro-B_1_1"
+        (pin
+          power_out
+          line
+          (at -13.97 5.08 0)
+          (length 3.81)
+          (name
+            "VBUS"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -13.97 2.54 0)
+          (length 3.81)
+          (name
+            "D-"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          bidirectional
+          line
+          (at -13.97 0 0)
+          (length 3.81)
+          (name
+            "D+"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -13.97 -2.54 0)
+          (length 3.81)
+          (name
+            "ID"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          power_in
+          line
+          (at -13.97 -5.08 0)
+          (length 3.81)
+          (name
+            "GND"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 13.97 5.08 180)
+          (length 3.81)
+          (name
+            "SHIELD"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "MP"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:CP"
+      (pin_names
+        (offset 0.254)
+        hide
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "C"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "CP"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "CP_0_1"
+        (polyline
+          (pts
+            (xy -1.27 0.5)
+            (xy 1.27 0.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1 1.5)
+            (xy 1 1.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "CP_1_1"
+        (pin
+          passive
+          line
+          (at 0 2.54 270)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 0 -2.54 90)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:C"
+      (pin_names
+        (offset 0.254)
+        hide
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "C"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "C"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "C_0_1"
+        (polyline
+          (pts
+            (xy -1.27 0.5)
+            (xy 1.27 0.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy -1.27 -0.5)
+            (xy 1.27 -0.5)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "C_1_1"
+        (pin
+          passive
+          line
+          (at 0 2.54 270)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 0 -2.54 90)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:R"
+      (pin_names
+        (offset 0.254)
+        hide
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "R"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "R"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "R_0_1"
+        (rectangle
+          (start -1.016 -2.54)
+          (end 1.016 2.54)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "R_1_1"
+        (pin
+          passive
+          line
+          (at 0 3.81 270)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 0 -3.81 90)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:LED"
+      (pin_names
+        (offset 0.254)
+        hide
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "D"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "LED"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "LED_0_1"
+        (polyline
+          (pts
+            (xy -1.27 -1.27)
+            (xy -1.27 1.27)
+            (xy 1.27 0)
+            (xy -1.27 -1.27)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.27 -1.27)
+            (xy 1.27 1.27)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 1.6 -1.8)
+            (xy 2.6 -2.8)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+        (polyline
+          (pts
+            (xy 2 -1.4)
+            (xy 3 -2.4)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "LED_1_1"
+        (pin
+          passive
+          line
+          (at 0 3.81 270)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 0 -3.81 90)
+          (length 2.54)
+          (name
+            "~"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:SW_Push"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "SW"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "SW_Push"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "SW_Push_0_1"
+        (rectangle
+          (start -6.35 -3.81)
+          (end 6.35 3.81)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "SW_Push_1_1"
+        (pin
+          passive
+          line
+          (at -10.16 1.27 0)
+          (length 3.81)
+          (name
+            "A"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -10.16 -1.27 0)
+          (length 3.81)
+          (name
+            "A"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 10.16 1.27 180)
+          (length 3.81)
+          (name
+            "B"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 10.16 -1.27 180)
+          (length 3.81)
+          (name
+            "B"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:Header_1x06"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "J"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "Header_1x06"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "Header_1x06_0_1"
+        (rectangle
+          (start -5.08 -5.08)
+          (end 5.08 5.08)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "Header_1x06_1_1"
+        (pin
+          passive
+          line
+          (at -8.89 2.54 0)
+          (length 3.81)
+          (name
+            "P1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 0 0)
+          (length 3.81)
+          (name
+            "P2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 -2.54 0)
+          (length 3.81)
+          (name
+            "P3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 2.54 180)
+          (length 3.81)
+          (name
+            "P4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 0 180)
+          (length 3.81)
+          (name
+            "P5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 -2.54 180)
+          (length 3.81)
+          (name
+            "P6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:Header_1x10"
+      (pin_names
+        (offset 0.254)
+      )
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (property
+        "Reference"
+        "J"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "Header_1x10"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "Header_1x10_0_1"
+        (rectangle
+          (start -5.08 -7.62)
+          (end 5.08 7.62)
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "Header_1x10_1_1"
+        (pin
+          passive
+          line
+          (at -8.89 5.08 0)
+          (length 3.81)
+          (name
+            "P1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 2.54 0)
+          (length 3.81)
+          (name
+            "P2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "2"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 0 0)
+          (length 3.81)
+          (name
+            "P3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "3"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 -2.54 0)
+          (length 3.81)
+          (name
+            "P4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "4"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at -8.89 -5.08 0)
+          (length 3.81)
+          (name
+            "P5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "5"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 5.08 180)
+          (length 3.81)
+          (name
+            "P6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "6"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 2.54 180)
+          (length 3.81)
+          (name
+            "P7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "7"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 0 180)
+          (length 3.81)
+          (name
+            "P8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "8"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 -2.54 180)
+          (length 3.81)
+          (name
+            "P9"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "9"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+        (pin
+          passive
+          line
+          (at 8.89 -5.08 180)
+          (length 3.81)
+          (name
+            "P10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "10"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+    (symbol
+      "pcbforge:PWR_FLAG"
+      (pin_names
+        (offset 0.254)
+        hide
+      )
+      (pin_numbers hide)
+      (exclude_from_sim no)
+      (in_bom yes)
+      (on_board yes)
+      (power)
+      (property
+        "Reference"
+        "#FLG"
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Value"
+        "PWR_FLAG"
+        (at 0 -2.54 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+        )
+      )
+      (property
+        "Footprint"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (property
+        "Datasheet"
+        ""
+        (at 0 0 0)
+        (effects
+          (font
+            (size 1.27 1.27)
+          )
+          (hide yes)
+        )
+      )
+      (symbol
+        "PWR_FLAG_0_1"
+        (polyline
+          (pts
+            (xy 0 0)
+            (xy 0 1.27)
+            (xy -1.016 1.905)
+            (xy 0 2.54)
+            (xy 1.016 1.905)
+            (xy 0 1.27)
+          )
+          (stroke
+            (width 0.254)
+            (type default)
+          )
+          (fill
+            (type none)
+          )
+        )
+      )
+      (symbol
+        "PWR_FLAG_1_1"
+        (pin
+          power_out
+          line
+          (at 0 0 90)
+          (length 0)
+          (name
+            "pwr"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+          (number
+            "1"
+            (effects
+              (font
+                (size 1.27 1.27)
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+  (symbol
+    (lib_id "pcbforge:ESP32-WROOM-32")
+    (at 40 40 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "ff764733-5fb2-46f3-8aba-0df52f2f8746")
+    (property
+      "Reference"
+      "U1"
+      (at 42.54 35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "ESP32-WROOM-32"
+      (at 42.54 45 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:ESP32-WROOM-32"
+      (at 40 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 40 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "187d6c22-31bb-46e6-9f76-3b02b9810384")
+    )
+    (pin
+      "2"
+      (uuid "99f1c84d-4d52-4fb9-8056-b1fe7d3dad1e")
+    )
+    (pin
+      "3"
+      (uuid "54a7ec53-9dfe-4d50-b443-07613d43b444")
+    )
+    (pin
+      "4"
+      (uuid "48663cab-07fc-4d03-b9ba-ef79403e8622")
+    )
+    (pin
+      "5"
+      (uuid "25686ecb-1164-48b7-8145-d34f70431dfa")
+    )
+    (pin
+      "6"
+      (uuid "f18c4c0a-decd-4d9e-bd52-13b7ace6b907")
+    )
+    (pin
+      "7"
+      (uuid "f646bf9f-bc2b-49ab-8206-0179b3ba2c27")
+    )
+    (pin
+      "8"
+      (uuid "1986ffbc-8dbf-48f0-996e-8294d6e7898d")
+    )
+    (pin
+      "9"
+      (uuid "9cc13e7f-1fa1-4a6b-b730-6a0b2ecd8e72")
+    )
+    (pin
+      "10"
+      (uuid "60c5681f-798f-4843-b9e0-3d1e9724bb0c")
+    )
+    (pin
+      "11"
+      (uuid "a9b57591-db8c-482e-9e71-0150b27ea0ef")
+    )
+    (pin
+      "12"
+      (uuid "702071ce-75f0-4502-a148-4f8e46100267")
+    )
+    (pin
+      "13"
+      (uuid "91d0a45a-5374-4088-a05c-031c5378c27e")
+    )
+    (pin
+      "14"
+      (uuid "c7c703bc-4a4b-46bb-8b19-a98b3e1d2d6a")
+    )
+    (pin
+      "15"
+      (uuid "86b234a7-51f8-4667-a35b-c0e3c7cae2a3")
+    )
+    (pin
+      "16"
+      (uuid "ac736739-c731-4702-a565-688829526afa")
+    )
+    (pin
+      "17"
+      (uuid "a7c49b81-9686-4ce5-be81-c143b31a69b6")
+    )
+    (pin
+      "18"
+      (uuid "d60dffed-34a2-4ce3-a40b-581e8ba33412")
+    )
+    (pin
+      "19"
+      (uuid "060223bc-ef06-414c-9f6c-0af5d9ad5de0")
+    )
+    (pin
+      "20"
+      (uuid "3e924e98-87e9-4722-a193-49f4c944b90e")
+    )
+    (pin
+      "21"
+      (uuid "1798ee21-68a9-4723-ba39-9b10a638af52")
+    )
+    (pin
+      "22"
+      (uuid "bfdb45aa-bdb0-40a3-b043-d9e225905683")
+    )
+    (pin
+      "23"
+      (uuid "cc03a704-e840-46eb-82f6-db2ce5c2e29f")
+    )
+    (pin
+      "24"
+      (uuid "be514b4e-8771-45ec-860d-32c0448005da")
+    )
+    (pin
+      "25"
+      (uuid "a49d49b9-77d9-4d87-9618-faa06e0cf27e")
+    )
+    (pin
+      "26"
+      (uuid "04c46a5d-7cd6-435c-8801-dd4d5bb93362")
+    )
+    (pin
+      "27"
+      (uuid "4a27b4e7-e7cd-4811-85f7-ccaa36863d0e")
+    )
+    (pin
+      "28"
+      (uuid "ea43da4b-3d49-4044-89b1-bf1be42860fa")
+    )
+    (pin
+      "29"
+      (uuid "581efbc4-91be-437c-8248-6b673733eda9")
+    )
+    (pin
+      "30"
+      (uuid "2c54e698-685e-479a-b52d-5ea8e5e0b4df")
+    )
+    (pin
+      "31"
+      (uuid "6dbc01a7-2fb3-4d5e-a64c-0477a3b4530e")
+    )
+    (pin
+      "32"
+      (uuid "a360e43d-ccb0-4d3c-a932-9c960032afc5")
+    )
+    (pin
+      "33"
+      (uuid "87d949dc-740d-4d71-8e87-89f1de973a7f")
+    )
+    (pin
+      "34"
+      (uuid "52a3a34a-db3a-483b-931f-d7df4fa6b334")
+    )
+    (pin
+      "35"
+      (uuid "1dfbd753-3c31-4bf1-a3b0-1ef7ce71c0c8")
+    )
+    (pin
+      "36"
+      (uuid "2f995346-24b9-4a91-9409-86f11020e0be")
+    )
+    (pin
+      "37"
+      (uuid "44bd3a1c-f1cd-4461-a029-63b9bac9c41e")
+    )
+    (pin
+      "38"
+      (uuid "46e4a5bf-0972-4015-98bc-7cb0d19350f7")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "U1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 20.95 17.14)
+      (xy 18.41 17.14)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "43c2357b-d409-4253-9ed9-d52d62e56761")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 18.41 17.14 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "d9e1c868-7b54-4b82-bec7-cecd309ab1b5")
+  )
+  (wire
+    (pts
+      (xy 20.95 19.68)
+      (xy 18.41 19.68)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "10dd5042-568d-4abc-85dc-e438ececc77e")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 18.41 19.68 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "f71f9837-034b-491a-803a-355375fe1fc7")
+  )
+  (wire
+    (pts
+      (xy 20.95 22.22)
+      (xy 18.41 22.22)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "4ff4a8d2-f0a7-4e8e-9af2-febb57423e7c")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 18.41 22.22 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "d2ce06fc-91f0-4a89-84c9-25870bff9cf8")
+  )
+  (wire
+    (pts
+      (xy 20.95 47.62)
+      (xy 18.41 47.62)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "ac04fbe2-231d-45b7-b04b-d5ebbda80141")
+  )
+  (global_label
+    "IO14"
+    (shape bidirectional)
+    (at 18.41 47.62 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "14726138-21d4-402c-b4dc-6def074e9b9c")
+  )
+  (wire
+    (pts
+      (xy 20.95 50.16)
+      (xy 18.41 50.16)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "22b9e526-af6a-4ae5-bc5e-35b4dc910b49")
+  )
+  (global_label
+    "IO12"
+    (shape bidirectional)
+    (at 18.41 50.16 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "76a7986d-26c3-48ad-a3d4-4b324c99ad8f")
+  )
+  (wire
+    (pts
+      (xy 20.95 52.7)
+      (xy 18.41 52.7)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "47cfeb6e-6b7d-4750-960f-ed02fbadab22")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 18.41 52.7 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "946d0be6-49a7-41a3-9173-14c1ec17b6a4")
+  )
+  (wire
+    (pts
+      (xy 20.95 55.24)
+      (xy 18.41 55.24)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "3f790c93-86d6-432c-a50b-6d690a907dc9")
+  )
+  (global_label
+    "IO13"
+    (shape bidirectional)
+    (at 18.41 55.24 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "916ff39a-8f7e-401c-a5df-d04701b980d2")
+  )
+  (wire
+    (pts
+      (xy 59.05 24.76)
+      (xy 61.59 24.76)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "cfcddcd3-6a8b-40e4-a936-5a4ff0cc46b4")
+  )
+  (global_label
+    "IO15"
+    (shape bidirectional)
+    (at 61.59 24.76 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "5e4cdadb-cfa4-439e-9c8f-c25bf7751f77")
+  )
+  (wire
+    (pts
+      (xy 59.05 27.3)
+      (xy 61.59 27.3)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "715d12b9-a0d6-4343-9e59-5531c9a53256")
+  )
+  (global_label
+    "IO2"
+    (shape bidirectional)
+    (at 61.59 27.3 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "7a1e4c80-ad46-461c-9062-d0ec8f3d4b6f")
+  )
+  (wire
+    (pts
+      (xy 59.05 29.84)
+      (xy 61.59 29.84)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "0f60f5ae-d090-46a7-b999-d2e8cb0945c3")
+  )
+  (global_label
+    "IO0"
+    (shape bidirectional)
+    (at 61.59 29.84 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "c282cddb-c0be-420f-92a4-e251d155e7da")
+  )
+  (wire
+    (pts
+      (xy 59.05 32.38)
+      (xy 61.59 32.38)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "8338c86f-1f5f-4132-b152-2a64801d0a7e")
+  )
+  (global_label
+    "IO4"
+    (shape bidirectional)
+    (at 61.59 32.38 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "82006557-bb6d-4ee1-be5f-27dd9a3a44ee")
+  )
+  (wire
+    (pts
+      (xy 59.05 34.92)
+      (xy 61.59 34.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "046e50d5-ed8b-42de-a51f-78d4b98f743c")
+  )
+  (global_label
+    "IO16"
+    (shape bidirectional)
+    (at 61.59 34.92 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "de580443-1333-46df-bd26-1fc62d333aba")
+  )
+  (wire
+    (pts
+      (xy 59.05 37.46)
+      (xy 61.59 37.46)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "e75e0ef8-e961-468e-92bd-33f83c7063bf")
+  )
+  (global_label
+    "IO17"
+    (shape bidirectional)
+    (at 61.59 37.46 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "13e1020e-689a-4e5f-900b-d8b269a890fb")
+  )
+  (wire
+    (pts
+      (xy 59.05 40)
+      (xy 61.59 40)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "d2472b8e-bdbd-44c4-9c01-829444c1e643")
+  )
+  (global_label
+    "IO5"
+    (shape bidirectional)
+    (at 61.59 40 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "34eb274a-e1fe-4589-b9ff-9696480b1d04")
+  )
+  (wire
+    (pts
+      (xy 59.05 42.54)
+      (xy 61.59 42.54)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "11ee5249-0fd9-477b-b0af-f13c96b8b1ca")
+  )
+  (global_label
+    "IO18"
+    (shape bidirectional)
+    (at 61.59 42.54 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "53b956e7-87a4-46ff-84cc-fe2ade9f3688")
+  )
+  (wire
+    (pts
+      (xy 59.05 45.08)
+      (xy 61.59 45.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "d47aa2f7-22f8-4994-a5a5-51d55baed6d3")
+  )
+  (global_label
+    "IO19"
+    (shape bidirectional)
+    (at 61.59 45.08 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "8bea7fe3-fddc-45e3-9b7f-7370e4181ef3")
+  )
+  (wire
+    (pts
+      (xy 59.05 52.7)
+      (xy 61.59 52.7)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "34a33b4c-31c9-46bd-b06c-bacb62f0d28a")
+  )
+  (global_label
+    "RXD0"
+    (shape bidirectional)
+    (at 61.59 52.7 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "719d3452-9af5-4463-97ec-83bec4e9039d")
+  )
+  (wire
+    (pts
+      (xy 59.05 55.24)
+      (xy 61.59 55.24)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "2d717bc6-02ab-46a6-8ba0-3111044a300f")
+  )
+  (global_label
+    "TXD0"
+    (shape bidirectional)
+    (at 61.59 55.24 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "aeab4229-ca13-4a52-b84a-f679835219e4")
+  )
+  (wire
+    (pts
+      (xy 59.05 62.86)
+      (xy 61.59 62.86)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c5b8d6d0-a535-49bf-834d-3d5f96118d58")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 61.59 62.86 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "11c8ff02-b5f6-4358-ac5d-df5683933dfa")
+  )
+  (symbol
+    (lib_id "pcbforge:AMS1117")
+    (at 90 40 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "924c371b-6220-47a0-b674-7ba50bf1081c")
+    (property
+      "Reference"
+      "U2"
+      (at 92.54 35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "AMS1117-3.3"
+      (at 92.54 45 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:SOT-223"
+      (at 90 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 90 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "f6f0d23f-05d4-45e5-98f3-3369a5d463e1")
+    )
+    (pin
+      "3"
+      (uuid "22ce6c17-25b9-458b-b2ad-22cc47c3f6d2")
+    )
+    (pin
+      "2"
+      (uuid "928b26d1-35ca-4662-afd8-22f07837b836")
+    )
+    (pin
+      "4"
+      (uuid "bb074ed7-11cf-48c5-bb17-271ee16d74a8")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "U2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 76.03 38.73)
+      (xy 73.49 38.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "ae07d5e8-4567-401d-b052-f953bc8b7d3c")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 73.49 38.73 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "0db5815a-cb6c-4fc1-81a4-af496f87f32d")
+  )
+  (wire
+    (pts
+      (xy 76.03 41.27)
+      (xy 73.49 41.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "7996cf90-a89c-4c57-aef1-6c29fcc9ca25")
+  )
+  (global_label
+    "VBUS"
+    (shape bidirectional)
+    (at 73.49 41.27 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "6ff78404-c3df-4afa-8574-6b61c68daee8")
+  )
+  (wire
+    (pts
+      (xy 103.97 38.73)
+      (xy 106.51 38.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "e4737d74-6b1c-4875-81f9-bd2eacb13927")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 106.51 38.73 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "cc143253-78c7-4d5d-a694-51e13fa0a74e")
+  )
+  (wire
+    (pts
+      (xy 103.97 41.27)
+      (xy 106.51 41.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "82fccc2f-d250-4ac5-a97f-5b7e19629ac4")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 106.51 41.27 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "b16a681f-0745-4e67-9215-508c31922793")
+  )
+  (symbol
+    (lib_id "pcbforge:USB_Micro-B")
+    (at 140 40 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "1925a128-8d0f-40e1-94d0-00d8c63eba3c")
+    (property
+      "Reference"
+      "J1"
+      (at 142.54 35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "USB_Micro-B"
+      (at 142.54 45 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:USB_Micro-B"
+      (at 140 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 140 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "5e671a4e-798b-4089-9ed8-34d815399ce2")
+    )
+    (pin
+      "2"
+      (uuid "b7d1de67-9700-4a73-828f-01436a03329a")
+    )
+    (pin
+      "3"
+      (uuid "cc284800-0132-4d22-a19a-006208569c56")
+    )
+    (pin
+      "4"
+      (uuid "09758e38-60f6-444a-a1b3-074287a324ab")
+    )
+    (pin
+      "5"
+      (uuid "1c4df929-5ad3-45a6-81c5-194dac5344d8")
+    )
+    (pin
+      "MP"
+      (uuid "cfa4406d-50b2-4e39-8bd0-47a22be7c9b3")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "J1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 126.03 34.92)
+      (xy 123.49 34.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "1a00deac-36e7-4fe1-88a2-2918b5f0419f")
+  )
+  (global_label
+    "VBUS"
+    (shape bidirectional)
+    (at 123.49 34.92 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "93bb6a5d-896b-4229-ba1f-0f5ad9ba2a52")
+  )
+  (wire
+    (pts
+      (xy 126.03 45.08)
+      (xy 123.49 45.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "96995857-fad3-4363-b132-111c1979df09")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 123.49 45.08 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "9e896922-17f6-4a8e-8426-7aa516e8f55c")
+  )
+  (wire
+    (pts
+      (xy 153.97 34.92)
+      (xy 156.51 34.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "766ae88a-e32c-4f11-940c-04d68d5de134")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 156.51 34.92 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "37fcc276-705f-4ede-82a9-541fd2e16e57")
+  )
+  (symbol
+    (lib_id "pcbforge:CP")
+    (at 190 40 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "21e15a92-71ce-4c98-b126-69e562a48377")
+    (property
+      "Reference"
+      "C1"
+      (at 192.54 35 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "10uF"
+      (at 192.54 45 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:CP_1206"
+      (at 190 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 190 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "57ce70c5-daeb-4532-939b-51305badafb9")
+    )
+    (pin
+      "2"
+      (uuid "ecae3908-24d9-47e6-8449-e54bf0adecdb")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "C1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 190 37.46)
+      (xy 190 34.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "4e9d0ff5-43af-44d2-b1f0-632233f85ca4")
+  )
+  (global_label
+    "VBUS"
+    (shape bidirectional)
+    (at 190 34.92 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "fb0afb29-7c6e-4129-ae0d-96dde40ae925")
+  )
+  (wire
+    (pts
+      (xy 190 42.54)
+      (xy 190 45.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "372cbe5d-6395-4c26-b4fc-9ebb05035556")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 190 45.08 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "a3ae22c3-8834-4e0b-b3f1-03efd1123a47")
+  )
+  (symbol
+    (lib_id "pcbforge:CP")
+    (at 40 85 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "6605310e-ad7c-49ee-9000-60e9e74cc095")
+    (property
+      "Reference"
+      "C2"
+      (at 42.54 80 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "10uF"
+      (at 42.54 90 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:CP_1206"
+      (at 40 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 40 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "ca2ad0e2-9405-427e-8d52-72c415a17ef2")
+    )
+    (pin
+      "2"
+      (uuid "508f4357-45ef-403d-bcb7-fb63a3163a88")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "C2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 40 82.46)
+      (xy 40 79.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "9fbb8c0d-4ada-4d69-a47e-fa1d67eae477")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 40 79.92 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "3dfb08dc-da05-43c4-af35-aac8cfc632a3")
+  )
+  (wire
+    (pts
+      (xy 40 87.54)
+      (xy 40 90.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "a5185102-3777-4782-8d0e-8d07b4d1df55")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 40 90.08 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "fd2bc629-fcea-4a18-9f93-e9f19c5a5257")
+  )
+  (symbol
+    (lib_id "pcbforge:C")
+    (at 90 85 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "5879544a-3e20-4207-85b0-827d5e84ea02")
+    (property
+      "Reference"
+      "C3"
+      (at 92.54 80 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "100nF"
+      (at 92.54 90 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:C_0805"
+      (at 90 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 90 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "8f7ff0ba-518b-4db5-8165-5bf7cc710e6c")
+    )
+    (pin
+      "2"
+      (uuid "a990d445-ec02-4ec6-bfb6-66adcb509251")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "C3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 90 82.46)
+      (xy 90 79.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "cfcf32d9-b61f-4169-b3a4-191777cae8d9")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 90 79.92 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "ae0b83dc-4123-4416-9a66-98a82fdc94df")
+  )
+  (wire
+    (pts
+      (xy 90 87.54)
+      (xy 90 90.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "91ecc32c-9398-4c1d-9a95-6a2956d8b547")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 90 90.08 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "e821cb05-71e8-4ead-a1ea-8cd0c5bfee40")
+  )
+  (symbol
+    (lib_id "pcbforge:C")
+    (at 140 85 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "3ee76d9e-d7cc-453c-b14e-8335d78b2ae1")
+    (property
+      "Reference"
+      "C4"
+      (at 142.54 80 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "100nF"
+      (at 142.54 90 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:C_0805"
+      (at 140 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 140 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "b4745e2f-66c1-4085-bf49-3bcd83d73a7d")
+    )
+    (pin
+      "2"
+      (uuid "426c615a-06f7-447b-8de3-f7d2e9de65f4")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "C4")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 140 82.46)
+      (xy 140 79.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c4c24962-4d1b-4a71-90b2-928c94a201ea")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 140 79.92 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "4d862ef0-ca23-471b-9cdc-f301fb1a5c55")
+  )
+  (wire
+    (pts
+      (xy 140 87.54)
+      (xy 140 90.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "7db02047-9a28-4dc8-a77a-01d86385bbfb")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 140 90.08 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "4b6e5218-6519-4708-94b0-554e1b0ec1cc")
+  )
+  (symbol
+    (lib_id "pcbforge:R")
+    (at 190 85 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "a51d16e8-8006-48d0-a972-3ad7bd5ced0f")
+    (property
+      "Reference"
+      "R1"
+      (at 192.54 80 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "10k"
+      (at 192.54 90 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:R_0805"
+      (at 190 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 190 85 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "4f909489-a238-4bef-b8c3-06703ef4610b")
+    )
+    (pin
+      "2"
+      (uuid "e32a26f7-260f-4bc1-aba0-6a79e1e00001")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "R1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 190 81.19)
+      (xy 190 78.65)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "3a2e4840-25b6-43b1-b09e-3c7523d42e7c")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 190 78.65 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "d75cf51e-9a8d-46d7-936e-1e436ab2e804")
+  )
+  (wire
+    (pts
+      (xy 190 88.81)
+      (xy 190 91.35)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "4d8ff11f-95f8-43af-86c8-62ff5c013d49")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 190 91.35 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "f1cdc2a9-5726-40db-bbad-6d1aaa989953")
+  )
+  (symbol
+    (lib_id "pcbforge:R")
+    (at 40 130 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "7e289fd0-8739-4652-b751-3c86a93259bd")
+    (property
+      "Reference"
+      "R2"
+      (at 42.54 125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "10k"
+      (at 42.54 135 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:R_0805"
+      (at 40 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 40 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "04c32190-30ed-4553-b8f4-aa8a744c2736")
+    )
+    (pin
+      "2"
+      (uuid "9f9e28f3-1eda-4aba-995e-11186fa04bb8")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "R2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 40 126.19)
+      (xy 40 123.65)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "14620341-a65f-478d-bee9-5ba2499f1595")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 40 123.65 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "a4ca367e-edf3-4bf5-82f1-a9b558779f3d")
+  )
+  (wire
+    (pts
+      (xy 40 133.81)
+      (xy 40 136.35)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "198212a2-6f17-4b03-bddb-0c8ca4157d3e")
+  )
+  (global_label
+    "IO0"
+    (shape bidirectional)
+    (at 40 136.35 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "cc50f7b7-f07a-462b-8a5a-37e7c4892e93")
+  )
+  (symbol
+    (lib_id "pcbforge:R")
+    (at 90 130 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "6024d032-0502-46d6-b1a2-c0883cd7739a")
+    (property
+      "Reference"
+      "R3"
+      (at 92.54 125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "330"
+      (at 92.54 135 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:R_0805"
+      (at 90 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 90 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "e2753379-fcfc-48d2-8f2d-676903787195")
+    )
+    (pin
+      "2"
+      (uuid "a132b2e5-512c-44dc-9a3a-7afa1e2494f5")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "R3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 90 126.19)
+      (xy 90 123.65)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "02ac907d-a6b9-438e-b3ea-83d6e8d85f81")
+  )
+  (global_label
+    "IO2"
+    (shape bidirectional)
+    (at 90 123.65 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "fc7bc566-ea55-455b-90e9-86064b4b91dc")
+  )
+  (wire
+    (pts
+      (xy 90 133.81)
+      (xy 90 136.35)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "41b2a491-034e-4459-835e-5c3ade3ecd01")
+  )
+  (global_label
+    "LED_A"
+    (shape bidirectional)
+    (at 90 136.35 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "0bab1e6b-6eea-453f-afae-9d4c42e33741")
+  )
+  (symbol
+    (lib_id "pcbforge:LED")
+    (at 140 130 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "43711754-4132-483a-b778-6a49e6214524")
+    (property
+      "Reference"
+      "LED1"
+      (at 142.54 125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "GREEN"
+      (at 142.54 135 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:LED_0805"
+      (at 140 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 140 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "a12e08b6-8e4c-4f9d-a246-7a918295ddd7")
+    )
+    (pin
+      "2"
+      (uuid "36f23821-559a-4c55-ab4f-1589921b4da7")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "LED1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 140 126.19)
+      (xy 140 123.65)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "751fe6a7-75e8-4586-9dcd-e1a587a03d98")
+  )
+  (global_label
+    "LED_A"
+    (shape bidirectional)
+    (at 140 123.65 90)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "e78a490b-dcb7-4bb6-b3ce-f45bd15b454b")
+  )
+  (wire
+    (pts
+      (xy 140 133.81)
+      (xy 140 136.35)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "7edd541a-ffc1-472a-b3b4-e1cf5060607a")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 140 136.35 270)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "eafc3f8e-0ac1-40ae-b343-738341985dfd")
+  )
+  (symbol
+    (lib_id "pcbforge:SW_Push")
+    (at 190 130 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "b33e80a5-4c32-475a-a615-18b981c6775c")
+    (property
+      "Reference"
+      "SW1"
+      (at 192.54 125 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "EN"
+      (at 192.54 135 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:SW_Push_6mm"
+      (at 190 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 190 130 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "0b0f8ea3-06b8-46eb-8a2e-484aba887a88")
+    )
+    (pin
+      "2"
+      (uuid "a09f581b-b04a-479b-a086-7f324d8c402e")
+    )
+    (pin
+      "3"
+      (uuid "655fc03c-888f-4424-bf3a-f2ea8d9c2d0f")
+    )
+    (pin
+      "4"
+      (uuid "6b3c91cc-e80e-4f1a-8311-7348b2ecbf62")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "SW1")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 179.84 128.73)
+      (xy 177.3 128.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "e8a05d0b-8414-46cd-945b-d3cef9699728")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 177.3 128.73 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "7c0f0bc0-08a0-443b-9570-dcf47b9dd511")
+  )
+  (wire
+    (pts
+      (xy 179.84 131.27)
+      (xy 177.3 131.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "79099425-e431-461e-901b-e27fc0482fb4")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 177.3 131.27 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "4214f96e-9f66-4eac-90a7-79587c77e190")
+  )
+  (wire
+    (pts
+      (xy 200.16 128.73)
+      (xy 202.7 128.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c46f39b2-3ef6-44fc-bb21-d88e19241742")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 202.7 128.73 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "0651e103-19d8-45ba-a7f5-7a5fc77067d2")
+  )
+  (wire
+    (pts
+      (xy 200.16 131.27)
+      (xy 202.7 131.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "e6ee1c36-9441-4bd0-969c-a43cbd173ec4")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 202.7 131.27 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "20f24063-1d5c-4713-bb58-e3bcac72372d")
+  )
+  (symbol
+    (lib_id "pcbforge:SW_Push")
+    (at 40 175 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "e0de5060-bda6-4ae2-b9ee-f33c323dd8bb")
+    (property
+      "Reference"
+      "SW2"
+      (at 42.54 170 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "BOOT"
+      (at 42.54 180 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:SW_Push_6mm"
+      (at 40 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 40 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "b2f92acd-0334-4f12-9fcd-61c657b353b0")
+    )
+    (pin
+      "2"
+      (uuid "c2d42e50-72fc-4402-9b1e-e244de847535")
+    )
+    (pin
+      "3"
+      (uuid "cd49d80e-ac68-48e0-99ff-6dbfebe1e6ff")
+    )
+    (pin
+      "4"
+      (uuid "3b73524c-ddf9-4296-9c8a-1eeff5d5fd21")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "SW2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 29.84 173.73)
+      (xy 27.3 173.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "3dbbd62b-b4ca-4e95-b37f-93f67c6ae87d")
+  )
+  (global_label
+    "IO0"
+    (shape bidirectional)
+    (at 27.3 173.73 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "c112f94a-aaa0-4952-ae98-916df200dc23")
+  )
+  (wire
+    (pts
+      (xy 29.84 176.27)
+      (xy 27.3 176.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "b57ae1ca-e892-4945-880e-8043b9be5336")
+  )
+  (global_label
+    "IO0"
+    (shape bidirectional)
+    (at 27.3 176.27 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "695a2899-32fb-4735-aa59-28205eaf5efb")
+  )
+  (wire
+    (pts
+      (xy 50.16 173.73)
+      (xy 52.7 173.73)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "6f3510f1-93cb-482f-9ac8-00756b0644e4")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 52.7 173.73 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "ca0b5632-fc78-4f34-8ff2-4df271d75fde")
+  )
+  (wire
+    (pts
+      (xy 50.16 176.27)
+      (xy 52.7 176.27)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "7873b9f6-e146-4445-8b0a-472d0800c95b")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 52.7 176.27 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "9b2fc361-af46-4cfc-b6de-bca2e506ee20")
+  )
+  (symbol
+    (lib_id "pcbforge:Header_1x06")
+    (at 90 175 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "71095da2-8bd4-42b8-bfb0-2266145f72fc")
+    (property
+      "Reference"
+      "J2"
+      (at 92.54 170 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "UART"
+      (at 92.54 180 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:Header_1x06"
+      (at 90 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 90 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "265ca725-6088-4c3c-8365-1dd4255e627a")
+    )
+    (pin
+      "2"
+      (uuid "911dbb50-8013-45da-94e4-8073e43c75a7")
+    )
+    (pin
+      "3"
+      (uuid "0d704490-d381-4947-9a19-79d7abb2c645")
+    )
+    (pin
+      "4"
+      (uuid "c3d3f8c7-7ca8-47f3-83a5-3e29d2281566")
+    )
+    (pin
+      "5"
+      (uuid "a0e05eba-3b16-41e4-8578-c0a8b262dfa2")
+    )
+    (pin
+      "6"
+      (uuid "b4d9e405-3bdd-4273-8f0d-6e18cf207b95")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "J2")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 81.11 172.46)
+      (xy 78.57 172.46)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "27481084-ee5d-4c6d-85f2-8cbc73d3f53f")
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 78.57 172.46 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "8f036060-cf5c-4e5e-924c-95203961337a")
+  )
+  (wire
+    (pts
+      (xy 81.11 175)
+      (xy 78.57 175)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "e9d17b25-9ac7-4df1-bac9-8d4f84a75a67")
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 78.57 175 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "6b6cc11a-1f31-485b-b148-6219bb44a53d")
+  )
+  (wire
+    (pts
+      (xy 81.11 177.54)
+      (xy 78.57 177.54)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "2cb04ba4-3a58-41cf-8790-77a7fee9dfbb")
+  )
+  (global_label
+    "EN"
+    (shape bidirectional)
+    (at 78.57 177.54 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "d2cf85bb-8899-4d97-b04b-eb835bfa111f")
+  )
+  (wire
+    (pts
+      (xy 98.89 172.46)
+      (xy 101.43 172.46)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c075d921-f305-40c5-851f-7dec32d8d0df")
+  )
+  (global_label
+    "IO0"
+    (shape bidirectional)
+    (at 101.43 172.46 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "ffc8bb7e-ca07-4ca1-95a7-66185838ce0f")
+  )
+  (wire
+    (pts
+      (xy 98.89 175)
+      (xy 101.43 175)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "689632c5-5094-41b5-9909-463e330e0995")
+  )
+  (global_label
+    "TXD0"
+    (shape bidirectional)
+    (at 101.43 175 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "8e6563a4-5fea-4098-b8ee-6e938105ce4e")
+  )
+  (wire
+    (pts
+      (xy 98.89 177.54)
+      (xy 101.43 177.54)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "956f242b-204b-4799-af26-c05cfabf3547")
+  )
+  (global_label
+    "RXD0"
+    (shape bidirectional)
+    (at 101.43 177.54 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "97990327-5448-4bd8-a93c-7647d699dea1")
+  )
+  (symbol
+    (lib_id "pcbforge:Header_1x10")
+    (at 140 175 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom yes)
+    (on_board yes)
+    (dnp no)
+    (uuid "9ed94c72-d8fb-431f-b245-67595f7621d9")
+    (property
+      "Reference"
+      "J3"
+      (at 142.54 170 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Value"
+      "GPIO"
+      (at 142.54 180 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (justify left)
+      )
+    )
+    (property
+      "Footprint"
+      "pcbforge:Header_1x10"
+      (at 140 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 140 175 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "a7ebd8c1-e6fb-408e-af4e-27413e7fb49c")
+    )
+    (pin
+      "2"
+      (uuid "defd7a0a-615e-4dd4-b805-32c82792d466")
+    )
+    (pin
+      "3"
+      (uuid "25e55ff4-1fbb-4fa9-ac56-ef3e3ff44d87")
+    )
+    (pin
+      "4"
+      (uuid "0b93e55a-7b6a-41c9-a398-513e289ad200")
+    )
+    (pin
+      "5"
+      (uuid "098ceac1-4689-427b-8176-ef2ff6e0fdfb")
+    )
+    (pin
+      "6"
+      (uuid "65d88ee0-01e4-4222-8a24-da6bd3060507")
+    )
+    (pin
+      "7"
+      (uuid "e5cd8c6a-ccda-4b66-acc8-0a55644afe16")
+    )
+    (pin
+      "8"
+      (uuid "745b7d44-c084-4edc-b67a-8a2bcd450a39")
+    )
+    (pin
+      "9"
+      (uuid "a1c148fc-f973-4e22-b408-215ba50853ef")
+    )
+    (pin
+      "10"
+      (uuid "55169144-5cd9-4812-8b56-d059a5bf78c9")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "J3")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (wire
+    (pts
+      (xy 131.11 169.92)
+      (xy 128.57 169.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c0188028-8a24-48f4-9004-ecbe3c63914a")
+  )
+  (global_label
+    "IO4"
+    (shape bidirectional)
+    (at 128.57 169.92 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "797ce12b-c95b-4320-bb7a-2af0cb38625f")
+  )
+  (wire
+    (pts
+      (xy 131.11 172.46)
+      (xy 128.57 172.46)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "bb83980c-dfd5-4763-a8c3-f9eb8cd8c8a7")
+  )
+  (global_label
+    "IO5"
+    (shape bidirectional)
+    (at 128.57 172.46 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "f66ae890-6ba9-42ef-ab43-33a4cd2075ea")
+  )
+  (wire
+    (pts
+      (xy 131.11 175)
+      (xy 128.57 175)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "4390dcf3-9257-473c-aaad-a558992fd617")
+  )
+  (global_label
+    "IO12"
+    (shape bidirectional)
+    (at 128.57 175 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "1eb3693e-50c5-4041-9810-07bf05f75c09")
+  )
+  (wire
+    (pts
+      (xy 131.11 177.54)
+      (xy 128.57 177.54)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "a9aaaa2a-ee45-4a6f-92b6-7cfcc753aae7")
+  )
+  (global_label
+    "IO13"
+    (shape bidirectional)
+    (at 128.57 177.54 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "ed6c2cb9-bdb7-4f64-bddf-9684c292984f")
+  )
+  (wire
+    (pts
+      (xy 131.11 180.08)
+      (xy 128.57 180.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "7cbfac24-a871-4b1a-a033-246ebb6998bc")
+  )
+  (global_label
+    "IO14"
+    (shape bidirectional)
+    (at 128.57 180.08 180)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify right)
+    )
+    (uuid "c3413891-f0df-4815-a5ab-43f12a0dcf7d")
+  )
+  (wire
+    (pts
+      (xy 148.89 169.92)
+      (xy 151.43 169.92)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "cd2500df-b29b-4731-94ef-4027a0ca0c10")
+  )
+  (global_label
+    "IO15"
+    (shape bidirectional)
+    (at 151.43 169.92 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "62688add-87dd-4d58-a498-b67c8fc05b38")
+  )
+  (wire
+    (pts
+      (xy 148.89 172.46)
+      (xy 151.43 172.46)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "c35ebf40-780c-415a-9b2a-5353cf22f884")
+  )
+  (global_label
+    "IO16"
+    (shape bidirectional)
+    (at 151.43 172.46 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "41b7215a-d529-4a5b-9a01-02374f3a35a0")
+  )
+  (wire
+    (pts
+      (xy 148.89 175)
+      (xy 151.43 175)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "4cf5fe47-a009-44a1-843c-3b8cf9fa8adc")
+  )
+  (global_label
+    "IO17"
+    (shape bidirectional)
+    (at 151.43 175 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "606ce7e0-b9b0-4775-8eab-4c68e3e4b5a3")
+  )
+  (wire
+    (pts
+      (xy 148.89 177.54)
+      (xy 151.43 177.54)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "f6b81a29-661e-43dc-b169-9b8419cc92e4")
+  )
+  (global_label
+    "IO18"
+    (shape bidirectional)
+    (at 151.43 177.54 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "c8219d91-bf8d-4629-8871-ae2755c8a021")
+  )
+  (wire
+    (pts
+      (xy 148.89 180.08)
+      (xy 151.43 180.08)
+    )
+    (stroke
+      (width 0)
+      (type default)
+    )
+    (uuid "0033f368-8d15-4553-8f1a-c1e201e7c137")
+  )
+  (global_label
+    "IO19"
+    (shape bidirectional)
+    (at 151.43 180.08 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+      (justify left)
+    )
+    (uuid "5d3a11ab-aa28-43a6-8e49-fbddf67d2680")
+  )
+  (symbol
+    (lib_id "pcbforge:PWR_FLAG")
+    (at 250 25 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "a3f40cec-320e-4e93-89f8-4bfaa2159269")
+    (property
+      "Reference"
+      "#FLG?"
+      (at 250 22 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Value"
+      "PWR_FLAG"
+      (at 250 28 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property
+      "Footprint"
+      ""
+      (at 250 25 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 250 25 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "37285f7a-a98a-4f10-82a9-dd66213f9247")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "#FLG?")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (global_label
+    "3V3"
+    (shape bidirectional)
+    (at 250 25 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "b44e8cb0-f22f-4c71-9f69-af605d7b0ec6")
+  )
+  (symbol
+    (lib_id "pcbforge:PWR_FLAG")
+    (at 250 37 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "66e0ebc4-3324-4b6e-8f9e-8a617f20339e")
+    (property
+      "Reference"
+      "#FLG?"
+      (at 250 34 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Value"
+      "PWR_FLAG"
+      (at 250 40 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property
+      "Footprint"
+      ""
+      (at 250 37 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 250 37 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "8bcdb095-d7e5-44eb-b565-e7af30d8e0f7")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "#FLG?")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (global_label
+    "GND"
+    (shape bidirectional)
+    (at 250 37 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "5612089f-6545-47fb-81de-d41bd1011b00")
+  )
+  (symbol
+    (lib_id "pcbforge:PWR_FLAG")
+    (at 250 49 0)
+    (unit 1)
+    (exclude_from_sim no)
+    (in_bom no)
+    (on_board yes)
+    (dnp no)
+    (uuid "31ff5ed5-6d95-44cc-a200-af23fef71869")
+    (property
+      "Reference"
+      "#FLG?"
+      (at 250 46 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Value"
+      "PWR_FLAG"
+      (at 250 52 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+      )
+    )
+    (property
+      "Footprint"
+      ""
+      (at 250 49 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (property
+      "Datasheet"
+      ""
+      (at 250 49 0)
+      (effects
+        (font
+          (size 1.27 1.27)
+        )
+        (hide yes)
+      )
+    )
+    (pin
+      "1"
+      (uuid "ecc7491f-0980-407e-a529-1bb0605c0ed7")
+    )
+    (instances
+      (project
+        "ESP32_DevBoard"
+        (path
+          "/7d4215fa-bb4a-414d-9c28-53ca2534707f"
+          (reference "#FLG?")
+          (unit 1)
+        )
+      )
+    )
+  )
+  (global_label
+    "VBUS"
+    (shape bidirectional)
+    (at 250 49 0)
+    (fields_autoplaced)
+    (effects
+      (font
+        (size 1.27 1.27)
+      )
+    )
+    (uuid "105c1a85-2ec8-4434-8aee-b447c94a7e54")
+  )
+)

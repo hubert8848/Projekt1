@@ -1,0 +1,8 @@
+# Rdzen toolkitu nie wymaga zaleznosci (czysty Python 3.9+).
+# Ponizsze sa opcjonalne, dla web/walidacji/specow YAML:
+flask>=3.0        # interfejs web (przeglad + uczenie)
+pyyaml>=6.0       # opisy plytek w YAML (pcbforge.spec.load_yaml)
+kiutils>=1.4      # walidacja: parsowanie wygenerowanych plikow w formacie KiCad
+# Autorouting: Freerouting (Java) - pobierz jar z:
+#   https://github.com/freerouting/freerouting/releases
+# i ustaw FREEROUTING_JAR=/sciezka/do/freerouting.jar

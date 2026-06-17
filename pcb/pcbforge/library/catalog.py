@@ -1,0 +1,132 @@
+"""Katalog czesci: laczy nazwe czesci z symbolem, footprintem i pinami.
+
+`get_part(name)` zwraca slownik: {symbol: SymbolDef, footprint: str, pins: [...]}.
+Czesci o zmiennej liczbie pinow (goldpiny) generowane sa dynamicznie:
+np. "Header_1x10".
+"""
+from __future__ import annotations
+
+import re
+from typing import Dict
+
+from . import symbols as sym
+
+# Oficjalna tabela pinow ESP32-WROOM-32 (numer, nazwa, typ, strona symbolu)
+_ESP32_PINS = [
+    (1, "GND", "power_in", "left"),
+    (2, "3V3", "power_in", "left"),
+    (3, "EN", "input", "left"),
+    (4, "SENSOR_VP/IO36", "input", "left"),
+    (5, "SENSOR_VN/IO39", "input", "left"),
+    (6, "IO34", "input", "left"),
+    (7, "IO35", "input", "left"),
+    (8, "IO32", "bidirectional", "left"),
+    (9, "IO33", "bidirectional", "left"),
+    (10, "IO25", "bidirectional", "left"),
+    (11, "IO26", "bidirectional", "left"),
+    (12, "IO27", "bidirectional", "left"),
+    (13, "IO14", "bidirectional", "left"),
+    (14, "IO12", "bidirectional", "left"),
+    (15, "GND", "power_in", "left"),
+    (16, "IO13", "bidirectional", "left"),
+    (17, "SD2/IO9", "bidirectional", "left"),
+    (18, "SD3/IO10", "bidirectional", "left"),
+    (19, "CMD/IO11", "bidirectional", "left"),
+    (20, "CLK/IO6", "bidirectional", "right"),
+    (21, "SD0/IO7", "bidirectional", "right"),
+    (22, "SD1/IO8", "bidirectional", "right"),
+    (23, "IO15", "bidirectional", "right"),
+    (24, "IO2", "bidirectional", "right"),
+    (25, "IO0", "bidirectional", "right"),
+    (26, "IO4", "bidirectional", "right"),
+    (27, "IO16", "bidirectional", "right"),
+    (28, "IO17", "bidirectional", "right"),
+    (29, "IO5", "bidirectional", "right"),
+    (30, "IO18", "bidirectional", "right"),
+    (31, "IO19", "bidirectional", "right"),
+    (32, "NC", "no_connect", "right"),
+    (33, "IO21", "bidirectional", "right"),
+    (34, "RXD0/IO3", "input", "right"),
+    (35, "TXD0/IO1", "output", "right"),
+    (36, "IO22", "bidirectional", "right"),
+    (37, "IO23", "bidirectional", "right"),
+    (38, "GND", "power_in", "right"),
+]
+
+
+def _esp32() -> sym.SymbolDef:
+    pins = [(str(n), name, et, side) for (n, name, et, side) in _ESP32_PINS]
+    return sym.box("pcbforge:ESP32-WROOM-32", "U", pins, width=30.48)
+
+
+def _ams1117() -> sym.SymbolDef:
+    pins = [
+        ("1", "GND", "power_in", "left"),
+        ("3", "VIN", "power_in", "left"),
+        ("2", "VOUT", "power_out", "right"),
+        ("4", "VOUT(tab)", "power_out", "right"),
+    ]
+    return sym.box("pcbforge:AMS1117", "U", pins, width=20.32)
+
+
+def _usb() -> sym.SymbolDef:
+    pins = [
+        ("1", "VBUS", "power_out", "left"),
+        ("2", "D-", "bidirectional", "left"),
+        ("3", "D+", "bidirectional", "left"),
+        ("4", "ID", "passive", "left"),
+        ("5", "GND", "power_in", "left"),
+        ("MP", "SHIELD", "passive", "right"),
+    ]
+    return sym.box("pcbforge:USB_Micro-B", "J", pins, width=20.32)
+
+
+def _switch() -> sym.SymbolDef:
+    pins = [
+        ("1", "A", "passive", "left"),
+        ("2", "A", "passive", "left"),
+        ("3", "B", "passive", "right"),
+        ("4", "B", "passive", "right"),
+    ]
+    return sym.box("pcbforge:SW_Push", "SW", pins, width=12.7)
+
+
+_STATIC: Dict[str, dict] = {
+    "R": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:R", "R", body="rect"),
+              footprint="R_0805"),
+    "C": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:C", "C", body="cap"),
+              footprint="C_0805"),
+    "CP": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:CP", "C", body="cap_pol",
+                                                   t1="passive", t2="passive"),
+               footprint="CP_1206"),
+    "LED": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:LED", "D", body="led"),
+                footprint="LED_0805"),
+    "D": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:D", "D", body="diode"),
+              footprint="D_0805"),
+    "ESP32-WROOM-32": dict(symbol=_esp32, footprint="ESP32-WROOM-32"),
+    "AMS1117-3.3": dict(symbol=_ams1117, footprint="SOT-223"),
+    "USB_Micro-B": dict(symbol=_usb, footprint="USB_Micro-B"),
+    "SW_Push": dict(symbol=_switch, footprint="SW_Push_6mm"),
+}
+
+
+def get_part(name: str) -> dict:
+    if name in _STATIC:
+        spec = _STATIC[name]
+        return {"symbol": spec["symbol"](), "footprint": spec["footprint"], "name": name}
+    m = re.fullmatch(r"Header_(\d+)x(\d+)", name)
+    if m:
+        rows, cols = int(m.group(1)), int(m.group(2))
+        n = rows * cols
+        pins = []
+        for i in range(1, n + 1):
+            side = "left" if (i - 1) < n / 2 else "right"
+            pins.append((str(i), f"P{i}", "passive", side))
+        symbol = sym.box(f"pcbforge:{name}", "J", pins, width=10.16)
+        return {"symbol": symbol, "footprint": f"Header_{rows}x{cols:02d}",
+                "name": name, "header": (rows, cols)}
+    raise KeyError(f"Nieznana czesc: {name}")
+
+
+def known_parts():
+    return sorted(_STATIC.keys()) + ["Header_RxC (np. Header_1x10)"]
