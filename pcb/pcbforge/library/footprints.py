@@ -317,6 +317,29 @@ def dc_jack() -> Footprint:
     return fp
 
 
+def relay_srd() -> Footprint:
+    """Przekaznik PCB SRD (SPDT). Cewka: piny 1,2 (male pady). Kontakty 230V:
+    3=NO, 4=COM, 5=NC (szerokie pady na grube sciezki)."""
+    fp = Footprint("Relay_SPDT_SRD", "Przekaznik SRD SPDT (cewka + kontakty 230V)",
+                   smd=False, body_w=9.5, body_h=7.5)
+    # cewka (lewa strona, zwykle pady)
+    fp.pads.append(Pad("1", -7.5, -3.5, 1.8, 1.8, "circle", pad_type="thru_hole", drill=1.0))
+    fp.pads.append(Pad("2", -7.5, 3.5, 1.8, 1.8, "circle", pad_type="thru_hole", drill=1.0))
+    # kontakty 230V (prawa strona, SZEROKIE pady)
+    fp.pads.append(Pad("3", 7.5, -5.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))  # NO
+    fp.pads.append(Pad("4", 7.5, 0.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))   # COM
+    fp.pads.append(Pad("5", 7.5, 5.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))   # NC
+    return fp
+
+
+def mounting_hole(diam: float = 3.2, pad: float = 6.0) -> Footprint:
+    """Otwor montazowy (np. M3). Pojedynczy pad PTH, bez sieci."""
+    fp = Footprint(f"MountingHole_M{int(diam)}", f"Otwor montazowy M{int(diam)}",
+                   smd=False, body_w=pad / 2, body_h=pad / 2)
+    fp.pads.append(Pad("1", 0, 0, pad, pad, "circle", pad_type="thru_hole", drill=diam))
+    return fp
+
+
 # Rejestr footprintow dostepnych po nazwie -> funkcja budujaca
 REGISTRY = {
     "R_0402": lambda: chip("0402", "R"),
@@ -358,6 +381,8 @@ REGISTRY = {
     "USB_Micro-B": micro_usb,
     "ESP32-WROOM-32": esp32_wroom32,
     "SW_Push_6mm": sw_push,
+    "Relay_SPDT_SRD": relay_srd,
+    "MountingHole_M3": lambda: mounting_hole(3.2),
 }
 
 

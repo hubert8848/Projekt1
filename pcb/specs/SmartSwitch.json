@@ -4,7 +4,9 @@
     "track_width": 0.25,
     "clearance": 0.2,
     "via_diameter": 0.8,
-    "via_drill": 0.4
+    "via_drill": 0.4,
+    "mains_track_width": 1.5,
+    "mains_clearance": 2.5
   },
   "components": [
     {
@@ -432,6 +434,36 @@
       }
     },
     {
+      "ref": "D5",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN1",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D6",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN2",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D7",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN3",
+        "2": "GND"
+      }
+    },
+    {
       "ref": "J4",
       "part": "RJ45",
       "value": "RJ45-B",
@@ -449,12 +481,42 @@
       }
     },
     {
-      "ref": "D5",
+      "ref": "D8",
       "part": "D_TVS",
       "value": "ESD",
       "footprint": "D_SOD-323",
       "connections": {
         "1": "BTN4",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D9",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D10",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN6",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D11",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN7",
         "2": "GND"
       }
     },
@@ -476,12 +538,42 @@
       }
     },
     {
-      "ref": "D6",
+      "ref": "D12",
       "part": "D_TVS",
       "value": "ESD",
       "footprint": "D_SOD-323",
       "connections": {
         "1": "BTN8",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D13",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN9",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D14",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN10",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D15",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN11",
         "2": "GND"
       }
     },
@@ -503,12 +595,42 @@
       }
     },
     {
-      "ref": "D7",
+      "ref": "D16",
       "part": "D_TVS",
       "value": "ESD",
       "footprint": "D_SOD-323",
       "connections": {
         "1": "BTN12",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D17",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN13",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D18",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN14",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "D19",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN15",
         "2": "GND"
       }
     },

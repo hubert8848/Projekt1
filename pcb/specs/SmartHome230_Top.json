@@ -1,0 +1,246 @@
+{
+  "name": "SmartHome230_Top",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4,
+    "mains_track_width": 1.5,
+    "mains_clearance": 2.5
+  },
+  "components": [
+    {
+      "ref": "H1",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 7.5,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H2",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 112.5,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H3",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 112.5,
+      "y": 69.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H4",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 7.5,
+      "y": 69.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "J1",
+      "part": "Header_2x10",
+      "value": "B2B",
+      "footprint": "Header_2x10",
+      "connections": {
+        "1": "GND",
+        "2": "GND",
+        "3": "3V3",
+        "4": "3V3",
+        "5": "SDA",
+        "6": "SCL",
+        "7": "EXP_INT",
+        "8": "EXP_RST",
+        "9": "OW",
+        "10": "BTN0",
+        "11": "BTN1",
+        "12": "BTN2",
+        "13": "BTN3",
+        "14": "BTN4",
+        "15": "BTN5",
+        "16": "BTN6",
+        "17": "BTN7",
+        "18": "GND",
+        "19": "3V3",
+        "20": "GND"
+      },
+      "label": "do plyty glownej",
+      "x": 60.0,
+      "y": 46.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "b2b"
+    },
+    {
+      "ref": "U1",
+      "part": "MCP23017",
+      "value": "MCP23017",
+      "footprint": "SOIC-28",
+      "connections": {
+        "9": "3V3",
+        "10": "GND",
+        "12": "SCL",
+        "13": "SDA",
+        "15": "GND",
+        "16": "GND",
+        "17": "GND",
+        "18": "EXP_RST",
+        "20": "EXP_INT",
+        "21": "BTN0",
+        "22": "BTN1",
+        "23": "BTN2",
+        "24": "BTN3",
+        "25": "BTN4",
+        "26": "BTN5",
+        "27": "BTN6",
+        "28": "BTN7"
+      },
+      "label": "Ekspander przyciskow",
+      "x": 18.15,
+      "y": 28.49,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C1",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 32.4,
+      "y": 19.82,
+      "rotation": 0,
+      "side": "bottom",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SDA"
+      },
+      "x": 36.8,
+      "y": 19.82,
+      "rotation": 0,
+      "side": "bottom",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SCL"
+      },
+      "x": 41.2,
+      "y": 19.82,
+      "rotation": 0,
+      "side": "bottom",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "OW"
+      },
+      "x": 45.6,
+      "y": 19.82,
+      "rotation": 0,
+      "side": "bottom",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D1",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "OW",
+        "2": "GND"
+      },
+      "x": 50.25,
+      "y": 19.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U2",
+      "part": "DS18B20",
+      "value": "DS18B20",
+      "footprint": "TO-92",
+      "connections": {
+        "1": "GND",
+        "2": "OW",
+        "3": "3V3"
+      },
+      "label": "Czujnik temperatury",
+      "x": 26.7,
+      "y": 21.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    }
+  ],
+  "outline": [
+    3.0,
+    18.0,
+    117.0,
+    74.0
+  ],
+  "board_w": 120.0,
+  "board_h": 92.0,
+  "notes": [
+    "Plyta gorna (wezsza): ekspander I/O + ochrona",
+    "Skladana na plyte glowna - otwory i zlacze pasuja 1:1"
+  ]
+}

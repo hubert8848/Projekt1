@@ -130,11 +130,22 @@ def export_dsn(design: Design, path: str) -> str:
     for net in sorted(net_pins):
         pins = " ".join(net_pins[net])
         a(f'    (net {_q(net)} (pins {pins}))')
-    nets_q = " ".join(_q(n) for n in sorted(net_pins))
-    a(f'    (class kicad_default "" {nets_q}')
-    a(f'      (circuit (use_via "{via_name}"))')
-    a(f'      (rule (width {width}) (clearance {clear}))')
-    a('    )')
+    mains = sorted(n for n in net_pins if n in design.mains_nets)
+    normal = sorted(n for n in net_pins if n not in design.mains_nets)
+    # klasa domyslna
+    if normal:
+        a(f'    (class kicad_default "" {" ".join(_q(n) for n in normal)}')
+        a(f'      (circuit (use_via "{via_name}"))')
+        a(f'      (rule (width {width}) (clearance {clear}))')
+        a('    )')
+    # klasa 230V: grubsze sciezki + wieksza izolacja (creepage)
+    if mains:
+        mw = int(rules.mains_track_width * SCALE)
+        mc = int(rules.mains_clearance * SCALE)
+        a(f'    (class mains "" {" ".join(_q(n) for n in mains)}')
+        a(f'      (circuit (use_via "{via_name}"))')
+        a(f'      (rule (width {mw}) (clearance {mc}))')
+        a('    )')
     a('  )')
     a('  (wiring)')
     a(')')

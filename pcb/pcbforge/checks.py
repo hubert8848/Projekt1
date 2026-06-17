@@ -75,8 +75,10 @@ def run_erc(design: Design) -> List[Issue]:
                 issues.append(Issue("warning", "POWER_NET_THIN",
                                     f"Siec zasilania '{name}' ma <2 polaczen"))
 
-    # 5) komponenty bez polaczen
+    # 5) komponenty bez polaczen (pomijamy mechaniczne: otwory montazowe H*)
     for c in design.components:
+        if c.ref.startswith("H") or c.part == "MountingHole":
+            continue
         if not any(c.connections.values()):
             issues.append(Issue("warning", "FLOATING_PART",
                                 f"{c.ref} ({c.part}) nie ma podlaczonych pinow"))

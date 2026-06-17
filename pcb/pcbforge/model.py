@@ -31,11 +31,15 @@ class Component:
     footprint: str                # nazwa footprintu z biblioteki, np. "R_0805"
     # pin -> nazwa sieci
     connections: Dict[str, str] = field(default_factory=dict)
+    # opis po polsku na silkscreenie (np. "Przekaznik oswietlenie salon")
+    label: str = ""
     # rozmieszczenie na plytce (mm) i obrot (deg); None = autoplacement
     x: Optional[float] = None
     y: Optional[float] = None
     rotation: float = 0.0
     side: str = "top"            # top/bottom
+    pinned: bool = False         # True = autoplacement NIE rusza pozycji
+    role: str = ""               # io / ic / passive / relay / mains / mount (dla placera)
     # rozmieszczenie na schemacie (mm w siatce arkusza)
     sx: Optional[float] = None
     sy: Optional[float] = None
@@ -63,6 +67,9 @@ class DesignRules:
     via_drill: float = 0.4
     power_track_width: float = 0.5
     board_margin: float = 2.0
+    # sieci 230V: grubsze sciezki i wieksza izolacja (creepage)
+    mains_track_width: float = 1.5
+    mains_clearance: float = 2.5
 
 
 @dataclass
@@ -74,7 +81,26 @@ class Design:
     # wymiary plytki (mm); None = autorozmiar po rozmieszczeniu
     board_w: Optional[float] = None
     board_h: Optional[float] = None
+    # jawny obrys (x0,y0,x1,y1) - dla plytek nieprostokatnych/przesunietych
+    # (np. gorna plytka wezsza, ale we wspolnej ramce wspolrzednych z dolna)
+    outline: Optional[tuple] = None
+    # sieci pod napieciem sieciowym 230V (grubsze sciezki, izolacja)
+    mains_nets: set = field(default_factory=set)
+    # opisy na silku (gr_text) - tytul, ostrzezenia po polsku
+    notes: List[str] = field(default_factory=list)
     uuid: str = field(default_factory=new_uuid)
+
+    def mark_mains(self, *nets: str) -> None:
+        for n in nets:
+            self.mains_nets.add(n)
+
+    def net_track_width(self, net: str) -> float:
+        if net in self.mains_nets:
+            return self.rules.mains_track_width
+        n = self.nets.get(net)
+        if n and n.is_power:
+            return self.rules.power_track_width
+        return self.rules.track_width
 
     def add(self, comp: Component) -> Component:
         if any(c.ref == comp.ref for c in self.components):

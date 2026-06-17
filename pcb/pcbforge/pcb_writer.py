@@ -69,17 +69,45 @@ def build_pcb(design: Design) -> str:
         fp = _get_footprint(c)
         root.add(_render_footprint(c, fp, net_index, design.name))
 
-    # obrys plytki
+    # obrys plytki (jawny prostokat lub auto 0,0..w,h)
     w, h = _board_size(design)
-    root.add(*_board_outline(w, h, design.rules.board_margin))
+    if design.outline:
+        x0, y0, x1, y1 = design.outline
+        root.add(*_board_outline_rect(x0, y0, x1, y1))
+    else:
+        root.add(*_board_outline_rect(0.0, 0.0, w, h))
+
+    # opisy po polsku: tytul + notatki/ostrzezenia
+    title = f"{design.name}"
+    root.add(S("gr_text", title, S("at", 2, h - 1.5, 0), S("layer", "F.SilkS"),
+              S("tstamp", new_uuid()),
+              S("effects", S("font", S("size", 1.5, 1.5), S("thickness", 0.25)),
+                S("justify", Sym("left")))))
+    for i, note in enumerate(design.notes):
+        root.add(S("gr_text", note, S("at", 2, h - 4 - i * 2.2, 0), S("layer", "F.SilkS"),
+                  S("tstamp", new_uuid()),
+                  S("effects", S("font", S("size", 1, 1), S("thickness", 0.15)),
+                    S("justify", Sym("left")))))
 
     return root.render(indent=2) + "\n"
+
+
+def _flip(layer: str) -> str:
+    if layer.startswith("F."):
+        return "B." + layer[2:]
+    if layer.startswith("B."):
+        return "F." + layer[2:]
+    return layer
 
 
 def _render_footprint(c: Component, fp: Footprint, net_index: Dict[str, int], project: str) -> S:
     x = c.x if c.x is not None else 0.0
     y = c.y if c.y is not None else 0.0
-    layer = "F.Cu" if c.side == "top" else "B.Cu"
+    back = c.side != "top"
+    layer = "B.Cu" if back else "F.Cu"
+    silk = "B.SilkS" if back else "F.SilkS"
+    fab = "B.Fab" if back else "F.Fab"
+    crt = "B.CrtYd" if back else "F.CrtYd"
     f = S("footprint", f"pcbforge:{fp.name}", S("layer", layer))
     f.add(S("tstamp", c.uuid))
     if c.rotation:
@@ -89,19 +117,24 @@ def _render_footprint(c: Component, fp: Footprint, net_index: Dict[str, int], pr
     f.add(S("descr", fp.description))
     f.add(S("attr", Sym("smd") if fp.smd else Sym("through_hole")))
 
-    # teksty
+    # teksty: referencja + opis po polsku (label)
     f.add(S("fp_text", Sym("reference"), c.ref,
-            S("at", 0, -(fp.body_h + 0.8), 0), S("layer", "F.SilkS"),
+            S("at", 0, -(fp.body_h + 0.8), 0), S("layer", silk),
             S("tstamp", new_uuid()),
             S("effects", S("font", S("size", 1, 1), S("thickness", 0.15)))))
     f.add(S("fp_text", Sym("value"), c.value,
-            S("at", 0, fp.body_h + 0.8, 0), S("layer", "F.Fab"),
+            S("at", 0, fp.body_h + 0.8, 0), S("layer", fab),
             S("tstamp", new_uuid()),
             S("effects", S("font", S("size", 1, 1), S("thickness", 0.15)))))
+    if c.label:
+        f.add(S("fp_text", Sym("user"), c.label,
+                S("at", 0, fp.body_h + 2.2, 0), S("layer", silk),
+                S("tstamp", new_uuid()),
+                S("effects", S("font", S("size", 0.8, 0.8), S("thickness", 0.12)))))
 
     # kontur silk + courtyard
     bw, bh = fp.body_w, fp.body_h
-    for layer_name, width in (("F.SilkS", 0.12), ("F.CrtYd", 0.05)):
+    for layer_name, width in ((silk, 0.12), (crt, 0.05)):
         corners = [(-bw, -bh), (bw, -bh), (bw, bh), (-bw, bh), (-bw, -bh)]
         for (x1, y1), (x2, y2) in zip(corners, corners[1:]):
             f.add(S("fp_line", S("start", x1, y1), S("end", x2, y2),
@@ -111,23 +144,25 @@ def _render_footprint(c: Component, fp: Footprint, net_index: Dict[str, int], pr
     # pady
     for pad in fp.pads:
         net_name = c.connections.get(pad.number, "")
-        f.add(_render_pad(pad, net_index.get(net_name, 0), net_name))
+        f.add(_render_pad(pad, net_index.get(net_name, 0), net_name, back))
     return f
 
 
-def _render_pad(pad: Pad, net_idx: int, net_name: str) -> S:
+def _render_pad(pad: Pad, net_idx: int, net_name: str, back: bool = False) -> S:
     ptype = Sym("smd") if pad.pad_type == "smd" else Sym("thru_hole")
     shape_map = {"roundrect": "roundrect", "rect": "rect", "circle": "circle", "oval": "oval"}
     shape = Sym(shape_map.get(pad.shape, "roundrect"))
     p = S("pad", pad.number, ptype, shape)
+    px = -pad.x if back else pad.x       # strona spodnia: lustro X
     if pad.rot:
-        p.add(S("at", pad.x, pad.y, pad.rot))
+        p.add(S("at", px, pad.y, pad.rot))
     else:
-        p.add(S("at", pad.x, pad.y))
+        p.add(S("at", px, pad.y))
     p.add(S("size", pad.w, pad.h))
     if pad.pad_type == "thru_hole":
         p.add(S("drill", pad.drill))
-    p.add(S("layers", *[name for name in pad.layers]))
+    layers = [(_flip(name) if back else name) for name in pad.layers]
+    p.add(S("layers", *layers))
     if pad.shape == "roundrect":
         p.add(S("roundrect_rratio", 0.25))
     if net_idx > 0 and net_name:
@@ -151,10 +186,7 @@ def _board_size(design: Design) -> Tuple[float, float]:
     return (max(xs) - min(xs)) + 10, (max(ys) - min(ys)) + 10
 
 
-def _board_outline(w: float, h: float, margin: float) -> List[S]:
-    # obrys wokol (0,0)..(w,h) z marginesem; komponenty rozmieszczane wewnatrz
-    x0, y0 = 0.0, 0.0
-    x1, y1 = w, h
+def _board_outline_rect(x0: float, y0: float, x1: float, y1: float) -> List[S]:
     corners = [(x0, y0), (x1, y0), (x1, y1), (x0, y1), (x0, y0)]
     out = []
     for (ax, ay), (bx, by) in zip(corners, corners[1:]):

@@ -50,7 +50,9 @@ def build_project(design: Design, outdir: str, kb: Knowledge | None = None,
     for c in design.components:
         c.footprint = kb.footprint_for(c.part, c.footprint)
 
-    if do_place:
+    # nie ruszaj gotowego rozmieszczenia (np. uklad par plytek z layout.py)
+    already_placed = design.components and all(c.x is not None for c in design.components)
+    if do_place and not already_placed:
         autoplace(design, kb)
 
     name = design.name

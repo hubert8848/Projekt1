@@ -57,9 +57,10 @@ def render_pcb_svg(design: Design, scale: float = 12.0, show_rats: bool = True) 
     out.append(f'<svg xmlns="http://www.w3.org/2000/svg" width="{W:.0f}" height="{H:.0f}" '
                f'viewBox="0 0 {W:.0f} {H:.0f}">')
     out.append(f'<rect width="{W:.0f}" height="{H:.0f}" fill="{BG}"/>')
-    # obrys plytki
-    out.append(f'<rect x="{X(0):.1f}" y="{Y(0):.1f}" width="{w*scale:.1f}" height="{h*scale:.1f}" '
-               f'fill="none" stroke="{EDGE}" stroke-width="2"/>')
+    # obrys plytki (jawny lub 0,0..w,h)
+    ox0, oy0, ox1, oy1 = design.outline if design.outline else (0.0, 0.0, w, h)
+    out.append(f'<rect x="{X(ox0):.1f}" y="{Y(oy0):.1f}" width="{(ox1-ox0)*scale:.1f}" '
+               f'height="{(oy1-oy0)*scale:.1f}" fill="none" stroke="{EDGE}" stroke-width="2"/>')
 
     pad_centers: Dict[str, List[Tuple[float, float]]] = {}
 

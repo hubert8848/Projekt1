@@ -30,12 +30,24 @@ class Builder:
         return f"{prefix}{self._counts[prefix]}"
 
     def add(self, prefix: str, part: str, value: str, conns: Dict[str, str],
-            footprint: Optional[str] = None) -> Component:
+            footprint: Optional[str] = None, label: str = "", role: str = "") -> Component:
         c = Component(self.ref(prefix), part, value,
-                      footprint or catalog.default_footprint(part))
+                      footprint or catalog.default_footprint(part),
+                      label=label, role=role)
         for pin, net in conns.items():
             c.connect(str(pin), net)
         return self.design.add(c)
+
+    def relay_driver(self, gpio: str, coil_supply: str, gnd: str, out_com: str,
+                     out_no: str, label: str = "") -> Component:
+        """Przekaznik 230V + sterownik (tranzystor + dioda gasnaca + rezystor bazy)."""
+        coil = f"_COIL_{out_no}"
+        k = self.add("K", "Relay_SPDT", "SRD-12V",
+                     {"1": coil_supply, "2": coil, "4": out_com, "3": out_no}, label=label, role="relay")
+        self.add("Q", "Q_NPN", "BC547", {"1": f"_B_{out_no}", "2": coil, "3": gnd})  # B,C,E
+        self.R("1k", gpio, f"_B_{out_no}")
+        self.add("D", "D_Rectifier", "1N4148", {"1": coil, "2": coil_supply})  # dioda gasnaca
+        return k
 
     # --- bierne pomocnicze ---
     def R(self, value, a, b):
@@ -146,10 +158,12 @@ class Builder:
         nets = nets[:8]
         conns = {str(i + 1): nets[i] for i in range(8)}
         conns["S"] = gnd
-        j = self.add("J", "RJ45", label, conns)
-        if esd_first and signals:
-            self.add("D", "D_TVS", "ESD", {"1": signals[0], "2": gnd})
-        self.blocks.append(f"RJ45 {label} ({len(signals)} przyciskow)")
+        j = self.add("J", "RJ45", label, conns, role="io")
+        if esd_first:
+            # osobna dioda ESD na kazda linie sygnalowa (zasada: dioda na kazde I/O)
+            for net in signals:
+                self.add("D", "D_TVS", "ESD", {"1": net, "2": gnd})
+        self.blocks.append(f"RJ45 {label} ({len(signals)} przyciskow, ESD/linia)")
         return j
 
     def board_to_board(self, mapping: Dict[str, str], label="B2B", rows=2, cols=10):

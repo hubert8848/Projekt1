@@ -164,6 +164,20 @@ def _mp1584() -> sym.SymbolDef:
     return sym.box("pcbforge:MP1584", "U", pins, width=17.78)
 
 
+def _relay() -> sym.SymbolDef:
+    pins = [("1", "COIL+", "passive", "left"), ("2", "COIL-", "passive", "left"),
+            ("3", "NO", "passive", "right"), ("4", "COM", "passive", "right"),
+            ("5", "NC", "passive", "right")]
+    return sym.box("pcbforge:Relay_SPDT", "K", pins, width=15.24)
+
+
+def _mount() -> sym.SymbolDef:
+    s = sym.SymbolDef("pcbforge:MountingHole", "H", pin_names_hidden=True,
+                      pin_numbers_hidden=True)
+    s.circles.append((0, 0, 1.5))
+    return s
+
+
 def _ds18b20() -> sym.SymbolDef:
     pins = [("1", "GND", "power_in", "left"), ("2", "DQ", "bidirectional", "left"),
             ("3", "VDD", "power_in", "right")]
@@ -219,6 +233,8 @@ _STATIC: Dict[str, dict] = {
     "DC_Jack": dict(symbol=_dc_jack, footprint="DC_Jack_2.1mm"),
     "USB_Micro-B": dict(symbol=_usb, footprint="USB_Micro-B"),
     "SW_Push": dict(symbol=_switch, footprint="SW_Push_6mm"),
+    "Relay_SPDT": dict(symbol=_relay, footprint="Relay_SPDT_SRD"),
+    "MountingHole": dict(symbol=_mount, footprint="MountingHole_M3"),
 }
 
 

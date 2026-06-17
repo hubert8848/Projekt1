@@ -85,6 +85,23 @@ Obecnie ~35 części (rozszerzalne w `pcbforge/library/catalog.py`):
 - **Obudowy footprintów:** chip 0402/0603/0805/1206, SOT-23-3/5/6, SOT-223, SOIC-8/14/16/28,
   TO-92, SMA/SOD-123/SOD-323, kwarc 3225 i in.
 
+## Zasady rozmieszczania (urządzenia góra/dół, 230 V)
+`boards/smart_home_230.py` + `pcbforge/layout.py` realizują zasady projektowe:
+- **I/O na krawędziach** — złącza (USB-C, RJ45, zaciski) na górnej krawędzi; **strefa 230 V**
+  (przekaźniki + zaciski sieciowe) na dolnej, z dala od logiki.
+- **Otwory montażowe i złącze board-to-board w identycznych współrzędnych** na obu płytkach
+  (wspólna `Frame`) — składają się 1:1.
+- **Górna płytka węższa** o pasy I/O (góra/dół) — śrubokręt dochodzi do zacisków dolnej płytki
+  (`Design.outline` = obszar środkowy).
+- **Osobna dioda/TVS na każde I/O** (reguła `DIODE_PER_IO`).
+- **230 V → grube ścieżki + izolacja**: sieci oznaczone `design.mark_mains(...)` dostają klasę
+  `mains` w DSN (np. 1.5 mm / 2.5 mm creepage). Reguła `MAINS_UNMARKED` pilnuje oznaczenia.
+- **Pasywne od spodu** — `c.side = "bottom"` (poprawne warstwy B.* + lustrzane pady).
+- **Opisy po polsku** na silkscreenie (`Component.label`, `Design.notes`).
+
+Nowe części: **przekaźnik SPDT** (szerokie pady 230 V), **otwór montażowy M3**, sterownik
+przekaźnika (blok `relay_driver`: tranzystor + dioda gasnąca + rezystor bazy).
+
 ## Przykład: urządzenie dwupłytkowe (góra/dół)
 `boards/home_controller.py` — **kontroler automatyki domowej z dwóch PCB** łączonych
 listwą board-to-board 2×10 (wspólne mapowanie pinów `B2B_MAP`):

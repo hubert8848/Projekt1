@@ -24,7 +24,13 @@ _DEFAULT_SEVERITY = {
     "I2C_PULLUP": "warning",
     "ONEWIRE_PULLUP": "warning",
     "POWER_PIN_OPEN": "error",
+    "DIODE_PER_IO": "warning",      # osobna dioda na kazde I/O
+    "MAINS_UNMARKED": "error",      # kontakty 230V musza byc oznaczone (grube sciezki)
 }
+
+# czesci-zlacza traktowane jako wejscia/wyjscia "w pole"
+_IO_PARTS = {"RJ45", "ScrewTerminal_1x02", "ScrewTerminal_1x03",
+             "JST_XH_1x02", "JST_XH_1x03", "JST_XH_1x04", "DC_Jack", "USB_C_Power"}
 
 
 def _pin_types(part: str) -> Dict[str, str]:
@@ -68,6 +74,12 @@ def run_rules(design: Design, kb: Knowledge | None = None) -> List[Issue]:
     issues: List[Issue] = []
     gnds = _ground_nets(design)
     power_nets = {n for n, net in design.nets.items() if net.is_power and not net.is_ground}
+    # sieci przechodzace przez zlacze board-to-board: element wspierajacy
+    # (pull-up/dekap) moze byc na drugiej plytce - nie flagujemy
+    b2b_nets = set()
+    for c in design.components:
+        if c.role == "b2b" or c.part.startswith("Header_2x"):
+            b2b_nets.update(v for v in c.connections.values() if v)
 
     def emit(code, msg):
         s = sev.get(code, "warning")
@@ -97,6 +109,8 @@ def run_rules(design: Design, kb: Knowledge | None = None) -> List[Issue]:
     # 1) dekapy przy kazdym IC
     for ref, nets in ic_power_in.items():
         for net in nets:
+            if net in b2b_nets:
+                continue
             if not _caps_between(design, net, gnds, parts=("C",)):
                 emit("DECOUPLING", f"{ref}: brak kondensatora odsprzegajacego na {net} (zalecane 100nF do masy)")
 
@@ -109,13 +123,44 @@ def run_rules(design: Design, kb: Knowledge | None = None) -> List[Issue]:
     for c in design.components:
         for pin, net in c.connections.items():
             up = net.upper()
-            if up in ("SDA", "SCL") and not _res_from(design, net, power_nets):
+            if up in ("SDA", "SCL") and net not in b2b_nets and not _res_from(design, net, power_nets):
                 emit("I2C_PULLUP", f"Siec I2C {net}: brak pull-upu do zasilania")
     # 4) pull-up 1-wire
     onewire = {n for n in design.all_net_names() if n.upper() in ("OW", "ONEWIRE", "1WIRE", "DQ") or n.upper().startswith("OW")}
     for net in sorted(onewire):
+        if net in b2b_nets:
+            continue
         if not _res_from(design, net, power_nets):
             emit("ONEWIRE_PULLUP", f"1-wire {net}: brak pull-upu (zalecane 4.7k do zasilania)")
+
+    # 5) osobna dioda ochronna na kazde I/O (linie sygnalowe ze zlacz "w pole")
+    def _has_diode(net):
+        for c in design.components:
+            if c.part.startswith("D") and net in c.connections.values():
+                return True
+        return False
+
+    io_signals = set()
+    for c in design.components:
+        if c.role == "mains":           # zaciski 230V to nie sygnaly logiczne
+            continue
+        if not (c.role == "io" or c.part in _IO_PARTS):
+            continue
+        for pin, net in c.connections.items():
+            if net and net not in gnds and net not in power_nets and net not in design.mains_nets:
+                io_signals.add(net)
+    for net in sorted(io_signals):
+        if not _has_diode(net):
+            emit("DIODE_PER_IO", f"Linia I/O {net}: brak diody ochronnej (zalecana osobna dioda/TVS)")
+
+    # 6) kontakty przekaznikow musza byc oznaczone jako 230V (grube sciezki)
+    for c in design.components:
+        if c.part == "Relay_SPDT":
+            for pin in ("3", "4", "5"):
+                net = c.connections.get(pin)
+                if net and net not in design.mains_nets:
+                    emit("MAINS_UNMARKED",
+                         f"{c.ref}: kontakt {net} pod 230V nie oznaczony (design.mark_mains) - brak grubych sciezek")
 
     # deduplikacja
     seen = set()

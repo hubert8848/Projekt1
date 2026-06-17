@@ -111,6 +111,31 @@ def test_block_board_passes_all_rules():
     assert issues == [], "\n".join(str(i) for i in issues)
 
 
+def test_flagship_pair_rules_and_shared_geometry():
+    """SmartHome230: obie plytki czyste; otwory i B2B w identycznych
+    wspolrzednych; gorna plytka wezsza (obrys wciety)."""
+    from boards.smart_home_230 import build_bottom, build_top
+    from pcbforge.layout import Frame, place_pair
+    from pcbforge import rules
+    f = Frame(120, 92, 18)
+    bo, to = build_bottom(), build_top()
+    place_pair(bo.design, to.design, f)
+    for d in (bo.design, to.design):
+        issues = checks.run_erc(d) + checks.run_drc_lite(d) + rules.run_rules(d)
+        assert issues == [], f"{d.name}:\n" + "\n".join(str(i) for i in issues)
+    holes_b = {(round(c.x), round(c.y)) for c in bo.design.components if c.role == "mount"}
+    holes_t = {(round(c.x), round(c.y)) for c in to.design.components if c.role == "mount"}
+    assert holes_b == holes_t and len(holes_b) == 4          # otwory pasuja
+    b2b_b = [(c.x, c.y) for c in bo.design.components if c.role == "b2b"][0]
+    b2b_t = [(c.x, c.y) for c in to.design.components if c.role == "b2b"][0]
+    assert b2b_b == b2b_t                                    # zlacze pasuje
+    # gorna plytka wezsza: obrys wciety wzgledem dolnej
+    assert to.design.outline[1] > bo.design.outline[1]
+    assert to.design.outline[3] < bo.design.outline[3]
+    # sieci 230V oznaczone
+    assert {"L", "N", "PE", "LAMP1", "LAMP2"} <= bo.design.mains_nets
+
+
 def test_rule_engine_detects_missing_decoupling():
     """Silnik regul wykrywa brak dekapu przy IC."""
     from pcbforge import rules, Design, Component
