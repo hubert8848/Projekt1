@@ -1,6 +1,7 @@
 {
   "footprint_prefs": {},
   "placement_rules": [],
+  "design_rules": {},
   "notes": [
     "Przyklad: dekapy 100nF montuj jak najblizej pinow zasilania ukladu (regula 'near' do U1).",
     "Przyklad: kondensatory bulk (10uF+) przy wejsciu/wyjsciu regulatora."

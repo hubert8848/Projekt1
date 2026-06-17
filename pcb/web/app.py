@@ -58,11 +58,22 @@ def board(name):
     ses = f"{design.name}.ses"
     has_ses = os.path.exists(os.path.join(outdir, ses))
     return render_template("board.html", name=name, design=design,
-                           erc=res.erc, drc=res.drc, files=files,
+                           erc=res.erc, drc=res.drc, design_rules=res.rules, files=files,
                            board_w=design.board_w, board_h=design.board_h,
                            nets=design.all_net_names(), kb=kb,
                            footprints=sorted(footprints.REGISTRY),
                            jar=freerouting.find_jar(), has_ses=has_ses, ses=ses)
+
+
+@app.route("/teach/rulelevel", methods=["POST"])
+def teach_rulelevel():
+    kb = Knowledge.load()
+    code = request.form["code"].strip()
+    level = request.form["level"].strip()
+    if code and level in ("error", "warning", "off"):
+        kb.design_rules[code] = level
+        kb.save()
+    return redirect(request.referrer or url_for("index"))
 
 
 @app.route("/teach/footprint", methods=["POST"])

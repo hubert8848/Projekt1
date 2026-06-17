@@ -25,6 +25,23 @@
   {% endfor %}{% else %}<div class="ok">✓ Brak kolizji.</div>{% endif %}
 </div>
 
+<h2>Reguły projektowe (dobre praktyki)</h2>
+<div class="card">
+  {% if design_rules %}{% for i in design_rules %}
+    <div class="{{ 'err' if i.severity=='error' else 'warn' }} mono">{{ i }}</div>
+  {% endfor %}{% else %}<div class="ok">✓ Wszystkie reguły spełnione.</div>{% endif %}
+  <form class="row" method="post" action="{{ url_for('teach_rulelevel') }}" style="margin-top:10px">
+    <div><label>Reguła</label>
+      <select name="code">
+        <option>DECOUPLING</option><option>BULK_CAP</option><option>I2C_PULLUP</option>
+        <option>ONEWIRE_PULLUP</option><option>POWER_PIN_OPEN</option>
+      </select></div>
+    <div><label>Poziom</label>
+      <select name="level"><option>error</option><option>warning</option><option>off</option></select></div>
+    <button class="btn ghost">Ustaw poziom</button>
+  </form>
+</div>
+
 <h2>Routing (Freerouting)</h2>
 <div class="card">
   {% if jar %}

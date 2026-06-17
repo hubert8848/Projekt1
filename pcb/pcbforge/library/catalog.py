@@ -240,5 +240,13 @@ def get_part(name: str) -> dict:
     raise KeyError(f"Nieznana czesc: {name}")
 
 
+def default_footprint(part: str) -> str:
+    p = get_part(part)
+    if "header" in p:
+        rows, cols = p["header"]
+        return f"Header_{rows}x{cols:02d}"
+    return p["footprint"]
+
+
 def known_parts():
     return sorted(_STATIC.keys()) + ["Header_RxC (np. Header_1x10)"]

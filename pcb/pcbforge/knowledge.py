@@ -20,6 +20,8 @@ class Knowledge:
     footprint_prefs: Dict[str, str] = field(default_factory=dict)
     # reguly rozmieszczania: {"part": "C", "rule": "near", "target_ref": "U1", "dist": 3.0}
     placement_rules: List[dict] = field(default_factory=list)
+    # poziom regul projektowych: kod -> "error"/"warning"/"off"
+    design_rules: Dict[str, str] = field(default_factory=dict)
     # notatki edukacyjne (wolny tekst) na przyszlosc
     notes: List[str] = field(default_factory=list)
 
@@ -31,6 +33,7 @@ class Knowledge:
             return cls(
                 footprint_prefs=data.get("footprint_prefs", {}),
                 placement_rules=data.get("placement_rules", []),
+                design_rules=data.get("design_rules", {}),
                 notes=data.get("notes", []),
             )
         return cls()
@@ -41,6 +44,7 @@ class Knowledge:
             json.dump({
                 "footprint_prefs": self.footprint_prefs,
                 "placement_rules": self.placement_rules,
+                "design_rules": self.design_rules,
                 "notes": self.notes,
             }, f, indent=2, ensure_ascii=False)
 

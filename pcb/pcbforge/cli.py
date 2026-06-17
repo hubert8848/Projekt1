@@ -38,9 +38,12 @@ def main(argv=None):
     if args.cmd == "check":
         design.ensure_nets()
         from .placement import autoplace
-        autoplace(design, Knowledge.load())
+        from .rules import run_rules
+        kb = Knowledge.load()
+        autoplace(design, kb)
         print("ERC:\n" + summarize(run_erc(design)))
         print("\nDRC-lite:\n" + summarize(run_drc_lite(design)))
+        print("\nReguly projektowe:\n" + summarize(run_rules(design, kb)))
         return 0
 
     res = build_project(design, outdir, kb=Knowledge.load())
@@ -49,6 +52,7 @@ def main(argv=None):
         print("  ", os.path.basename(f))
     print("\nERC:\n" + summarize(res.erc))
     print("\nDRC-lite:\n" + summarize(res.drc))
+    print("\nReguly projektowe:\n" + summarize(res.rules))
 
     if args.cmd == "route":
         dsn = os.path.join(outdir, f"{design.name}.dsn")

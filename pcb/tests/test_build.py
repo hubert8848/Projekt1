@@ -100,6 +100,29 @@ def test_two_board_device_clean():
         assert _balanced(pcb_writer.build_pcb(d))
 
 
+def test_block_board_passes_all_rules():
+    """Plytka zbudowana z blokow jest poprawna z definicji: ERC+DRC+reguly = 0 uwag."""
+    from boards.smart_switch import build
+    from pcbforge import rules
+    from pcbforge.placement import autoplace
+    d, _ = build()
+    autoplace(d)
+    issues = checks.run_erc(d) + checks.run_drc_lite(d) + rules.run_rules(d)
+    assert issues == [], "\n".join(str(i) for i in issues)
+
+
+def test_rule_engine_detects_missing_decoupling():
+    """Silnik regul wykrywa brak dekapu przy IC."""
+    from pcbforge import rules, Design, Component
+    d = Design("t")
+    u = Component("U1", "AMS1117-3.3", "x", "SOT-223")
+    u.connect("3", "VIN").connect("1", "GND").connect("2", "3V3").connect("4", "3V3")
+    d.add(u)
+    d.add(Component("R1", "R", "1k", "R_0805").connect("1", "VIN").connect("2", "GND"))
+    codes = {i.code for i in rules.run_rules(d)}
+    assert "DECOUPLING" in codes
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     failed = 0

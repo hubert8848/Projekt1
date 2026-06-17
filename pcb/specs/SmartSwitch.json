@@ -1,0 +1,527 @@
+{
+  "name": "SmartSwitch",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4
+  },
+  "components": [
+    {
+      "ref": "J1",
+      "part": "ScrewTerminal_1x02",
+      "value": "12V IN",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "VIN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "F1",
+      "part": "F",
+      "value": "2A",
+      "footprint": "F_1206",
+      "connections": {
+        "1": "VIN",
+        "2": "_FUSED_VIN_P"
+      }
+    },
+    {
+      "ref": "D1",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_FUSED_VIN_P",
+        "2": "VIN_P"
+      }
+    },
+    {
+      "ref": "C1",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "VIN_P",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U1",
+      "part": "MP1584",
+      "value": "MP1584",
+      "footprint": "SOIC-8",
+      "connections": {
+        "2": "VIN_P",
+        "4": "GND",
+        "3": "_SW_V5",
+        "1": "_BST_V5",
+        "7": "VIN_P",
+        "5": "_FB_V5"
+      }
+    },
+    {
+      "ref": "L1",
+      "part": "L_power",
+      "value": "10uH",
+      "footprint": "L_6x6",
+      "connections": {
+        "1": "_SW_V5",
+        "2": "V5"
+      }
+    },
+    {
+      "ref": "D2",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "GND",
+        "2": "_SW_V5"
+      }
+    },
+    {
+      "ref": "C2",
+      "part": "C",
+      "value": "10nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "_BST_V5",
+        "2": "_SW_V5"
+      }
+    },
+    {
+      "ref": "C3",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "VIN_P",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C4",
+      "part": "CP",
+      "value": "47uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C5",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "VIN_P",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C6",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "V5",
+        "2": "_FB_V5"
+      }
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "20k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_FB_V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U2",
+      "part": "AMS1117-3.3",
+      "value": "AMS1117-3.3",
+      "footprint": "SOT-223",
+      "connections": {
+        "3": "V5",
+        "1": "GND",
+        "2": "3V3",
+        "4": "3V3"
+      }
+    },
+    {
+      "ref": "C7",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C8",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C9",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C10",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U3",
+      "part": "ESP32-WROOM-32",
+      "value": "ESP32-WROOM-32",
+      "footprint": "ESP32-WROOM-32",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "15": "GND",
+        "38": "GND",
+        "33": "SDA",
+        "36": "SCL",
+        "25": "IO0",
+        "35": "TXD0",
+        "34": "RXD0",
+        "26": "OW",
+        "6": "EXP_INT"
+      }
+    },
+    {
+      "ref": "C11",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C12",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EN"
+      }
+    },
+    {
+      "ref": "C13",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R4",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "IO0"
+      }
+    },
+    {
+      "ref": "SW1",
+      "part": "SW_Push",
+      "value": "EN",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "EN",
+        "2": "EN",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "SW2",
+      "part": "SW_Push",
+      "value": "BOOT",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "IO0",
+        "2": "IO0",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "J2",
+      "part": "Header_1x06",
+      "value": "UART",
+      "footprint": "Header_1x06",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "4": "IO0",
+        "5": "TXD0",
+        "6": "RXD0"
+      }
+    },
+    {
+      "ref": "R5",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SDA"
+      }
+    },
+    {
+      "ref": "R6",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SCL"
+      }
+    },
+    {
+      "ref": "R7",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "OW"
+      }
+    },
+    {
+      "ref": "D3",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "OW",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U4",
+      "part": "MCP23017",
+      "value": "MCP23017",
+      "footprint": "SOIC-28",
+      "connections": {
+        "9": "3V3",
+        "10": "GND",
+        "12": "SCL",
+        "13": "SDA",
+        "18": "EXP_RST",
+        "20": "EXP_INT",
+        "15": "GND",
+        "16": "GND",
+        "17": "GND",
+        "21": "BTN0",
+        "22": "BTN1",
+        "23": "BTN2",
+        "24": "BTN3",
+        "25": "BTN4",
+        "26": "BTN5",
+        "27": "BTN6",
+        "28": "BTN7",
+        "1": "BTN8",
+        "2": "BTN9",
+        "3": "BTN10",
+        "4": "BTN11",
+        "5": "BTN12",
+        "6": "BTN13",
+        "7": "BTN14",
+        "8": "BTN15"
+      }
+    },
+    {
+      "ref": "C14",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R8",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EXP_RST"
+      }
+    },
+    {
+      "ref": "J3",
+      "part": "RJ45",
+      "value": "RJ45-A",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN0",
+        "3": "BTN1",
+        "4": "BTN2",
+        "5": "BTN3",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      }
+    },
+    {
+      "ref": "D4",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN0",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "J4",
+      "part": "RJ45",
+      "value": "RJ45-B",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN4",
+        "3": "BTN5",
+        "4": "BTN6",
+        "5": "BTN7",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      }
+    },
+    {
+      "ref": "D5",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN4",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "J5",
+      "part": "RJ45",
+      "value": "RJ45-C",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN8",
+        "3": "BTN9",
+        "4": "BTN10",
+        "5": "BTN11",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      }
+    },
+    {
+      "ref": "D6",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN8",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "J6",
+      "part": "RJ45",
+      "value": "RJ45-D",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN12",
+        "3": "BTN13",
+        "4": "BTN14",
+        "5": "BTN15",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      }
+    },
+    {
+      "ref": "D7",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN12",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U5",
+      "part": "DS18B20",
+      "value": "DS18B20",
+      "footprint": "TO-92",
+      "connections": {
+        "1": "GND",
+        "2": "OW",
+        "3": "3V3"
+      }
+    }
+  ]
+}

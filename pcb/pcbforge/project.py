@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass, field
 from typing import List
 
-from . import checks, freerouting, pcb_writer, sch_writer
+from . import checks, freerouting, pcb_writer, rules, sch_writer
 from .knowledge import Knowledge
 from .model import Design
 from .placement import autoplace
@@ -34,10 +34,11 @@ class BuildResult:
     files: List[str] = field(default_factory=list)
     erc: list = field(default_factory=list)
     drc: list = field(default_factory=list)
+    rules: list = field(default_factory=list)
 
     @property
     def errors(self) -> int:
-        return sum(1 for i in (self.erc + self.drc) if i.severity == "error")
+        return sum(1 for i in (self.erc + self.drc + self.rules) if i.severity == "error")
 
 
 def build_project(design: Design, outdir: str, kb: Knowledge | None = None,
@@ -78,4 +79,5 @@ def build_project(design: Design, outdir: str, kb: Knowledge | None = None,
     res = BuildResult(outdir=outdir, files=paths)
     res.erc = checks.run_erc(design)
     res.drc = checks.run_drc_lite(design)
+    res.rules = rules.run_rules(design, kb)
     return res
