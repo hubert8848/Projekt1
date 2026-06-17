@@ -102,6 +102,21 @@ def _place_row(items: List[Component], x0: float, x1: float, *,
         x += w + gap
 
 
+def _place_centered_row(items: List[Component], x0: float, x1: float, center_y: float):
+    """Rzad komponentow wysrodkowany na wysokosci center_y (NIE przy krawedzi)."""
+    if not items:
+        return
+    widths = [_fp(c).body_w * 2 for c in items]
+    gap = max((x1 - x0 - sum(widths)) / (len(items) + 1), 2.0)
+    x = x0 + gap
+    for c, w in zip(items, widths):
+        c.x = round(x + w / 2, 2)
+        c.y = round(center_y, 2)
+        c.rotation = 0
+        c.pinned = True
+        x += w + gap
+
+
 def _pack(items: List[Component], region, obstacles, gap=2.0):
     """Upakowanie polkowe wewnatrz prostokata, omijajac przeszkody."""
     x0, y0, x1, y1 = region
@@ -138,7 +153,8 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
     holes = [c for c in comps if _role(c) == "mount"]
     b2b = [c for c in comps if _role(c) == "b2b" or (c.role == "" and c.part.startswith("Header_2x"))]
     io = [c for c in comps if _role(c) == "io" and c not in b2b]
-    relays = [c for c in comps if _role(c) in ("relay", "mains")]
+    mains_terms = [c for c in comps if _role(c) == "mains"]   # zaciski 230V -> krawedz
+    relays = [c for c in comps if _role(c) == "relay"]        # przekazniki -> wnetrze
     ics = [c for c in comps if _role(c) == "ic"]
     passives = [c for c in comps if _role(c) == "passive"]
 
@@ -158,15 +174,25 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
         obstacles.append((bx - fp.body_w, by - fp.body_h, bx + fp.body_w, by + fp.body_h))
 
     cx0, cy0, cx1, cy1 = frame.central
+    interior_bottom = cy1  # gorna granica strefy przekaznikow
 
     if not is_top:
         # I/O niskonapieciowe -> GORNA krawedz (zlicowane, wejsciem do krawedzi)
         _place_row(io, frame.margin, frame.width - frame.margin,
                    outer_y=0.0, side="top")
-        # strefa 230V (przekazniki + zaciski) -> DOLNA krawedz, zlicowane, z dala od I/O
-        _place_row(relays, frame.margin, frame.width - frame.margin,
+        # zaciski 230V -> DOLNA krawedz (dostep kablem), zlicowane
+        _place_row(mains_terms, frame.margin, frame.width - frame.margin,
                    outer_y=frame.height, side="bottom")
-        for c in io + relays:
+        # PRZEKAZNIKI -> pas 230V WEWNATRZ, tuz nad zaciskami, NIE przy krawedzi
+        if relays:
+            rh = max(_fp(c).body_h for c in relays)
+            relay_cy = cy1 - rh - 2.0
+            _place_centered_row(relays, cx0 + 14, cx1 - 14, relay_cy)
+            for c in relays:
+                fp = _fp(c)
+                obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
+            interior_bottom = relay_cy - rh - 2.0   # logika nad strefa przekaznikow
+        for c in io + mains_terms:
             fp = _fp(c)
             obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
 
@@ -175,9 +201,9 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
         for c in passives[:bottom_side_passives]:
             c.side = "bottom"
 
-    # IC + pasywne -> srodek (omijajac otwory i B2B)
+    # IC + pasywne -> srodek (omijajac otwory, B2B i strefe przekaznikow)
     interior = ics + passives
-    _pack(interior, (cx0 + 1, cy0 + 1, cx1 - 1, cy1 - 1), obstacles, gap=2.0)
+    _pack(interior, (cx0 + 1, cy0 + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=2.0)
 
     # wymiary i obrys
     design.board_w = frame.width

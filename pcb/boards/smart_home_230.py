@@ -35,6 +35,9 @@ B2B = {
 }
 BTNS = [f"BTN{i}" for i in range(8)]
 
+# wspolna ramka wspolrzednych obu plytek (otwory + B2B identyczne)
+FRAME = Frame(width=130.0, height=115.0, io_band=18.0)
+
 
 def build_bottom() -> Builder:
     b = Builder("SmartHome230_Bottom")
@@ -132,7 +135,7 @@ def _emit(b: Builder, base: str):
 
 def main():
     base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    frame = Frame(width=120.0, height=92.0, io_band=18.0)
+    frame = FRAME
     bottom, top = build_bottom(), build_top()
     place_pair(bottom.design, top.design, frame)
     errs = _emit(bottom, base) + _emit(top, base)

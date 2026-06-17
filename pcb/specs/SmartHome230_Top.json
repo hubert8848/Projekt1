@@ -30,7 +30,7 @@
       "footprint": "MountingHole_M3",
       "connections": {},
       "label": "otwor M3",
-      "x": 112.5,
+      "x": 122.5,
       "y": 22.5,
       "rotation": 0,
       "side": "top",
@@ -44,8 +44,8 @@
       "footprint": "MountingHole_M3",
       "connections": {},
       "label": "otwor M3",
-      "x": 112.5,
-      "y": 69.5,
+      "x": 122.5,
+      "y": 92.5,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -59,7 +59,7 @@
       "connections": {},
       "label": "otwor M3",
       "x": 7.5,
-      "y": 69.5,
+      "y": 92.5,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -93,8 +93,8 @@
         "20": "GND"
       },
       "label": "do plyty glownej",
-      "x": 60.0,
-      "y": 46.0,
+      "x": 65.0,
+      "y": 57.5,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -234,11 +234,11 @@
   "outline": [
     3.0,
     18.0,
-    117.0,
-    74.0
+    127.0,
+    97.0
   ],
-  "board_w": 120.0,
-  "board_h": 92.0,
+  "board_w": 130.0,
+  "board_h": 115.0,
   "notes": [
     "Plyta gorna (wezsza): ekspander I/O + ochrona",
     "Skladana na plyte glowna - otwory i zlacze pasuja 1:1"

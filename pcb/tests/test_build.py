@@ -114,10 +114,10 @@ def test_block_board_passes_all_rules():
 def test_flagship_pair_rules_and_shared_geometry():
     """SmartHome230: obie plytki czyste; otwory i B2B w identycznych
     wspolrzednych; gorna plytka wezsza (obrys wciety)."""
-    from boards.smart_home_230 import build_bottom, build_top
-    from pcbforge.layout import Frame, place_pair
+    from boards.smart_home_230 import build_bottom, build_top, FRAME
+    from pcbforge.layout import place_pair
     from pcbforge import rules
-    f = Frame(120, 92, 18)
+    f = FRAME
     bo, to = build_bottom(), build_top()
     place_pair(bo.design, to.design, f)
     for d in (bo.design, to.design):

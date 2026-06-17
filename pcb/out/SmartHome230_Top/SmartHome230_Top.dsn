@@ -10,19 +10,19 @@
   (structure
     (layer F.Cu (type signal) (property (index 0)))
     (layer B.Cu (type signal) (property (index 1)))
-    (boundary (path pcb 0  0 0  1200000 0  1200000 -920000  0 -920000  0 0))
+    (boundary (path pcb 0  0 0  1300000 0  1300000 -1150000  0 -1150000  0 0))
     (via "Via_8000_4000")
     (rule (width 2500) (clearance 2000) (clearance 2000 (type default_smd)) (clearance 2000 (type smd_smd)))
   )
   (placement
     (component "MountingHole_M3"
       (place "H1" 75000 -225000 front 0)
-      (place "H2" 1125000 -225000 front 0)
-      (place "H3" 1125000 -695000 front 0)
-      (place "H4" 75000 -695000 front 0)
+      (place "H2" 1225000 -225000 front 0)
+      (place "H3" 1225000 -925000 front 0)
+      (place "H4" 75000 -925000 front 0)
     )
     (component "PinHeader_2x10_P2.54mm"
-      (place "J1" 600000 -460000 front 0)
+      (place "J1" 650000 -575000 front 0)
     )
     (component "SOIC-28"
       (place "U1" 181500 -284900 front 0)
