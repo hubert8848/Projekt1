@@ -63,6 +63,36 @@ def two_pin_vertical(lib_id, ref_prefix, p1="~", p2="~",
         s.polylines.append([(-1.0, 1.5), (1.0, 1.5)])  # luk uproszczony
         s.pins[0].cy = 2.54
         s.pins[1].cy = -2.54
+    elif body == "inductor":
+        # 4 luki uproszczone jako zygzak
+        s.polylines.append([(0, 2.54), (0.9, 1.9), (-0.9, 1.27), (0.9, 0.6),
+                            (-0.9, 0), (0.9, -0.6), (-0.9, -1.27), (0.9, -1.9), (0, -2.54)])
+    elif body == "fuse":
+        s.rects.append((-1.016, -1.27, 1.016, 1.27))
+        s.polylines.append([(0, 1.27), (0, -1.27)])
+    elif body == "ferrite":
+        s.rects.append((-1.016, -1.5, 1.016, 1.5))
+    elif body == "crystal":
+        s.rects.append((-0.6, -1.5, 0.6, 1.5))
+        s.polylines.append([(-1.27, -1.0), (-1.27, 1.0)])
+        s.polylines.append([(1.27, -1.0), (1.27, 1.0)])
+        s.pins[0].cx = 0; s.pins[0].cy = 2.54
+        s.pins[1].cx = 0; s.pins[1].cy = -2.54
+    return s
+
+
+def transistor(lib_id, ref_prefix, kind="npn") -> SymbolDef:
+    """Symbol 3-pinowy (tranzystor/MOSFET). Piny: 1,2,3 wg footprintu.
+    Uklad uproszczony - pin 1 lewo, 2/3 prawo (gora/dol)."""
+    s = SymbolDef(lib_id, ref_prefix)
+    names = {"npn": ("B", "C", "E"), "pnp": ("B", "C", "E"),
+             "nmos": ("G", "D", "S"), "pmos": ("G", "D", "S")}[kind]
+    s.pins.append(SymPin("1", names[0], "input", -3.81, 0, 0, 3.81, side="left"))
+    s.pins.append(SymPin("2", names[1], "passive", 3.81, 2.54, 180, 3.81, side="right"))
+    s.pins.append(SymPin("3", names[2], "passive", 3.81, -2.54, 180, 3.81, side="right"))
+    s.rects.append((-1.0, -2.54, 1.0, 2.54))
+    s.polylines.append([(0, 1.27), (1.0, 2.54)])
+    s.polylines.append([(0, -1.27), (1.0, -2.54)])
     return s
 
 

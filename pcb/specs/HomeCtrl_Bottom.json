@@ -1,0 +1,298 @@
+{
+  "name": "HomeCtrl_Bottom",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4
+  },
+  "components": [
+    {
+      "ref": "J1",
+      "part": "ScrewTerminal_1x02",
+      "value": "12V IN",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "VIN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "F1",
+      "part": "F",
+      "value": "2A",
+      "footprint": "F_1206",
+      "connections": {
+        "1": "VIN",
+        "2": "VIN_F"
+      }
+    },
+    {
+      "ref": "D1",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "VIN_F",
+        "2": "VIN_P"
+      }
+    },
+    {
+      "ref": "C1",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "VIN_P",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U1",
+      "part": "MP1584",
+      "value": "MP1584",
+      "footprint": "SOIC-8",
+      "connections": {
+        "2": "VIN_P",
+        "4": "GND",
+        "3": "SW",
+        "1": "BST",
+        "7": "VIN_P",
+        "5": "FB"
+      }
+    },
+    {
+      "ref": "L1",
+      "part": "L_power",
+      "value": "10uH",
+      "footprint": "L_6x6",
+      "connections": {
+        "1": "SW",
+        "2": "V5"
+      }
+    },
+    {
+      "ref": "D2",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "GND",
+        "2": "SW"
+      }
+    },
+    {
+      "ref": "C2",
+      "part": "C",
+      "value": "10nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "BST",
+        "2": "SW"
+      }
+    },
+    {
+      "ref": "C3",
+      "part": "CP",
+      "value": "47uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "V5",
+        "2": "FB"
+      }
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "20k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "FB",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U2",
+      "part": "AMS1117-3.3",
+      "value": "AMS1117-3.3",
+      "footprint": "SOT-223",
+      "connections": {
+        "3": "V5",
+        "1": "GND",
+        "2": "3V3",
+        "4": "3V3"
+      }
+    },
+    {
+      "ref": "C5",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "C6",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "U3",
+      "part": "ESP32-WROOM-32",
+      "value": "ESP32-WROOM-32",
+      "footprint": "ESP32-WROOM-32",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "15": "GND",
+        "38": "GND",
+        "33": "SDA",
+        "36": "SCL",
+        "26": "OW",
+        "6": "EXP_INT",
+        "25": "IO0",
+        "35": "TXD0",
+        "34": "RXD0",
+        "29": "IO5",
+        "30": "IO18",
+        "31": "IO19",
+        "37": "IO23",
+        "10": "IO25"
+      }
+    },
+    {
+      "ref": "C7",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EN"
+      }
+    },
+    {
+      "ref": "C8",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "EN",
+        "2": "GND"
+      }
+    },
+    {
+      "ref": "R4",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "IO0"
+      }
+    },
+    {
+      "ref": "R5",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EXP_RST"
+      }
+    },
+    {
+      "ref": "SW1",
+      "part": "SW_Push",
+      "value": "EN",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "EN",
+        "2": "EN",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "SW2",
+      "part": "SW_Push",
+      "value": "BOOT",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "IO0",
+        "2": "IO0",
+        "3": "GND",
+        "4": "GND"
+      }
+    },
+    {
+      "ref": "J2",
+      "part": "Header_1x06",
+      "value": "UART",
+      "footprint": "Header_1x06",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "4": "IO0",
+        "5": "TXD0",
+        "6": "RXD0"
+      }
+    },
+    {
+      "ref": "J3",
+      "part": "Header_2x10",
+      "value": "B2B",
+      "footprint": "Header_2x10",
+      "connections": {
+        "1": "GND",
+        "2": "GND",
+        "3": "3V3",
+        "4": "3V3",
+        "5": "V5",
+        "6": "V5",
+        "7": "SDA",
+        "8": "SCL",
+        "9": "EXP_INT",
+        "10": "EXP_RST",
+        "11": "OW",
+        "12": "IO5",
+        "13": "IO18",
+        "14": "IO19",
+        "15": "IO23",
+        "16": "IO25",
+        "17": "GND",
+        "18": "3V3",
+        "19": "GND",
+        "20": "GND"
+      }
+    }
+  ]
+}

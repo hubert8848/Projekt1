@@ -171,6 +171,152 @@ def cap_polarized(size: str = "1206") -> Footprint:
     return fp
 
 
+# ---------------------------------------------------------------------------
+# Obudowy IC (SMD)
+# ---------------------------------------------------------------------------
+def soic(pins: int, pitch: float = 1.27, body_w: float = 3.9, span: float = 5.2) -> Footprint:
+    """SOIC: pady po dwoch stronach, pin1 gora-lewo, przeciwnie do zegara."""
+    fp = Footprint(f"SOIC-{pins}", f"SOIC-{pins} ({pitch}mm)",
+                   body_w=body_w / 2 + 0.3, body_h=(pins // 2) * pitch / 2 + 0.6)
+    per = pins // 2
+    y0 = -(per - 1) * pitch / 2
+    pw, ph = 0.6, 1.55
+    for i in range(per):  # lewa kolumna 1..per (gora->dol)
+        fp.pads.append(Pad(str(i + 1), -span / 2, y0 + i * pitch, pw, ph, "roundrect"))
+    for i in range(per):  # prawa kolumna (dol->gora)
+        fp.pads.append(Pad(str(pins - i), span / 2, y0 + i * pitch, pw, ph, "roundrect"))
+    return fp
+
+
+def sot23(pins: int = 3) -> Footprint:
+    """SOT-23-3 / -5 / -6."""
+    fp = Footprint(f"SOT-23-{pins}", f"SOT-23-{pins}", body_w=1.6, body_h=1.6)
+    pitch = 0.95
+    pw, ph = 0.6, 1.1
+    bot = (pins + 1) // 2
+    top = pins // 2
+    x0 = -(bot - 1) * pitch / 2
+    n = 1
+    for i in range(bot):  # dolny rzad
+        fp.pads.append(Pad(str(n), x0 + i * pitch, 1.0, pw, ph, "roundrect"))
+        n += 1
+    x0t = -(top - 1) * pitch / 2
+    for i in range(top):  # gorny rzad (numeracja od prawej)
+        fp.pads.append(Pad(str(pins - i), x0t + i * pitch, -1.0, pw, ph, "roundrect"))
+    return fp
+
+
+def to92() -> Footprint:
+    """TO-92 (3 piny THT, raster 2.54, ukladane w linii)."""
+    fp = Footprint("TO-92", "TO-92", smd=False, body_w=2.5, body_h=2.5)
+    for i, num in enumerate(["1", "2", "3"]):
+        fp.pads.append(Pad(num, (i - 1) * 2.54, 0, 1.6, 1.6,
+                           "rect" if num == "1" else "circle",
+                           pad_type="thru_hole", drill=0.8))
+    return fp
+
+
+# ---------------------------------------------------------------------------
+# Diody / cewki / bezpieczniki / kwarce (SMD)
+# ---------------------------------------------------------------------------
+def diode_2pin(name: str, length: float, width: float, pw: float, ph: float, gap: float) -> Footprint:
+    fp = Footprint(name, name, body_w=length / 2 + 0.2, body_h=width / 2 + 0.2)
+    fp.pads.append(Pad("1", -gap / 2, 0, pw, ph, "roundrect"))  # 1 = anoda
+    fp.pads.append(Pad("2", gap / 2, 0, pw, ph, "roundrect"))   # 2 = katoda
+    return fp
+
+
+def inductor_smd(size: str = "1210") -> Footprint:
+    return chip(size if size in _CHIP else "1206", prefix="L")
+
+
+def power_inductor() -> Footprint:
+    """Cewka mocy ~6x6mm (buck)."""
+    fp = Footprint("L_6x6", "Cewka mocy 6x6mm", body_w=3.4, body_h=3.4)
+    fp.pads.append(Pad("1", -2.6, 0, 1.6, 4.2, "rect"))
+    fp.pads.append(Pad("2", 2.6, 0, 1.6, 4.2, "rect"))
+    return fp
+
+
+def fuse_smd(size: str = "1206") -> Footprint:
+    return chip(size, prefix="F")
+
+
+def crystal_smd() -> Footprint:
+    """Kwarc 4-pad 3.2x2.5mm (2 aktywne: 1 i 3)."""
+    fp = Footprint("Crystal_SMD_3225", "Kwarc 3.2x2.5mm", body_w=1.8, body_h=1.4)
+    coords = {"1": (-1.1, 0.85), "2": (1.1, 0.85), "3": (1.1, -0.85), "4": (-1.1, -0.85)}
+    for num, (x, y) in coords.items():
+        fp.pads.append(Pad(num, x, y, 1.2, 1.0, "roundrect"))
+    return fp
+
+
+# ---------------------------------------------------------------------------
+# Zlacza
+# ---------------------------------------------------------------------------
+def rj45_8p8c() -> Footprint:
+    """RJ45 8P8C THT (bez magnetyki). 8 pinow w 2 rzedach + 2 ekrany/kotwy."""
+    fp = Footprint("RJ45_8P8C", "Gniazdo RJ45 8P8C THT", smd=False, body_w=8.0, body_h=10.0)
+    pitch = 1.016
+    # rzad przedni: piny 1,3,5,7 ; tylny: 2,4,6,8 (staggered)
+    front = ["1", "3", "5", "7"]
+    back = ["2", "4", "6", "8"]
+    x0 = -(len(front) - 1) * (pitch * 2) / 2
+    for i, num in enumerate(front):
+        fp.pads.append(Pad(num, x0 + i * pitch * 2, 1.5, 1.0, 1.0, "circle",
+                           pad_type="thru_hole", drill=0.9))
+    for i, num in enumerate(back):
+        fp.pads.append(Pad(num, x0 + pitch + i * pitch * 2, -1.5, 1.0, 1.0, "circle",
+                           pad_type="thru_hole", drill=0.9))
+    # ekran/kotwy mechaniczne
+    for x in (-6.0, 6.0):
+        fp.pads.append(Pad("S", x, 0, 3.2, 3.2, "circle", pad_type="thru_hole", drill=2.4))
+    return fp
+
+
+def screw_terminal(poles: int, pitch: float = 5.08) -> Footprint:
+    fp = Footprint(f"ScrewTerminal_1x{poles:02d}_P{pitch:.2f}mm",
+                   f"Listwa zaciskowa {poles}x{pitch}mm", smd=False,
+                   body_w=poles * pitch / 2 + 0.5, body_h=pitch / 2 + 1.5)
+    x0 = -(poles - 1) * pitch / 2
+    for i in range(poles):
+        fp.pads.append(Pad(str(i + 1), x0 + i * pitch, 0, 2.4, 2.4,
+                           "rect" if i == 0 else "circle", pad_type="thru_hole", drill=1.3))
+    return fp
+
+
+def jst_xh(poles: int, pitch: float = 2.5) -> Footprint:
+    fp = Footprint(f"JST_XH_1x{poles:02d}", f"JST XH {poles}-pin", smd=False,
+                   body_w=poles * pitch / 2 + 1.5, body_h=3.0)
+    x0 = -(poles - 1) * pitch / 2
+    for i in range(poles):
+        fp.pads.append(Pad(str(i + 1), x0 + i * pitch, 0, 1.6, 1.6,
+                           "rect" if i == 0 else "circle", pad_type="thru_hole", drill=0.9))
+    return fp
+
+
+def usb_c_power() -> Footprint:
+    """USB-C tylko zasilanie: VBUS(A4/B9..) + GND + CC, uproszczone 6 padow + 4 ekrany."""
+    fp = Footprint("USB_C_Power", "USB-C (zasilanie)", body_w=4.5, body_h=3.5)
+    names = ["VBUS", "GND", "CC1", "CC2", "VBUS2", "GND2"]
+    pitch = 0.8
+    x0 = -(len(names) - 1) * pitch / 2
+    for i, num in enumerate(names):
+        fp.pads.append(Pad(num, x0 + i * pitch, 1.8, 0.5, 1.3, "rect"))
+    for x in (-4.3, 4.3):
+        fp.pads.append(Pad("MP", x, 0, 1.6, 2.0, "rect", pad_type="thru_hole", drill=1.0))
+    return fp
+
+
+def dc_jack() -> Footprint:
+    """Gniazdo DC barrel 2.1mm THT (3 piny: +,-,switch)."""
+    fp = Footprint("DC_Jack_2.1mm", "Gniazdo DC barrel 2.1mm", smd=False, body_w=4.5, body_h=5.5)
+    coords = {"1": (-2.3, 0.0), "2": (2.3, -2.4), "3": (2.3, 2.4)}  # 1=tip(+),2=ring(-),3=sw
+    for num, (x, y) in coords.items():
+        fp.pads.append(Pad(num, x, y, 2.6, 2.6, "circle", pad_type="thru_hole", drill=1.5))
+    return fp
+
+
 # Rejestr footprintow dostepnych po nazwie -> funkcja budujaca
 REGISTRY = {
     "R_0402": lambda: chip("0402", "R"),
@@ -184,7 +330,31 @@ REGISTRY = {
     "CP_1206": lambda: cap_polarized("1206"),
     "LED_0805": lambda: led_chip("0805"),
     "D_0805": lambda: diode_chip("0805"),
+    "L_0805": lambda: inductor_smd("0805"),
+    "L_1206": lambda: inductor_smd("1206"),
+    "L_6x6": power_inductor,
+    "F_1206": lambda: fuse_smd("1206"),
     "SOT-223": sot223,
+    "SOT-23-3": lambda: sot23(3),
+    "SOT-23-5": lambda: sot23(5),
+    "SOT-23-6": lambda: sot23(6),
+    "SOIC-8": lambda: soic(8),
+    "SOIC-14": lambda: soic(14),
+    "SOIC-16": lambda: soic(16),
+    "SOIC-28": lambda: soic(28, span=7.5, body_w=7.5),
+    "TO-92": to92,
+    "D_SMA": lambda: diode_2pin("D_SMA", 4.3, 2.6, 1.6, 1.6, 4.0),
+    "D_SOD-123": lambda: diode_2pin("D_SOD-123", 3.7, 1.5, 0.9, 1.2, 3.0),
+    "D_SOD-323": lambda: diode_2pin("D_SOD-323", 2.5, 1.25, 0.7, 0.9, 2.2),
+    "Crystal_SMD_3225": crystal_smd,
+    "RJ45_8P8C": rj45_8p8c,
+    "ScrewTerminal_1x02": lambda: screw_terminal(2),
+    "ScrewTerminal_1x03": lambda: screw_terminal(3),
+    "JST_XH_1x02": lambda: jst_xh(2),
+    "JST_XH_1x03": lambda: jst_xh(3),
+    "JST_XH_1x04": lambda: jst_xh(4),
+    "USB_C_Power": usb_c_power,
+    "DC_Jack_2.1mm": dc_jack,
     "USB_Micro-B": micro_usb,
     "ESP32-WROOM-32": esp32_wroom32,
     "SW_Push_6mm": sw_push,

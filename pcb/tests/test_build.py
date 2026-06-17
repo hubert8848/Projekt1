@@ -73,6 +73,33 @@ def test_pin_pad_consistency():
     assert mismatches == [], "\n".join(str(i) for i in mismatches)
 
 
+def test_all_catalog_parts_pin_pad_consistent():
+    """Kazdy pin symbolu musi miec odpowiadajacy pad w footprincie."""
+    from pcbforge.library import catalog, footprints
+    bad = []
+    for name in catalog._STATIC:
+        part = catalog.get_part(name)
+        pads = set(footprints.get(part["footprint"]).pad_numbers())
+        pins = set(p.number for p in part["symbol"].pins)
+        if pins - pads:
+            bad.append(f"{name}: {pins - pads}")
+    assert not bad, "\n".join(bad)
+
+
+def test_two_board_device_clean():
+    """Dwuplytkowe urzadzenie (gora+dol) - 0 bledow ERC/DRC, poprawne S-expr."""
+    from boards.home_controller import build_bottom, build_top
+    from pcbforge.placement import autoplace
+    for builder in (build_bottom, build_top):
+        d = builder()
+        autoplace(d)
+        errors = [i for i in (checks.run_erc(d) + checks.run_drc_lite(d))
+                  if i.severity == "error"]
+        assert errors == [], f"{d.name}:\n" + "\n".join(str(i) for i in errors)
+        assert _balanced(sch_writer.build_schematic(d, d.name))
+        assert _balanced(pcb_writer.build_pcb(d))
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     failed = 0

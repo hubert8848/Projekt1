@@ -63,6 +63,29 @@ python -m pcbforge.cli route specs/ESP32_DevBoard.json
 
 ---
 
+## Katalog części
+Obecnie ~35 części (rozszerzalne w `pcbforge/library/catalog.py`):
+- **Bierne/dyskretne:** R, C, CP (elektrolit), L (cewki + cewka mocy 6×6), FB (ferryt),
+  F (bezpiecznik), Y (kwarc), LED, diody (D_Schottky, D_Rectifier, D_TVS/ESD),
+  tranzystory/MOSFETy (Q_NPN/PNP/NMOS/PMOS).
+- **Układy:** ESP32-WROOM-32, AMS1117-3.3/5.0, MP1584 (buck), MCP23017 (ekspander I²C 16 IO),
+  24LCxx (EEPROM), MAX485 (RS485), DS18B20 (czujnik temp 1-wire).
+- **Złącza:** RJ45 8P8C, listwy zaciskowe, JST-XH, USB-C (zasilanie), USB Micro-B,
+  gniazdo DC, goldpiny/sockety `Header_RxC` (też board-to-board), przyciski tact.
+- **Obudowy footprintów:** chip 0402/0603/0805/1206, SOT-23-3/5/6, SOT-223, SOIC-8/14/16/28,
+  TO-92, SMA/SOD-123/SOD-323, kwarc 3225 i in.
+
+## Przykład: urządzenie dwupłytkowe (góra/dół)
+`boards/home_controller.py` — **kontroler automatyki domowej z dwóch PCB** łączonych
+listwą board-to-board 2×10 (wspólne mapowanie pinów `B2B_MAP`):
+- **Dół** (`HomeCtrl_Bottom`): wejście 12 V (listwa) → bezpiecznik + dioda zabezpieczająca
+  → **buck MP1584 (5 V)** z cewką/diodą/dzielnikiem → **LDO AMS1117 (3V3)** → **ESP32**.
+- **Góra** (`HomeCtrl_Top`): listwa B2B → **MCP23017** (16 wejść przycisków) → **4× RJ45**
+  (przyciski ścienne + 1-wire), **DS18B20** (temperatura), **ochrona ESD (TVS)** i pull-upy.
+
+RJ45 użyte jako **złącze okablowania** (cat-kabel do włączników i czujnika), bez magnetyki/PHY.
+Obie płytki: **ERC 0 błędów, 0 ostrzeżeń**, zwalidowane `kiutils`.
+
 ## Przykład: ESP32-WROOM-32 DevBoard
 Pełny, realny układ wygenerowany end-to-end (`boards/esp32_devboard.py`):
 zasilanie USB 5 V → LDO **AMS1117-3.3** → 3V3, kondensatory bulk + odsprzęgające,
