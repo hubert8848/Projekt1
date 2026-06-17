@@ -6,3 +6,4 @@ kiutils>=1.4      # walidacja: parsowanie wygenerowanych plikow w formacie KiCad
 # Autorouting: Freerouting (Java) - pobierz jar z:
 #   https://github.com/freerouting/freerouting/releases
 # i ustaw FREEROUTING_JAR=/sciezka/do/freerouting.jar
+cairosvg>=2.7    # render podgladu do PNG (opcjonalne)

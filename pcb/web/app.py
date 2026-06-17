@@ -124,6 +124,17 @@ def freeroute(name):
     return redirect(url_for("board", name=name))
 
 
+@app.route("/preview/<name>/<kind>.svg")
+def preview(name, kind):
+    from flask import Response
+    from pcbforge import render
+    data = load_spec(name)
+    design = load_design(data)
+    build_project(design, os.path.join(OUT_DIR, design.name), kb=Knowledge.load())
+    svg = render.render_pcb_svg(design) if kind == "pcb" else render.render_schematic_svg(design)
+    return Response(svg, mimetype="image/svg+xml")
+
+
 @app.route("/download/<name>/<path:fname>")
 def download(name, fname):
     data = load_spec(name)

@@ -47,7 +47,10 @@ python -m pcbforge.cli build specs/ESP32_DevBoard.json
 python -m pcbforge.cli check specs/ESP32_DevBoard.json
 python -m pcbforge.cli route specs/ESP32_DevBoard.json --passes 20   # wymaga freerouting.jar
 
-# 3) Interfejs web (przegląd + uczenie):
+# 3) Podgląd graficzny (SVG/PNG, bez KiCada):
+python -m pcbforge.cli preview specs/SmartSwitch.json
+
+# 4) Interfejs web (przegląd + uczenie + podgląd inline):
 python -m web.app      # http://127.0.0.1:5000
 ```
 

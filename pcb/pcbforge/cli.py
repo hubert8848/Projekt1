@@ -24,7 +24,7 @@ def _load(path):
 def main(argv=None):
     p = argparse.ArgumentParser(prog="pcbforge")
     sub = p.add_subparsers(dest="cmd", required=True)
-    for name in ("build", "route", "check"):
+    for name in ("build", "route", "check", "preview"):
         sp = sub.add_parser(name)
         sp.add_argument("spec")
         sp.add_argument("--out", default=None)
@@ -34,6 +34,19 @@ def main(argv=None):
 
     design = _load(args.spec)
     outdir = args.out or os.path.join(os.getcwd(), "out", design.name)
+
+    if args.cmd == "preview":
+        from .placement import autoplace
+        from . import render
+        autoplace(design, Knowledge.load())
+        os.makedirs(outdir, exist_ok=True)
+        p1 = render.to_png(render.render_pcb_svg(design),
+                           os.path.join(outdir, f"{design.name}_pcb.png"))
+        p2 = render.to_png(render.render_schematic_svg(design),
+                           os.path.join(outdir, f"{design.name}_sch.png"))
+        print("Podglad PCB:   ", p1)
+        print("Podglad schemat:", p2)
+        return 0
 
     if args.cmd == "check":
         design.ensure_nets()

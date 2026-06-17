@@ -11,6 +11,20 @@
   {% if has_ses %}<a class="btn" href="{{ url_for('download', name=name, fname=ses) }}">⬇ {{ ses }} (trasy)</a>{% endif %}
 </div>
 
+<h2>Podgląd</h2>
+<div class="card">
+  <div class="row" style="align-items:flex-start">
+    <div style="flex:1; min-width:280px">
+      <div class="muted">PCB (obrys + pady + połączenia)</div>
+      <img src="{{ url_for('preview', name=name, kind='pcb') }}" style="width:100%; border-radius:8px; background:#0f1419"/>
+    </div>
+    <div style="flex:1; min-width:280px">
+      <div class="muted">Schemat</div>
+      <img src="{{ url_for('preview', name=name, kind='sch') }}" style="width:100%; border-radius:8px; background:#0f1419"/>
+    </div>
+  </div>
+</div>
+
 <h2>ERC — kontrola schematu</h2>
 <div class="card">
   {% if erc %}{% for i in erc %}
