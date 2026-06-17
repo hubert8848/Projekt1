@@ -50,9 +50,16 @@ python -m pcbforge.cli route specs/ESP32_DevBoard.json --passes 20   # wymaga fr
 # 3) Podgląd graficzny (SVG/PNG, bez KiCada):
 python -m pcbforge.cli preview specs/SmartSwitch.json
 
-# 4) Interfejs web (przegląd + uczenie + podgląd inline):
+# 4) Pełna produkcja przez prawdziwy KiCad (Gerbery + STEP + ERC/DRC):
+bash scripts/setup_kicad.sh                 # instaluje kicad-cli (raz na środowisko)
+python -m pcbforge.cli fab specs/SmartSwitch.json
+
+# 5) Interfejs web (przegląd + uczenie + podgląd inline + produkcja):
 python -m web.app      # http://127.0.0.1:5000
 ```
+
+> **KiCad:** eksport Gerberów/STEP/SVG działa od KiCad 7. **ERC/DRC z linii poleceń
+> wymaga KiCad ≥ 8** — bez niego używane są kontrole wbudowane (`checks.py` + `rules.py`).
 
 Pliki lądują w `pcb/out/<NazwaPłytki>/` — otwórz `*.kicad_pro` w KiCad.
 

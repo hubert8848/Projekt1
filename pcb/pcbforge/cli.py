@@ -13,7 +13,7 @@ import sys
 from . import freerouting
 from .checks import run_drc_lite, run_erc, summarize
 from .knowledge import Knowledge
-from .project import build_project
+from .project import build_project, fabricate
 from .spec import load_json, load_yaml
 
 
@@ -24,7 +24,7 @@ def _load(path):
 def main(argv=None):
     p = argparse.ArgumentParser(prog="pcbforge")
     sub = p.add_subparsers(dest="cmd", required=True)
-    for name in ("build", "route", "check", "preview"):
+    for name in ("build", "route", "check", "preview", "fab"):
         sp = sub.add_parser(name)
         sp.add_argument("spec")
         sp.add_argument("--out", default=None)
@@ -34,6 +34,19 @@ def main(argv=None):
 
     design = _load(args.spec)
     outdir = args.out or os.path.join(os.getcwd(), "out", design.name)
+
+    if args.cmd == "fab":
+        from . import kicad
+        rep = fabricate(design, outdir, kb=Knowledge.load())
+        res = rep["build"]
+        print(f"Zapisano do {outdir}. KiCad: {rep.get('kicad') or 'BRAK'}")
+        print("\nReguly:\n" + summarize(res.rules))
+        for key, kr in rep.get("outputs", {}).items():
+            mark = "✓" if kr.ok else "·"
+            print(f"{mark} {key}: {len(kr.artifacts)} plikow  {('' if kr.ok else '— ' + kr.log.strip()[:80])}")
+            if key in ("erc", "drc") and kr.ok:
+                print("   " + kicad.summarize_violations(kr.artifacts[0]).replace("\n", "\n   "))
+        return 0 if res.errors == 0 else 1
 
     if args.cmd == "preview":
         from .placement import autoplace

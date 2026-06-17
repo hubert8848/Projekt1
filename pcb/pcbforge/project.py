@@ -6,7 +6,7 @@ import os
 from dataclasses import dataclass, field
 from typing import List
 
-from . import checks, freerouting, pcb_writer, rules, sch_writer
+from . import checks, freerouting, kicad, pcb_writer, rules, sch_writer
 from .knowledge import Knowledge
 from .model import Design
 from .placement import autoplace
@@ -81,3 +81,26 @@ def build_project(design: Design, outdir: str, kb: Knowledge | None = None,
     res.drc = checks.run_drc_lite(design)
     res.rules = rules.run_rules(design, kb)
     return res
+
+
+def fabricate(design: Design, outdir: str, kb: Knowledge | None = None,
+              gerbers=True, step=True, kicad_checks=True) -> dict:
+    """Pelny pakiet produkcyjny przez prawdziwy KiCad (jesli dostepny):
+    Gerbery + wiercenia, model 3D STEP oraz ERC/DRC (KiCad >=8)."""
+    res = build_project(design, outdir, kb=kb)
+    report = {"build": res, "kicad": kicad.version(), "outputs": {}}
+    if not kicad.available():
+        report["note"] = "kicad-cli niedostepny - tylko pliki + kontrole wbudowane"
+        return report
+
+    sch = os.path.join(outdir, f"{design.name}.kicad_sch")
+    pcb = os.path.join(outdir, f"{design.name}.kicad_pcb")
+    if kicad_checks:
+        report["outputs"]["erc"] = kicad.run_erc(sch)
+        report["outputs"]["drc"] = kicad.run_drc(pcb)
+    if gerbers:
+        report["outputs"]["gerbers"] = kicad.export_gerbers(pcb, os.path.join(outdir, "gerbers"))
+    if step:
+        report["outputs"]["step"] = kicad.export_step(pcb, os.path.join(outdir, f"{design.name}.step"))
+    report["outputs"]["svg"] = kicad.export_svg(pcb, os.path.join(outdir, f"{design.name}_kicad.svg"))
+    return report

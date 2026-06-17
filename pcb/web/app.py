@@ -13,10 +13,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from flask import (Flask, abort, redirect, render_template, request,
                    send_from_directory, url_for)
 
-from pcbforge import checks, freerouting
+from pcbforge import checks, freerouting, kicad
 from pcbforge.knowledge import Knowledge
 from pcbforge.library import catalog, footprints
-from pcbforge.project import build_project
+from pcbforge.project import build_project, fabricate
 from pcbforge.spec import load_design
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -57,12 +57,33 @@ def board(name):
     files = [os.path.basename(p) for p in res.files]
     ses = f"{design.name}.ses"
     has_ses = os.path.exists(os.path.join(outdir, ses))
+    gerber_zip = f"{design.name}_gerbers.zip"
     return render_template("board.html", name=name, design=design,
                            erc=res.erc, drc=res.drc, design_rules=res.rules, files=files,
                            board_w=design.board_w, board_h=design.board_h,
                            nets=design.all_net_names(), kb=kb,
                            footprints=sorted(footprints.REGISTRY),
-                           jar=freerouting.find_jar(), has_ses=has_ses, ses=ses)
+                           jar=freerouting.find_jar(), has_ses=has_ses, ses=ses,
+                           kicad_ver=kicad.version(),
+                           has_gerbers=os.path.exists(os.path.join(outdir, gerber_zip)),
+                           gerber_zip=gerber_zip,
+                           step=f"{design.name}.step",
+                           has_step=os.path.exists(os.path.join(outdir, f"{design.name}.step")))
+
+
+@app.route("/fab/<name>", methods=["POST"])
+def fab(name):
+    import zipfile
+    data = load_spec(name)
+    design = load_design(data)
+    outdir = os.path.join(OUT_DIR, design.name)
+    fabricate(design, outdir, kb=Knowledge.load())
+    gdir = os.path.join(outdir, "gerbers")
+    if os.path.isdir(gdir):
+        with zipfile.ZipFile(os.path.join(outdir, f"{design.name}_gerbers.zip"), "w") as z:
+            for f in os.listdir(gdir):
+                z.write(os.path.join(gdir, f), f)
+    return redirect(url_for("board", name=name))
 
 
 @app.route("/teach/rulelevel", methods=["POST"])

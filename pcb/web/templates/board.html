@@ -39,6 +39,19 @@
   {% endfor %}{% else %}<div class="ok">✓ Brak kolizji.</div>{% endif %}
 </div>
 
+<h2>Produkcja (prawdziwy KiCad)</h2>
+<div class="card">
+  <p class="muted">KiCad: <code>{{ kicad_ver or 'niedostępny' }}</code>
+     {% if kicad_ver and '7.' in kicad_ver %}— ERC/DRC z CLI wymaga KiCad 8{% endif %}</p>
+  <form method="post" action="{{ url_for('fab', name=name) }}">
+    <button class="btn">⚙ Generuj produkcję (Gerbery + STEP 3D)</button>
+  </form>
+  <div class="row" style="margin-top:10px">
+    {% if has_gerbers %}<a class="btn ghost" href="{{ url_for('download', name=name, fname=gerber_zip) }}">⬇ Gerbery (zip)</a>{% endif %}
+    {% if has_step %}<a class="btn ghost" href="{{ url_for('download', name=name, fname=step) }}">⬇ Model 3D (STEP)</a>{% endif %}
+  </div>
+</div>
+
 <h2>Reguły projektowe (dobre praktyki)</h2>
 <div class="card">
   {% if design_rules %}{% for i in design_rules %}
