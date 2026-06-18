@@ -28,7 +28,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pcbforge.blocks import Builder
 from pcbforge.checks import summarize
-from pcbforge.layout import auto_frame, place_pair
+from pcbforge.layout import auto_layout
 from pcbforge.project import build_project
 from pcbforge.spec import dump_design
 
@@ -136,8 +136,7 @@ def _emit(b: Builder, base: str):
 
 def layout_pair():
     bottom, top = build_bottom(), build_top()
-    frame = auto_frame(bottom.design, top.design)
-    place_pair(bottom.design, top.design, frame)
+    frame = auto_layout(bottom.design, top.design)
     return bottom, top, frame
 
 

@@ -27,6 +27,8 @@ class Frame:
     io_band: float = 16.0   # pas I/O na gorze i dole
     hole_inset: float = 4.5
     margin: float = 3.0
+    holes_override: Optional[List[Tuple[float, float]]] = None  # wspolne otwory (para plyt)
+    b2b_override: Optional[Tuple[float, float]] = None          # wspolne B2B
 
     @property
     def central(self) -> Tuple[float, float, float, float]:
@@ -35,21 +37,23 @@ class Frame:
 
     @property
     def holes(self) -> List[Tuple[float, float]]:
+        if self.holes_override:
+            return self.holes_override
         x0, y0, x1, y1 = self.central
         i = self.hole_inset
         return [(x0 + i, y0 + i), (x1 - i, y0 + i), (x1 - i, y1 - i), (x0 + i, y1 - i)]
 
     @property
     def b2b(self) -> Tuple[float, float]:
-        return (self.width / 2, self.height / 2)
+        return self.b2b_override or (self.width / 2, self.height / 2)
 
 
 def _shelf_height(sizes, width, gap=1.8) -> float:
-    """Szacowana wysokosc upakowania polkowego listy (w,h) w danej szerokosci."""
+    """Szacowana wysokosc upakowania polkowego (sortowanie po wysokosci -> ciasno)."""
     x = 0.0
     row_h = 0.0
     total = 0.0
-    for w, h in sizes:
+    for w, h in sorted(sizes, key=lambda s: -s[1]):
         if x > 0 and x + w > width:
             total += row_h + gap
             x = 0.0
@@ -59,55 +63,65 @@ def _shelf_height(sizes, width, gap=1.8) -> float:
     return total + row_h
 
 
-def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float = 1.8) -> "Frame":
-    """Dobiera CIASNA wspolna ramke do zawartosci obu plyt (bez pustego miejsca).
-    Szerokosc z najszerszego rzedu krawedziowego; wysokosc z upakowania dolnej."""
+def _frame_dims(bottom: "Design", top: "Design", margin=3.0, gap=1.8):
+    """Liczy wspolna szerokosc W oraz CIASNE, NIEZALEZNE wysokosci obu plyt."""
     for d in (bottom, top):
         d.ensure_nets()
+    hole_inset = 4.5
+    io_band = 12.0
 
     def items(d, *roles):
         return [c for c in d.components if _role(c) in roles]
 
-    hole_inset = 4.5
-
-    def edge_w(cs):
-        """Szerokosc krawedzi = suma szerokosci zlacz w JEDNYM rzedzie przy krawedzi."""
-        if not cs:
-            return 0.0
-        return sum(_fp(c).body_w * 2 + gap for c in cs) + 2 * margin + 4 * hole_inset + 6
-
-    edge_items = items(bottom, "io", "out", "mains") + items(top, "io", "out", "mains")
-    tallest = max((_fp(c).body_h * 2 for c in edge_items), default=8.0)
-    io_band = tallest + 2 * gap + 4.0          # pas na 1 rzad zlacz przy krawedzi
-
-    # szerokosc: zlacza rozlozone na 2 krawedzie (gora/dol) -> szersza polowka
     def board_w(d):
-        e = items(d, "io", "out", "mains")
-        t, b = _split_balanced(e)
+        t, b = _split_balanced(items(d, "io", "out", "mains"))
         half = max(sum(_fp(c).body_w * 2 + gap for c in t),
-                   sum(_fp(c).body_w * 2 + gap for c in b))
+                   sum(_fp(c).body_w * 2 + gap for c in b), 40.0)
         return half + 2 * margin + 4 * hole_inset + 6
 
     W = max(board_w(bottom), board_w(top), 90.0)
+    int_w = max(W - 2 * margin - 2.0, 40.0)
 
-    # wysokosc: upakowanie wnetrza dolnej plyty (najgestsza) + strefy
-    inter = items(bottom, "ic") + items(bottom, "passive")
-    sizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in inter]
-    int_w = max(W - 2 * margin - 4 * hole_inset, 40.0)
-    int_h = _shelf_height(sizes, int_w, gap)
-    relays = items(bottom, "relay")
-    rsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in relays]
-    relay_h = _shelf_height(rsizes, int_w, gap) if relays else 0.0
-    # dol: 2 pasy zlacz (gora+dol) + wnetrze + strefa przekaznikow (ciasno)
-    H_bottom = 2 * io_band + int_h + relay_h + 2 * margin + 5.0
-    # gora: 2 pasy zlacz + wnetrze
-    tinter = items(top, "ic") + items(top, "passive")
-    tsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in tinter]
-    tint_h = _shelf_height(tsizes, int_w, gap)
-    H_top = 2 * io_band + tint_h + 2 * margin + 5.0
-    H = max(H_bottom, H_top)
-    return Frame(width=round(W, 1), height=round(H, 1), io_band=round(io_band, 1),
+    def band_h(cs):
+        return (max((_fp(c).body_h * 2 for c in cs), default=0.0) + 2.0) if cs else 0.0
+
+    def packed_h(cs):
+        return _shelf_height([(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in cs],
+                             int_w, gap) if cs else 0.0
+
+    def board_h(d, is_top):
+        et, eb = _split_balanced(items(d, "io", "out", "mains"))
+        inner = packed_h(items(d, "ic") + items(d, "passive") + items(d, "relay"))
+        base = band_h(et) + inner + band_h(eb) + 2 * margin + 4.0
+        return base + (2 * io_band if is_top else 0.0)   # gorna plyta wcieta o io_band
+
+    Hb = board_h(bottom, False)
+    Ht = board_h(top, True)
+    return round(W, 1), round(Hb, 1), round(Ht, 1), io_band, hole_inset, margin
+
+
+def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float = 1.8) -> "Frame":
+    """Jedna wspolna ramka (max wysokosc) - dla prostych par o podobnym rozmiarze."""
+    W, Hb, Ht, io_band, hole_inset, margin = _frame_dims(bottom, top, margin, gap)
+    return Frame(width=W, height=max(Hb, Ht), io_band=io_band,
                  hole_inset=hole_inset, margin=margin)
+
+
+def auto_layout(bottom: "Design", top: "Design", margin: float = 3.0, gap: float = 1.3) -> "Frame":
+    """Rozmieszcza pare plyt z NIEZALEZNYMI wysokosciami (minimalny rozmiar kazdej),
+    ale otworami i zlaczem B2B w IDENTYCZNYCH wspolrzednych (skladanie 1:1)."""
+    W, Hb, Ht, io_band, hole_inset, margin = _frame_dims(bottom, top, margin, gap)
+    hmin = min(Hb, Ht)
+    i = hole_inset
+    # wspolne otwory w obszarze obecnym na OBU plytach + wspolne B2B
+    shared_holes = [(margin + i, io_band + i), (W - margin - i, io_band + i),
+                    (W - margin - i, hmin - io_band - i), (margin + i, hmin - io_band - i)]
+    shared_b2b = (W / 2, hmin / 2)
+    fb = Frame(W, Hb, io_band, hole_inset, margin, shared_holes, shared_b2b)
+    ft = Frame(W, Ht, io_band, hole_inset, margin, shared_holes, shared_b2b)
+    place_board(bottom, fb, is_top=False)
+    place_board(top, ft, is_top=True, bottom_side_passives=6)
+    return fb
 
 
 def _fp(c: Component):
@@ -194,14 +208,22 @@ def _place_edge(items: List[Component], x0: float, x1: float, outer_y: float,
 
 
 def _split_balanced(items: List[Component]):
-    """Dzieli liste zlacz na dwie krawedzie (gora/dol) rownowazac szerokosc,
-    zachowujac kolejnosc (powiazane zlacza zostaja obok siebie)."""
+    """Dzieli zlacza na dwie krawedzie. Wysokie zlacza (np. podwojne RJ45) trafiaja
+    na JEDNA krawedz - zeby nie bylo dwoch wysokich pasow (niska plytka)."""
+    if not items:
+        return [], []
+    hs = sorted(set(round(_fp(c).body_h * 2, 1) for c in items))
+    if len(hs) > 1 and hs[-1] >= hs[0] * 1.6:
+        thr = (hs[0] + hs[-1]) / 2
+        tall = [c for c in items if _fp(c).body_h * 2 >= thr]
+        short = [c for c in items if _fp(c).body_h * 2 < thr]
+        return tall, short          # wysokie -> gora, niskie -> dol
+    # podobne wysokosci: rownowaz szerokosc
     total = sum(_fp(c).body_w * 2 for c in items)
-    half = total / 2
     top, bottom, acc = [], [], 0.0
     for c in items:
         w = _fp(c).body_w * 2
-        if acc + w / 2 <= half or not top:
+        if acc + w / 2 <= total / 2 or not top:
             top.append(c)
             acc += w
         else:
@@ -225,10 +247,11 @@ def _place_centered_row(items: List[Component], x0: float, x1: float, center_y: 
 
 
 def _pack(items: List[Component], region, obstacles, gap=2.0):
-    """Upakowanie polkowe wewnatrz prostokata, omijajac przeszkody."""
+    """Upakowanie polkowe wewnatrz prostokata, omijajac przeszkody.
+    Sortowanie po wysokosci malejaco -> wiersze o zblizonej wysokosci (ciasno)."""
     x0, y0, x1, y1 = region
     cx, cy, row_h = x0, y0, 0.0
-    for c in items:
+    for c in sorted(items, key=lambda c: -_fp(c).body_h * 2):
         fp = _fp(c)
         w, h = fp.body_w * 2, fp.body_h * 2
         placed = False
@@ -298,28 +321,22 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
     ht = _place_edge(e_top, edge_x0, edge_x1, top_outer, "top", rows=1)
     hb = _place_edge(e_bot, edge_x0, edge_x1, bot_outer, "bottom", rows=1)
     _io_obstacles(e_top + e_bot)
-    if e_top:
-        interior_top = max(cy0, top_outer + ht + 2.0)
-    if e_bot:
-        interior_bottom = min(cy1, bot_outer - hb - 2.0)
+    # wnetrze od RZECZYWISTEJ wysokosci zlacz (dol uzywa pelnej plyty, gora - srodka)
+    interior_top = (top_outer + ht + 2.0) if e_top else (cy0 if is_top else frame.margin)
+    interior_bottom = (bot_outer - hb - 2.0) if e_bot else (cy1 if is_top else frame.height - frame.margin)
 
-    # PRZEKAZNIKI -> STREFA 230V WEWNATRZ (kilka rzedow), nad wyjsciami, omija otwory
-    if relays:
-        hc = 2 * frame.hole_inset + 6
-        rsizes = [(_fp(c).body_w * 2 + 1.5, _fp(c).body_h * 2 + 1.5) for c in relays]
-        rband_h = _shelf_height(rsizes, (cx1 - cx0) - 2 * hc, 1.5)
-        rtop = interior_bottom - rband_h - 1.5
-        _pack(relays, (cx0 + hc, rtop, cx1 - hc, interior_bottom), obstacles, gap=1.5)
-        interior_bottom = rtop - 2.0
 
     # opcjonalnie czesc pasywnych od spodu (upchac od spodu)
     if bottom_side_passives:
         for c in passives[:bottom_side_passives]:
             c.side = "bottom"
 
-    # IC + pasywne -> srodek (pod rzedem I/O, nad strefa przekaznikow, omijajac otwory/B2B)
-    interior = ics + passives
-    _pack(interior, (cx0 + 1, interior_top + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=1.5)
+    # IC + pasywne + PRZEKAZNIKI -> jeden ciasny blok wnetrza (sortowany po wysokosci,
+    # wiec przekazniki same sie zgrupuja); omija otwory/B2B. Bez luk miedzy strefami.
+    interior = ics + passives + relays
+    int_x0 = cx0 + 1 if is_top else frame.margin
+    int_x1 = cx1 - 1 if is_top else frame.width - frame.margin
+    _pack(interior, (int_x0, interior_top + 1, int_x1, interior_bottom - 1), obstacles, gap=1.3)
 
     # wymiary i obrys
     design.board_w = frame.width

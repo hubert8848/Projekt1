@@ -310,8 +310,8 @@ class Builder:
         pins = {"1": gnd, "2": p3v3, "3": "TFT_CS", "4": "TFT_RST", "5": "TFT_DC",
                 "6": "SPI_MOSI", "7": "SPI_SCK", "8": p3v3, "9": "SPI_MISO",
                 "10": "TOUCH_CS", "11": "TOUCH_IRQ", "12": "SPI_MISO", "13": gnd, "14": p3v3}
-        self.add("J", "Header_1x14", label, pins, role="io", label="Ekran TFT dotykowy")
-        self.blocks.append("zlacze TFT SPI dotykowy (1x14)")
+        self.add("J", "Header_2x07", label, pins, role="io", label="Ekran TFT dotykowy")
+        self.blocks.append("zlacze TFT SPI dotykowy (2x07)")
 
     def board_to_board(self, mapping: Dict[str, str], label="B2B", rows=2, cols=10):
         """Listwa stykowa gora-dol z zadanym mapowaniem pin->siec."""
