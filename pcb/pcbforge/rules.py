@@ -29,7 +29,7 @@ _DEFAULT_SEVERITY = {
 }
 
 # czesci-zlacza traktowane jako wejscia/wyjscia "w pole"
-_IO_PARTS = {"RJ45", "ScrewTerminal_1x02", "ScrewTerminal_1x03",
+_IO_PARTS = {"RJ45", "RJ45_Dual", "ScrewTerminal_1x02", "ScrewTerminal_1x03",
              "JST_XH_1x02", "JST_XH_1x03", "JST_XH_1x04", "DC_Jack", "USB_C_Power"}
 
 

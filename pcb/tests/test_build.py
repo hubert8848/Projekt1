@@ -149,9 +149,10 @@ def test_pro_controller_clean_and_complete():
     relays = [c for c in bo.design.components if c.part == "Relay_SPDT"]
     mosfets = [c for c in bo.design.components if c.part == "Q_NMOS_DPAK"]
     assert len(relays) == 8 and len(mosfets) == 8
-    # 32 wejscia na 8 RJ45 + magistrale + TFT na gorze
+    # 32 wejscia na 4 podwojne RJ45 + magistrale RJ45 (RS485/CAN)
+    dual = [c for c in to.design.components if c.part == "RJ45_Dual"]
     rj45 = [c for c in to.design.components if c.part == "RJ45"]
-    assert len(rj45) >= 10  # 8 wejsc + RS485 + CAN
+    assert len(dual) == 4 and len(rj45) >= 2
     assert any(c.part == "ESP32-S3" for c in to.design.components)
     assert any(c.part == "TJA1051" for c in to.design.components)   # CAN
     assert any(c.part == "MAX485" for c in to.design.components)    # RS485

@@ -69,19 +69,16 @@ def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float 
         return [c for c in d.components if _role(c) in roles]
 
     hole_inset = 4.5
-    rows = 2
 
     def edge_w(cs):
-        """Szerokosc krawedzi: najszerszy z `rows` rzedow (zmienne szerokosci)."""
+        """Szerokosc krawedzi = suma szerokosci zlacz w JEDNYM rzedzie przy krawedzi."""
         if not cs:
             return 0.0
-        groups = [cs[r::rows] for r in range(rows)]
-        rw = max(sum(_fp(c).body_w * 2 + gap for c in g) for g in groups)
-        return rw + 2 * margin + 4 * hole_inset + 6
+        return sum(_fp(c).body_w * 2 + gap for c in cs) + 2 * margin + 4 * hole_inset + 6
 
     edge_items = items(bottom, "io", "out", "mains") + items(top, "io", "out", "mains")
     tallest = max((_fp(c).body_h * 2 for c in edge_items), default=8.0)
-    io_band = rows * (tallest + gap) + 4.0     # pas na 2 rzedy zlacz
+    io_band = tallest + 2 * gap + 4.0          # pas na 1 rzad zlacz przy krawedzi
 
     # szerokosc z LICZBY zlacz (najszersza krawedz, 2 rzedy)
     W = max(edge_w(items(bottom, "io")), edge_w(items(bottom, "out", "mains")),
@@ -273,16 +270,16 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
             fp = _fp(c)
             obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
 
-    # WEJSCIA/zasilanie/magistrale -> GORNA krawedz, 2 rzedy (podwojne w pionie)
+    # WEJSCIA/zasilanie/magistrale -> GORNA krawedz, JEDEN rzad PRZY KRAWEDZI
     io_outer = 0.0 if not is_top else frame.io_band
-    io_h = _place_edge(io, edge_x0, edge_x1, io_outer, "top", rows=2)
+    io_h = _place_edge(io, edge_x0, edge_x1, io_outer, "top", rows=1)
     _io_obstacles(io)
     if io:
         interior_top = io_outer + io_h + 2.0
 
-    # WYJSCIA (zaciski) -> DOLNA krawedz, 2 rzedy
+    # WYJSCIA (zaciski) -> DOLNA krawedz, JEDEN rzad przy krawedzi
     out_outer = frame.height if not is_top else (frame.height - frame.io_band)
-    out_h = _place_edge(out_terms, edge_x0, edge_x1, out_outer, "bottom", rows=2)
+    out_h = _place_edge(out_terms, edge_x0, edge_x1, out_outer, "bottom", rows=1)
     _io_obstacles(out_terms)
     if out_terms:
         interior_bottom = min(interior_bottom, out_outer - out_h - 2.0)

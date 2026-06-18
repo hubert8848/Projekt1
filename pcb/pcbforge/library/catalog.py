@@ -103,6 +103,13 @@ def _rj45() -> sym.SymbolDef:
     return sym.box("pcbforge:RJ45_8P8C", "J", pins, width=15.24)
 
 
+def _rj45_dual() -> sym.SymbolDef:
+    pins = [(str(i), f"A{i}", "passive", "left") for i in range(1, 9)]
+    pins += [(str(i), f"B{i-8}", "passive", "right") for i in range(9, 17)]
+    pins.append(("S", "SHIELD", "passive", "right"))
+    return sym.box("pcbforge:RJ45_Dual", "J", pins, width=20.32)
+
+
 def _screw(poles: int) -> sym.SymbolDef:
     pins = [(str(i), f"{i}", "passive", "left") for i in range(1, poles + 1)]
     return sym.box(f"pcbforge:ScrewTerminal_1x{poles:02d}", "J", pins, width=7.62)
@@ -270,6 +277,7 @@ _STATIC: Dict[str, dict] = {
     "MAX485": dict(symbol=_max485, footprint="SOIC-8"),
     "DS18B20": dict(symbol=_ds18b20, footprint="TO-92"),
     "RJ45": dict(symbol=_rj45, footprint="RJ45_8P8C"),
+    "RJ45_Dual": dict(symbol=_rj45_dual, footprint="RJ45_Dual"),
     "ScrewTerminal_1x02": dict(symbol=lambda: _screw(2), footprint="ScrewTerminal_1x02"),
     "ScrewTerminal_1x03": dict(symbol=lambda: _screw(3), footprint="ScrewTerminal_1x03"),
     "JST_XH_1x02": dict(symbol=lambda: _jst(2), footprint="JST_XH_1x02"),

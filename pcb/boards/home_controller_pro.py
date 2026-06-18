@@ -103,9 +103,9 @@ def build_top() -> Builder:
     b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[0:16], addr=0)
     b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[16:32], addr=1)
 
-    # 8 bankow wejsc RJ45 (po 4 wejscia) - razem 32, TVS na kazde
-    for k in range(8):
-        b.input_bank_rj45(ins[k * 4:k * 4 + 4], "3V3", "GND", label=f"We {k*4}-{k*4+3}")
+    # 4 PODWOJNE gniazda RJ45 (po 8 wejsc) - razem 32, TVS na kazde, w rzedzie przy krawedzi
+    for k in range(4):
+        b.input_bank_dual(ins[k * 8:k * 8 + 8], "3V3", "GND", label=f"We {k*8}-{k*8+7}")
 
     # magistrale laczenia sterownikow (niezalezne piny)
     b.rs485("RS485_TXD", "RS485_RXD", "RS485_DE", "RS485_A", "RS485_B", "3V3", "GND")

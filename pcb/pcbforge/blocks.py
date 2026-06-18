@@ -214,6 +214,18 @@ class Builder:
             self.add("D", "D_TVS", "ESD", {"1": s, "2": gnd})   # ochrona kazdego wejscia
         self.blocks.append(f"bank wejsc RJ45 {label} ({len(signals)} wejsc, TVS/wejscie)")
 
+    def input_bank_dual(self, signals, p3v3, gnd, label="Wejscia"):
+        """Podwojne gniazdo RJ45 (2 porty w pionie) = 8 wejsc (4/port) + TVS na kazde.
+        signals: lista 8 sieci wejsciowych."""
+        s = list(signals) + [gnd] * (8 - len(signals))
+        conns = {"1": p3v3, "2": s[0], "3": s[1], "4": s[2], "5": s[3], "6": gnd, "7": gnd, "8": gnd,
+                 "9": p3v3, "10": s[4], "11": s[5], "12": s[6], "13": s[7], "14": gnd, "15": gnd, "16": gnd,
+                 "S": gnd}
+        self.add("J", "RJ45_Dual", label, conns, role="io", label=label)
+        for net in signals:
+            self.add("D", "D_TVS", "ESD", {"1": net, "2": gnd})
+        self.blocks.append(f"podwojne RJ45 {label} ({len(signals)} wejsc, TVS/wejscie)")
+
     def rs485(self, txd, rxd, de, a, b, vcc, gnd, label="RS485"):
         """RS485: MAX485 + terminacja 120R + polaryzacja + TVS + zlacze RJ45."""
         self.add("U", "MAX485", "MAX485",

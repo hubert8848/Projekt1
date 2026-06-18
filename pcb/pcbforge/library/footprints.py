@@ -274,6 +274,31 @@ def rj45_8p8c() -> Footprint:
     return fp
 
 
+def rj45_dual() -> Footprint:
+    """RJ45 podwojne (2 porty jeden nad drugim, jedna obudowa). Port dolny=1..8,
+    gorny=9..16 + ekrany. Wszystkie pady THT."""
+    fp = Footprint("RJ45_Dual", "Gniazdo RJ45 podwojne (2 porty w pionie)",
+                   smd=False, body_w=8.0, body_h=14.0)
+    pitch = 1.016
+
+    def port(base, yc):
+        front = [base, base + 2, base + 4, base + 6]
+        back = [base + 1, base + 3, base + 5, base + 7]
+        x0 = -(len(front) - 1) * (pitch * 2) / 2
+        for i, num in enumerate(front):
+            fp.pads.append(Pad(str(num), x0 + i * pitch * 2, yc + 1.0, 1.0, 1.0,
+                               "circle", pad_type="thru_hole", drill=0.9))
+        for i, num in enumerate(back):
+            fp.pads.append(Pad(str(num), x0 + pitch + i * pitch * 2, yc - 1.0, 1.0, 1.0,
+                               "circle", pad_type="thru_hole", drill=0.9))
+
+    port(1, 5.0)    # port dolny (1..8)
+    port(9, -5.0)   # port gorny (9..16)
+    for x in (-6.5, 6.5):       # ekrany/kotwy
+        fp.pads.append(Pad("S", x, 0, 2.6, 2.6, "circle", pad_type="thru_hole", drill=2.0))
+    return fp
+
+
 def screw_terminal(poles: int, pitch: float = 5.08) -> Footprint:
     fp = Footprint(f"ScrewTerminal_1x{poles:02d}_P{pitch:.2f}mm",
                    f"Listwa zaciskowa {poles}x{pitch}mm", smd=False,
@@ -407,6 +432,7 @@ REGISTRY = {
     "D_SOD-323": lambda: diode_2pin("D_SOD-323", 2.5, 1.25, 0.7, 0.9, 2.2),
     "Crystal_SMD_3225": crystal_smd,
     "RJ45_8P8C": rj45_8p8c,
+    "RJ45_Dual": rj45_dual,
     "ScrewTerminal_1x02": lambda: screw_terminal(2),
     "ScrewTerminal_1x03": lambda: screw_terminal(3),
     "JST_XH_1x02": lambda: jst_xh(2),
