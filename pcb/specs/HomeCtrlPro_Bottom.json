@@ -1,0 +1,2385 @@
+{
+  "name": "HomeCtrlPro_Bottom",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4,
+    "mains_track_width": 1.5,
+    "mains_clearance": 2.5
+  },
+  "components": [
+    {
+      "ref": "H1",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {
+        "1": "PE"
+      },
+      "label": "M3 / PE",
+      "x": 7.5,
+      "y": 26.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H2",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {
+        "1": "PE"
+      },
+      "label": "M3 / PE",
+      "x": 272.5,
+      "y": 26.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H3",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {
+        "1": "PE"
+      },
+      "label": "M3 / PE",
+      "x": 272.5,
+      "y": 158.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H4",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {
+        "1": "PE"
+      },
+      "label": "M3 / PE",
+      "x": 7.5,
+      "y": 158.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "J1",
+      "part": "Header_2x10",
+      "value": "B2B",
+      "footprint": "Header_2x10",
+      "connections": {
+        "1": "GND",
+        "2": "GND",
+        "3": "3V3",
+        "4": "3V3",
+        "5": "SDA",
+        "6": "SCL",
+        "7": "EXP_RST",
+        "8": "GND",
+        "9": "3V3",
+        "10": "GND",
+        "11": "GND",
+        "12": "3V3",
+        "13": "GND",
+        "14": "3V3",
+        "15": "GND",
+        "16": "3V3",
+        "17": "GND",
+        "18": "3V3",
+        "19": "GND",
+        "20": "GND"
+      },
+      "label": "do plyty gornej",
+      "x": 140.0,
+      "y": 92.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "b2b"
+    },
+    {
+      "ref": "J2",
+      "part": "ScrewTerminal_1x02",
+      "value": "24V",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24",
+        "2": "GND"
+      },
+      "label": "Zasilanie 24V",
+      "x": 35.54,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "F1",
+      "part": "F",
+      "value": "3A",
+      "footprint": "F_1206",
+      "connections": {
+        "1": "V24",
+        "2": "_FUSED_V24P"
+      },
+      "x": 44.4,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D1",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_FUSED_V24P",
+        "2": "V24P"
+      },
+      "x": 50.55,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C1",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V24P",
+        "2": "GND"
+      },
+      "x": 56.7,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "RV1",
+      "part": "MOV",
+      "value": "S14K30",
+      "footprint": "MOV_Disc",
+      "connections": {
+        "1": "V24P",
+        "2": "GND"
+      },
+      "label": "Ochrona przepiec",
+      "x": 65.0,
+      "y": 27.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U1",
+      "part": "MP1584",
+      "value": "MP1584",
+      "footprint": "SOIC-8",
+      "connections": {
+        "2": "V24P",
+        "4": "GND",
+        "3": "_SW_V5",
+        "1": "_BST_V5",
+        "7": "V24P",
+        "5": "_FB_V5"
+      },
+      "x": 19.25,
+      "y": 26.14,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "L1",
+      "part": "L_power",
+      "value": "10uH",
+      "footprint": "L_6x6",
+      "connections": {
+        "1": "_SW_V5",
+        "2": "V5"
+      },
+      "x": 74.9,
+      "y": 26.4,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D2",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "GND",
+        "2": "_SW_V5"
+      },
+      "x": 82.65,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C2",
+      "part": "C",
+      "value": "10nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "_BST_V5",
+        "2": "_SW_V5"
+      },
+      "x": 88.2,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C3",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V24P",
+        "2": "GND"
+      },
+      "x": 93.2,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C4",
+      "part": "CP",
+      "value": "47uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 98.8,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C5",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V24P",
+        "2": "GND"
+      },
+      "x": 103.8,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C6",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 108.2,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "V5",
+        "2": "_FB_V5"
+      },
+      "x": 112.6,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "20k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_FB_V5",
+        "2": "GND"
+      },
+      "x": 117.0,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U2",
+      "part": "AMS1117-3.3",
+      "value": "AMS1117-3.3",
+      "footprint": "SOT-223",
+      "connections": {
+        "3": "V5",
+        "1": "GND",
+        "2": "3V3",
+        "4": "3V3"
+      },
+      "x": 27.0,
+      "y": 26.3,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C7",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 122.0,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C8",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 127.6,
+      "y": 24.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C9",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 132.6,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C10",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 137.0,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U3",
+      "part": "MCP23017",
+      "value": "MCP23017",
+      "footprint": "SOIC-28",
+      "connections": {
+        "9": "3V3",
+        "10": "GND",
+        "12": "SCL",
+        "13": "SDA",
+        "18": "EXP_RST",
+        "15": "GND",
+        "16": "3V3",
+        "17": "GND",
+        "21": "OUT0",
+        "22": "OUT1",
+        "23": "OUT2",
+        "24": "OUT3",
+        "25": "OUT4",
+        "26": "OUT5",
+        "27": "OUT6",
+        "28": "OUT7",
+        "1": "OUT8",
+        "2": "OUT9",
+        "3": "OUT10",
+        "4": "OUT11",
+        "5": "OUT12",
+        "6": "OUT13",
+        "7": "OUT14",
+        "8": "OUT15"
+      },
+      "x": 36.55,
+      "y": 32.49,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C11",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 141.4,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J3",
+      "part": "ScrewTerminal_1x03",
+      "value": "230V",
+      "footprint": "ScrewTerminal_1x03",
+      "connections": {
+        "1": "L",
+        "2": "N",
+        "3": "PE"
+      },
+      "label": "Siec 230V L/N/PE",
+      "x": 27.97,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K1",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC0",
+        "4": "L",
+        "3": "LAMP0"
+      },
+      "label": "Lampa 1 230V",
+      "x": 36.94,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q1",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB0",
+        "2": "_RC0",
+        "3": "GND"
+      },
+      "x": 146.2,
+      "y": 24.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT0",
+        "2": "_RB0"
+      },
+      "x": 151.0,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D3",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC0",
+        "2": "V24P"
+      },
+      "x": 156.55,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED1",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL0",
+        "2": "GND"
+      },
+      "x": 162.1,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R4",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT0",
+        "2": "_RL0"
+      },
+      "x": 166.5,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J4",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT0",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP0",
+        "2": "N"
+      },
+      "label": "Lampa 1 230V",
+      "x": 58.52,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K2",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC1",
+        "4": "L",
+        "3": "LAMP1"
+      },
+      "label": "Lampa 2 230V",
+      "x": 66.39,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q2",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB1",
+        "2": "_RC1",
+        "3": "GND"
+      },
+      "x": 171.3,
+      "y": 24.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R5",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT1",
+        "2": "_RB1"
+      },
+      "x": 176.1,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D4",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC1",
+        "2": "V24P"
+      },
+      "x": 181.65,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED2",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL1",
+        "2": "GND"
+      },
+      "x": 187.2,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R6",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT1",
+        "2": "_RL1"
+      },
+      "x": 191.6,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J5",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT1",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP1",
+        "2": "N"
+      },
+      "label": "Lampa 2 230V",
+      "x": 86.52,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K3",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC2",
+        "4": "L",
+        "3": "LAMP2"
+      },
+      "label": "Lampa 3 230V",
+      "x": 95.83,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q3",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB2",
+        "2": "_RC2",
+        "3": "GND"
+      },
+      "x": 196.4,
+      "y": 24.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R7",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT2",
+        "2": "_RB2"
+      },
+      "x": 201.2,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D5",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC2",
+        "2": "V24P"
+      },
+      "x": 206.75,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED3",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL2",
+        "2": "GND"
+      },
+      "x": 212.3,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R8",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT2",
+        "2": "_RL2"
+      },
+      "x": 216.7,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J6",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT2",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP2",
+        "2": "N"
+      },
+      "label": "Lampa 3 230V",
+      "x": 114.53,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K4",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC3",
+        "4": "L",
+        "3": "LAMP3"
+      },
+      "label": "Lampa 4 230V",
+      "x": 125.28,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q4",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB3",
+        "2": "_RC3",
+        "3": "GND"
+      },
+      "x": 221.5,
+      "y": 24.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R9",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT3",
+        "2": "_RB3"
+      },
+      "x": 226.3,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D6",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC3",
+        "2": "V24P"
+      },
+      "x": 231.85,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED4",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL3",
+        "2": "GND"
+      },
+      "x": 237.4,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R10",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT3",
+        "2": "_RL3"
+      },
+      "x": 241.8,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J7",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT3",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP3",
+        "2": "N"
+      },
+      "label": "Lampa 4 230V",
+      "x": 142.54,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K5",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC4",
+        "4": "L",
+        "3": "LAMP4"
+      },
+      "label": "Lampa 5 230V",
+      "x": 154.72,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q5",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB4",
+        "2": "_RC4",
+        "3": "GND"
+      },
+      "x": 246.6,
+      "y": 24.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R11",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT4",
+        "2": "_RB4"
+      },
+      "x": 251.4,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D7",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC4",
+        "2": "V24P"
+      },
+      "x": 256.95,
+      "y": 24.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED5",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL4",
+        "2": "GND"
+      },
+      "x": 262.5,
+      "y": 23.82,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R12",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT4",
+        "2": "_RL4"
+      },
+      "x": 5.2,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J8",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT4",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP4",
+        "2": "N"
+      },
+      "label": "Lampa 5 230V",
+      "x": 170.55,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K6",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC5",
+        "4": "L",
+        "3": "LAMP5"
+      },
+      "label": "Lampa 6 230V",
+      "x": 184.17,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q6",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB5",
+        "2": "_RC5",
+        "3": "GND"
+      },
+      "x": 10.0,
+      "y": 45.58,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R13",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT5",
+        "2": "_RB5"
+      },
+      "x": 14.8,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D8",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC5",
+        "2": "V24P"
+      },
+      "x": 20.35,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED6",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL5",
+        "2": "GND"
+      },
+      "x": 25.9,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R14",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT5",
+        "2": "_RL5"
+      },
+      "x": 30.3,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J9",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT5",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP5",
+        "2": "N"
+      },
+      "label": "Lampa 6 230V",
+      "x": 198.56,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K7",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC6",
+        "4": "L",
+        "3": "LAMP6"
+      },
+      "label": "Lampa 7 230V",
+      "x": 213.61,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q7",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB6",
+        "2": "_RC6",
+        "3": "GND"
+      },
+      "x": 35.1,
+      "y": 45.58,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R15",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT6",
+        "2": "_RB6"
+      },
+      "x": 39.9,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D9",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC6",
+        "2": "V24P"
+      },
+      "x": 45.45,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED7",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL6",
+        "2": "GND"
+      },
+      "x": 51.0,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R16",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT6",
+        "2": "_RL6"
+      },
+      "x": 55.4,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J10",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT6",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP6",
+        "2": "N"
+      },
+      "label": "Lampa 7 230V",
+      "x": 226.56,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K8",
+      "part": "Relay_SPDT",
+      "value": "SRD-24V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V24P",
+        "2": "_RC7",
+        "4": "L",
+        "3": "LAMP7"
+      },
+      "label": "Lampa 8 230V",
+      "x": 243.06,
+      "y": 153.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "relay"
+    },
+    {
+      "ref": "Q8",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_RB7",
+        "2": "_RC7",
+        "3": "GND"
+      },
+      "x": 60.2,
+      "y": 45.58,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R17",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT7",
+        "2": "_RB7"
+      },
+      "x": 65.0,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D10",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_RC7",
+        "2": "V24P"
+      },
+      "x": 70.55,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED8",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_RL7",
+        "2": "GND"
+      },
+      "x": 76.1,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R18",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT7",
+        "2": "_RL7"
+      },
+      "x": 80.5,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J11",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUT7",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "LAMP7",
+        "2": "N"
+      },
+      "label": "Lampa 8 230V",
+      "x": 254.57,
+      "y": 179.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "Q9",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G8",
+        "2": "OUT8",
+        "3": "GND"
+      },
+      "x": 86.9,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R19",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT8",
+        "2": "_G8"
+      },
+      "x": 93.3,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R20",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G8",
+        "2": "GND"
+      },
+      "x": 97.7,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D11",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT8",
+        "2": "V24P"
+      },
+      "x": 103.25,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED9",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML8",
+        "2": "GND"
+      },
+      "x": 108.8,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R21",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT8",
+        "2": "_ML8"
+      },
+      "x": 113.2,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J12",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC8",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT8"
+      },
+      "label": "LED 1 DC",
+      "x": 61.65,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q10",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G9",
+        "2": "OUT9",
+        "3": "GND"
+      },
+      "x": 119.6,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R22",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT9",
+        "2": "_G9"
+      },
+      "x": 126.0,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R23",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G9",
+        "2": "GND"
+      },
+      "x": 134.8,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D12",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT9",
+        "2": "V24P"
+      },
+      "x": 140.35,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED10",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML9",
+        "2": "GND"
+      },
+      "x": 145.9,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R24",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT9",
+        "2": "_ML9"
+      },
+      "x": 150.3,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J13",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC9",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT9"
+      },
+      "label": "LED 2 DC",
+      "x": 87.77,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q11",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G10",
+        "2": "OUT10",
+        "3": "GND"
+      },
+      "x": 156.7,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R25",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT10",
+        "2": "_G10"
+      },
+      "x": 163.1,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R26",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G10",
+        "2": "GND"
+      },
+      "x": 167.5,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D13",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT10",
+        "2": "V24P"
+      },
+      "x": 173.05,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED11",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML10",
+        "2": "GND"
+      },
+      "x": 178.6,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R27",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT10",
+        "2": "_ML10"
+      },
+      "x": 183.0,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J14",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC10",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT10"
+      },
+      "label": "LED 3 DC",
+      "x": 113.88,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q12",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G11",
+        "2": "OUT11",
+        "3": "GND"
+      },
+      "x": 189.4,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R28",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT11",
+        "2": "_G11"
+      },
+      "x": 195.8,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R29",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G11",
+        "2": "GND"
+      },
+      "x": 200.2,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D14",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT11",
+        "2": "V24P"
+      },
+      "x": 205.75,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED12",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML11",
+        "2": "GND"
+      },
+      "x": 211.3,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R30",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT11",
+        "2": "_ML11"
+      },
+      "x": 215.7,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J15",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC11",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT11"
+      },
+      "label": "LED 4 DC",
+      "x": 140.0,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q13",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G12",
+        "2": "OUT12",
+        "3": "GND"
+      },
+      "x": 222.1,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R31",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT12",
+        "2": "_G12"
+      },
+      "x": 228.5,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R32",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G12",
+        "2": "GND"
+      },
+      "x": 232.9,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D15",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT12",
+        "2": "V24P"
+      },
+      "x": 238.45,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED13",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML12",
+        "2": "GND"
+      },
+      "x": 244.0,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R33",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT12",
+        "2": "_ML12"
+      },
+      "x": 248.4,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J16",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC12",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT12"
+      },
+      "label": "LED 5 DC",
+      "x": 166.12,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q14",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G13",
+        "2": "OUT13",
+        "3": "GND"
+      },
+      "x": 254.8,
+      "y": 46.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R34",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT13",
+        "2": "_G13"
+      },
+      "x": 261.2,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R35",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G13",
+        "2": "GND"
+      },
+      "x": 265.6,
+      "y": 44.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D16",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT13",
+        "2": "V24P"
+      },
+      "x": 271.15,
+      "y": 45.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED14",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML13",
+        "2": "GND"
+      },
+      "x": 5.2,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R36",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT13",
+        "2": "_ML13"
+      },
+      "x": 9.6,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J17",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC13",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT13"
+      },
+      "label": "LED 6 DC",
+      "x": 192.23,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q15",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G14",
+        "2": "OUT14",
+        "3": "GND"
+      },
+      "x": 16.0,
+      "y": 54.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R37",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT14",
+        "2": "_G14"
+      },
+      "x": 22.4,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R38",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G14",
+        "2": "GND"
+      },
+      "x": 26.8,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D17",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT14",
+        "2": "V24P"
+      },
+      "x": 32.35,
+      "y": 53.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED15",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML14",
+        "2": "GND"
+      },
+      "x": 37.9,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R39",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT14",
+        "2": "_ML14"
+      },
+      "x": 42.3,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J18",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC14",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT14"
+      },
+      "label": "LED 7 DC",
+      "x": 218.35,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "Q16",
+      "part": "Q_NMOS_DPAK",
+      "value": "IRLZ44N",
+      "footprint": "TO-252",
+      "connections": {
+        "1": "_G15",
+        "2": "OUT15",
+        "3": "GND"
+      },
+      "x": 48.7,
+      "y": 54.98,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R40",
+      "part": "R",
+      "value": "100",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT15",
+        "2": "_G15"
+      },
+      "x": 55.1,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R41",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_G15",
+        "2": "GND"
+      },
+      "x": 59.5,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D18",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "OUT15",
+        "2": "V24P"
+      },
+      "x": 65.05,
+      "y": 53.48,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "LED16",
+      "part": "LED",
+      "value": "ON",
+      "footprint": "LED_0805",
+      "connections": {
+        "1": "_ML15",
+        "2": "GND"
+      },
+      "x": 70.6,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R42",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "OUT15",
+        "2": "_ML15"
+      },
+      "x": 75.0,
+      "y": 52.81,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J19",
+      "part": "ScrewTerminal_1x02",
+      "value": "OUTDC15",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "V24P",
+        "2": "OUT15"
+      },
+      "label": "LED 8 DC",
+      "x": 244.46,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    }
+  ],
+  "outline": [
+    0.0,
+    0.0,
+    280.0,
+    185.0
+  ],
+  "board_w": 280.0,
+  "board_h": 185.0,
+  "mains_nets": [
+    "L",
+    "LAMP0",
+    "LAMP1",
+    "LAMP2",
+    "LAMP3",
+    "LAMP4",
+    "LAMP5",
+    "LAMP6",
+    "LAMP7",
+    "N",
+    "PE"
+  ],
+  "notes": [
+    "Plyta DOLNA: zasilanie 24V + 16 wyjsc (8x 230V przekaznik, 8x MOSFET DC)",
+    "UWAGA 230V! Strefa sieciowa = dolna krawedz. Grube sciezki + izolacja."
+  ]
+}

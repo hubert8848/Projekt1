@@ -318,8 +318,7 @@ def dc_jack() -> Footprint:
 
 
 def relay_srd() -> Footprint:
-    """Przekaznik PCB SRD (SPDT). Cewka: piny 1,2 (male pady). Kontakty 230V:
-    3=NO, 4=COM, 5=NC (szerokie pady na grube sciezki)."""
+    """Przekaznik PCB SRD (SPDT). Cewka 1,2; kontakty 230V 3=NO,4=COM,5=NC."""
     fp = Footprint("Relay_SPDT_SRD", "Przekaznik SRD SPDT (cewka + kontakty 230V)",
                    smd=False, body_w=9.5, body_h=7.5)
     # cewka (lewa strona, zwykle pady)
@@ -329,6 +328,43 @@ def relay_srd() -> Footprint:
     fp.pads.append(Pad("3", 7.5, -5.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))  # NO
     fp.pads.append(Pad("4", 7.5, 0.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))   # COM
     fp.pads.append(Pad("5", 7.5, 5.0, 3.2, 3.2, "rect", pad_type="thru_hole", drill=1.5))   # NC
+    return fp
+
+
+def castellated_module(name: str, left: int, bottom: int, right: int,
+                       pitch: float = 1.0, w: float = 13.2, h: float = 13.0,
+                       pad_w: float = 0.9, pad_h: float = 1.4) -> Footprint:
+    """Generyczny modul kastelowany (np. ESP32-C3-MINI). Pady: lewa 1..L,
+    dol L+1.., prawa .. (w gore)."""
+    fp = Footprint(name, name, smd=True, body_w=w / 2, body_h=h / 2)
+    half_w, half_h = w / 2, h / 2
+    y_bottom = half_h - 1.0
+    n = 1
+    for i in range(left):       # lewa krawedz, gora->dol
+        fp.pads.append(Pad(str(n), -half_w, y_bottom - i * pitch, pad_w, pad_h, "roundrect")); n += 1
+    span_b = (bottom - 1) * pitch
+    for i in range(bottom):     # dol, lewo->prawo
+        fp.pads.append(Pad(str(n), -span_b / 2 + i * pitch, half_h, pad_h, pad_w, "roundrect")); n += 1
+    for i in range(right):      # prawa krawedz, dol->gora
+        fp.pads.append(Pad(str(n), half_w, (y_bottom - (right - 1) * pitch) + i * pitch,
+                           pad_w, pad_h, "roundrect")); n += 1
+    return fp
+
+
+def dpak() -> Footprint:
+    """TO-252 / DPAK (MOSFET mocy). Pin1=Gate, 2=Drain(tab), 3=Source."""
+    fp = Footprint("TO-252", "DPAK / TO-252 (MOSFET mocy)", body_w=3.2, body_h=3.0)
+    fp.pads.append(Pad("1", -2.28, 2.3, 0.9, 1.6, "roundrect"))   # Gate
+    fp.pads.append(Pad("3", 2.28, 2.3, 0.9, 1.6, "roundrect"))    # Source
+    fp.pads.append(Pad("2", 0.0, -1.5, 5.4, 3.0, "rect"))        # Drain (tab)
+    return fp
+
+
+def mov_disc() -> Footprint:
+    """Warystor dyskowy (MOV) THT, 2 piny raster 5mm."""
+    fp = Footprint("MOV_Disc", "Warystor MOV (ochrona 230V)", smd=False, body_w=4.5, body_h=4.5)
+    fp.pads.append(Pad("1", -3.5, 0, 2.0, 2.0, "circle", pad_type="thru_hole", drill=1.0))
+    fp.pads.append(Pad("2", 3.5, 0, 2.0, 2.0, "circle", pad_type="thru_hole", drill=1.0))
     return fp
 
 
@@ -383,6 +419,9 @@ REGISTRY = {
     "SW_Push_6mm": sw_push,
     "Relay_SPDT_SRD": relay_srd,
     "MountingHole_M3": lambda: mounting_hole(3.2),
+    "ESP32-C3-MINI-1": lambda: castellated_module("ESP32-C3-MINI-1", 7, 5, 7, w=13.2, h=13.0),
+    "TO-252": dpak,
+    "MOV_Disc": mov_disc,
 }
 
 

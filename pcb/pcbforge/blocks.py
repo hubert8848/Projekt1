@@ -136,8 +136,13 @@ class Builder:
         self.blocks.append(f"1-wire {ow} (pull-up{' + ESD' if esd else ''})")
 
     def mcp23017(self, p3v3, gnd, sda, scl, rst, intr, buttons: List[str], addr=0):
-        """Ekspander I2C MCP23017 (16 IO) + dekap, adres przez A0..A2."""
-        conns = {"9": p3v3, "10": gnd, "12": scl, "13": sda, "18": rst, "20": intr}
+        """Ekspander I2C MCP23017 (16 IO) + dekap, adres przez A0..A2.
+        Puste rst/intr pomijane (praca w trybie odpytywania)."""
+        conns = {"9": p3v3, "10": gnd, "12": scl, "13": sda}
+        if rst:
+            conns["18"] = rst
+        if intr:
+            conns["20"] = intr
         # A0..A2 (piny 15,16,17) wg adresu
         for i, pinno in enumerate(("15", "16", "17")):
             conns[pinno] = p3v3 if (addr >> i) & 1 else gnd
@@ -165,6 +170,96 @@ class Builder:
                 self.add("D", "D_TVS", "ESD", {"1": net, "2": gnd})
         self.blocks.append(f"RJ45 {label} ({len(signals)} przyciskow, ESD/linia)")
         return j
+
+    # --- BLOKI STEROWNIKA DOMOWEGO ---
+    def output_relay(self, drive: str, out_id: str, v_coil: str, gnd: str,
+                     l: str = "L", n: str = "N", label: str = ""):
+        """Wyjscie przekaznikowe 230V: przekaznik + driver NPN + dioda gasnaca
+        + LED statusu + zacisk srubowy 2-pol (LAMP/N). Cewka z v_coil."""
+        coil = f"_RC{out_id}"
+        lamp = f"LAMP{out_id}"
+        self.add("K", "Relay_SPDT", "SRD-24V",
+                 {"1": v_coil, "2": coil, "4": l, "3": lamp}, label=label, role="relay")
+        self.add("Q", "Q_NPN", "BC547", {"1": f"_RB{out_id}", "2": coil, "3": gnd})
+        self.R("1k", drive, f"_RB{out_id}")
+        self.add("D", "D_Rectifier", "1N4148", {"1": coil, "2": v_coil})   # gasnaca
+        self.add("LED", "LED", "ON", {"1": f"_RL{out_id}", "2": gnd})
+        self.R("1k", drive, f"_RL{out_id}")
+        self.add("J", "ScrewTerminal_1x02", f"OUT{out_id}",
+                 {"1": lamp, "2": n}, role="mains", label=label or f"Wyj.230V {out_id}")
+        self.blocks.append(f"wyjscie przekaznik {out_id} (LED, gasnaca, zacisk)")
+
+    def output_mosfet(self, drive: str, out_id: str, vplus: str, gnd: str, label: str = ""):
+        """Wyjscie MOSFET DC (LED/tasma): NMOS low-side + rezystor bramki +
+        pulldown + dioda gasnaca + LED statusu + zacisk srubowy 2-pol (+/-)."""
+        drn = f"OUT{out_id}"
+        self.add("Q", "Q_NMOS_DPAK", "IRLZ44N", {"1": f"_G{out_id}", "2": drn, "3": gnd})
+        self.R("100", drive, f"_G{out_id}")          # bramka
+        self.R("100k", f"_G{out_id}", gnd)           # pulldown bramki (bezpieczny stan)
+        self.add("D", "D_Schottky", "SS34", {"1": drn, "2": vplus})   # gasnaca (obciazenia ind.)
+        self.add("LED", "LED", "ON", {"1": f"_ML{out_id}", "2": gnd})
+        self.R("1k", drive, f"_ML{out_id}")
+        self.add("J", "ScrewTerminal_1x02", f"OUTDC{out_id}",
+                 {"1": vplus, "2": drn}, role="io", label=label or f"Wyj.DC {out_id}")
+        self.blocks.append(f"wyjscie MOSFET {out_id} (LED, gasnaca, zacisk +/-)")
+
+    def input_bank_rj45(self, signals, p3v3, gnd, label="Wejscia"):
+        """Bank wejsc na RJ45: 6 wejsc + 3V3 + GND, osobny TVS na kazde wejscie."""
+        nets = [p3v3] + list(signals)
+        nets += [gnd] * (8 - len(nets))
+        conns = {str(i + 1): nets[i] for i in range(8)}
+        conns["S"] = gnd
+        self.add("J", "RJ45", label, conns, role="io", label=label)
+        for s in signals:
+            self.add("D", "D_TVS", "ESD", {"1": s, "2": gnd})   # ochrona kazdego wejscia
+        self.blocks.append(f"bank wejsc RJ45 {label} ({len(signals)} wejsc, TVS/wejscie)")
+
+    def rs485(self, txd, rxd, de, a, b, vcc, gnd, label="RS485"):
+        """RS485: MAX485 + terminacja 120R + polaryzacja + TVS + zlacze RJ45."""
+        self.add("U", "MAX485", "MAX485",
+                 {"1": rxd, "2": de, "3": de, "4": txd, "5": gnd, "6": a, "7": b, "8": vcc})
+        self.C("100nF", vcc, gnd)
+        self.R("120", a, b)                  # terminacja
+        self.R("560", vcc, a)                # polaryzacja +
+        self.R("560", b, gnd)                # polaryzacja -
+        self.add("D", "D_TVS", "TVS", {"1": a, "2": gnd})
+        self.add("D", "D_TVS", "TVS", {"1": b, "2": gnd})
+        self.add("J", "RJ45", label, {"1": a, "2": b, "3": gnd, "4": gnd,
+                 "5": gnd, "6": gnd, "7": vcc, "8": vcc, "S": gnd}, role="io", label=label)
+        self.blocks.append("magistrala RS485 (terminacja, polaryzacja, TVS, RJ45)")
+
+    def can_bus(self, txd, rxd, canh, canl, vcc, gnd, label="CAN"):
+        """CAN: TJA1051 + terminacja 120R + TVS + zlacze RJ45."""
+        self.add("U", "TJA1051", "TJA1051",
+                 {"1": txd, "2": gnd, "3": vcc, "4": rxd, "5": vcc, "6": canl, "7": canh, "8": gnd})
+        self.C("100nF", vcc, gnd)
+        self.R("120", canh, canl)            # terminacja
+        self.add("D", "D_TVS", "TVS", {"1": canh, "2": gnd})
+        self.add("D", "D_TVS", "TVS", {"1": canl, "2": gnd})
+        self.add("J", "RJ45", label, {"1": canh, "2": canl, "3": gnd, "4": gnd,
+                 "5": gnd, "6": gnd, "7": vcc, "8": vcc, "S": gnd}, role="io", label=label)
+        self.blocks.append("magistrala CAN (TJA1051, terminacja, TVS, RJ45)")
+
+    def esp32c3(self, p3v3="3V3", gnd="GND"):
+        """Modul ESP32-C3 + EN/BOOT + dekapy + header programatora."""
+        u = self.add("U", "ESP32-C3", "ESP32-C3-MINI-1",
+                     {"1": gnd, "2": p3v3, "3": "EN", "19": gnd}, label="ESP32-C3")
+        self.decoupling(p3v3, gnd, 2)
+        self.R("10k", p3v3, "EN")
+        self.C("100nF", "EN", gnd)
+        self.add("SW", "SW_Push", "RST", {"1": "EN", "2": "EN", "3": gnd, "4": gnd})
+        self.add("SW", "SW_Push", "BOOT", {"1": "IO9", "2": "IO9", "3": gnd, "4": gnd})
+        self.R("10k", p3v3, "IO9")   # IO9 = strap BOOT (programowanie przez USB IO18/19)
+        self.blocks.append("ESP32-C3 (EN/BOOT, dekapy, USB)")
+        return u
+
+    def tft_connector(self, p3v3, gnd, label="TFT"):
+        """Zlacze wyswietlacza TFT SPI dotykowego (1x14)."""
+        pins = {"1": gnd, "2": p3v3, "3": "TFT_CS", "4": p3v3, "5": "TFT_DC",
+                "6": "SPI_MOSI", "7": "SPI_SCK", "8": p3v3, "9": "SPI_MISO",
+                "10": "TOUCH_CS", "11": p3v3, "12": "SPI_MISO", "13": gnd, "14": p3v3}
+        self.add("J", "Header_1x14", label, pins, role="io", label="Ekran TFT dotykowy")
+        self.blocks.append("zlacze TFT SPI dotykowy (1x14)")
 
     def board_to_board(self, mapping: Dict[str, str], label="B2B", rows=2, cols=10):
         """Listwa stykowa gora-dol z zadanym mapowaniem pin->siec."""

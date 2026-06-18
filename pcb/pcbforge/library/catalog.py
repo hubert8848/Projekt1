@@ -178,6 +178,32 @@ def _mount() -> sym.SymbolDef:
     return s
 
 
+_ESP32C3_PINS = [
+    (1, "GND", "power_in", "left"), (2, "3V3", "power_in", "left"), (3, "EN", "input", "left"),
+    (4, "IO0", "bidirectional", "left"), (5, "IO1", "bidirectional", "left"),
+    (6, "IO2", "bidirectional", "left"), (7, "IO3", "bidirectional", "left"),
+    (8, "IO4", "bidirectional", "left"), (9, "IO5", "bidirectional", "left"),
+    (10, "IO6", "bidirectional", "left"), (11, "IO7", "bidirectional", "right"),
+    (12, "IO8", "bidirectional", "right"), (13, "IO9", "bidirectional", "right"),
+    (14, "IO10", "bidirectional", "right"), (15, "IO18", "bidirectional", "right"),
+    (16, "IO19", "bidirectional", "right"), (17, "IO20/RX", "input", "right"),
+    (18, "IO21/TX", "output", "right"), (19, "GND", "power_in", "right"),
+]
+
+
+def _esp32c3() -> sym.SymbolDef:
+    pins = [(str(n), nm, et, side) for (n, nm, et, side) in _ESP32C3_PINS]
+    return sym.box("pcbforge:ESP32-C3-MINI-1", "U", pins, width=25.4)
+
+
+def _tja1051() -> sym.SymbolDef:
+    pins = [("1", "TXD", "input", "left"), ("2", "GND", "power_in", "left"),
+            ("3", "VCC", "power_in", "left"), ("4", "RXD", "output", "left"),
+            ("5", "VIO", "power_in", "right"), ("6", "CANL", "bidirectional", "right"),
+            ("7", "CANH", "bidirectional", "right"), ("8", "STB", "input", "right")]
+    return sym.box("pcbforge:TJA1051", "U", pins, width=15.24)
+
+
 def _ds18b20() -> sym.SymbolDef:
     pins = [("1", "GND", "power_in", "left"), ("2", "DQ", "bidirectional", "left"),
             ("3", "VDD", "power_in", "right")]
@@ -235,6 +261,12 @@ _STATIC: Dict[str, dict] = {
     "SW_Push": dict(symbol=_switch, footprint="SW_Push_6mm"),
     "Relay_SPDT": dict(symbol=_relay, footprint="Relay_SPDT_SRD"),
     "MountingHole": dict(symbol=_mount, footprint="MountingHole_M3"),
+    "ESP32-C3": dict(symbol=_esp32c3, footprint="ESP32-C3-MINI-1"),
+    "TJA1051": dict(symbol=_tja1051, footprint="SOIC-8"),
+    "MOV": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:MOV", "RV", body="ferrite"),
+                footprint="MOV_Disc"),
+    "Q_NMOS_DPAK": dict(symbol=lambda: sym.transistor("pcbforge:Q_NMOS_DPAK", "Q", "nmos"),
+                        footprint="TO-252"),
 }
 
 

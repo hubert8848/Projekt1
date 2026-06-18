@@ -128,5 +128,7 @@ class Design:
             if name not in self.nets:
                 lname = name.upper()
                 is_gnd = lname in ("GND", "GROUND", "VSS", "AGND", "DGND")
-                is_pwr = is_gnd or lname.startswith(("VCC", "VDD", "+", "3V3", "5V", "VBUS", "VIN", "VBAT"))
+                is_pwr = is_gnd or lname.startswith(("VCC", "VDD", "+", "3V3", "5V",
+                         "VBUS", "VIN", "VBAT", "VLED", "VREL")) \
+                    or (len(lname) > 1 and lname[0] == "V" and lname[1].isdigit())
                 self.nets[name] = Net(name, is_power=is_pwr, is_ground=is_gnd)

@@ -144,7 +144,7 @@ def run_rules(design: Design, kb: Knowledge | None = None) -> List[Issue]:
     for c in design.components:
         if c.role == "mains":           # zaciski 230V to nie sygnaly logiczne
             continue
-        if not (c.role == "io" or c.part in _IO_PARTS):
+        if c.part not in _IO_PARTS:     # tylko zlacza polowe (RJ45/zaciski/JST/DC/USB)
             continue
         for pin, net in c.connections.items():
             if net and net not in gnds and net not in power_nets and net not in design.mains_nets:

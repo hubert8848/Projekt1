@@ -1,7 +1,7 @@
 (kicad_sch
   (version 20230121)
   (generator eeschema)
-  (uuid "2d039977-145b-4b77-861c-ee6ce3abf9a6")
+  (uuid "4a834b0c-bc98-48df-8bae-055e6e8ec2f5")
   (paper "A4")
   (lib_symbols
     (symbol
@@ -2541,7 +2541,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "bea88fd7-6050-46a3-b809-7600736f5237")
+    (uuid "7da90fe0-efb5-4edc-8d59-198b4f02c85e")
     (property
       "Reference"
       "U1"
@@ -2588,161 +2588,161 @@
     )
     (pin
       "1"
-      (uuid "50f87024-b502-4dd4-9263-e44b68ce4cf9")
+      (uuid "4df298e0-ca50-48db-b529-66b4573da9cd")
     )
     (pin
       "2"
-      (uuid "3b0b6d78-591e-49b7-812e-9870f84ad444")
+      (uuid "6437197e-a2e0-4b0c-95b4-818224e29b1d")
     )
     (pin
       "3"
-      (uuid "dff138ed-0018-4d76-adb3-e5c6ee8fcee2")
+      (uuid "f5851d05-a0b5-49ca-9ef3-f188606bad3d")
     )
     (pin
       "4"
-      (uuid "361737c6-3f5b-4b9e-ad1e-16a29057a28c")
+      (uuid "cc3eb6cb-c5ec-4154-9d45-8aa143de419b")
     )
     (pin
       "5"
-      (uuid "476a4e8b-0821-4529-a99a-9a66d6edae4d")
+      (uuid "82cd3988-3d06-4d53-8f6b-743c7483dd59")
     )
     (pin
       "6"
-      (uuid "7812d5e2-0d29-4644-9c25-ec82bd011c11")
+      (uuid "1ab242bb-db4d-434b-a1ec-cf881e1c5474")
     )
     (pin
       "7"
-      (uuid "4b7a402f-c8bb-434a-b3c8-a2a4d80be21f")
+      (uuid "ac431568-125b-44e3-9393-f6bcdee19d15")
     )
     (pin
       "8"
-      (uuid "e5398a5b-97a9-4dcd-9144-a17fc63f07ad")
+      (uuid "d3eacb20-4742-4b6b-a433-70153b020c68")
     )
     (pin
       "9"
-      (uuid "6c98440b-1590-4659-9889-d67b06f8d422")
+      (uuid "f9c6a59c-313b-4936-9f80-51d2861b6653")
     )
     (pin
       "10"
-      (uuid "ad6b09b0-2705-47ff-9512-6856ba3726e2")
+      (uuid "1710ee0c-1ca2-4b38-8e2d-f8cebd3bb93e")
     )
     (pin
       "11"
-      (uuid "9e2d7f1e-2562-400c-b2fd-7557bf3dbcb0")
+      (uuid "5e470383-2ed8-470b-8e90-4fc8f7f994f5")
     )
     (pin
       "12"
-      (uuid "6645f8eb-4c9f-4120-b0f2-84d229b1fed6")
+      (uuid "26e4e366-7eb6-4bd0-92c4-8bbab3c1f540")
     )
     (pin
       "13"
-      (uuid "1e80ad99-7f5d-4007-951e-e0f8192e5a9a")
+      (uuid "186976fc-5925-4f84-8bdf-7c8c5ff262a5")
     )
     (pin
       "14"
-      (uuid "6178d736-d5be-4a02-b434-ca44b8512bff")
+      (uuid "91a08dcb-50b2-435f-9a94-6f1acdaecec1")
     )
     (pin
       "15"
-      (uuid "085b53dc-ba3a-481f-b702-9bf230b37813")
+      (uuid "029d80e0-b3dd-4660-9811-542918d16ffe")
     )
     (pin
       "16"
-      (uuid "74b693d5-db60-43a2-9a24-01e45d6c225d")
+      (uuid "083b809c-fb3e-4db5-b5ab-4d1d62cefefc")
     )
     (pin
       "17"
-      (uuid "d1744d93-d724-4e91-a69a-ffcf8fcfd8d2")
+      (uuid "8c2b8875-6989-4051-a157-8e95ea1fd1c1")
     )
     (pin
       "18"
-      (uuid "027c9b26-3dc1-4080-9418-7e23b117a7e7")
+      (uuid "a5dfb909-d4a7-4d7a-bcd7-2d7622872d5d")
     )
     (pin
       "19"
-      (uuid "62ea2445-9de2-42ec-a718-25c3b199dffb")
+      (uuid "b64c727b-0516-405a-8dbe-5f639877802e")
     )
     (pin
       "20"
-      (uuid "6f9ba1e2-dfbc-4949-8c65-c9d9dc08eb8d")
+      (uuid "5296c375-5d2d-41d1-b4cd-acd0e1f5b6a3")
     )
     (pin
       "21"
-      (uuid "5e794b27-71e7-4709-916a-930adcc828ca")
+      (uuid "fd3c8f3d-10cf-4f9a-9bc9-5055319d845f")
     )
     (pin
       "22"
-      (uuid "0d61a305-c0f4-440e-89ce-dbc12bb2674f")
+      (uuid "5c692d38-fd48-40b1-8c7f-28518fb710ac")
     )
     (pin
       "23"
-      (uuid "97a0de5b-aef5-4fb0-a29d-68c42fa1258d")
+      (uuid "04b6fbd3-865d-487b-99b0-770de45bdc3c")
     )
     (pin
       "24"
-      (uuid "a4742cd9-1a12-436f-9d6e-8af8b82d239b")
+      (uuid "520f7b57-e799-4fe0-a265-f365ae74f115")
     )
     (pin
       "25"
-      (uuid "cd4c4b37-bc46-4092-9df0-f073a4e346ea")
+      (uuid "ad85aca0-f248-46cb-86a9-bf1f00214e8a")
     )
     (pin
       "26"
-      (uuid "011ccca1-07b3-4718-85c2-156852a3f1b7")
+      (uuid "d0b08505-d614-4cb0-a0c0-b2d233b6ce03")
     )
     (pin
       "27"
-      (uuid "0768428d-056f-4fa3-bd48-e41430042716")
+      (uuid "87e8318f-ef96-466f-9b8b-90112e522885")
     )
     (pin
       "28"
-      (uuid "059c1507-db7f-4797-8c18-f9d308fb5d8d")
+      (uuid "690018d2-4639-48d3-89f3-a3e064f12502")
     )
     (pin
       "29"
-      (uuid "cf1b30de-d075-4a90-8d88-a9afd58dfe07")
+      (uuid "eaf5e17e-d7ee-4ca9-9e06-cc7912cc6dc0")
     )
     (pin
       "30"
-      (uuid "28ec6419-a814-414c-9e89-0cf879cf7477")
+      (uuid "be3c167b-e13e-4e70-a0f4-5b85baa702bd")
     )
     (pin
       "31"
-      (uuid "7119b03c-2fec-40d6-8f72-ddd2906146e6")
+      (uuid "6168c8ee-11f8-443d-824f-4d1f769176f1")
     )
     (pin
       "32"
-      (uuid "b2868193-edac-40da-a731-afb4676caf39")
+      (uuid "76fa2bef-98cb-4d72-a839-abfe24e0c9c7")
     )
     (pin
       "33"
-      (uuid "0ad84062-a9e4-4a2c-b08c-dfccbccc4fcf")
+      (uuid "b142200c-f234-4d95-ba21-30337cf40dc8")
     )
     (pin
       "34"
-      (uuid "ad60a541-5789-4d14-a153-daef5ad013f3")
+      (uuid "0294faa9-94e1-435c-b263-6d73e109c0be")
     )
     (pin
       "35"
-      (uuid "82fc87d9-7c04-4d7e-b05e-5a0b8d3624de")
+      (uuid "6c57cefc-3ff3-44e3-867f-58fd744df8b7")
     )
     (pin
       "36"
-      (uuid "9a5022fe-b5e0-46bd-a2c3-8ee565ddbfbc")
+      (uuid "a0c073e5-f569-48a6-908c-99d7cd74b1ea")
     )
     (pin
       "37"
-      (uuid "c0019c38-0429-4eb4-a5c8-ec3e61899c43")
+      (uuid "f9eb2d00-fea6-400c-8872-2dac6a922882")
     )
     (pin
       "38"
-      (uuid "64ca80c0-a46f-40e4-ad4d-03cf1a021bae")
+      (uuid "8c7754f9-ea0a-4339-bf04-ecc6a997033e")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "U1")
           (unit 1)
         )
@@ -2758,7 +2758,7 @@
       (width 0)
       (type default)
     )
-    (uuid "f02b7914-4181-4aa0-95e0-94c32891d04a")
+    (uuid "81b5ebb2-424d-4bb2-9754-b6429b9cfbe7")
   )
   (global_label
     "GND"
@@ -2771,7 +2771,7 @@
       )
       (justify right)
     )
-    (uuid "ec846754-cac2-44aa-9a42-f6316c7a08b4")
+    (uuid "3d594d5d-2ad2-4397-ab9e-e318a22e15f2")
   )
   (wire
     (pts
@@ -2782,7 +2782,7 @@
       (width 0)
       (type default)
     )
-    (uuid "928381f5-d05c-447e-989c-815d9a2956a6")
+    (uuid "33d0c742-fb19-4907-b995-8e73eff28f5b")
   )
   (global_label
     "3V3"
@@ -2795,7 +2795,7 @@
       )
       (justify right)
     )
-    (uuid "71c54fe2-eede-4324-8590-d4604fd61143")
+    (uuid "a8f22e2f-9e39-4481-a259-112ba34d1d54")
   )
   (wire
     (pts
@@ -2806,7 +2806,7 @@
       (width 0)
       (type default)
     )
-    (uuid "debcb8ae-6619-4652-9bef-848d48cbd7e2")
+    (uuid "035e54f7-e8fb-4541-92bf-8a34468a3bb0")
   )
   (global_label
     "EN"
@@ -2819,7 +2819,7 @@
       )
       (justify right)
     )
-    (uuid "767c7413-283f-49bd-bb0c-ca57b5f60486")
+    (uuid "e81b97cc-f5be-438e-9cd0-de96f5d24401")
   )
   (wire
     (pts
@@ -2830,7 +2830,7 @@
       (width 0)
       (type default)
     )
-    (uuid "1c031cea-68d3-4791-84c4-fdcca60f20fd")
+    (uuid "ac91f907-8468-4378-97af-5a214220f0fb")
   )
   (global_label
     "IO14"
@@ -2843,7 +2843,7 @@
       )
       (justify right)
     )
-    (uuid "7afaf83e-335d-4f0a-abe2-67d2f63b89c0")
+    (uuid "920a9865-95ec-4508-9daa-4ce5d92db7fe")
   )
   (wire
     (pts
@@ -2854,7 +2854,7 @@
       (width 0)
       (type default)
     )
-    (uuid "a714b640-6685-489b-b26b-edd392cd3136")
+    (uuid "94f579e1-0626-404c-b29b-3ad9c57a7a6f")
   )
   (global_label
     "IO12"
@@ -2867,7 +2867,7 @@
       )
       (justify right)
     )
-    (uuid "5dccb7e1-fd6a-4bab-a631-a318ccf62293")
+    (uuid "bb2218c7-0a17-43f8-87f8-57eeb3f7ee0f")
   )
   (wire
     (pts
@@ -2878,7 +2878,7 @@
       (width 0)
       (type default)
     )
-    (uuid "9f6ebcd4-d892-4fa0-85dc-0ca58a5ff181")
+    (uuid "d038096f-3d4d-4e49-a411-ca0312b61b1e")
   )
   (global_label
     "GND"
@@ -2891,7 +2891,7 @@
       )
       (justify right)
     )
-    (uuid "9e83e2d7-99c0-4abd-80f6-a3cd9d022f6b")
+    (uuid "7cd29a20-ae5b-42f0-a5ea-b33c32022511")
   )
   (wire
     (pts
@@ -2902,7 +2902,7 @@
       (width 0)
       (type default)
     )
-    (uuid "84dff7de-d0c7-4df3-9360-ff6d92cb24c5")
+    (uuid "0acfa55e-4506-49dd-8235-240975756b01")
   )
   (global_label
     "IO13"
@@ -2915,7 +2915,7 @@
       )
       (justify right)
     )
-    (uuid "68f15565-de0b-49b3-8577-41ce66075206")
+    (uuid "b1bd5d13-6da7-40f5-a8b1-625bd51ea0bd")
   )
   (wire
     (pts
@@ -2926,7 +2926,7 @@
       (width 0)
       (type default)
     )
-    (uuid "1122a560-8b0c-4295-bbb4-157e560b1b76")
+    (uuid "c40da62a-bbf6-418a-8134-f7f12471fe04")
   )
   (global_label
     "IO15"
@@ -2939,7 +2939,7 @@
       )
       (justify left)
     )
-    (uuid "e0f6f6eb-760d-42a7-8951-569c7e566217")
+    (uuid "bea67890-ae32-4d09-a9f0-b5fc38c30067")
   )
   (wire
     (pts
@@ -2950,7 +2950,7 @@
       (width 0)
       (type default)
     )
-    (uuid "580711e1-92ad-446d-9269-63bd7b1d548b")
+    (uuid "ef7289c4-6aa1-4ce6-bf22-5e6d12ed98e7")
   )
   (global_label
     "IO2"
@@ -2963,7 +2963,7 @@
       )
       (justify left)
     )
-    (uuid "deaeab7a-2ae2-42f7-8a8a-cfebf6c302c2")
+    (uuid "28e4dccc-29f7-4cfa-ba37-7b985fec2f95")
   )
   (wire
     (pts
@@ -2974,7 +2974,7 @@
       (width 0)
       (type default)
     )
-    (uuid "8a6f7b3f-4122-4daf-acb0-28f89cdece83")
+    (uuid "6f458861-7a0e-4740-8352-21825ce4186f")
   )
   (global_label
     "IO0"
@@ -2987,7 +2987,7 @@
       )
       (justify left)
     )
-    (uuid "29611a9c-c294-4149-8060-930c02d87eb4")
+    (uuid "44002f7f-5151-4479-af3a-47d6f0753320")
   )
   (wire
     (pts
@@ -2998,7 +2998,7 @@
       (width 0)
       (type default)
     )
-    (uuid "9b02c497-d773-4213-8e75-64447e46ea52")
+    (uuid "02ab778b-ed8a-4d0c-acb4-1cf58059b173")
   )
   (global_label
     "IO4"
@@ -3011,7 +3011,7 @@
       )
       (justify left)
     )
-    (uuid "0ca07605-2b64-4322-ad93-567589a3fb7a")
+    (uuid "dbd1ed41-df0d-495e-90ae-b55e76b46c32")
   )
   (wire
     (pts
@@ -3022,7 +3022,7 @@
       (width 0)
       (type default)
     )
-    (uuid "5215b2b4-efbe-4ecd-bc3d-2930fea56013")
+    (uuid "c2fe4fa7-35db-436f-b9d1-88c4126fe4bb")
   )
   (global_label
     "IO16"
@@ -3035,7 +3035,7 @@
       )
       (justify left)
     )
-    (uuid "948637de-81ba-4d20-99cf-30573ca53722")
+    (uuid "cffb1497-5e3e-4201-9f9c-1c8f988f6510")
   )
   (wire
     (pts
@@ -3046,7 +3046,7 @@
       (width 0)
       (type default)
     )
-    (uuid "ded75702-8b80-45b3-9996-a6a8c1e9d5a8")
+    (uuid "685a0c87-7cb5-4597-b4b4-9ca0621749c8")
   )
   (global_label
     "IO17"
@@ -3059,7 +3059,7 @@
       )
       (justify left)
     )
-    (uuid "e5ecd5b8-4d98-4974-81ba-710a3fdf0b90")
+    (uuid "da1d9fe2-a36f-4899-90f8-58646615ddca")
   )
   (wire
     (pts
@@ -3070,7 +3070,7 @@
       (width 0)
       (type default)
     )
-    (uuid "3be4695c-a95e-4343-8fc3-8c64a12c57ad")
+    (uuid "288b651e-8b8f-49d9-bc0c-003a7de6ebe5")
   )
   (global_label
     "IO5"
@@ -3083,7 +3083,7 @@
       )
       (justify left)
     )
-    (uuid "27c4d4d5-a6dc-4cd2-99a4-885001d9ae58")
+    (uuid "ce74451d-3db8-4f9e-a61a-72650bd44f23")
   )
   (wire
     (pts
@@ -3094,7 +3094,7 @@
       (width 0)
       (type default)
     )
-    (uuid "781a8842-425b-4bc8-860a-a995f2e10991")
+    (uuid "c92a46fe-00db-45da-a6b1-2bbe5ed7ce4a")
   )
   (global_label
     "IO18"
@@ -3107,7 +3107,7 @@
       )
       (justify left)
     )
-    (uuid "efa5d414-ccc5-487f-836e-7fffc6eef75d")
+    (uuid "faf17c3a-5957-49cd-aa72-5d582383c90f")
   )
   (wire
     (pts
@@ -3118,7 +3118,7 @@
       (width 0)
       (type default)
     )
-    (uuid "9823b878-0cba-40a9-863f-fb2f9f4d4daf")
+    (uuid "8db017b1-f1fa-4aff-ac9f-4553e88e954b")
   )
   (global_label
     "IO19"
@@ -3131,7 +3131,7 @@
       )
       (justify left)
     )
-    (uuid "05d889aa-8130-4033-8d71-5c64c446c263")
+    (uuid "64c7c216-0c80-49de-a889-f84dc1ad177c")
   )
   (wire
     (pts
@@ -3142,7 +3142,7 @@
       (width 0)
       (type default)
     )
-    (uuid "5c47cb22-142f-43e1-9039-e7be9ff15cb1")
+    (uuid "38dcb69d-3fab-4264-aeca-394d5c9bf56f")
   )
   (global_label
     "RXD0"
@@ -3155,7 +3155,7 @@
       )
       (justify left)
     )
-    (uuid "584bf40c-063e-4df2-9a48-3b10829f6074")
+    (uuid "92d40a18-e676-44b1-bf49-4aa2f8488a65")
   )
   (wire
     (pts
@@ -3166,7 +3166,7 @@
       (width 0)
       (type default)
     )
-    (uuid "48f05fcf-76e3-4339-ba24-0ed5d41736d0")
+    (uuid "be08ddc6-541f-46e8-8cfb-60a3a41100bf")
   )
   (global_label
     "TXD0"
@@ -3179,7 +3179,7 @@
       )
       (justify left)
     )
-    (uuid "f4119a0c-ab0f-4a1b-a9d8-7d1effd31778")
+    (uuid "d239464b-1ef9-4d7f-b893-77bef151abfa")
   )
   (wire
     (pts
@@ -3190,7 +3190,7 @@
       (width 0)
       (type default)
     )
-    (uuid "18ff7ebf-36e5-45b5-9b28-31e0e38cb3ce")
+    (uuid "ed2d00a1-11cb-4a36-9567-8b382d41128f")
   )
   (global_label
     "GND"
@@ -3203,7 +3203,7 @@
       )
       (justify left)
     )
-    (uuid "e48cceda-5ea2-4b15-85aa-c34143f1c2f7")
+    (uuid "603b57a9-90b4-4945-a885-1c991b9b5e67")
   )
   (symbol
     (lib_id "pcbforge:AMS1117")
@@ -3213,7 +3213,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "8c5ac093-03e1-4034-8b21-e7f87113fd9f")
+    (uuid "7758db01-5a5a-4670-91cc-e54bb9bd01f5")
     (property
       "Reference"
       "U2"
@@ -3260,25 +3260,25 @@
     )
     (pin
       "1"
-      (uuid "40a40a79-9074-45db-99ec-443b417935e2")
+      (uuid "16d7bee8-322f-4f2d-94d2-25e4a3a66300")
     )
     (pin
       "3"
-      (uuid "438c6a9c-848a-4421-a665-dc4a3d90fc32")
+      (uuid "479f6b01-1c42-43fc-94dd-7c184ad76b48")
     )
     (pin
       "2"
-      (uuid "f864c2b2-5a60-4145-9df4-b3a1477ef9a4")
+      (uuid "0c45be50-28ee-4c0a-9d45-1f83ccc81e79")
     )
     (pin
       "4"
-      (uuid "2bc59275-f555-42e5-bccd-d6589578192c")
+      (uuid "7d55d322-9653-4c26-9cf3-6d8635ebed18")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "U2")
           (unit 1)
         )
@@ -3294,7 +3294,7 @@
       (width 0)
       (type default)
     )
-    (uuid "004874b6-b6ea-4c7c-949f-bb87a4f98b59")
+    (uuid "7cff9a33-37de-48ba-b3c4-0a9539c01dd4")
   )
   (global_label
     "GND"
@@ -3307,7 +3307,7 @@
       )
       (justify right)
     )
-    (uuid "04db0e77-e944-4db7-9c2c-cfeed34207fc")
+    (uuid "00aef80b-46b5-4ca0-83cf-59aa8f5d1966")
   )
   (wire
     (pts
@@ -3318,7 +3318,7 @@
       (width 0)
       (type default)
     )
-    (uuid "6059e083-e4fa-4b5b-bece-604fd90814ec")
+    (uuid "32ec6872-bcf5-4995-97f4-85ba6a1d8c7e")
   )
   (global_label
     "VBUS"
@@ -3331,7 +3331,7 @@
       )
       (justify right)
     )
-    (uuid "fe9012eb-00eb-48ed-8714-f23a060a67c3")
+    (uuid "6b3edae3-88ff-4c9c-adac-8a1e02ddfd7c")
   )
   (wire
     (pts
@@ -3342,7 +3342,7 @@
       (width 0)
       (type default)
     )
-    (uuid "2cfb0e1d-d90c-4d1b-8905-2155dd706037")
+    (uuid "d819a24d-a85a-4031-81cc-b27dbd418fd8")
   )
   (global_label
     "3V3"
@@ -3355,7 +3355,7 @@
       )
       (justify left)
     )
-    (uuid "a936acb9-5d9c-48f1-8ea6-5b1ccd63d4e9")
+    (uuid "96254306-deae-461c-9bb1-2281e0a4ee30")
   )
   (wire
     (pts
@@ -3366,7 +3366,7 @@
       (width 0)
       (type default)
     )
-    (uuid "ab0a9411-a6f7-482e-989b-26543818a50b")
+    (uuid "92d36c49-1ea3-431a-a8f2-c51594f581ba")
   )
   (global_label
     "3V3"
@@ -3379,7 +3379,7 @@
       )
       (justify left)
     )
-    (uuid "d3a42515-52f0-4910-a447-a2bf8298e599")
+    (uuid "ead4e3f4-481c-4e7b-bfb0-18a0773c0579")
   )
   (symbol
     (lib_id "pcbforge:USB_Micro-B")
@@ -3389,7 +3389,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "5de88321-b377-42fd-9498-db6959cce48e")
+    (uuid "9667cae2-1a64-426c-9c59-d6cf174b7ae4")
     (property
       "Reference"
       "J1"
@@ -3436,33 +3436,33 @@
     )
     (pin
       "1"
-      (uuid "299e0ed2-992f-4ad2-803d-595d095824a7")
+      (uuid "b8586d7f-df1d-46ea-8ff6-77269327ea20")
     )
     (pin
       "2"
-      (uuid "9fbcd6b1-8fc5-4ce6-baaa-4a3c4717fb0f")
+      (uuid "66178dff-473c-4717-9c14-5598b67662c3")
     )
     (pin
       "3"
-      (uuid "ec18d663-da6a-4c1f-bcbf-fdd24118e29a")
+      (uuid "6d183da7-156f-4bfb-88bf-29b76113b193")
     )
     (pin
       "4"
-      (uuid "de1c4fa0-6cd5-47f5-8bdb-dc604f7dadd8")
+      (uuid "f0e0e7e2-1218-4504-b631-ec5e3a465d70")
     )
     (pin
       "5"
-      (uuid "6e1bd26b-ab10-4459-a778-1443c201fb7b")
+      (uuid "c1951860-ff5c-420c-9d50-99860407436d")
     )
     (pin
       "MP"
-      (uuid "bc9258cf-fb40-4465-9c01-c930c4c02849")
+      (uuid "cc6c224f-f9e9-4c5d-b020-c96fca271770")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "J1")
           (unit 1)
         )
@@ -3478,7 +3478,7 @@
       (width 0)
       (type default)
     )
-    (uuid "4c14ddd3-dd33-40b4-82bc-f11a7990edb0")
+    (uuid "a76e32aa-8b0d-4765-8dc9-5580cf39fa12")
   )
   (global_label
     "VBUS"
@@ -3491,7 +3491,7 @@
       )
       (justify right)
     )
-    (uuid "f913d7d8-2786-4bd7-aeaf-861406f34fad")
+    (uuid "e30a6db2-6022-44f1-8dad-9e185a48fc0e")
   )
   (wire
     (pts
@@ -3502,7 +3502,7 @@
       (width 0)
       (type default)
     )
-    (uuid "5a589c32-a957-4fea-8961-34f29ed8281c")
+    (uuid "ac36b073-5d49-4db6-bc06-21c7ca510c77")
   )
   (global_label
     "GND"
@@ -3515,7 +3515,7 @@
       )
       (justify right)
     )
-    (uuid "d023572f-3c9e-44c2-8f0e-a5b58b0dd4b8")
+    (uuid "a26b845e-74f2-4fe1-b11f-32bdf3dfefad")
   )
   (wire
     (pts
@@ -3526,7 +3526,7 @@
       (width 0)
       (type default)
     )
-    (uuid "25e9a405-94b4-485b-8bc6-ba35da7405f0")
+    (uuid "48f685e8-283b-4e2d-8595-f6b45a93a0c1")
   )
   (global_label
     "GND"
@@ -3539,7 +3539,7 @@
       )
       (justify left)
     )
-    (uuid "0b5f21aa-4936-46d8-9afa-f4f39d94eb20")
+    (uuid "1e9d5d1c-75f5-40ba-9738-02bf98202a03")
   )
   (symbol
     (lib_id "pcbforge:CP")
@@ -3549,7 +3549,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "e1af2402-3ac8-445a-8d82-0a17b5e65d23")
+    (uuid "77fa2bc7-4ace-4a1a-84fb-8fcc7d5cee89")
     (property
       "Reference"
       "C1"
@@ -3596,17 +3596,17 @@
     )
     (pin
       "1"
-      (uuid "3e0890c5-c786-4d92-a905-219bee926ed1")
+      (uuid "9374d86b-19c2-40e0-b5a5-cc2600685b01")
     )
     (pin
       "2"
-      (uuid "5b1e2831-fa8a-4932-a01d-8d07d5d1cb39")
+      (uuid "acd37642-9aa8-4bc5-8d9f-93ed12c10646")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "C1")
           (unit 1)
         )
@@ -3622,7 +3622,7 @@
       (width 0)
       (type default)
     )
-    (uuid "c88cf849-3ea1-44da-b3b3-9308892e0e0a")
+    (uuid "cc86a735-246f-45ee-a4dd-f103fe812a3b")
   )
   (global_label
     "VBUS"
@@ -3635,7 +3635,7 @@
       )
       (justify left)
     )
-    (uuid "cab962ec-3cc7-41e1-a094-5e7b75aabb50")
+    (uuid "166f2fd0-40d4-4d42-852f-f985af43bfc3")
   )
   (wire
     (pts
@@ -3646,7 +3646,7 @@
       (width 0)
       (type default)
     )
-    (uuid "f10ab985-db9e-4f28-a51d-a433b9bdcf76")
+    (uuid "2004949d-ffc6-4d74-ac6c-61651bc4494d")
   )
   (global_label
     "GND"
@@ -3659,7 +3659,7 @@
       )
       (justify left)
     )
-    (uuid "822f4153-9fd6-49c1-b228-e79e642d9c58")
+    (uuid "1840a9fe-8d19-4efe-91a9-4312fc496f9e")
   )
   (symbol
     (lib_id "pcbforge:CP")
@@ -3669,7 +3669,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "c36600a8-416c-47a1-864f-030569b15cde")
+    (uuid "05d3c95f-03c8-4f80-89ce-d346853a94b2")
     (property
       "Reference"
       "C2"
@@ -3716,17 +3716,17 @@
     )
     (pin
       "1"
-      (uuid "07774e5a-5686-4ae7-9b54-3c255dc7222f")
+      (uuid "8e543282-0e11-42bb-a803-1adb3dfa43d0")
     )
     (pin
       "2"
-      (uuid "5161c923-5836-447d-8678-53599df56f7d")
+      (uuid "bb1d83c5-cc76-4d7d-8f83-2a39bf0bbce8")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "C2")
           (unit 1)
         )
@@ -3742,7 +3742,7 @@
       (width 0)
       (type default)
     )
-    (uuid "d04eefbe-082f-41bd-8f45-729941741f1d")
+    (uuid "785773a8-a1a5-4d1c-903d-ddbe16ca637b")
   )
   (global_label
     "3V3"
@@ -3755,7 +3755,7 @@
       )
       (justify left)
     )
-    (uuid "1099a3e3-a1c6-47ad-966a-df14bd11827e")
+    (uuid "64a508bb-e7c1-4955-9a4b-ced8acd90408")
   )
   (wire
     (pts
@@ -3766,7 +3766,7 @@
       (width 0)
       (type default)
     )
-    (uuid "49df7508-f787-4f3c-b1ea-78fb7b32b9cf")
+    (uuid "cf1360d4-3c89-458a-a15c-1125c5820fe9")
   )
   (global_label
     "GND"
@@ -3779,7 +3779,7 @@
       )
       (justify left)
     )
-    (uuid "e39feeb3-2ae8-4bca-a3a0-feb175bf659f")
+    (uuid "85722dfe-0ad1-436a-ba56-f7d684b2321b")
   )
   (symbol
     (lib_id "pcbforge:C")
@@ -3789,7 +3789,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "b7263f07-1a60-48ac-b072-3c3c2caafe5c")
+    (uuid "9768d75f-0cfb-476d-804c-27f8648f4e94")
     (property
       "Reference"
       "C3"
@@ -3836,17 +3836,17 @@
     )
     (pin
       "1"
-      (uuid "f3fe2cbd-9179-4228-9b12-13b9a7119b13")
+      (uuid "9659c9c8-7061-4bac-a9ec-1c3ba3b54366")
     )
     (pin
       "2"
-      (uuid "e8e06ed8-051b-4815-977d-5be87cb4ccb3")
+      (uuid "07e0bb5b-43cc-46bc-835e-c3f42d46ab31")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "C3")
           (unit 1)
         )
@@ -3862,7 +3862,7 @@
       (width 0)
       (type default)
     )
-    (uuid "d4498ece-6a2c-4712-b3fc-31db5dee1f61")
+    (uuid "1b23fed1-88d0-481f-8db9-9f104dda6629")
   )
   (global_label
     "3V3"
@@ -3875,7 +3875,7 @@
       )
       (justify left)
     )
-    (uuid "af4ccfe6-b276-48f3-831f-3b7d8be956f6")
+    (uuid "336bfded-d1a1-4061-b0fb-922ae44ac1dc")
   )
   (wire
     (pts
@@ -3886,7 +3886,7 @@
       (width 0)
       (type default)
     )
-    (uuid "e52ad06e-b460-4d79-9edb-ce02769254ce")
+    (uuid "c5b8901a-fa59-4729-b6b2-c6e41b9430aa")
   )
   (global_label
     "GND"
@@ -3899,7 +3899,7 @@
       )
       (justify left)
     )
-    (uuid "682569d0-178f-49f0-b33b-7337e80d3a63")
+    (uuid "bf1d4ea2-8d37-4b5e-b868-96c9eac8920f")
   )
   (symbol
     (lib_id "pcbforge:C")
@@ -3909,7 +3909,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "d13caf82-eeef-447a-a829-12adc052963e")
+    (uuid "6024e742-4a2d-4a35-838c-676382352291")
     (property
       "Reference"
       "C4"
@@ -3956,17 +3956,17 @@
     )
     (pin
       "1"
-      (uuid "99e85fa3-e4ab-4c1c-9ed0-7c3c1dfa403a")
+      (uuid "83529979-1c23-4bfc-b6ce-77d2b26b9db9")
     )
     (pin
       "2"
-      (uuid "402b66f8-5963-49d0-af08-a9bea6220196")
+      (uuid "e99bbfa9-2151-4386-a55a-6f79decd30ce")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "C4")
           (unit 1)
         )
@@ -3982,7 +3982,7 @@
       (width 0)
       (type default)
     )
-    (uuid "ef3b3547-2ab0-49d6-b1c5-44ea26fd49dd")
+    (uuid "91a1ba29-2ccd-410a-b873-b2f14f2ffa6e")
   )
   (global_label
     "EN"
@@ -3995,7 +3995,7 @@
       )
       (justify left)
     )
-    (uuid "77d015bb-b8a2-431b-a70b-60593422b428")
+    (uuid "bb8abc23-5b54-44c3-908c-887ef667990c")
   )
   (wire
     (pts
@@ -4006,7 +4006,7 @@
       (width 0)
       (type default)
     )
-    (uuid "3d9ea6e8-928d-4bbf-ac76-944d8e1c89fb")
+    (uuid "8af35a96-932d-4cdf-8bf4-9afeb65be7a5")
   )
   (global_label
     "GND"
@@ -4019,7 +4019,7 @@
       )
       (justify left)
     )
-    (uuid "6837e2c3-d9a3-4579-a635-f0ecd4e2a186")
+    (uuid "4d340f8e-65bd-473a-8a07-624247f154f1")
   )
   (symbol
     (lib_id "pcbforge:R")
@@ -4029,7 +4029,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "e102e979-dba8-4bfd-953e-721a01f8d340")
+    (uuid "7987bf25-9297-4a25-8ea6-5c14c142e488")
     (property
       "Reference"
       "R1"
@@ -4076,17 +4076,17 @@
     )
     (pin
       "1"
-      (uuid "8d81b33d-b2f3-45e9-ab3d-783b51cc06b9")
+      (uuid "cfe22c4c-39ff-432b-b997-9a2a8e167ecc")
     )
     (pin
       "2"
-      (uuid "87d9d43e-3976-4e4b-ab8c-3f21655d962c")
+      (uuid "1c269f4f-dbba-454f-b2fe-4fa10b201325")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "R1")
           (unit 1)
         )
@@ -4102,7 +4102,7 @@
       (width 0)
       (type default)
     )
-    (uuid "9afd3c11-2b76-4b60-b406-1d8a0938e697")
+    (uuid "5aca65ca-2a5d-4075-9b63-cee918b1aa9f")
   )
   (global_label
     "3V3"
@@ -4115,7 +4115,7 @@
       )
       (justify left)
     )
-    (uuid "0ed38bcd-1682-4720-8d3d-57b4f14d52b1")
+    (uuid "7a057986-c1c2-4ab9-9ce8-e4046fcec63d")
   )
   (wire
     (pts
@@ -4126,7 +4126,7 @@
       (width 0)
       (type default)
     )
-    (uuid "6edd3ee2-4e3c-4651-9a23-9cdefbcac245")
+    (uuid "d466278e-0679-4888-ab6a-9deebe5fff67")
   )
   (global_label
     "EN"
@@ -4139,7 +4139,7 @@
       )
       (justify left)
     )
-    (uuid "bbbf3005-0a36-4bbd-8700-4c3c969cbf60")
+    (uuid "47897f01-1557-46f0-ae87-a887ba5c64e7")
   )
   (symbol
     (lib_id "pcbforge:R")
@@ -4149,7 +4149,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "bdd9ca1d-0435-4c1a-96f3-5847aed1aa02")
+    (uuid "5f894f56-1c96-4928-ba42-c7fa6ecff67a")
     (property
       "Reference"
       "R2"
@@ -4196,17 +4196,17 @@
     )
     (pin
       "1"
-      (uuid "4a39ecf2-df80-451f-99eb-6bc1a3942ca1")
+      (uuid "71781e74-9f25-4411-82ef-2bee9933312e")
     )
     (pin
       "2"
-      (uuid "c5dd122d-751e-4fc5-91a9-4efe6a03c66a")
+      (uuid "80ec8236-45d0-4cad-85bb-35e82616e1d6")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "R2")
           (unit 1)
         )
@@ -4222,7 +4222,7 @@
       (width 0)
       (type default)
     )
-    (uuid "fed5a825-f41c-49d4-84b8-bab785ba5044")
+    (uuid "2d2c6e5d-ae70-4e2b-8042-f3c4b4cff489")
   )
   (global_label
     "3V3"
@@ -4235,7 +4235,7 @@
       )
       (justify left)
     )
-    (uuid "601c0a89-cabf-466c-8088-f334caaa41a4")
+    (uuid "b8370c9e-b11b-46cd-819b-66901fcef240")
   )
   (wire
     (pts
@@ -4246,7 +4246,7 @@
       (width 0)
       (type default)
     )
-    (uuid "5355699b-5bce-4d29-a02f-256a3e6e1680")
+    (uuid "b463bdf7-f452-430e-87e8-02f2c1c3d239")
   )
   (global_label
     "IO0"
@@ -4259,7 +4259,7 @@
       )
       (justify left)
     )
-    (uuid "4e12de5f-e50d-4c35-a13b-9bcce2d363c8")
+    (uuid "ff366f6f-d9e5-4793-9420-37979667ce19")
   )
   (symbol
     (lib_id "pcbforge:R")
@@ -4269,7 +4269,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "10672006-b1f9-4a16-8f5b-cbc58435b8c9")
+    (uuid "aa75aabf-ab47-44a4-bf0e-9537da219b7b")
     (property
       "Reference"
       "R3"
@@ -4316,17 +4316,17 @@
     )
     (pin
       "1"
-      (uuid "3f963582-dc1d-4f4e-9a4b-d1041e0df0a2")
+      (uuid "f04eea49-9485-4e05-99c9-d30f19a0d149")
     )
     (pin
       "2"
-      (uuid "a8e9a9e4-c8bc-4881-b14f-bb8c73a2bd19")
+      (uuid "224bca97-a324-40f6-963e-a559610df8d7")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "R3")
           (unit 1)
         )
@@ -4342,7 +4342,7 @@
       (width 0)
       (type default)
     )
-    (uuid "32d871b9-9995-4db7-8c61-a98b283f0717")
+    (uuid "e0e340a9-7c02-4165-9c37-28d7df6d2d91")
   )
   (global_label
     "IO2"
@@ -4355,7 +4355,7 @@
       )
       (justify left)
     )
-    (uuid "4aee85be-c120-4d28-95ba-8747a9cda045")
+    (uuid "35c5ff62-e8d4-4b1e-8b30-022992e687d6")
   )
   (wire
     (pts
@@ -4366,7 +4366,7 @@
       (width 0)
       (type default)
     )
-    (uuid "cb617a26-1237-45d2-bb0e-34d6b968c041")
+    (uuid "8ec98b03-fe4b-4c9a-857d-dd1e5c89a481")
   )
   (global_label
     "LED_A"
@@ -4379,7 +4379,7 @@
       )
       (justify left)
     )
-    (uuid "406ac12d-4a3f-46f2-9927-08d37827e662")
+    (uuid "c6b34886-3992-468b-bd1f-85f9d5091ad8")
   )
   (symbol
     (lib_id "pcbforge:LED")
@@ -4389,7 +4389,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "79ad2029-c1f6-4c75-8409-4fa327019348")
+    (uuid "f9869cd8-4942-4cb7-9814-c0ccef83aa64")
     (property
       "Reference"
       "LED1"
@@ -4436,17 +4436,17 @@
     )
     (pin
       "1"
-      (uuid "acffe4a1-fdad-402d-8c3d-f048c644ecad")
+      (uuid "f252dcce-916d-4202-b319-b8937bac8277")
     )
     (pin
       "2"
-      (uuid "6ccd9a5b-31c3-4fc3-a3c7-297c056897e4")
+      (uuid "b096b9f1-7036-49c5-b7e0-56a878e7c976")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "LED1")
           (unit 1)
         )
@@ -4462,7 +4462,7 @@
       (width 0)
       (type default)
     )
-    (uuid "f3c8fe66-5fc6-4ed9-9bb1-3e0e13e0f623")
+    (uuid "812a73d9-48e2-4322-b113-be8321c2ffa6")
   )
   (global_label
     "LED_A"
@@ -4475,7 +4475,7 @@
       )
       (justify left)
     )
-    (uuid "d6dfa4bb-1605-4f3a-a3b8-9cd329ee1568")
+    (uuid "54427ed3-2afb-49a0-a6d0-9c0811e31db0")
   )
   (wire
     (pts
@@ -4486,7 +4486,7 @@
       (width 0)
       (type default)
     )
-    (uuid "e2a08b7d-cd4c-444b-848f-155f419596f4")
+    (uuid "da4058fe-d916-4428-8527-762d95ee994e")
   )
   (global_label
     "GND"
@@ -4499,7 +4499,7 @@
       )
       (justify left)
     )
-    (uuid "20b88805-3b6a-4fb4-83b7-e287a67c4ad4")
+    (uuid "cfd6bebd-50cc-4d7f-a342-5e3441ce1407")
   )
   (symbol
     (lib_id "pcbforge:SW_Push")
@@ -4509,7 +4509,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "25cea9c4-7a6f-4264-bf84-9263645df73c")
+    (uuid "28a8e9fd-fbf8-45df-aade-b88505e7994c")
     (property
       "Reference"
       "SW1"
@@ -4556,25 +4556,25 @@
     )
     (pin
       "1"
-      (uuid "2b7a8152-6338-4a34-9646-4b36ab384cdb")
+      (uuid "d7487add-2f4b-4ec1-a2af-793cf5debc0b")
     )
     (pin
       "2"
-      (uuid "5365f28d-3b11-4b7d-aa9e-bad921d7edd8")
+      (uuid "366281f4-69e8-4f70-aba9-e61578a82fd2")
     )
     (pin
       "3"
-      (uuid "e6275cbf-07d7-4d59-b758-d8f8636de3b8")
+      (uuid "b31a6f36-4045-4bd2-ae55-291caf5fb0bc")
     )
     (pin
       "4"
-      (uuid "b85315ae-9e57-4146-9173-d4bce4e5bc6d")
+      (uuid "ce48b261-138a-4b85-9ccc-032a188bdb76")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "SW1")
           (unit 1)
         )
@@ -4590,7 +4590,7 @@
       (width 0)
       (type default)
     )
-    (uuid "c28cf5e2-3891-4d96-9bbb-8cafbec66940")
+    (uuid "4a6de288-7818-48b1-afa3-5781bddb80a9")
   )
   (global_label
     "EN"
@@ -4603,7 +4603,7 @@
       )
       (justify right)
     )
-    (uuid "9364d0f7-06c2-4e29-a583-e43dec3ddb1f")
+    (uuid "14c3afb8-1730-4352-84cd-d0df24456e87")
   )
   (wire
     (pts
@@ -4614,7 +4614,7 @@
       (width 0)
       (type default)
     )
-    (uuid "dc08b3e6-525e-427e-a22a-6fb349c78b49")
+    (uuid "870635a9-db28-4917-8354-58c5f9a71735")
   )
   (global_label
     "EN"
@@ -4627,7 +4627,7 @@
       )
       (justify right)
     )
-    (uuid "be3e3130-9610-4c60-a6df-8efca6936b6b")
+    (uuid "26ba9dfd-729b-4557-b2e6-e77a6f9565b9")
   )
   (wire
     (pts
@@ -4638,7 +4638,7 @@
       (width 0)
       (type default)
     )
-    (uuid "b69d630f-71e0-4e8b-a385-4ff3ee311996")
+    (uuid "f9b44d71-2fb9-4ee6-976b-4fff9e08af33")
   )
   (global_label
     "GND"
@@ -4651,7 +4651,7 @@
       )
       (justify left)
     )
-    (uuid "0382fe6b-c944-4489-b990-d78d23badd5f")
+    (uuid "f4050275-036e-451f-af16-0d31c178be53")
   )
   (wire
     (pts
@@ -4662,7 +4662,7 @@
       (width 0)
       (type default)
     )
-    (uuid "427a1dd3-c555-4238-979b-a8ca7a909a9d")
+    (uuid "2127ae82-de17-4fa8-b8d4-0e780b0cb1e8")
   )
   (global_label
     "GND"
@@ -4675,7 +4675,7 @@
       )
       (justify left)
     )
-    (uuid "5ee0e4f8-c3d2-4ffe-80d8-a321199cb61b")
+    (uuid "98a87f88-44cc-442a-bfd0-53f158d609d5")
   )
   (symbol
     (lib_id "pcbforge:SW_Push")
@@ -4685,7 +4685,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "97d7034c-50a9-45a1-801e-1dc97fe050e5")
+    (uuid "3543c18c-5195-48ba-b311-d29fd58c536a")
     (property
       "Reference"
       "SW2"
@@ -4732,25 +4732,25 @@
     )
     (pin
       "1"
-      (uuid "d7629474-bf72-4be9-9d87-6e3d93651156")
+      (uuid "12eba2f5-0c18-40c2-8cd5-5b7fd07cab1c")
     )
     (pin
       "2"
-      (uuid "78612dec-a660-4c85-a501-3e083aa6d573")
+      (uuid "70bdafcf-cd34-4b84-864a-2cac0573f664")
     )
     (pin
       "3"
-      (uuid "72e8c84d-3b12-456d-9f6a-6bfeb7c2473a")
+      (uuid "78377e44-8586-4848-8453-9b0151372999")
     )
     (pin
       "4"
-      (uuid "e248533c-f16e-42e3-ab08-dace4497e2be")
+      (uuid "bd6760d4-6f12-4c0b-8e01-18bd287642e9")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "SW2")
           (unit 1)
         )
@@ -4766,7 +4766,7 @@
       (width 0)
       (type default)
     )
-    (uuid "6cafed26-78a3-4a23-a0f9-9c48bf09eb38")
+    (uuid "1daa66de-929e-4b58-a6c1-0192e0b48b63")
   )
   (global_label
     "IO0"
@@ -4779,7 +4779,7 @@
       )
       (justify right)
     )
-    (uuid "8efca29b-b835-4102-945f-34b375cc62d6")
+    (uuid "9cd61623-6520-4865-b23e-069b51051727")
   )
   (wire
     (pts
@@ -4790,7 +4790,7 @@
       (width 0)
       (type default)
     )
-    (uuid "f4b6c605-9056-4ae8-8c4e-987eb48f810d")
+    (uuid "c32e6468-b169-4851-93c7-b105aaa556dd")
   )
   (global_label
     "IO0"
@@ -4803,7 +4803,7 @@
       )
       (justify right)
     )
-    (uuid "431a19af-acd5-4ed5-a6bb-4f4ef69e94a4")
+    (uuid "b451c499-8cd9-42d0-89f9-b36955d2f3a6")
   )
   (wire
     (pts
@@ -4814,7 +4814,7 @@
       (width 0)
       (type default)
     )
-    (uuid "b2477315-c5f4-44cd-bf0a-12b3f9735d77")
+    (uuid "8206adea-9733-4258-9814-a75f0aabb46c")
   )
   (global_label
     "GND"
@@ -4827,7 +4827,7 @@
       )
       (justify left)
     )
-    (uuid "0a306578-dcfa-4745-a475-372c9bdf84f6")
+    (uuid "d44f8040-bcb7-4b8a-aff4-3381c487c1eb")
   )
   (wire
     (pts
@@ -4838,7 +4838,7 @@
       (width 0)
       (type default)
     )
-    (uuid "3e67dc81-6c2b-4ee7-9210-0abb1b9323b8")
+    (uuid "1dae81a8-39c3-49ea-a21a-afd9705aae72")
   )
   (global_label
     "GND"
@@ -4851,7 +4851,7 @@
       )
       (justify left)
     )
-    (uuid "abb65446-bcb7-4fad-a2cc-3d416037b08d")
+    (uuid "7f8fd091-da59-43ca-8d1a-91edf6ff66e7")
   )
   (symbol
     (lib_id "pcbforge:Header_1x06")
@@ -4861,7 +4861,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "3e141fa0-ad2e-4143-a739-0ab9eb03d44b")
+    (uuid "690d6941-bbb5-4233-b60a-0e887d964c7c")
     (property
       "Reference"
       "J2"
@@ -4908,33 +4908,33 @@
     )
     (pin
       "1"
-      (uuid "0fa09b7d-eb25-4293-84a3-8aac2bf629c8")
+      (uuid "8b87f34e-b168-4465-923b-4c67c35e7e57")
     )
     (pin
       "2"
-      (uuid "64a67185-e25e-49e8-a8c1-072488b3455d")
+      (uuid "568c74ba-4de8-4b53-a4c6-de6f9dfa4128")
     )
     (pin
       "3"
-      (uuid "656c4aa1-59db-4154-80c2-0579b869d544")
+      (uuid "c0c0adac-9a8d-410b-8bac-1df1cdca0836")
     )
     (pin
       "4"
-      (uuid "388972c1-6f6f-4547-8e72-e26235d49f16")
+      (uuid "97cbcfd0-292c-4eb7-8eec-77a4ced73735")
     )
     (pin
       "5"
-      (uuid "9093ebb5-8663-408c-aa81-15ec9669ccaa")
+      (uuid "46695330-3411-4aad-85b4-38e2fa50ce67")
     )
     (pin
       "6"
-      (uuid "07b2933a-ba28-4877-b01e-8acd7502c584")
+      (uuid "00d482df-4394-4ea4-9277-2b453c12b22c")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "J2")
           (unit 1)
         )
@@ -4950,7 +4950,7 @@
       (width 0)
       (type default)
     )
-    (uuid "97a18662-25a4-425a-90d6-c5d9e1f0b3f3")
+    (uuid "09789079-1a34-4fc0-8bef-a679bf91ef66")
   )
   (global_label
     "GND"
@@ -4963,7 +4963,7 @@
       )
       (justify right)
     )
-    (uuid "9312b304-d2ca-4998-a107-c38ede036ead")
+    (uuid "14d52b2c-e1e9-4cb3-b4d1-4dc6945764de")
   )
   (wire
     (pts
@@ -4974,7 +4974,7 @@
       (width 0)
       (type default)
     )
-    (uuid "1dd11f57-b8a5-4231-8c8c-b72649b7c3a5")
+    (uuid "4f794b8a-fccf-42e4-9d5d-d6693a94a9db")
   )
   (global_label
     "3V3"
@@ -4987,7 +4987,7 @@
       )
       (justify right)
     )
-    (uuid "904c2631-e083-4c62-a682-6ec67b2da919")
+    (uuid "e8cbad9f-4456-41ce-ad07-2814b4941413")
   )
   (wire
     (pts
@@ -4998,7 +4998,7 @@
       (width 0)
       (type default)
     )
-    (uuid "44e84fd3-320e-4c9c-875e-950d5826ba99")
+    (uuid "63eafaec-195b-49ee-9994-59f5fa506c9e")
   )
   (global_label
     "EN"
@@ -5011,7 +5011,7 @@
       )
       (justify right)
     )
-    (uuid "d9eb0c05-c1e6-4be8-a3b3-d65639075d43")
+    (uuid "77eabe0f-2323-4c09-a031-d5270ac7e179")
   )
   (wire
     (pts
@@ -5022,7 +5022,7 @@
       (width 0)
       (type default)
     )
-    (uuid "fe011250-3096-4e82-8b19-490400e34011")
+    (uuid "022d6928-a813-43e7-a989-946ec3561a61")
   )
   (global_label
     "IO0"
@@ -5035,7 +5035,7 @@
       )
       (justify left)
     )
-    (uuid "dc23ed6e-42ac-4e5c-8923-7e0e66b9c9fc")
+    (uuid "5aacd55f-4eaf-485f-8a2d-2b59bcf81eea")
   )
   (wire
     (pts
@@ -5046,7 +5046,7 @@
       (width 0)
       (type default)
     )
-    (uuid "129283ac-bffb-4f49-8ff0-4a3fa80611ec")
+    (uuid "40fe75d8-102f-4a23-89e3-856fca930a55")
   )
   (global_label
     "TXD0"
@@ -5059,7 +5059,7 @@
       )
       (justify left)
     )
-    (uuid "c6a6ff92-d945-4590-968c-a67932ed6b69")
+    (uuid "79d33f34-ee3f-4662-beae-983cfd8b7fd7")
   )
   (wire
     (pts
@@ -5070,7 +5070,7 @@
       (width 0)
       (type default)
     )
-    (uuid "bdc7a078-c8e4-4a01-8499-3e0cabdb9b84")
+    (uuid "8c0c0bde-e9c6-4ae6-bb68-834684a884e7")
   )
   (global_label
     "RXD0"
@@ -5083,7 +5083,7 @@
       )
       (justify left)
     )
-    (uuid "ce56ddc7-dcb0-4aa3-8fa9-dc1d48131393")
+    (uuid "2b41c336-9f70-4e60-8c9a-83788d8c7165")
   )
   (symbol
     (lib_id "pcbforge:Header_1x10")
@@ -5093,7 +5093,7 @@
     (in_bom yes)
     (on_board yes)
     (dnp no)
-    (uuid "467069c8-281a-4060-a3d6-2ec0a235e0c8")
+    (uuid "133ce330-fa5a-4c77-9e5e-70d760ef5d90")
     (property
       "Reference"
       "J3"
@@ -5140,49 +5140,49 @@
     )
     (pin
       "1"
-      (uuid "c64b7a92-78e5-4bc5-abe4-a0fa5c63ad74")
+      (uuid "a3e19eff-faf4-4eda-8886-e6a4a0611f65")
     )
     (pin
       "2"
-      (uuid "6e944ec9-0c25-44c1-830e-d3dd45d33311")
+      (uuid "aa9071d7-d854-40ff-a9aa-54f20969ea92")
     )
     (pin
       "3"
-      (uuid "b987740b-e58d-4ce6-b2d6-71be98dd1227")
+      (uuid "910cd9b8-cde3-4f21-8967-5f633d765fb9")
     )
     (pin
       "4"
-      (uuid "8cc88a16-4126-4e51-9392-c0f9eb12be35")
+      (uuid "de2081b2-9cf4-4b06-ae33-7e967a8e8c72")
     )
     (pin
       "5"
-      (uuid "e3ca41d2-4e00-4c67-a176-4cc5bf62bef6")
+      (uuid "c2da2f4b-ff13-48b3-a2f4-7187d7e203ce")
     )
     (pin
       "6"
-      (uuid "7629924f-c631-441d-9980-533fecb95f2e")
+      (uuid "20aa4040-626e-4b1d-a097-d8053a6c7a84")
     )
     (pin
       "7"
-      (uuid "88be88a2-25e9-4485-a26f-99fe3dde0fd9")
+      (uuid "06aa3942-7dc7-421b-8f95-53ca85c1a6f0")
     )
     (pin
       "8"
-      (uuid "912163a8-741c-4f53-a952-e62182717f18")
+      (uuid "189d94cb-cd5a-41bc-9c99-5f35bace9533")
     )
     (pin
       "9"
-      (uuid "ed72c119-2f97-40dd-99ba-c7249983a9e6")
+      (uuid "413d4016-d842-453b-b014-d943bc1010e1")
     )
     (pin
       "10"
-      (uuid "8faa606e-3352-4389-aa55-35727e80a074")
+      (uuid "86902e4b-0b39-47a2-b55e-03ae493cbdf1")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "J3")
           (unit 1)
         )
@@ -5198,7 +5198,7 @@
       (width 0)
       (type default)
     )
-    (uuid "0a3ba784-dcca-43f5-bc1c-5d7f4c9b1675")
+    (uuid "05d2d8ee-7b34-4cdf-84c0-e9286b37ca52")
   )
   (global_label
     "IO4"
@@ -5211,7 +5211,7 @@
       )
       (justify right)
     )
-    (uuid "31640ede-b40e-4f7f-8d43-8a7b6b17728f")
+    (uuid "22328b55-8fcf-4217-806d-d09577d70f03")
   )
   (wire
     (pts
@@ -5222,7 +5222,7 @@
       (width 0)
       (type default)
     )
-    (uuid "7d0c7e8d-a26a-4e33-bb11-02783555ea92")
+    (uuid "040d0f4e-6234-49c3-a4d0-394fe8fb6513")
   )
   (global_label
     "IO5"
@@ -5235,7 +5235,7 @@
       )
       (justify right)
     )
-    (uuid "cd895b11-5997-4ae4-9f50-64293e0ea1d9")
+    (uuid "208e3e88-cd72-48f1-aead-eb8c89aaf40e")
   )
   (wire
     (pts
@@ -5246,7 +5246,7 @@
       (width 0)
       (type default)
     )
-    (uuid "181a0bda-10ac-4915-8e6f-e0b6e570b821")
+    (uuid "f2321b60-c6cd-4106-8ae5-8abfcf592889")
   )
   (global_label
     "IO12"
@@ -5259,7 +5259,7 @@
       )
       (justify right)
     )
-    (uuid "95352910-d667-41c7-b326-5550a8d1daa3")
+    (uuid "327a946b-4b61-4518-b65b-c83e4ec52255")
   )
   (wire
     (pts
@@ -5270,7 +5270,7 @@
       (width 0)
       (type default)
     )
-    (uuid "17bcbf89-61e1-411a-9158-19b48519faa7")
+    (uuid "fa94adbe-4f6b-44ab-b391-62c4cd5fa252")
   )
   (global_label
     "IO13"
@@ -5283,7 +5283,7 @@
       )
       (justify right)
     )
-    (uuid "3a226edb-ca0a-4280-bc9d-1a9c70108cb5")
+    (uuid "529f23b9-bf51-4dc3-b3c9-2526b9b78958")
   )
   (wire
     (pts
@@ -5294,7 +5294,7 @@
       (width 0)
       (type default)
     )
-    (uuid "97b654b1-0974-4fa4-8ddc-0ae07c083afc")
+    (uuid "754bcaff-15b2-4f3d-a1fe-e003706289c9")
   )
   (global_label
     "IO14"
@@ -5307,7 +5307,7 @@
       )
       (justify right)
     )
-    (uuid "672c0208-81ff-4e88-aada-fa94ea0eca40")
+    (uuid "6bdedb22-1c06-4f7e-8fca-f22c8aff1a06")
   )
   (wire
     (pts
@@ -5318,7 +5318,7 @@
       (width 0)
       (type default)
     )
-    (uuid "3fae824f-c751-492b-a91d-580114278649")
+    (uuid "b1213dc4-b9fa-437b-98e0-1ef3f3b095bc")
   )
   (global_label
     "IO15"
@@ -5331,7 +5331,7 @@
       )
       (justify left)
     )
-    (uuid "81b71899-0744-4b38-8942-9d85454bcdd2")
+    (uuid "e756d020-cdd6-4fc6-b5a7-87593317e858")
   )
   (wire
     (pts
@@ -5342,7 +5342,7 @@
       (width 0)
       (type default)
     )
-    (uuid "386a8229-2dd2-4061-af55-b7d9c09638bc")
+    (uuid "4551bdc5-fc88-4ab7-a5de-21235ebfe98c")
   )
   (global_label
     "IO16"
@@ -5355,7 +5355,7 @@
       )
       (justify left)
     )
-    (uuid "f3ea5fb0-c3dc-46e0-ba1a-49985aa01359")
+    (uuid "a621b317-1a53-47a2-b4cf-9b16a06f158d")
   )
   (wire
     (pts
@@ -5366,7 +5366,7 @@
       (width 0)
       (type default)
     )
-    (uuid "e5794f36-8d2e-4429-abff-e57aef7870c2")
+    (uuid "3b2b78f8-aefb-42a6-8678-3919c5e8cbf1")
   )
   (global_label
     "IO17"
@@ -5379,7 +5379,7 @@
       )
       (justify left)
     )
-    (uuid "a816440b-3dd3-44e9-a04d-949ffdd8d24e")
+    (uuid "76c96a6d-7d98-4f1f-8901-9c8d32bb8890")
   )
   (wire
     (pts
@@ -5390,7 +5390,7 @@
       (width 0)
       (type default)
     )
-    (uuid "f1a954d8-52a2-464d-89c9-bbb7455eed2c")
+    (uuid "828471cc-ea84-4d20-8d2c-fb6fba02e2fe")
   )
   (global_label
     "IO18"
@@ -5403,7 +5403,7 @@
       )
       (justify left)
     )
-    (uuid "3283b21d-3115-432b-892f-3ac86deca414")
+    (uuid "d1888dca-e18d-4240-957a-0b640acaca0c")
   )
   (wire
     (pts
@@ -5414,7 +5414,7 @@
       (width 0)
       (type default)
     )
-    (uuid "7f248dab-0438-4972-b188-f0af103eaa53")
+    (uuid "96b5c3bd-5bbb-43cb-8ba9-5ab64cc4bdc3")
   )
   (global_label
     "IO19"
@@ -5427,7 +5427,7 @@
       )
       (justify left)
     )
-    (uuid "9bf65dec-72ec-4e55-8598-c4475a0411ae")
+    (uuid "9712b8c4-9449-4bae-b483-59770f2935aa")
   )
   (symbol
     (lib_id "pcbforge:PWR_FLAG")
@@ -5437,7 +5437,7 @@
     (in_bom no)
     (on_board yes)
     (dnp no)
-    (uuid "586e2f74-9289-47be-9d9d-2d04adf69c9a")
+    (uuid "a0d59ed3-8ecb-4d5b-b11b-43bc6534aaff")
     (property
       "Reference"
       "#FLG?"
@@ -5483,13 +5483,13 @@
     )
     (pin
       "1"
-      (uuid "0c0774a9-2e60-4414-966d-7ca119c68593")
+      (uuid "5d6486aa-3263-42f7-8ae7-6ca73f996ff0")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "#FLG?")
           (unit 1)
         )
@@ -5506,7 +5506,7 @@
         (size 1.27 1.27)
       )
     )
-    (uuid "21e628dd-7e32-4694-be5d-184baf9afcd6")
+    (uuid "1d21110b-bb88-4e4b-88b4-293fcb77a9f4")
   )
   (symbol
     (lib_id "pcbforge:PWR_FLAG")
@@ -5516,7 +5516,7 @@
     (in_bom no)
     (on_board yes)
     (dnp no)
-    (uuid "5e1061ca-6bac-48fb-a396-34af319a0b56")
+    (uuid "c95642eb-9b52-4b17-8681-db81b6bad161")
     (property
       "Reference"
       "#FLG?"
@@ -5562,13 +5562,13 @@
     )
     (pin
       "1"
-      (uuid "390b6093-a499-43d9-a3d4-4b593d359118")
+      (uuid "90551a8e-0546-449a-b94e-690e46573cfc")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "#FLG?")
           (unit 1)
         )
@@ -5585,7 +5585,7 @@
         (size 1.27 1.27)
       )
     )
-    (uuid "db16316c-0bee-4b67-9deb-4a0cc633b806")
+    (uuid "a74e8726-6c57-4dad-a354-1ca1ddffe7ae")
   )
   (symbol
     (lib_id "pcbforge:PWR_FLAG")
@@ -5595,7 +5595,7 @@
     (in_bom no)
     (on_board yes)
     (dnp no)
-    (uuid "60ab2af9-5360-4940-abe6-c2b6ae04a9cf")
+    (uuid "e1f453a9-9f4f-4205-b969-c7b02b8bb79b")
     (property
       "Reference"
       "#FLG?"
@@ -5641,13 +5641,13 @@
     )
     (pin
       "1"
-      (uuid "9ec0a145-8495-494e-a8d2-965e34e6ac7f")
+      (uuid "67a1d559-21f0-4c19-91cc-529c23e37489")
     )
     (instances
       (project
         "ESP32_DevBoard"
         (path
-          "/2d039977-145b-4b77-861c-ee6ce3abf9a6"
+          "/4a834b0c-bc98-48df-8bae-055e6e8ec2f5"
           (reference "#FLG?")
           (unit 1)
         )
@@ -5664,6 +5664,6 @@
         (size 1.27 1.27)
       )
     )
-    (uuid "b66494f7-c4c0-4b88-88ed-b5e862e05239")
+    (uuid "61e45bdb-1a43-4d21-90c8-a019b51082bc")
   )
 )

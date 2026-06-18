@@ -85,6 +85,19 @@ Obecnie ~35 części (rozszerzalne w `pcbforge/library/catalog.py`):
 - **Obudowy footprintów:** chip 0402/0603/0805/1206, SOT-23-3/5/6, SOT-223, SOIC-8/14/16/28,
   TO-92, SMA/SOD-123/SOD-323, kwarc 3225 i in.
 
+## Przykład: HomeController PRO — sterownik domowy 32 wej / 16 wyj
+`boards/home_controller_pro.py` — pełny, realny produkt na 2 płytkach (24 V):
+- **Dół:** zasilanie 24 V (bezpiecznik + dioda + MOV + buck 5 V + LDO 3V3), ekspander
+  wyjść, **8× wyjście przekaźnikowe 230 V** + **8× wyjście MOSFET DC**, każde wyjście
+  własny zacisk śrubowy; przekaźniki we wnętrzu (nie przy krawędzi).
+- **Góra (węższa):** **ESP32-C3** + 2× ekspander I²C (**32 wejścia**), **8× RJ45** (wejścia,
+  TVS na każde), **RS485 + CAN** (łączenie sterowników), złącze **TFT dotykowy**.
+- Niezawodność „na 30 lat": TVS na każdym I/O, bezpiecznik + MOV, diody gasnące,
+  pull-down bramek MOSFET, grube ścieżki + izolacja 230 V, dekapy, watchdog (ESP).
+
+> ESP32-C3 ma mało GPIO — tu wykorzystane w pełni (USB do programowania, IO9 dzieli
+> BOOT z CAN-RX). Pod pełną niezależność magistral rozważ **ESP32-S3**.
+
 ## Zasady rozmieszczania (urządzenia góra/dół, 230 V)
 `boards/smart_home_230.py` + `pcbforge/layout.py` realizują zasady projektowe:
 - **I/O na krawędziach** — złącza (USB-C, RJ45, zaciski) na górnej krawędzi; **strefa 230 V**

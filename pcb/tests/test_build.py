@@ -136,6 +136,29 @@ def test_flagship_pair_rules_and_shared_geometry():
     assert {"L", "N", "PE", "LAMP1", "LAMP2"} <= bo.design.mains_nets
 
 
+def test_pro_controller_clean_and_complete():
+    """HomeController PRO: 32 wej / 16 wyj, 2 plyty, 0 bledow/ostrzezen,
+    poprawny netlist (RS485+CAN+TFT+ESP32-C3+przekazniki+MOSFETy)."""
+    from boards.home_controller_pro import build_bottom, build_top, FRAME
+    from pcbforge.layout import place_pair
+    from pcbforge import rules
+    bo, to = build_bottom(), build_top()
+    place_pair(bo.design, to.design, FRAME)
+    for d in (bo.design, to.design):
+        issues = checks.run_erc(d) + checks.run_drc_lite(d) + rules.run_rules(d)
+        assert issues == [], f"{d.name}:\n" + "\n".join(str(i) for i in issues)
+    # 16 wyjsc (8 przekaznikow + 8 MOSFET)
+    relays = [c for c in bo.design.components if c.part == "Relay_SPDT"]
+    mosfets = [c for c in bo.design.components if c.part == "Q_NMOS_DPAK"]
+    assert len(relays) == 8 and len(mosfets) == 8
+    # 32 wejscia na 8 RJ45 + magistrale + TFT na gorze
+    rj45 = [c for c in to.design.components if c.part == "RJ45"]
+    assert len(rj45) >= 10  # 8 wejsc + RS485 + CAN
+    assert any(c.part == "ESP32-C3" for c in to.design.components)
+    assert any(c.part == "TJA1051" for c in to.design.components)   # CAN
+    assert any(c.part == "MAX485" for c in to.design.components)    # RS485
+
+
 def test_rule_engine_detects_missing_decoupling():
     """Silnik regul wykrywa brak dekapu przy IC."""
     from pcbforge import rules, Design, Component

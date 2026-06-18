@@ -175,14 +175,27 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
 
     cx0, cy0, cx1, cy1 = frame.central
     interior_bottom = cy1  # gorna granica strefy przekaznikow
+    interior_top = cy0
+
+    # I/O niskonapieciowe -> GORNA krawedz (OBIE plyty; gorna ma krawedz na io_band)
+    io_outer = 0.0 if not is_top else frame.io_band
+    edge_x0 = frame.margin + 2 * frame.hole_inset + 3   # omin otwory narozne
+    edge_x1 = frame.width - frame.margin - 2 * frame.hole_inset - 3
+    _place_row(io, edge_x0, edge_x1, outer_y=io_outer, side="top")
+    for c in io:
+        fp = _fp(c)
+        obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
+    if io:
+        io_h = max(_fp(c).body_h * 2 for c in io)
+        interior_top = max(interior_top, io_outer + 1.5 + io_h + 2.0)  # logika pod rzedem I/O
 
     if not is_top:
-        # I/O niskonapieciowe -> GORNA krawedz (zlicowane, wejsciem do krawedzi)
-        _place_row(io, frame.margin, frame.width - frame.margin,
-                   outer_y=0.0, side="top")
         # zaciski 230V -> DOLNA krawedz (dostep kablem), zlicowane
         _place_row(mains_terms, frame.margin, frame.width - frame.margin,
                    outer_y=frame.height, side="bottom")
+        for c in mains_terms:
+            fp = _fp(c)
+            obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
         # PRZEKAZNIKI -> pas 230V WEWNATRZ, tuz nad zaciskami, NIE przy krawedzi
         if relays:
             rh = max(_fp(c).body_h for c in relays)
@@ -192,18 +205,15 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
                 fp = _fp(c)
                 obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
             interior_bottom = relay_cy - rh - 2.0   # logika nad strefa przekaznikow
-        for c in io + mains_terms:
-            fp = _fp(c)
-            obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
 
     # opcjonalnie czesc pasywnych od spodu (upchac od spodu)
     if bottom_side_passives:
         for c in passives[:bottom_side_passives]:
             c.side = "bottom"
 
-    # IC + pasywne -> srodek (omijajac otwory, B2B i strefe przekaznikow)
+    # IC + pasywne -> srodek (pod rzedem I/O, nad strefa przekaznikow, omijajac otwory/B2B)
     interior = ics + passives
-    _pack(interior, (cx0 + 1, cy0 + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=2.0)
+    _pack(interior, (cx0 + 1, interior_top + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=2.0)
 
     # wymiary i obrys
     design.board_w = frame.width
