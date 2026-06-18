@@ -177,31 +177,43 @@ class Builder:
         """Wyjscie przekaznikowe 230V: przekaznik + driver NPN + dioda gasnaca
         + LED statusu + zacisk srubowy 2-pol (LAMP/N). Cewka z v_coil."""
         coil = f"_RC{out_id}"
-        lamp = f"LAMP{out_id}"
+        no = f"_NO{out_id}"          # styk NO (przed bezpiecznikiem)
+        sn = f"_SN{out_id}"          # wezel snubbera
+        lamp = f"LAMP{out_id}"       # wyjscie za bezpiecznikiem
         self.add("K", "Relay_SPDT", "SRD-24V",
-                 {"1": v_coil, "2": coil, "4": l, "3": lamp}, label=label, role="relay")
+                 {"1": v_coil, "2": coil, "4": l, "3": no}, label=label, role="relay")
         self.add("Q", "Q_NPN", "BC547", {"1": f"_RB{out_id}", "2": coil, "3": gnd})
         self.R("1k", drive, f"_RB{out_id}")
-        self.add("D", "D_Rectifier", "1N4148", {"1": coil, "2": v_coil})   # gasnaca
+        self.add("D", "D_Rectifier", "1N4148", {"1": coil, "2": v_coil})   # gasnaca cewki
         self.add("LED", "LED", "ON", {"1": f"_RL{out_id}", "2": gnd})
         self.R("1k", drive, f"_RL{out_id}")
+        # snubber RC na stykach (gasi luk, +zywotnosc)
+        self.R("100", l, sn)
+        self.C("100nF", sn, no)
+        # bezpiecznik PTC w serii + MOV na wyjsciu 230V
+        self.add("F", "PTC", "0.5A", {"1": no, "2": lamp})
+        self.add("RV", "MOV", "S14K275", {"1": lamp, "2": n})
         self.add("J", "ScrewTerminal_1x02", f"OUT{out_id}",
                  {"1": lamp, "2": n}, role="out", label=label or f"Wyj.230V {out_id}")
-        self.blocks.append(f"wyjscie przekaznik {out_id} (LED, gasnaca, zacisk)")
+        self.design.mark_mains(l, n, no, sn, lamp)
+        self.blocks.append(f"wyjscie przekaznik {out_id} (LED, gasnaca, snubber RC, PTC, MOV)")
 
     def output_mosfet(self, drive: str, out_id: str, vplus: str, gnd: str, label: str = ""):
         """Wyjscie MOSFET DC (LED/tasma): NMOS low-side + rezystor bramki +
         pulldown + dioda gasnaca + LED statusu + zacisk srubowy 2-pol (+/-)."""
-        drn = f"OUT{out_id}"
+        drn = f"_DRN{out_id}"
+        fused = f"OUTDC{out_id}"
         self.add("Q", "Q_NMOS_DPAK", "IRLZ44N", {"1": f"_G{out_id}", "2": drn, "3": gnd})
         self.R("100", drive, f"_G{out_id}")          # bramka
         self.R("100k", f"_G{out_id}", gnd)           # pulldown bramki (bezpieczny stan)
         self.add("D", "D_Schottky", "SS34", {"1": drn, "2": vplus})   # gasnaca (obciazenia ind.)
         self.add("LED", "LED", "ON", {"1": f"_ML{out_id}", "2": gnd})
         self.R("1k", drive, f"_ML{out_id}")
+        self.add("F", "PTC", "2A", {"1": drn, "2": fused})           # bezpiecznik wyjscia
+        self.add("D", "D_TVS", "TVS", {"1": fused, "2": gnd})        # ochrona wyjscia
         self.add("J", "ScrewTerminal_1x02", f"OUTDC{out_id}",
-                 {"1": vplus, "2": drn}, role="out", label=label or f"Wyj.DC {out_id}")
-        self.blocks.append(f"wyjscie MOSFET {out_id} (LED, gasnaca, zacisk +/-)")
+                 {"1": vplus, "2": fused}, role="out", label=label or f"Wyj.DC {out_id}")
+        self.blocks.append(f"wyjscie MOSFET {out_id} (LED, gasnaca, PTC, zacisk +/-)")
 
     def input_bank_rj45(self, signals, p3v3, gnd, label="Wejscia"):
         """Bank wejsc na RJ45: 6 wejsc + 3V3 + GND, osobny TVS na kazde wejscie."""
@@ -228,29 +240,33 @@ class Builder:
 
     def rs485(self, txd, rxd, de, a, b, vcc, gnd, label="RS485"):
         """RS485: MAX485 + terminacja 120R + polaryzacja + TVS + zlacze RJ45."""
+        ao, bo = a + "_O", b + "_O"          # za dlawikiem (do zlacza)
         self.add("U", "MAX485", "MAX485",
                  {"1": rxd, "2": de, "3": de, "4": txd, "5": gnd, "6": a, "7": b, "8": vcc})
         self.C("100nF", vcc, gnd)
         self.R("120", a, b)                  # terminacja
         self.R("560", vcc, a)                # polaryzacja +
         self.R("560", b, gnd)                # polaryzacja -
-        self.add("D", "D_TVS", "TVS", {"1": a, "2": gnd})
-        self.add("D", "D_TVS", "TVS", {"1": b, "2": gnd})
-        self.add("J", "RJ45", label, {"1": a, "2": b, "3": gnd, "4": gnd,
+        self.add("L", "CMC", "CMC", {"1": a, "2": ao, "4": b, "3": bo})   # dlawik wspolny
+        self.add("D", "D_TVS", "TVS", {"1": ao, "2": gnd})
+        self.add("D", "D_TVS", "TVS", {"1": bo, "2": gnd})
+        self.add("J", "RJ45", label, {"1": ao, "2": bo, "3": gnd, "4": gnd,
                  "5": gnd, "6": gnd, "7": vcc, "8": vcc, "S": gnd}, role="io", label=label)
-        self.blocks.append("magistrala RS485 (terminacja, polaryzacja, TVS, RJ45)")
+        self.blocks.append("magistrala RS485 (terminacja, polaryzacja, dlawik CMC, TVS, RJ45)")
 
     def can_bus(self, txd, rxd, canh, canl, vcc, gnd, label="CAN"):
         """CAN: TJA1051 + terminacja 120R + TVS + zlacze RJ45."""
+        ho, lo = canh + "_O", canl + "_O"
         self.add("U", "TJA1051", "TJA1051",
                  {"1": txd, "2": gnd, "3": vcc, "4": rxd, "5": vcc, "6": canl, "7": canh, "8": gnd})
         self.C("100nF", vcc, gnd)
         self.R("120", canh, canl)            # terminacja
-        self.add("D", "D_TVS", "TVS", {"1": canh, "2": gnd})
-        self.add("D", "D_TVS", "TVS", {"1": canl, "2": gnd})
-        self.add("J", "RJ45", label, {"1": canh, "2": canl, "3": gnd, "4": gnd,
+        self.add("L", "CMC", "CMC", {"1": canh, "2": ho, "4": canl, "3": lo})  # dlawik wspolny
+        self.add("D", "D_TVS", "TVS", {"1": ho, "2": gnd})
+        self.add("D", "D_TVS", "TVS", {"1": lo, "2": gnd})
+        self.add("J", "RJ45", label, {"1": ho, "2": lo, "3": gnd, "4": gnd,
                  "5": gnd, "6": gnd, "7": vcc, "8": vcc, "S": gnd}, role="io", label=label)
-        self.blocks.append("magistrala CAN (TJA1051, terminacja, TVS, RJ45)")
+        self.blocks.append("magistrala CAN (TJA1051, terminacja, dlawik CMC, TVS, RJ45)")
 
     def esp32c3(self, p3v3="3V3", gnd="GND"):
         """Modul ESP32-C3 + EN/BOOT + dekapy + header programatora."""

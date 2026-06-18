@@ -385,6 +385,15 @@ def dpak() -> Footprint:
     return fp
 
 
+def cmc_4() -> Footprint:
+    """Dlawik wspolny (common-mode choke) 4-pad SMD. 1-2 = linia A, 3-4 = linia B."""
+    fp = Footprint("CMC_4", "Dlawik wspolny (CMC) 4-pad", body_w=2.7, body_h=2.5)
+    coords = {"1": (-2.1, 1.5), "2": (2.1, 1.5), "3": (2.1, -1.5), "4": (-2.1, -1.5)}
+    for num, (x, y) in coords.items():
+        fp.pads.append(Pad(num, x, y, 1.4, 1.2, "roundrect"))
+    return fp
+
+
 def mov_disc() -> Footprint:
     """Warystor dyskowy (MOV) THT, 2 piny raster 5mm."""
     fp = Footprint("MOV_Disc", "Warystor MOV (ochrona 230V)", smd=False, body_w=4.5, body_h=4.5)
@@ -450,6 +459,8 @@ REGISTRY = {
                                                    pitch=1.27, w=18.0, h=25.5),
     "TO-252": dpak,
     "MOV_Disc": mov_disc,
+    "CMC_4": cmc_4,
+    "PTC_1812": lambda: chip("1206", "F"),
 }
 
 

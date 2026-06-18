@@ -294,6 +294,12 @@ _STATIC: Dict[str, dict] = {
     "TJA1051": dict(symbol=_tja1051, footprint="SOIC-8"),
     "MOV": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:MOV", "RV", body="ferrite"),
                 footprint="MOV_Disc"),
+    "PTC": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:PTC", "F", body="fuse"),
+                footprint="PTC_1812"),
+    "CMC": dict(symbol=lambda: sym.box("pcbforge:CMC", "L",
+                [("1", "A1", "passive", "left"), ("4", "B1", "passive", "left"),
+                 ("2", "A2", "passive", "right"), ("3", "B2", "passive", "right")], width=10.16),
+                footprint="CMC_4"),
     "Q_NMOS_DPAK": dict(symbol=lambda: sym.transistor("pcbforge:Q_NMOS_DPAK", "Q", "nmos"),
                         footprint="TO-252"),
 }

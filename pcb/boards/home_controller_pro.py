@@ -55,7 +55,7 @@ def build_bottom() -> Builder:
 
     # ekspander WYJSC (adres 0x22)
     outs = [f"OUT{i}" for i in range(16)]
-    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "", outs, addr=2)
+    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "", outs, addr=4)  # 0x24 (wejscia 0x20-0x23)
 
     # zacisk sieciowy 230V (wejscie L/N/PE) -> gorna krawedz z zasilaniem
     b.add("J", "ScrewTerminal_1x03", "230V", {"1": "L", "2": "N", "3": "PE"},
@@ -98,13 +98,14 @@ def build_top() -> Builder:
     for net, lab in [("BTN_UP", "GORA"), ("BTN_DOWN", "DOL"), ("BTN_OK", "OK"), ("BTN_BACK", "WSTECZ")]:
         b.button(net, "3V3", "GND", label=lab)
 
-    # 2 ekspandery WEJSC (adres 0x20, 0x21) - 32 wejscia, wspolne przerwanie
-    ins = [f"IN{i}" for i in range(32)]
-    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[0:16], addr=0)
-    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[16:32], addr=1)
+    # 4 ekspandery WEJSC (adres 0x20..0x23) - 64 wejscia, wspolne przerwanie
+    ins = [f"IN{i}" for i in range(64)]
+    for e in range(4):
+        b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT",
+                   ins[e * 16:e * 16 + 16], addr=e)
 
-    # 4 PODWOJNE gniazda RJ45 (po 8 wejsc) - razem 32, TVS na kazde, w rzedzie przy krawedzi
-    for k in range(4):
+    # 8 PODWOJNYCH gniazd RJ45 (po 8 wejsc) = 16 portow = 64 wejscia, TVS na kazde
+    for k in range(8):
         b.input_bank_dual(ins[k * 8:k * 8 + 8], "3V3", "GND", label=f"We {k*8}-{k*8+7}")
 
     # magistrale laczenia sterownikow (niezalezne piny)

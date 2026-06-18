@@ -80,9 +80,15 @@ def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float 
     tallest = max((_fp(c).body_h * 2 for c in edge_items), default=8.0)
     io_band = tallest + 2 * gap + 4.0          # pas na 1 rzad zlacz przy krawedzi
 
-    # szerokosc z LICZBY zlacz (najszersza krawedz, 2 rzedy)
-    W = max(edge_w(items(bottom, "io")), edge_w(items(bottom, "out", "mains")),
-            edge_w(items(top, "io")), edge_w(items(top, "out", "mains")), 90.0)
+    # szerokosc: zlacza rozlozone na 2 krawedzie (gora/dol) -> szersza polowka
+    def board_w(d):
+        e = items(d, "io", "out", "mains")
+        t, b = _split_balanced(e)
+        half = max(sum(_fp(c).body_w * 2 + gap for c in t),
+                   sum(_fp(c).body_w * 2 + gap for c in b))
+        return half + 2 * margin + 4 * hole_inset + 6
+
+    W = max(board_w(bottom), board_w(top), 90.0)
 
     # wysokosc: upakowanie wnetrza dolnej plyty (najgestsza) + strefy
     inter = items(bottom, "ic") + items(bottom, "passive")
@@ -92,14 +98,13 @@ def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float 
     relays = items(bottom, "relay")
     rsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in relays]
     relay_h = _shelf_height(rsizes, int_w, gap) if relays else 0.0
-    out_band = io_band if items(bottom, "out", "mains") else 0.0
-    # dol: pas I/O (gora) + wnetrze + strefa przekaznikow + pas wyjsc (dol)
-    H_bottom = io_band + int_h + relay_h + out_band + 2 * margin + 12.0
-    # gora: pas I/O (gora) + wnetrze + wolny pas (dolna krawedz wcieta)
+    # dol: 2 pasy zlacz (gora+dol) + wnetrze + strefa przekaznikow (ciasno)
+    H_bottom = 2 * io_band + int_h + relay_h + 2 * margin + 5.0
+    # gora: 2 pasy zlacz + wnetrze
     tinter = items(top, "ic") + items(top, "passive")
     tsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in tinter]
     tint_h = _shelf_height(tsizes, int_w, gap)
-    H_top = 2 * io_band + tint_h + 2 * margin + 10.0
+    H_top = 2 * io_band + tint_h + 2 * margin + 5.0
     H = max(H_bottom, H_top)
     return Frame(width=round(W, 1), height=round(H, 1), io_band=round(io_band, 1),
                  hole_inset=hole_inset, margin=margin)
@@ -188,6 +193,22 @@ def _place_edge(items: List[Component], x0: float, x1: float, outer_y: float,
     return rows * rpitch + edge_inset
 
 
+def _split_balanced(items: List[Component]):
+    """Dzieli liste zlacz na dwie krawedzie (gora/dol) rownowazac szerokosc,
+    zachowujac kolejnosc (powiazane zlacza zostaja obok siebie)."""
+    total = sum(_fp(c).body_w * 2 for c in items)
+    half = total / 2
+    top, bottom, acc = [], [], 0.0
+    for c in items:
+        w = _fp(c).body_w * 2
+        if acc + w / 2 <= half or not top:
+            top.append(c)
+            acc += w
+        else:
+            bottom.append(c)
+    return top, bottom
+
+
 def _place_centered_row(items: List[Component], x0: float, x1: float, center_y: float):
     """Rzad komponentow wysrodkowany na wysokosci center_y (NIE przy krawedzi)."""
     if not items:
@@ -270,19 +291,17 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
             fp = _fp(c)
             obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
 
-    # WEJSCIA/zasilanie/magistrale -> GORNA krawedz, JEDEN rzad PRZY KRAWEDZI
-    io_outer = 0.0 if not is_top else frame.io_band
-    io_h = _place_edge(io, edge_x0, edge_x1, io_outer, "top", rows=1)
-    _io_obstacles(io)
-    if io:
-        interior_top = io_outer + io_h + 2.0
-
-    # WYJSCIA (zaciski) -> DOLNA krawedz, JEDEN rzad przy krawedzi
-    out_outer = frame.height if not is_top else (frame.height - frame.io_band)
-    out_h = _place_edge(out_terms, edge_x0, edge_x1, out_outer, "bottom", rows=1)
-    _io_obstacles(out_terms)
-    if out_terms:
-        interior_bottom = min(interior_bottom, out_outer - out_h - 2.0)
+    # ZLACZA -> rozlozone na GORNA i DOLNA krawedz (1 rzad przy krawedzi), gesto
+    e_top, e_bot = _split_balanced(io + out_terms)
+    top_outer = 0.0 if not is_top else frame.io_band
+    bot_outer = frame.height if not is_top else (frame.height - frame.io_band)
+    ht = _place_edge(e_top, edge_x0, edge_x1, top_outer, "top", rows=1)
+    hb = _place_edge(e_bot, edge_x0, edge_x1, bot_outer, "bottom", rows=1)
+    _io_obstacles(e_top + e_bot)
+    if e_top:
+        interior_top = max(cy0, top_outer + ht + 2.0)
+    if e_bot:
+        interior_bottom = min(cy1, bot_outer - hb - 2.0)
 
     # PRZEKAZNIKI -> STREFA 230V WEWNATRZ (kilka rzedow), nad wyjsciami, omija otwory
     if relays:

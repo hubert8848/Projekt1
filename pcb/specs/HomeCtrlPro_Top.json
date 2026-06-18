@@ -30,7 +30,7 @@
       "footprint": "MountingHole_M3",
       "connections": {},
       "label": "M3",
-      "x": 229.9,
+      "x": 147.9,
       "y": 40.1,
       "rotation": 0,
       "side": "top",
@@ -44,8 +44,8 @@
       "footprint": "MountingHole_M3",
       "connections": {},
       "label": "M3",
-      "x": 229.9,
-      "y": 112.70000000000002,
+      "x": 147.9,
+      "y": 190.1,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -59,7 +59,7 @@
       "connections": {},
       "label": "M3",
       "x": 7.5,
-      "y": 112.70000000000002,
+      "y": 190.1,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -93,8 +93,8 @@
         "20": "GND"
       },
       "label": "do plyty dolnej",
-      "x": 118.7,
-      "y": 76.4,
+      "x": 77.7,
+      "y": 115.1,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -149,7 +149,7 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 55.9,
+      "x": 75.1,
       "y": 70.92,
       "rotation": 0,
       "side": "bottom",
@@ -165,7 +165,7 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 59.8,
+      "x": 79.0,
       "y": 70.92,
       "rotation": 0,
       "side": "bottom",
@@ -181,7 +181,7 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 63.7,
+      "x": 82.9,
       "y": 70.92,
       "rotation": 0,
       "side": "bottom",
@@ -197,7 +197,7 @@
         "1": "3V3",
         "2": "EN"
       },
-      "x": 67.6,
+      "x": 86.8,
       "y": 70.92,
       "rotation": 0,
       "side": "bottom",
@@ -213,7 +213,7 @@
         "1": "EN",
         "2": "GND"
       },
-      "x": 71.5,
+      "x": 90.7,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -231,7 +231,7 @@
         "3": "GND",
         "4": "GND"
       },
-      "x": 77.2,
+      "x": 96.4,
       "y": 73.1,
       "rotation": 0,
       "side": "top",
@@ -249,7 +249,7 @@
         "3": "GND",
         "4": "GND"
       },
-      "x": 84.7,
+      "x": 103.9,
       "y": 73.1,
       "rotation": 0,
       "side": "top",
@@ -265,7 +265,7 @@
         "1": "3V3",
         "2": "IO0"
       },
-      "x": 90.4,
+      "x": 109.6,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -281,7 +281,7 @@
         "1": "3V3",
         "2": "SDA"
       },
-      "x": 94.3,
+      "x": 113.5,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -297,7 +297,7 @@
         "1": "3V3",
         "2": "SCL"
       },
-      "x": 98.2,
+      "x": 117.4,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -313,7 +313,7 @@
         "1": "3V3",
         "2": "EXP_RST"
       },
-      "x": 102.1,
+      "x": 121.3,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -329,7 +329,7 @@
         "1": "_PWRLED",
         "2": "GND"
       },
-      "x": 106.0,
+      "x": 125.2,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -345,7 +345,7 @@
         "1": "3V3",
         "2": "_PWRLED"
       },
-      "x": 109.9,
+      "x": 129.1,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -364,7 +364,7 @@
         "4": "GND"
       },
       "label": "GORA",
-      "x": 33.42,
+      "x": 19.7,
       "y": 40.1,
       "rotation": 0,
       "side": "top",
@@ -380,7 +380,7 @@
         "1": "3V3",
         "2": "BTN_UP"
       },
-      "x": 113.8,
+      "x": 133.0,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -399,7 +399,7 @@
         "4": "GND"
       },
       "label": "DOL",
-      "x": 41.42,
+      "x": 27.7,
       "y": 40.1,
       "rotation": 0,
       "side": "top",
@@ -415,7 +415,7 @@
         "1": "3V3",
         "2": "BTN_DOWN"
       },
-      "x": 117.7,
+      "x": 136.9,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -434,7 +434,7 @@
         "4": "GND"
       },
       "label": "OK",
-      "x": 49.42,
+      "x": 35.7,
       "y": 40.1,
       "rotation": 0,
       "side": "top",
@@ -450,7 +450,7 @@
         "1": "3V3",
         "2": "BTN_OK"
       },
-      "x": 121.6,
+      "x": 140.8,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -469,7 +469,7 @@
         "4": "GND"
       },
       "label": "WSTECZ",
-      "x": 57.42,
+      "x": 43.7,
       "y": 40.1,
       "rotation": 0,
       "side": "top",
@@ -485,7 +485,7 @@
         "1": "3V3",
         "2": "BTN_BACK"
       },
-      "x": 125.5,
+      "x": 144.7,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -540,7 +540,7 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 129.4,
+      "x": 148.6,
       "y": 70.92,
       "rotation": 0,
       "side": "top",
@@ -595,8 +595,118 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 133.3,
-      "y": 70.92,
+      "x": 5.2,
+      "y": 97.92,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U4",
+      "part": "MCP23017",
+      "value": "MCP23017",
+      "footprint": "SOIC-28",
+      "connections": {
+        "9": "3V3",
+        "10": "GND",
+        "12": "SCL",
+        "13": "SDA",
+        "18": "EXP_RST",
+        "20": "EXP_INT",
+        "15": "GND",
+        "16": "3V3",
+        "17": "GND",
+        "21": "IN32",
+        "22": "IN33",
+        "23": "IN34",
+        "24": "IN35",
+        "25": "IN36",
+        "26": "IN37",
+        "27": "IN38",
+        "28": "IN39",
+        "1": "IN40",
+        "2": "IN41",
+        "3": "IN42",
+        "4": "IN43",
+        "5": "IN44",
+        "6": "IN45",
+        "7": "IN46",
+        "8": "IN47"
+      },
+      "x": 46.75,
+      "y": 79.59,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C7",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 9.1,
+      "y": 97.92,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U5",
+      "part": "MCP23017",
+      "value": "MCP23017",
+      "footprint": "SOIC-28",
+      "connections": {
+        "9": "3V3",
+        "10": "GND",
+        "12": "SCL",
+        "13": "SDA",
+        "18": "EXP_RST",
+        "20": "EXP_INT",
+        "15": "3V3",
+        "16": "3V3",
+        "17": "GND",
+        "21": "IN48",
+        "22": "IN49",
+        "23": "IN50",
+        "24": "IN51",
+        "25": "IN52",
+        "26": "IN53",
+        "27": "IN54",
+        "28": "IN55",
+        "1": "IN56",
+        "2": "IN57",
+        "3": "IN58",
+        "4": "IN59",
+        "5": "IN60",
+        "6": "IN61",
+        "7": "IN62",
+        "8": "IN63"
+      },
+      "x": 56.35,
+      "y": 79.59,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C8",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 13.0,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -627,7 +737,7 @@
         "S": "GND"
       },
       "label": "We 0-7",
-      "x": 70.42,
+      "x": 56.7,
       "y": 51.1,
       "rotation": 0,
       "side": "top",
@@ -643,8 +753,8 @@
         "1": "IN0",
         "2": "GND"
       },
-      "x": 137.45,
-      "y": 70.92,
+      "x": 17.15,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -659,8 +769,8 @@
         "1": "IN1",
         "2": "GND"
       },
-      "x": 141.85,
-      "y": 70.92,
+      "x": 21.55,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -675,8 +785,8 @@
         "1": "IN2",
         "2": "GND"
       },
-      "x": 146.25,
-      "y": 70.92,
+      "x": 25.95,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -691,8 +801,8 @@
         "1": "IN3",
         "2": "GND"
       },
-      "x": 150.65,
-      "y": 70.92,
+      "x": 30.35,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -707,8 +817,8 @@
         "1": "IN4",
         "2": "GND"
       },
-      "x": 155.05,
-      "y": 70.92,
+      "x": 34.75,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -723,8 +833,8 @@
         "1": "IN5",
         "2": "GND"
       },
-      "x": 159.45,
-      "y": 70.92,
+      "x": 39.15,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -739,8 +849,8 @@
         "1": "IN6",
         "2": "GND"
       },
-      "x": 163.85,
-      "y": 70.92,
+      "x": 43.55,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -755,8 +865,8 @@
         "1": "IN7",
         "2": "GND"
       },
-      "x": 168.25,
-      "y": 70.92,
+      "x": 47.95,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -787,7 +897,7 @@
         "S": "GND"
       },
       "label": "We 8-15",
-      "x": 88.42,
+      "x": 74.7,
       "y": 51.1,
       "rotation": 0,
       "side": "top",
@@ -803,8 +913,8 @@
         "1": "IN8",
         "2": "GND"
       },
-      "x": 172.65,
-      "y": 70.92,
+      "x": 52.35,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -819,8 +929,8 @@
         "1": "IN9",
         "2": "GND"
       },
-      "x": 177.05,
-      "y": 70.92,
+      "x": 56.75,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -835,8 +945,8 @@
         "1": "IN10",
         "2": "GND"
       },
-      "x": 181.45,
-      "y": 70.92,
+      "x": 61.15,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -851,8 +961,8 @@
         "1": "IN11",
         "2": "GND"
       },
-      "x": 185.85,
-      "y": 70.92,
+      "x": 65.55,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -867,8 +977,8 @@
         "1": "IN12",
         "2": "GND"
       },
-      "x": 190.25,
-      "y": 70.92,
+      "x": 69.95,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -883,8 +993,8 @@
         "1": "IN13",
         "2": "GND"
       },
-      "x": 194.65,
-      "y": 70.92,
+      "x": 74.35,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -899,8 +1009,8 @@
         "1": "IN14",
         "2": "GND"
       },
-      "x": 199.05,
-      "y": 70.92,
+      "x": 78.75,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -915,8 +1025,8 @@
         "1": "IN15",
         "2": "GND"
       },
-      "x": 203.45,
-      "y": 70.92,
+      "x": 83.15,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -947,7 +1057,7 @@
         "S": "GND"
       },
       "label": "We 16-23",
-      "x": 106.42,
+      "x": 92.7,
       "y": 51.1,
       "rotation": 0,
       "side": "top",
@@ -963,8 +1073,8 @@
         "1": "IN16",
         "2": "GND"
       },
-      "x": 207.85,
-      "y": 70.92,
+      "x": 87.55,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -979,8 +1089,8 @@
         "1": "IN17",
         "2": "GND"
       },
-      "x": 212.25,
-      "y": 70.92,
+      "x": 91.95,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -995,8 +1105,8 @@
         "1": "IN18",
         "2": "GND"
       },
-      "x": 216.65,
-      "y": 70.92,
+      "x": 96.35,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1011,8 +1121,8 @@
         "1": "IN19",
         "2": "GND"
       },
-      "x": 221.05,
-      "y": 70.92,
+      "x": 100.75,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1027,8 +1137,8 @@
         "1": "IN20",
         "2": "GND"
       },
-      "x": 225.45,
-      "y": 70.92,
+      "x": 105.15,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1043,8 +1153,8 @@
         "1": "IN21",
         "2": "GND"
       },
-      "x": 229.85,
-      "y": 70.92,
+      "x": 109.55,
+      "y": 97.92,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1059,7 +1169,7 @@
         "1": "IN22",
         "2": "GND"
       },
-      "x": 5.45,
+      "x": 113.95,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1075,7 +1185,7 @@
         "1": "IN23",
         "2": "GND"
       },
-      "x": 9.85,
+      "x": 118.35,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1107,7 +1217,7 @@
         "S": "GND"
       },
       "label": "We 24-31",
-      "x": 124.42,
+      "x": 110.7,
       "y": 51.1,
       "rotation": 0,
       "side": "top",
@@ -1123,7 +1233,7 @@
         "1": "IN24",
         "2": "GND"
       },
-      "x": 14.25,
+      "x": 122.75,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1139,7 +1249,7 @@
         "1": "IN25",
         "2": "GND"
       },
-      "x": 18.65,
+      "x": 127.15,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1155,7 +1265,7 @@
         "1": "IN26",
         "2": "GND"
       },
-      "x": 23.05,
+      "x": 131.55,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1171,7 +1281,7 @@
         "1": "IN27",
         "2": "GND"
       },
-      "x": 27.45,
+      "x": 135.95,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1187,7 +1297,7 @@
         "1": "IN28",
         "2": "GND"
       },
-      "x": 31.85,
+      "x": 140.35,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1203,7 +1313,7 @@
         "1": "IN29",
         "2": "GND"
       },
-      "x": 36.25,
+      "x": 144.75,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1219,7 +1329,7 @@
         "1": "IN30",
         "2": "GND"
       },
-      "x": 40.65,
+      "x": 149.15,
       "y": 97.92,
       "rotation": 0,
       "side": "top",
@@ -1235,15 +1345,655 @@
         "1": "IN31",
         "2": "GND"
       },
-      "x": 45.05,
-      "y": 97.92,
+      "x": 5.45,
+      "y": 101.08,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "U4",
+      "ref": "J6",
+      "part": "RJ45_Dual",
+      "value": "We 32-39",
+      "footprint": "RJ45_Dual",
+      "connections": {
+        "1": "3V3",
+        "2": "IN32",
+        "3": "IN33",
+        "4": "IN34",
+        "5": "IN35",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "3V3",
+        "10": "IN36",
+        "11": "IN37",
+        "12": "IN38",
+        "13": "IN39",
+        "14": "GND",
+        "15": "GND",
+        "16": "GND",
+        "S": "GND"
+      },
+      "label": "We 32-39",
+      "x": 128.7,
+      "y": 51.1,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "D33",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN32",
+        "2": "GND"
+      },
+      "x": 9.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D34",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN33",
+        "2": "GND"
+      },
+      "x": 14.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D35",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN34",
+        "2": "GND"
+      },
+      "x": 18.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D36",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN35",
+        "2": "GND"
+      },
+      "x": 23.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D37",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN36",
+        "2": "GND"
+      },
+      "x": 27.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D38",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN37",
+        "2": "GND"
+      },
+      "x": 31.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D39",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN38",
+        "2": "GND"
+      },
+      "x": 36.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D40",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN39",
+        "2": "GND"
+      },
+      "x": 40.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J7",
+      "part": "RJ45_Dual",
+      "value": "We 40-47",
+      "footprint": "RJ45_Dual",
+      "connections": {
+        "1": "3V3",
+        "2": "IN40",
+        "3": "IN41",
+        "4": "IN42",
+        "5": "IN43",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "3V3",
+        "10": "IN44",
+        "11": "IN45",
+        "12": "IN46",
+        "13": "IN47",
+        "14": "GND",
+        "15": "GND",
+        "16": "GND",
+        "S": "GND"
+      },
+      "label": "We 40-47",
+      "x": 23.0,
+      "y": 179.1,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "D41",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN40",
+        "2": "GND"
+      },
+      "x": 45.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D42",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN41",
+        "2": "GND"
+      },
+      "x": 49.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D43",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN42",
+        "2": "GND"
+      },
+      "x": 53.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D44",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN43",
+        "2": "GND"
+      },
+      "x": 58.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D45",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN44",
+        "2": "GND"
+      },
+      "x": 62.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D46",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN45",
+        "2": "GND"
+      },
+      "x": 67.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D47",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN46",
+        "2": "GND"
+      },
+      "x": 71.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D48",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN47",
+        "2": "GND"
+      },
+      "x": 75.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J8",
+      "part": "RJ45_Dual",
+      "value": "We 48-55",
+      "footprint": "RJ45_Dual",
+      "connections": {
+        "1": "3V3",
+        "2": "IN48",
+        "3": "IN49",
+        "4": "IN50",
+        "5": "IN51",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "3V3",
+        "10": "IN52",
+        "11": "IN53",
+        "12": "IN54",
+        "13": "IN55",
+        "14": "GND",
+        "15": "GND",
+        "16": "GND",
+        "S": "GND"
+      },
+      "label": "We 48-55",
+      "x": 41.0,
+      "y": 179.1,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "D49",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN48",
+        "2": "GND"
+      },
+      "x": 80.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D50",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN49",
+        "2": "GND"
+      },
+      "x": 84.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D51",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN50",
+        "2": "GND"
+      },
+      "x": 89.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D52",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN51",
+        "2": "GND"
+      },
+      "x": 93.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D53",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN52",
+        "2": "GND"
+      },
+      "x": 97.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D54",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN53",
+        "2": "GND"
+      },
+      "x": 102.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D55",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN54",
+        "2": "GND"
+      },
+      "x": 106.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D56",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN55",
+        "2": "GND"
+      },
+      "x": 111.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J9",
+      "part": "RJ45_Dual",
+      "value": "We 56-63",
+      "footprint": "RJ45_Dual",
+      "connections": {
+        "1": "3V3",
+        "2": "IN56",
+        "3": "IN57",
+        "4": "IN58",
+        "5": "IN59",
+        "6": "GND",
+        "7": "GND",
+        "8": "GND",
+        "9": "3V3",
+        "10": "IN60",
+        "11": "IN61",
+        "12": "IN62",
+        "13": "IN63",
+        "14": "GND",
+        "15": "GND",
+        "16": "GND",
+        "S": "GND"
+      },
+      "label": "We 56-63",
+      "x": 59.0,
+      "y": 179.1,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "D57",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN56",
+        "2": "GND"
+      },
+      "x": 115.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D58",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN57",
+        "2": "GND"
+      },
+      "x": 119.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D59",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN58",
+        "2": "GND"
+      },
+      "x": 124.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D60",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN59",
+        "2": "GND"
+      },
+      "x": 128.65,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D61",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN60",
+        "2": "GND"
+      },
+      "x": 133.05,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D62",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN61",
+        "2": "GND"
+      },
+      "x": 137.45,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D63",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN62",
+        "2": "GND"
+      },
+      "x": 141.85,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D64",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "IN63",
+        "2": "GND"
+      },
+      "x": 146.25,
+      "y": 101.08,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U6",
       "part": "MAX485",
       "value": "MAX485",
       "footprint": "SOIC-8",
@@ -1257,7 +2007,7 @@
         "7": "RS485_B",
         "8": "3V3"
       },
-      "x": 44.95,
+      "x": 64.15,
       "y": 73.24,
       "rotation": 0,
       "side": "top",
@@ -1265,7 +2015,7 @@
       "role": ""
     },
     {
-      "ref": "C7",
+      "ref": "C9",
       "part": "C",
       "value": "100nF",
       "footprint": "C_0805",
@@ -1273,8 +2023,8 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 49.2,
-      "y": 97.92,
+      "x": 5.2,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1289,8 +2039,8 @@
         "1": "RS485_A",
         "2": "RS485_B"
       },
-      "x": 53.1,
-      "y": 97.92,
+      "x": 9.1,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1305,8 +2055,8 @@
         "1": "3V3",
         "2": "RS485_A"
       },
-      "x": 57.0,
-      "y": 97.92,
+      "x": 13.0,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1321,53 +2071,71 @@
         "1": "RS485_B",
         "2": "GND"
       },
-      "x": 60.9,
-      "y": 97.92,
+      "x": 16.9,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "D33",
-      "part": "D_TVS",
-      "value": "TVS",
-      "footprint": "D_SOD-323",
+      "ref": "L1",
+      "part": "CMC",
+      "value": "CMC",
+      "footprint": "CMC_4",
       "connections": {
         "1": "RS485_A",
-        "2": "GND"
+        "2": "RS485_A_O",
+        "4": "RS485_B",
+        "3": "RS485_B_O"
       },
-      "x": 65.05,
-      "y": 97.92,
+      "x": 22.3,
+      "y": 105.9,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "D34",
+      "ref": "D65",
       "part": "D_TVS",
       "value": "TVS",
       "footprint": "D_SOD-323",
       "connections": {
-        "1": "RS485_B",
+        "1": "RS485_A_O",
         "2": "GND"
       },
-      "x": 69.45,
-      "y": 97.92,
+      "x": 27.95,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "J6",
+      "ref": "D66",
+      "part": "D_TVS",
+      "value": "TVS",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "RS485_B_O",
+        "2": "GND"
+      },
+      "x": 32.35,
+      "y": 104.23,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J10",
       "part": "RJ45",
       "value": "RS485",
       "footprint": "RJ45_8P8C",
       "connections": {
-        "1": "RS485_A",
-        "2": "RS485_B",
+        "1": "RS485_A_O",
+        "2": "RS485_B_O",
         "3": "GND",
         "4": "GND",
         "5": "GND",
@@ -1377,15 +2145,15 @@
         "S": "GND"
       },
       "label": "RS485",
-      "x": 141.92,
-      "y": 44.6,
-      "rotation": 0,
+      "x": 76.5,
+      "y": 185.6,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
       "role": "io"
     },
     {
-      "ref": "U5",
+      "ref": "U7",
       "part": "TJA1051",
       "value": "TJA1051",
       "footprint": "SOIC-8",
@@ -1399,7 +2167,7 @@
         "7": "CAN_H",
         "8": "GND"
       },
-      "x": 50.95,
+      "x": 70.15,
       "y": 73.24,
       "rotation": 0,
       "side": "top",
@@ -1407,7 +2175,7 @@
       "role": ""
     },
     {
-      "ref": "C8",
+      "ref": "C10",
       "part": "C",
       "value": "100nF",
       "footprint": "C_0805",
@@ -1415,8 +2183,8 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 73.6,
-      "y": 97.92,
+      "x": 36.5,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1431,53 +2199,71 @@
         "1": "CAN_H",
         "2": "CAN_L"
       },
-      "x": 77.5,
-      "y": 97.92,
+      "x": 40.4,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "D35",
-      "part": "D_TVS",
-      "value": "TVS",
-      "footprint": "D_SOD-323",
+      "ref": "L2",
+      "part": "CMC",
+      "value": "CMC",
+      "footprint": "CMC_4",
       "connections": {
         "1": "CAN_H",
-        "2": "GND"
+        "2": "CAN_H_O",
+        "4": "CAN_L",
+        "3": "CAN_L_O"
       },
-      "x": 81.65,
-      "y": 97.92,
+      "x": 45.8,
+      "y": 105.9,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "D36",
+      "ref": "D67",
       "part": "D_TVS",
       "value": "TVS",
       "footprint": "D_SOD-323",
       "connections": {
-        "1": "CAN_L",
+        "1": "CAN_H_O",
         "2": "GND"
       },
-      "x": 86.05,
-      "y": 97.92,
+      "x": 51.45,
+      "y": 104.23,
       "rotation": 0,
       "side": "top",
       "pinned": false,
       "role": ""
     },
     {
-      "ref": "J7",
+      "ref": "D68",
+      "part": "D_TVS",
+      "value": "TVS",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "CAN_L_O",
+        "2": "GND"
+      },
+      "x": 55.85,
+      "y": 104.23,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J11",
       "part": "RJ45",
       "value": "CAN",
       "footprint": "RJ45_8P8C",
       "connections": {
-        "1": "CAN_H",
-        "2": "CAN_L",
+        "1": "CAN_H_O",
+        "2": "CAN_L_O",
         "3": "GND",
         "4": "GND",
         "5": "GND",
@@ -1487,15 +2273,15 @@
         "S": "GND"
       },
       "label": "CAN",
-      "x": 158.92,
-      "y": 44.6,
-      "rotation": 0,
+      "x": 93.5,
+      "y": 185.6,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
       "role": "io"
     },
     {
-      "ref": "J8",
+      "ref": "J12",
       "part": "Header_1x14",
       "value": "TFT",
       "footprint": "Header_1x14",
@@ -1516,9 +2302,9 @@
         "14": "3V3"
       },
       "label": "Ekran TFT dotykowy",
-      "x": 186.7,
-      "y": 38.87,
-      "rotation": 0,
+      "x": 121.28,
+      "y": 191.33,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
       "role": "io"
@@ -1527,11 +2313,11 @@
   "outline": [
     3.0,
     35.6,
-    234.4,
-    117.20000000000002
+    152.4,
+    194.6
   ],
-  "board_w": 237.4,
-  "board_h": 152.8,
+  "board_w": 155.4,
+  "board_h": 230.2,
   "notes": [
     "Plyta GORNA (wezsza): ESP32-C3 + 32 wejscia (RJ45) + RS485/CAN + TFT",
     "Wejscia na RJ45 (TVS/wejscie). Sklada sie na dolna - otwory i zlacze 1:1."
