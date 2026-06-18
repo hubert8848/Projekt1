@@ -186,7 +186,7 @@ class Builder:
         self.add("LED", "LED", "ON", {"1": f"_RL{out_id}", "2": gnd})
         self.R("1k", drive, f"_RL{out_id}")
         self.add("J", "ScrewTerminal_1x02", f"OUT{out_id}",
-                 {"1": lamp, "2": n}, role="mains", label=label or f"Wyj.230V {out_id}")
+                 {"1": lamp, "2": n}, role="out", label=label or f"Wyj.230V {out_id}")
         self.blocks.append(f"wyjscie przekaznik {out_id} (LED, gasnaca, zacisk)")
 
     def output_mosfet(self, drive: str, out_id: str, vplus: str, gnd: str, label: str = ""):
@@ -200,7 +200,7 @@ class Builder:
         self.add("LED", "LED", "ON", {"1": f"_ML{out_id}", "2": gnd})
         self.R("1k", drive, f"_ML{out_id}")
         self.add("J", "ScrewTerminal_1x02", f"OUTDC{out_id}",
-                 {"1": vplus, "2": drn}, role="io", label=label or f"Wyj.DC {out_id}")
+                 {"1": vplus, "2": drn}, role="out", label=label or f"Wyj.DC {out_id}")
         self.blocks.append(f"wyjscie MOSFET {out_id} (LED, gasnaca, zacisk +/-)")
 
     def input_bank_rj45(self, signals, p3v3, gnd, label="Wejscia"):
@@ -253,11 +253,35 @@ class Builder:
         self.blocks.append("ESP32-C3 (EN/BOOT, dekapy, USB)")
         return u
 
+    def esp32s3(self, gpio_map: Dict[str, str], p3v3="3V3", gnd="GND"):
+        """Modul ESP32-S3 (duzo GPIO) + EN/BOOT + dekapy. gpio_map: nazwa GPIO -> siec."""
+        from .library.catalog import esp32s3_pin
+        conns = {esp32s3_pin("GND"): gnd, "40": gnd, esp32s3_pin("3V3"): p3v3,
+                 esp32s3_pin("EN"): "EN", esp32s3_pin("IO0"): "IO0"}
+        for name, net in gpio_map.items():
+            conns[esp32s3_pin(name)] = net
+        u = self.add("U", "ESP32-S3", "ESP32-S3-WROOM-1", conns, label="ESP32-S3")
+        self.decoupling(p3v3, gnd, 3)
+        self.R("10k", p3v3, "EN")
+        self.C("100nF", "EN", gnd)
+        self.add("SW", "SW_Push", "RST", {"1": "EN", "2": "EN", "3": gnd, "4": gnd})
+        self.add("SW", "SW_Push", "BOOT", {"1": "IO0", "2": "IO0", "3": gnd, "4": gnd})
+        self.R("10k", p3v3, "IO0")
+        self.blocks.append("ESP32-S3 (EN/BOOT, dekapy, USB)")
+        return u
+
+    def button(self, net, p3v3, gnd, label="SW"):
+        """Przycisk tact (np. nawigacja TFT): styk do masy + pull-up. Na krawedzi."""
+        self.add("SW", "SW_Push", label, {"1": net, "2": net, "3": gnd, "4": gnd},
+                 role="io", label=label)
+        self.R("10k", p3v3, net)
+        self.blocks.append(f"przycisk {label}")
+
     def tft_connector(self, p3v3, gnd, label="TFT"):
         """Zlacze wyswietlacza TFT SPI dotykowego (1x14)."""
-        pins = {"1": gnd, "2": p3v3, "3": "TFT_CS", "4": p3v3, "5": "TFT_DC",
+        pins = {"1": gnd, "2": p3v3, "3": "TFT_CS", "4": "TFT_RST", "5": "TFT_DC",
                 "6": "SPI_MOSI", "7": "SPI_SCK", "8": p3v3, "9": "SPI_MISO",
-                "10": "TOUCH_CS", "11": p3v3, "12": "SPI_MISO", "13": gnd, "14": p3v3}
+                "10": "TOUCH_CS", "11": "TOUCH_IRQ", "12": "SPI_MISO", "13": gnd, "14": p3v3}
         self.add("J", "Header_1x14", label, pins, role="io", label="Ekran TFT dotykowy")
         self.blocks.append("zlacze TFT SPI dotykowy (1x14)")
 

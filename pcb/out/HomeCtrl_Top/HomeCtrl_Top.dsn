@@ -10,7 +10,7 @@
   (structure
     (layer F.Cu (type signal) (property (index 0)))
     (layer B.Cu (type signal) (property (index 1)))
-    (boundary (path pcb 0  0 0  659000 0  659000 -752000  0 -752000  0 0))
+    (boundary (path pcb 0  0 0  598000 0  598000 -652000  0 -652000  0 0))
     (via "Via_8000_4000")
     (rule (width 2500) (clearance 2000) (clearance 2000 (type default_smd)) (clearance 2000 (type smd_smd)))
   )
@@ -22,29 +22,29 @@
       (place "U1" 80500 -134900 front 0)
     )
     (component "C_0805"
-      (place "C1" 418400 -482050 front 0)
+      (place "C1" 408400 -432050 front 0)
     )
     (component "R_0805"
-      (place "R1" 464400 -482050 front 0)
-      (place "R2" 510400 -482050 front 0)
-      (place "R3" 556400 -482050 front 0)
+      (place "R1" 454400 -432050 front 0)
+      (place "R2" 500400 -432050 front 0)
+      (place "R3" 546400 -432050 front 0)
     )
     (component "TO-92"
       (place "U2" 168000 -65000 front 0)
     )
     (component "RJ45_8P8C"
-      (place "J2" 120000 -351800 front 0)
-      (place "J3" 302000 -351800 front 0)
-      (place "J4" 484000 -351800 front 0)
-      (place "J5" 120000 -573800 front 0)
+      (place "J2" 115000 -326800 front 0)
+      (place "J3" 287000 -326800 front 0)
+      (place "J4" 459000 -326800 front 0)
+      (place "J5" 115000 -498800 front 0)
     )
     (component "PinHeader_1x06_P2.54mm"
-      (place "J6" 303200 -491500 front 0)
+      (place "J6" 293200 -441500 front 0)
     )
     (component "D_SOD-323"
-      (place "D1" 604900 -482050 front 0)
-      (place "D2" 54500 -704050 front 0)
-      (place "D3" 105500 -704050 front 0)
+      (place "D1" 54500 -604050 front 0)
+      (place "D2" 105500 -604050 front 0)
+      (place "D3" 156500 -604050 front 0)
     )
   )
   (library

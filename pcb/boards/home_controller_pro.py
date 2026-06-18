@@ -28,11 +28,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from pcbforge.blocks import Builder
 from pcbforge.checks import summarize
-from pcbforge.layout import Frame, place_pair
+from pcbforge.layout import auto_frame, place_pair
 from pcbforge.project import build_project
 from pcbforge.spec import dump_design
-
-FRAME = Frame(width=280.0, height=185.0, io_band=22.0)
 
 # listwa miedzyplytkowa: zasilanie + I2C + reset ekspanderow
 B2B = {str(i): v for i, v in enumerate(
@@ -59,9 +57,9 @@ def build_bottom() -> Builder:
     outs = [f"OUT{i}" for i in range(16)]
     b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "", outs, addr=2)
 
-    # zacisk sieciowy 230V (wspolne L/N/PE dla przekaznikow)
+    # zacisk sieciowy 230V (wejscie L/N/PE) -> gorna krawedz z zasilaniem
     b.add("J", "ScrewTerminal_1x03", "230V", {"1": "L", "2": "N", "3": "PE"},
-          role="mains", label="Siec 230V L/N/PE")
+          role="io", label="Siec 230V L/N/PE")
     # 8 wyjsc przekaznikowych 230V
     for i in range(8):
         b.output_relay(f"OUT{i}", str(i), "V24P", "GND", "L", "N", label=f"Lampa {i+1} 230V")
@@ -82,29 +80,36 @@ def build_top() -> Builder:
         b.add("H", "MountingHole", "M3", {}, role="mount", label="M3")
     b.add("J", "Header_2x10", "B2B", dict(B2B), role="b2b", label="do plyty dolnej")
 
-    # mozg
-    esp = b.esp32c3("3V3", "GND")
-    gpio = {"4": "CAN_TXD", "5": "RS485_DE", "6": "TOUCH_CS", "7": "TFT_DC",
-            "8": "SPI_SCK", "9": "SPI_MISO", "10": "SPI_MOSI", "11": "TFT_CS",
-            "12": "SDA", "13": "IO9", "14": "SCL", "17": "RS485_RXD", "18": "RS485_TXD"}
-    for pin, net in gpio.items():
-        esp.connect(pin, net)
+    # mozg: ESP32-S3 (duzo GPIO - niezalezne magistrale, dotyk z IRQ, przyciski)
+    b.esp32s3({
+        "IO8": "SDA", "IO9": "SCL",
+        "IO12": "SPI_SCK", "IO11": "SPI_MOSI", "IO13": "SPI_MISO",
+        "IO10": "TFT_CS", "IO14": "TFT_DC", "IO21": "TFT_RST",
+        "IO47": "TOUCH_CS", "IO48": "TOUCH_IRQ",
+        "IO43": "RS485_TXD", "IO44": "RS485_RXD", "IO45": "RS485_DE",
+        "IO4": "CAN_TXD", "IO5": "CAN_RXD", "IO17": "EXP_INT",
+        "IO6": "BTN_UP", "IO7": "BTN_DOWN", "IO15": "BTN_OK", "IO16": "BTN_BACK",
+    }, "3V3", "GND")
     b.i2c_pullups("SDA", "SCL", "3V3")
     b.R("10k", "3V3", "EXP_RST")                 # reset ekspanderow w gore
     b.add("LED", "LED", "PWR", {"1": "_PWRLED", "2": "GND"}); b.R("1k", "3V3", "_PWRLED")
 
-    # 2 ekspandery WEJSC (adres 0x20, 0x21) - 32 wejscia
+    # przyciski nawigacji TFT (na krawedzi, dostepne palcem)
+    for net, lab in [("BTN_UP", "GORA"), ("BTN_DOWN", "DOL"), ("BTN_OK", "OK"), ("BTN_BACK", "WSTECZ")]:
+        b.button(net, "3V3", "GND", label=lab)
+
+    # 2 ekspandery WEJSC (adres 0x20, 0x21) - 32 wejscia, wspolne przerwanie
     ins = [f"IN{i}" for i in range(32)]
-    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "", ins[0:16], addr=0)
-    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "", ins[16:32], addr=1)
+    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[0:16], addr=0)
+    b.mcp23017("3V3", "GND", "SDA", "SCL", "EXP_RST", "EXP_INT", ins[16:32], addr=1)
 
     # 8 bankow wejsc RJ45 (po 4 wejscia) - razem 32, TVS na kazde
     for k in range(8):
-        b.input_bank_rj45(ins[k * 4:k * 4 + 4], "3V3", "GND", label=f"Wejscia {k*4}-{k*4+3}")
+        b.input_bank_rj45(ins[k * 4:k * 4 + 4], "3V3", "GND", label=f"We {k*4}-{k*4+3}")
 
-    # magistrale laczenia sterownikow
+    # magistrale laczenia sterownikow (niezalezne piny)
     b.rs485("RS485_TXD", "RS485_RXD", "RS485_DE", "RS485_A", "RS485_B", "3V3", "GND")
-    b.can_bus("CAN_TXD", "IO9", "CAN_H", "CAN_L", "3V3", "GND")   # CAN_RX dzieli IO9 (BOOT)
+    b.can_bus("CAN_TXD", "CAN_RXD", "CAN_H", "CAN_L", "3V3", "GND")
 
     # ekran TFT dotykowy
     b.tft_connector("3V3", "GND")
@@ -128,13 +133,19 @@ def _emit(b: Builder, base: str):
     return res.errors
 
 
+def layout_pair():
+    bottom, top = build_bottom(), build_top()
+    frame = auto_frame(bottom.design, top.design)
+    place_pair(bottom.design, top.design, frame)
+    return bottom, top, frame
+
+
 def main():
     base = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    bottom, top = build_bottom(), build_top()
-    place_pair(bottom.design, top.design, FRAME)
+    bottom, top, frame = layout_pair()
     errs = _emit(bottom, base) + _emit(top, base)
-    print(f"\nRamka {FRAME.width}x{FRAME.height} | otwory {[(round(x),round(y)) for x,y in FRAME.holes]} "
-          f"| B2B {tuple(round(v) for v in FRAME.b2b)}")
+    print(f"\nRamka {frame.width}x{frame.height} | otwory {[(round(x),round(y)) for x,y in frame.holes]} "
+          f"| B2B {tuple(round(v) for v in frame.b2b)}")
     print(f"Razem bledow: {errs}")
     return 1 if errs else 0
 

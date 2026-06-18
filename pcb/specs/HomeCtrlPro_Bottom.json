@@ -19,7 +19,7 @@
       },
       "label": "M3 / PE",
       "x": 7.5,
-      "y": 26.5,
+      "y": 42.1,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -34,8 +34,8 @@
         "1": "PE"
       },
       "label": "M3 / PE",
-      "x": 272.5,
-      "y": 26.5,
+      "x": 160.5,
+      "y": 42.1,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -50,8 +50,8 @@
         "1": "PE"
       },
       "label": "M3 / PE",
-      "x": 272.5,
-      "y": 158.5,
+      "x": 160.5,
+      "y": 149.70000000000002,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -67,7 +67,7 @@
       },
       "label": "M3 / PE",
       "x": 7.5,
-      "y": 158.5,
+      "y": 149.70000000000002,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -101,8 +101,8 @@
         "20": "GND"
       },
       "label": "do plyty gornej",
-      "x": 140.0,
-      "y": 92.5,
+      "x": 84.0,
+      "y": 95.9,
       "rotation": 0,
       "side": "top",
       "pinned": true,
@@ -118,7 +118,7 @@
         "2": "GND"
       },
       "label": "Zasilanie 24V",
-      "x": 35.54,
+      "x": 83.0,
       "y": 5.54,
       "rotation": 0,
       "side": "top",
@@ -134,8 +134,8 @@
         "1": "V24",
         "2": "_FUSED_V24P"
       },
-      "x": 44.4,
-      "y": 24.0,
+      "x": 29.9,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -150,8 +150,8 @@
         "1": "_FUSED_V24P",
         "2": "V24P"
       },
-      "x": 50.55,
-      "y": 24.5,
+      "x": 35.55,
+      "y": 26.16,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -166,8 +166,8 @@
         "1": "V24P",
         "2": "GND"
       },
-      "x": 56.7,
-      "y": 24.0,
+      "x": 41.2,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -183,8 +183,8 @@
         "2": "GND"
       },
       "label": "Ochrona przepiec",
-      "x": 65.0,
-      "y": 27.5,
+      "x": 49.0,
+      "y": 29.16,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -203,8 +203,8 @@
         "7": "V24P",
         "5": "_FB_V5"
       },
-      "x": 19.25,
-      "y": 26.14,
+      "x": 6.25,
+      "y": 27.8,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -219,8 +219,8 @@
         "1": "_SW_V5",
         "2": "V5"
       },
-      "x": 74.9,
-      "y": 26.4,
+      "x": 58.4,
+      "y": 28.06,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -235,8 +235,8 @@
         "1": "GND",
         "2": "_SW_V5"
       },
-      "x": 82.65,
-      "y": 24.5,
+      "x": 65.65,
+      "y": 26.16,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -251,8 +251,8 @@
         "1": "_BST_V5",
         "2": "_SW_V5"
       },
-      "x": 88.2,
-      "y": 23.82,
+      "x": 70.7,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -267,8 +267,8 @@
         "1": "V24P",
         "2": "GND"
       },
-      "x": 93.2,
-      "y": 24.0,
+      "x": 75.2,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -283,8 +283,8 @@
         "1": "V5",
         "2": "GND"
       },
-      "x": 98.8,
-      "y": 24.0,
+      "x": 80.3,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -299,8 +299,8 @@
         "1": "V24P",
         "2": "GND"
       },
-      "x": 103.8,
-      "y": 23.82,
+      "x": 84.8,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -315,8 +315,8 @@
         "1": "V5",
         "2": "GND"
       },
-      "x": 108.2,
-      "y": 23.82,
+      "x": 88.7,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -331,8 +331,8 @@
         "1": "V5",
         "2": "_FB_V5"
       },
-      "x": 112.6,
-      "y": 23.82,
+      "x": 92.6,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -347,8 +347,8 @@
         "1": "_FB_V5",
         "2": "GND"
       },
-      "x": 117.0,
-      "y": 23.82,
+      "x": 96.5,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -365,8 +365,8 @@
         "2": "3V3",
         "4": "3V3"
       },
-      "x": 27.0,
-      "y": 26.3,
+      "x": 13.5,
+      "y": 27.96,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -381,8 +381,8 @@
         "1": "V5",
         "2": "GND"
       },
-      "x": 122.0,
-      "y": 24.0,
+      "x": 101.0,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -397,8 +397,8 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 127.6,
-      "y": 24.0,
+      "x": 106.1,
+      "y": 25.66,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -413,8 +413,8 @@
         "1": "V5",
         "2": "GND"
       },
-      "x": 132.6,
-      "y": 23.82,
+      "x": 110.6,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -429,8 +429,8 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 137.0,
-      "y": 23.82,
+      "x": 114.5,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -467,8 +467,8 @@
         "7": "OUT14",
         "8": "OUT15"
       },
-      "x": 36.55,
-      "y": 32.49,
+      "x": 22.55,
+      "y": 34.15,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -483,8 +483,8 @@
         "1": "3V3",
         "2": "GND"
       },
-      "x": 141.4,
-      "y": 23.82,
+      "x": 118.4,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -501,12 +501,12 @@
         "3": "PE"
       },
       "label": "Siec 230V L/N/PE",
-      "x": 27.97,
-      "y": 179.46,
-      "rotation": 180,
+      "x": 83.0,
+      "y": 15.62,
+      "rotation": 0,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "io"
     },
     {
       "ref": "K1",
@@ -520,11 +520,11 @@
         "3": "LAMP0"
       },
       "label": "Lampa 1 230V",
-      "x": 36.94,
-      "y": 153.5,
+      "x": 27.5,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -537,8 +537,8 @@
         "2": "_RC0",
         "3": "GND"
       },
-      "x": 146.2,
-      "y": 24.6,
+      "x": 122.7,
+      "y": 26.26,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -553,8 +553,8 @@
         "1": "OUT0",
         "2": "_RB0"
       },
-      "x": 151.0,
-      "y": 23.82,
+      "x": 127.0,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -569,8 +569,8 @@
         "1": "_RC0",
         "2": "V24P"
       },
-      "x": 156.55,
-      "y": 24.5,
+      "x": 132.05,
+      "y": 26.16,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -585,8 +585,8 @@
         "1": "_RL0",
         "2": "GND"
       },
-      "x": 162.1,
-      "y": 23.82,
+      "x": 137.1,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -601,8 +601,8 @@
         "1": "OUT0",
         "2": "_RL0"
       },
-      "x": 166.5,
-      "y": 23.82,
+      "x": 141.0,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -618,12 +618,12 @@
         "2": "N"
       },
       "label": "Lampa 1 230V",
-      "x": 58.52,
-      "y": 179.46,
+      "x": 36.94,
+      "y": 186.26,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K2",
@@ -637,11 +637,11 @@
         "3": "LAMP1"
       },
       "label": "Lampa 2 230V",
-      "x": 66.39,
-      "y": 153.5,
+      "x": 48.0,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -654,8 +654,8 @@
         "2": "_RC1",
         "3": "GND"
       },
-      "x": 171.3,
-      "y": 24.6,
+      "x": 145.3,
+      "y": 26.26,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -670,8 +670,8 @@
         "1": "OUT1",
         "2": "_RB1"
       },
-      "x": 176.1,
-      "y": 23.82,
+      "x": 149.6,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -686,8 +686,8 @@
         "1": "_RC1",
         "2": "V24P"
       },
-      "x": 181.65,
-      "y": 24.5,
+      "x": 154.65,
+      "y": 26.16,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -702,8 +702,8 @@
         "1": "_RL1",
         "2": "GND"
       },
-      "x": 187.2,
-      "y": 23.82,
+      "x": 159.7,
+      "y": 25.48,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -718,8 +718,8 @@
         "1": "OUT1",
         "2": "_RL1"
       },
-      "x": 191.6,
-      "y": 23.82,
+      "x": 16.9,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -735,12 +735,12 @@
         "2": "N"
       },
       "label": "Lampa 2 230V",
-      "x": 86.52,
-      "y": 179.46,
+      "x": 36.94,
+      "y": 176.18,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K3",
@@ -754,11 +754,11 @@
         "3": "LAMP2"
       },
       "label": "Lampa 3 230V",
-      "x": 95.83,
-      "y": 153.5,
+      "x": 68.5,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -771,8 +771,8 @@
         "2": "_RC2",
         "3": "GND"
       },
-      "x": 196.4,
-      "y": 24.6,
+      "x": 21.2,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -787,8 +787,8 @@
         "1": "OUT2",
         "2": "_RB2"
       },
-      "x": 201.2,
-      "y": 23.82,
+      "x": 25.5,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -803,8 +803,8 @@
         "1": "_RC2",
         "2": "V24P"
       },
-      "x": 206.75,
-      "y": 24.5,
+      "x": 30.55,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -819,8 +819,8 @@
         "1": "_RL2",
         "2": "GND"
       },
-      "x": 212.3,
-      "y": 23.82,
+      "x": 35.6,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -835,8 +835,8 @@
         "1": "OUT2",
         "2": "_RL2"
       },
-      "x": 216.7,
-      "y": 23.82,
+      "x": 39.5,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -852,12 +852,12 @@
         "2": "N"
       },
       "label": "Lampa 3 230V",
-      "x": 114.53,
-      "y": 179.46,
+      "x": 50.1,
+      "y": 186.26,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K4",
@@ -871,11 +871,11 @@
         "3": "LAMP3"
       },
       "label": "Lampa 4 230V",
-      "x": 125.28,
-      "y": 153.5,
+      "x": 89.0,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -888,8 +888,8 @@
         "2": "_RC3",
         "3": "GND"
       },
-      "x": 221.5,
-      "y": 24.6,
+      "x": 43.8,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -904,8 +904,8 @@
         "1": "OUT3",
         "2": "_RB3"
       },
-      "x": 226.3,
-      "y": 23.82,
+      "x": 48.1,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -920,8 +920,8 @@
         "1": "_RC3",
         "2": "V24P"
       },
-      "x": 231.85,
-      "y": 24.5,
+      "x": 53.15,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -936,8 +936,8 @@
         "1": "_RL3",
         "2": "GND"
       },
-      "x": 237.4,
-      "y": 23.82,
+      "x": 58.2,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -952,8 +952,8 @@
         "1": "OUT3",
         "2": "_RL3"
       },
-      "x": 241.8,
-      "y": 23.82,
+      "x": 62.1,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -969,12 +969,12 @@
         "2": "N"
       },
       "label": "Lampa 4 230V",
-      "x": 142.54,
-      "y": 179.46,
+      "x": 50.1,
+      "y": 176.18,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K5",
@@ -988,11 +988,11 @@
         "3": "LAMP4"
       },
       "label": "Lampa 5 230V",
-      "x": 154.72,
-      "y": 153.5,
+      "x": 109.5,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -1005,8 +1005,8 @@
         "2": "_RC4",
         "3": "GND"
       },
-      "x": 246.6,
-      "y": 24.6,
+      "x": 66.4,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1021,8 +1021,8 @@
         "1": "OUT4",
         "2": "_RB4"
       },
-      "x": 251.4,
-      "y": 23.82,
+      "x": 70.7,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1037,8 +1037,8 @@
         "1": "_RC4",
         "2": "V24P"
       },
-      "x": 256.95,
-      "y": 24.5,
+      "x": 75.75,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1053,8 +1053,8 @@
         "1": "_RL4",
         "2": "GND"
       },
-      "x": 262.5,
-      "y": 23.82,
+      "x": 80.8,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1069,8 +1069,8 @@
         "1": "OUT4",
         "2": "_RL4"
       },
-      "x": 5.2,
-      "y": 44.81,
+      "x": 84.7,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1086,12 +1086,12 @@
         "2": "N"
       },
       "label": "Lampa 5 230V",
-      "x": 170.55,
-      "y": 179.46,
+      "x": 63.26,
+      "y": 186.26,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K6",
@@ -1105,11 +1105,11 @@
         "3": "LAMP5"
       },
       "label": "Lampa 6 230V",
-      "x": 184.17,
-      "y": 153.5,
+      "x": 130.0,
+      "y": 125.7,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -1122,8 +1122,8 @@
         "2": "_RC5",
         "3": "GND"
       },
-      "x": 10.0,
-      "y": 45.58,
+      "x": 89.0,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1138,8 +1138,8 @@
         "1": "OUT5",
         "2": "_RB5"
       },
-      "x": 14.8,
-      "y": 44.81,
+      "x": 93.3,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1154,8 +1154,8 @@
         "1": "_RC5",
         "2": "V24P"
       },
-      "x": 20.35,
-      "y": 45.48,
+      "x": 98.35,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1170,8 +1170,8 @@
         "1": "_RL5",
         "2": "GND"
       },
-      "x": 25.9,
-      "y": 44.81,
+      "x": 103.4,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1186,8 +1186,8 @@
         "1": "OUT5",
         "2": "_RL5"
       },
-      "x": 30.3,
-      "y": 44.81,
+      "x": 107.3,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1203,12 +1203,12 @@
         "2": "N"
       },
       "label": "Lampa 6 230V",
-      "x": 198.56,
-      "y": 179.46,
+      "x": 63.26,
+      "y": 176.18,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K7",
@@ -1222,11 +1222,11 @@
         "3": "LAMP6"
       },
       "label": "Lampa 7 230V",
-      "x": 213.61,
-      "y": 153.5,
+      "x": 27.5,
+      "y": 142.2,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -1239,8 +1239,8 @@
         "2": "_RC6",
         "3": "GND"
       },
-      "x": 35.1,
-      "y": 45.58,
+      "x": 111.6,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1255,8 +1255,8 @@
         "1": "OUT6",
         "2": "_RB6"
       },
-      "x": 39.9,
-      "y": 44.81,
+      "x": 115.9,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1271,8 +1271,8 @@
         "1": "_RC6",
         "2": "V24P"
       },
-      "x": 45.45,
-      "y": 45.48,
+      "x": 120.95,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1287,8 +1287,8 @@
         "1": "_RL6",
         "2": "GND"
       },
-      "x": 51.0,
-      "y": 44.81,
+      "x": 126.0,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1303,8 +1303,8 @@
         "1": "OUT6",
         "2": "_RL6"
       },
-      "x": 55.4,
-      "y": 44.81,
+      "x": 133.8,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1320,12 +1320,12 @@
         "2": "N"
       },
       "label": "Lampa 7 230V",
-      "x": 226.56,
-      "y": 179.46,
+      "x": 76.42,
+      "y": 186.26,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "K8",
@@ -1339,11 +1339,11 @@
         "3": "LAMP7"
       },
       "label": "Lampa 8 230V",
-      "x": 243.06,
-      "y": 153.5,
+      "x": 48.0,
+      "y": 142.2,
       "rotation": 0,
       "side": "top",
-      "pinned": true,
+      "pinned": false,
       "role": "relay"
     },
     {
@@ -1356,8 +1356,8 @@
         "2": "_RC7",
         "3": "GND"
       },
-      "x": 60.2,
-      "y": 45.58,
+      "x": 138.1,
+      "y": 46.74,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1372,8 +1372,8 @@
         "1": "OUT7",
         "2": "_RB7"
       },
-      "x": 65.0,
-      "y": 44.81,
+      "x": 142.4,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1388,8 +1388,8 @@
         "1": "_RC7",
         "2": "V24P"
       },
-      "x": 70.55,
-      "y": 45.48,
+      "x": 147.45,
+      "y": 46.64,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1404,8 +1404,8 @@
         "1": "_RL7",
         "2": "GND"
       },
-      "x": 76.1,
-      "y": 44.81,
+      "x": 152.5,
+      "y": 45.97,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1420,8 +1420,8 @@
         "1": "OUT7",
         "2": "_RL7"
       },
-      "x": 80.5,
-      "y": 44.81,
+      "x": 5.2,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1437,12 +1437,12 @@
         "2": "N"
       },
       "label": "Lampa 8 230V",
-      "x": 254.57,
-      "y": 179.46,
+      "x": 76.42,
+      "y": 176.18,
       "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "mains"
+      "role": "out"
     },
     {
       "ref": "Q9",
@@ -1454,8 +1454,8 @@
         "2": "OUT8",
         "3": "GND"
       },
-      "x": 86.9,
-      "y": 46.98,
+      "x": 11.1,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1470,8 +1470,8 @@
         "1": "OUT8",
         "2": "_G8"
       },
-      "x": 93.3,
-      "y": 44.81,
+      "x": 17.0,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1486,8 +1486,8 @@
         "1": "_G8",
         "2": "GND"
       },
-      "x": 97.7,
-      "y": 44.81,
+      "x": 20.9,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1502,8 +1502,8 @@
         "1": "OUT8",
         "2": "V24P"
       },
-      "x": 103.25,
-      "y": 45.48,
+      "x": 25.95,
+      "y": 51.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1518,8 +1518,8 @@
         "1": "_ML8",
         "2": "GND"
       },
-      "x": 108.8,
-      "y": 44.81,
+      "x": 31.0,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1534,8 +1534,8 @@
         "1": "OUT8",
         "2": "_ML8"
       },
-      "x": 113.2,
-      "y": 44.81,
+      "x": 34.9,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1551,12 +1551,12 @@
         "2": "OUT8"
       },
       "label": "LED 1 DC",
-      "x": 61.65,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 89.58,
+      "y": 186.26,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q10",
@@ -1568,8 +1568,8 @@
         "2": "OUT9",
         "3": "GND"
       },
-      "x": 119.6,
-      "y": 46.98,
+      "x": 40.8,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1584,8 +1584,8 @@
         "1": "OUT9",
         "2": "_G9"
       },
-      "x": 126.0,
-      "y": 44.81,
+      "x": 46.7,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1600,8 +1600,8 @@
         "1": "_G9",
         "2": "GND"
       },
-      "x": 134.8,
-      "y": 44.81,
+      "x": 50.6,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1616,8 +1616,8 @@
         "1": "OUT9",
         "2": "V24P"
       },
-      "x": 140.35,
-      "y": 45.48,
+      "x": 55.65,
+      "y": 51.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1632,8 +1632,8 @@
         "1": "_ML9",
         "2": "GND"
       },
-      "x": 145.9,
-      "y": 44.81,
+      "x": 60.7,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1648,8 +1648,8 @@
         "1": "OUT9",
         "2": "_ML9"
       },
-      "x": 150.3,
-      "y": 44.81,
+      "x": 64.6,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1665,12 +1665,12 @@
         "2": "OUT9"
       },
       "label": "LED 2 DC",
-      "x": 87.77,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 89.58,
+      "y": 176.18,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q11",
@@ -1682,8 +1682,8 @@
         "2": "OUT10",
         "3": "GND"
       },
-      "x": 156.7,
-      "y": 46.98,
+      "x": 70.5,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1698,8 +1698,8 @@
         "1": "OUT10",
         "2": "_G10"
       },
-      "x": 163.1,
-      "y": 44.81,
+      "x": 76.4,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1714,8 +1714,8 @@
         "1": "_G10",
         "2": "GND"
       },
-      "x": 167.5,
-      "y": 44.81,
+      "x": 80.3,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1730,8 +1730,8 @@
         "1": "OUT10",
         "2": "V24P"
       },
-      "x": 173.05,
-      "y": 45.48,
+      "x": 85.35,
+      "y": 51.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1746,8 +1746,8 @@
         "1": "_ML10",
         "2": "GND"
       },
-      "x": 178.6,
-      "y": 44.81,
+      "x": 90.4,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1762,8 +1762,8 @@
         "1": "OUT10",
         "2": "_ML10"
       },
-      "x": 183.0,
-      "y": 44.81,
+      "x": 94.3,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1779,12 +1779,12 @@
         "2": "OUT10"
       },
       "label": "LED 3 DC",
-      "x": 113.88,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 102.74,
+      "y": 186.26,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q12",
@@ -1796,8 +1796,8 @@
         "2": "OUT11",
         "3": "GND"
       },
-      "x": 189.4,
-      "y": 46.98,
+      "x": 100.2,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1812,8 +1812,8 @@
         "1": "OUT11",
         "2": "_G11"
       },
-      "x": 195.8,
-      "y": 44.81,
+      "x": 106.1,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1828,8 +1828,8 @@
         "1": "_G11",
         "2": "GND"
       },
-      "x": 200.2,
-      "y": 44.81,
+      "x": 110.0,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1844,8 +1844,8 @@
         "1": "OUT11",
         "2": "V24P"
       },
-      "x": 205.75,
-      "y": 45.48,
+      "x": 115.05,
+      "y": 51.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1860,8 +1860,8 @@
         "1": "_ML11",
         "2": "GND"
       },
-      "x": 211.3,
-      "y": 44.81,
+      "x": 120.1,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1876,8 +1876,8 @@
         "1": "OUT11",
         "2": "_ML11"
       },
-      "x": 215.7,
-      "y": 44.81,
+      "x": 124.0,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1893,12 +1893,12 @@
         "2": "OUT11"
       },
       "label": "LED 4 DC",
-      "x": 140.0,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 102.74,
+      "y": 176.18,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q13",
@@ -1910,8 +1910,8 @@
         "2": "OUT12",
         "3": "GND"
       },
-      "x": 222.1,
-      "y": 46.98,
+      "x": 129.9,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1926,8 +1926,8 @@
         "1": "OUT12",
         "2": "_G12"
       },
-      "x": 228.5,
-      "y": 44.81,
+      "x": 135.8,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1942,8 +1942,8 @@
         "1": "_G12",
         "2": "GND"
       },
-      "x": 232.9,
-      "y": 44.81,
+      "x": 139.7,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1958,8 +1958,8 @@
         "1": "OUT12",
         "2": "V24P"
       },
-      "x": 238.45,
-      "y": 45.48,
+      "x": 144.75,
+      "y": 51.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1974,8 +1974,8 @@
         "1": "_ML12",
         "2": "GND"
       },
-      "x": 244.0,
-      "y": 44.81,
+      "x": 149.8,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -1990,8 +1990,8 @@
         "1": "OUT12",
         "2": "_ML12"
       },
-      "x": 248.4,
-      "y": 44.81,
+      "x": 153.7,
+      "y": 50.67,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2007,12 +2007,12 @@
         "2": "OUT12"
       },
       "label": "LED 5 DC",
-      "x": 166.12,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 115.9,
+      "y": 186.26,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q14",
@@ -2024,8 +2024,8 @@
         "2": "OUT13",
         "3": "GND"
       },
-      "x": 254.8,
-      "y": 46.98,
+      "x": 159.6,
+      "y": 52.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2040,8 +2040,8 @@
         "1": "OUT13",
         "2": "_G13"
       },
-      "x": 261.2,
-      "y": 44.81,
+      "x": 5.2,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2056,8 +2056,8 @@
         "1": "_G13",
         "2": "GND"
       },
-      "x": 265.6,
-      "y": 44.81,
+      "x": 9.1,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2072,8 +2072,8 @@
         "1": "OUT13",
         "2": "V24P"
       },
-      "x": 271.15,
-      "y": 45.48,
+      "x": 14.15,
+      "y": 58.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2088,8 +2088,8 @@
         "1": "_ML13",
         "2": "GND"
       },
-      "x": 5.2,
-      "y": 52.81,
+      "x": 19.2,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2104,8 +2104,8 @@
         "1": "OUT13",
         "2": "_ML13"
       },
-      "x": 9.6,
-      "y": 52.81,
+      "x": 23.1,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2121,12 +2121,12 @@
         "2": "OUT13"
       },
       "label": "LED 6 DC",
-      "x": 192.23,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 115.9,
+      "y": 176.18,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q15",
@@ -2138,8 +2138,8 @@
         "2": "OUT14",
         "3": "GND"
       },
-      "x": 16.0,
-      "y": 54.98,
+      "x": 29.0,
+      "y": 60.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2154,8 +2154,8 @@
         "1": "OUT14",
         "2": "_G14"
       },
-      "x": 22.4,
-      "y": 52.81,
+      "x": 34.9,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2170,8 +2170,8 @@
         "1": "_G14",
         "2": "GND"
       },
-      "x": 26.8,
-      "y": 52.81,
+      "x": 38.8,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2186,8 +2186,8 @@
         "1": "OUT14",
         "2": "V24P"
       },
-      "x": 32.35,
-      "y": 53.48,
+      "x": 43.85,
+      "y": 58.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2202,8 +2202,8 @@
         "1": "_ML14",
         "2": "GND"
       },
-      "x": 37.9,
-      "y": 52.81,
+      "x": 48.9,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2218,8 +2218,8 @@
         "1": "OUT14",
         "2": "_ML14"
       },
-      "x": 42.3,
-      "y": 52.81,
+      "x": 52.8,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2235,12 +2235,12 @@
         "2": "OUT14"
       },
       "label": "LED 7 DC",
-      "x": 218.35,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 129.06,
+      "y": 186.26,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     },
     {
       "ref": "Q16",
@@ -2252,8 +2252,8 @@
         "2": "OUT15",
         "3": "GND"
       },
-      "x": 48.7,
-      "y": 54.98,
+      "x": 58.7,
+      "y": 60.34,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2268,8 +2268,8 @@
         "1": "OUT15",
         "2": "_G15"
       },
-      "x": 55.1,
-      "y": 52.81,
+      "x": 64.6,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2284,8 +2284,8 @@
         "1": "_G15",
         "2": "GND"
       },
-      "x": 59.5,
-      "y": 52.81,
+      "x": 68.5,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2300,8 +2300,8 @@
         "1": "OUT15",
         "2": "V24P"
       },
-      "x": 65.05,
-      "y": 53.48,
+      "x": 73.55,
+      "y": 58.84,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2316,8 +2316,8 @@
         "1": "_ML15",
         "2": "GND"
       },
-      "x": 70.6,
-      "y": 52.81,
+      "x": 78.6,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2332,8 +2332,8 @@
         "1": "OUT15",
         "2": "_ML15"
       },
-      "x": 75.0,
-      "y": 52.81,
+      "x": 82.5,
+      "y": 58.17,
       "rotation": 0,
       "side": "top",
       "pinned": false,
@@ -2349,22 +2349,22 @@
         "2": "OUT15"
       },
       "label": "LED 8 DC",
-      "x": 244.46,
-      "y": 5.54,
-      "rotation": 0,
+      "x": 129.06,
+      "y": 176.18,
+      "rotation": 180,
       "side": "top",
       "pinned": true,
-      "role": "io"
+      "role": "out"
     }
   ],
   "outline": [
     0.0,
     0.0,
-    280.0,
-    185.0
+    168.0,
+    191.8
   ],
-  "board_w": 280.0,
-  "board_h": 185.0,
+  "board_w": 168.0,
+  "board_h": 191.8,
   "mains_nets": [
     "L",
     "LAMP0",

@@ -44,6 +44,70 @@ class Frame:
         return (self.width / 2, self.height / 2)
 
 
+def _shelf_height(sizes, width, gap=1.8) -> float:
+    """Szacowana wysokosc upakowania polkowego listy (w,h) w danej szerokosci."""
+    x = 0.0
+    row_h = 0.0
+    total = 0.0
+    for w, h in sizes:
+        if x > 0 and x + w > width:
+            total += row_h + gap
+            x = 0.0
+            row_h = 0.0
+        x += w + gap
+        row_h = max(row_h, h)
+    return total + row_h
+
+
+def auto_frame(bottom: "Design", top: "Design", margin: float = 3.0, gap: float = 1.8) -> "Frame":
+    """Dobiera CIASNA wspolna ramke do zawartosci obu plyt (bez pustego miejsca).
+    Szerokosc z najszerszego rzedu krawedziowego; wysokosc z upakowania dolnej."""
+    for d in (bottom, top):
+        d.ensure_nets()
+
+    def items(d, *roles):
+        return [c for c in d.components if _role(c) in roles]
+
+    hole_inset = 4.5
+    rows = 2
+
+    def edge_w(cs):
+        """Szerokosc krawedzi: najszerszy z `rows` rzedow (zmienne szerokosci)."""
+        if not cs:
+            return 0.0
+        groups = [cs[r::rows] for r in range(rows)]
+        rw = max(sum(_fp(c).body_w * 2 + gap for c in g) for g in groups)
+        return rw + 2 * margin + 4 * hole_inset + 6
+
+    edge_items = items(bottom, "io", "out", "mains") + items(top, "io", "out", "mains")
+    tallest = max((_fp(c).body_h * 2 for c in edge_items), default=8.0)
+    io_band = rows * (tallest + gap) + 4.0     # pas na 2 rzedy zlacz
+
+    # szerokosc z LICZBY zlacz (najszersza krawedz, 2 rzedy)
+    W = max(edge_w(items(bottom, "io")), edge_w(items(bottom, "out", "mains")),
+            edge_w(items(top, "io")), edge_w(items(top, "out", "mains")), 90.0)
+
+    # wysokosc: upakowanie wnetrza dolnej plyty (najgestsza) + strefy
+    inter = items(bottom, "ic") + items(bottom, "passive")
+    sizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in inter]
+    int_w = max(W - 2 * margin - 4 * hole_inset, 40.0)
+    int_h = _shelf_height(sizes, int_w, gap)
+    relays = items(bottom, "relay")
+    rsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in relays]
+    relay_h = _shelf_height(rsizes, int_w, gap) if relays else 0.0
+    out_band = io_band if items(bottom, "out", "mains") else 0.0
+    # dol: pas I/O (gora) + wnetrze + strefa przekaznikow + pas wyjsc (dol)
+    H_bottom = io_band + int_h + relay_h + out_band + 2 * margin + 12.0
+    # gora: pas I/O (gora) + wnetrze + wolny pas (dolna krawedz wcieta)
+    tinter = items(top, "ic") + items(top, "passive")
+    tsizes = [(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in tinter]
+    tint_h = _shelf_height(tsizes, int_w, gap)
+    H_top = 2 * io_band + tint_h + 2 * margin + 10.0
+    H = max(H_bottom, H_top)
+    return Frame(width=round(W, 1), height=round(H, 1), io_band=round(io_band, 1),
+                 hole_inset=hole_inset, margin=margin)
+
+
 def _fp(c: Component):
     part = catalog.get_part(c.part)
     if "header" in part:
@@ -102,6 +166,31 @@ def _place_row(items: List[Component], x0: float, x1: float, *,
         x += w + gap
 
 
+def _place_edge(items: List[Component], x0: float, x1: float, outer_y: float,
+                side: str, rows: int = 2, gap: float = 2.0, edge_inset: float = 1.5) -> float:
+    """Zlacza wzdluz krawedzi w `rows` rzedach (podwojne w pionie) - szerokosc
+    wynika z liczby zlacz. Zwraca wysokosc zajetego pasa."""
+    if not items:
+        return 0.0
+    groups = [items[r::rows] for r in range(rows)]   # rownomierny podzial na rzedy
+    rpitch = max(_fp(c).body_h * 2 for c in items) + gap
+    for r, group in enumerate(groups):
+        row_w = sum(_fp(c).body_w * 2 + gap for c in group)
+        x = max(x0, (x0 + x1) / 2 - row_w / 2)       # wysrodkuj rzad
+        for c in group:
+            fp = _fp(c)
+            c.x = round(x + fp.body_w, 2)
+            if side == "top":
+                c.y = round(outer_y + edge_inset + fp.body_h + r * rpitch, 2)
+                c.rotation = 0
+            else:
+                c.y = round(outer_y - edge_inset - fp.body_h - r * rpitch, 2)
+                c.rotation = 180
+            c.pinned = True
+            x += fp.body_w * 2 + gap
+    return rows * rpitch + edge_inset
+
+
 def _place_centered_row(items: List[Component], x0: float, x1: float, center_y: float):
     """Rzad komponentow wysrodkowany na wysokosci center_y (NIE przy krawedzi)."""
     if not items:
@@ -153,7 +242,7 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
     holes = [c for c in comps if _role(c) == "mount"]
     b2b = [c for c in comps if _role(c) == "b2b" or (c.role == "" and c.part.startswith("Header_2x"))]
     io = [c for c in comps if _role(c) == "io" and c not in b2b]
-    mains_terms = [c for c in comps if _role(c) == "mains"]   # zaciski 230V -> krawedz
+    out_terms = [c for c in comps if _role(c) in ("out", "mains")]  # wyjscia -> dolna krawedz
     relays = [c for c in comps if _role(c) == "relay"]        # przekazniki -> wnetrze
     ics = [c for c in comps if _role(c) == "ic"]
     passives = [c for c in comps if _role(c) == "passive"]
@@ -176,35 +265,36 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
     cx0, cy0, cx1, cy1 = frame.central
     interior_bottom = cy1  # gorna granica strefy przekaznikow
     interior_top = cy0
-
-    # I/O niskonapieciowe -> GORNA krawedz (OBIE plyty; gorna ma krawedz na io_band)
-    io_outer = 0.0 if not is_top else frame.io_band
     edge_x0 = frame.margin + 2 * frame.hole_inset + 3   # omin otwory narozne
     edge_x1 = frame.width - frame.margin - 2 * frame.hole_inset - 3
-    _place_row(io, edge_x0, edge_x1, outer_y=io_outer, side="top")
-    for c in io:
-        fp = _fp(c)
-        obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
-    if io:
-        io_h = max(_fp(c).body_h * 2 for c in io)
-        interior_top = max(interior_top, io_outer + 1.5 + io_h + 2.0)  # logika pod rzedem I/O
 
-    if not is_top:
-        # zaciski 230V -> DOLNA krawedz (dostep kablem), zlicowane
-        _place_row(mains_terms, frame.margin, frame.width - frame.margin,
-                   outer_y=frame.height, side="bottom")
-        for c in mains_terms:
+    def _io_obstacles(items):
+        for c in items:
             fp = _fp(c)
             obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
-        # PRZEKAZNIKI -> pas 230V WEWNATRZ, tuz nad zaciskami, NIE przy krawedzi
-        if relays:
-            rh = max(_fp(c).body_h for c in relays)
-            relay_cy = cy1 - rh - 2.0
-            _place_centered_row(relays, cx0 + 14, cx1 - 14, relay_cy)
-            for c in relays:
-                fp = _fp(c)
-                obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
-            interior_bottom = relay_cy - rh - 2.0   # logika nad strefa przekaznikow
+
+    # WEJSCIA/zasilanie/magistrale -> GORNA krawedz, 2 rzedy (podwojne w pionie)
+    io_outer = 0.0 if not is_top else frame.io_band
+    io_h = _place_edge(io, edge_x0, edge_x1, io_outer, "top", rows=2)
+    _io_obstacles(io)
+    if io:
+        interior_top = io_outer + io_h + 2.0
+
+    # WYJSCIA (zaciski) -> DOLNA krawedz, 2 rzedy
+    out_outer = frame.height if not is_top else (frame.height - frame.io_band)
+    out_h = _place_edge(out_terms, edge_x0, edge_x1, out_outer, "bottom", rows=2)
+    _io_obstacles(out_terms)
+    if out_terms:
+        interior_bottom = min(interior_bottom, out_outer - out_h - 2.0)
+
+    # PRZEKAZNIKI -> STREFA 230V WEWNATRZ (kilka rzedow), nad wyjsciami, omija otwory
+    if relays:
+        hc = 2 * frame.hole_inset + 6
+        rsizes = [(_fp(c).body_w * 2 + 1.5, _fp(c).body_h * 2 + 1.5) for c in relays]
+        rband_h = _shelf_height(rsizes, (cx1 - cx0) - 2 * hc, 1.5)
+        rtop = interior_bottom - rband_h - 1.5
+        _pack(relays, (cx0 + hc, rtop, cx1 - hc, interior_bottom), obstacles, gap=1.5)
+        interior_bottom = rtop - 2.0
 
     # opcjonalnie czesc pasywnych od spodu (upchac od spodu)
     if bottom_side_passives:
@@ -213,7 +303,7 @@ def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives
 
     # IC + pasywne -> srodek (pod rzedem I/O, nad strefa przekaznikow, omijajac otwory/B2B)
     interior = ics + passives
-    _pack(interior, (cx0 + 1, interior_top + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=2.0)
+    _pack(interior, (cx0 + 1, interior_top + 1, cx1 - 1, interior_bottom - 1), obstacles, gap=1.5)
 
     # wymiary i obrys
     design.board_w = frame.width

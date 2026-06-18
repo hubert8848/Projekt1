@@ -256,7 +256,7 @@ def crystal_smd() -> Footprint:
 # ---------------------------------------------------------------------------
 def rj45_8p8c() -> Footprint:
     """RJ45 8P8C THT (bez magnetyki). 8 pinow w 2 rzedach + 2 ekrany/kotwy."""
-    fp = Footprint("RJ45_8P8C", "Gniazdo RJ45 8P8C THT", smd=False, body_w=8.0, body_h=10.0)
+    fp = Footprint("RJ45_8P8C", "Gniazdo RJ45 8P8C THT", smd=False, body_w=7.5, body_h=7.5)
     pitch = 1.016
     # rzad przedni: piny 1,3,5,7 ; tylny: 2,4,6,8 (staggered)
     front = ["1", "3", "5", "7"]
@@ -420,6 +420,8 @@ REGISTRY = {
     "Relay_SPDT_SRD": relay_srd,
     "MountingHole_M3": lambda: mounting_hole(3.2),
     "ESP32-C3-MINI-1": lambda: castellated_module("ESP32-C3-MINI-1", 7, 5, 7, w=13.2, h=13.0),
+    "ESP32-S3-WROOM-1": lambda: castellated_module("ESP32-S3-WROOM-1", 14, 12, 14,
+                                                   pitch=1.27, w=18.0, h=25.5),
     "TO-252": dpak,
     "MOV_Disc": mov_disc,
 }

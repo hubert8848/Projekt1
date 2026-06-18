@@ -196,6 +196,26 @@ def _esp32c3() -> sym.SymbolDef:
     return sym.box("pcbforge:ESP32-C3-MINI-1", "U", pins, width=25.4)
 
 
+# ESP32-S3-WROOM-1: 40 pinow (uproszczony, sekwencyjny IO0..IO48)
+_ESP32S3_NAMES = (["GND", "3V3", "EN"] +
+                  [f"IO{n}" for n in range(0, 22)] +
+                  [f"IO{n}" for n in range(35, 49)] + ["GND"])  # 3+22+14+1 = 40
+
+
+def esp32s3_pin(name: str) -> str:
+    """Numer pinu ESP32-S3 dla nazwy GPIO (np. 'IO8' -> '12')."""
+    return str(_ESP32S3_NAMES.index(name) + 1)
+
+
+def _esp32s3() -> sym.SymbolDef:
+    pins = []
+    for i, nm in enumerate(_ESP32S3_NAMES, start=1):
+        et = "power_in" if nm in ("GND", "3V3") else ("input" if nm == "EN" else "bidirectional")
+        side = "left" if i <= 20 else "right"
+        pins.append((str(i), nm, et, side))
+    return sym.box("pcbforge:ESP32-S3-WROOM-1", "U", pins, width=30.48)
+
+
 def _tja1051() -> sym.SymbolDef:
     pins = [("1", "TXD", "input", "left"), ("2", "GND", "power_in", "left"),
             ("3", "VCC", "power_in", "left"), ("4", "RXD", "output", "left"),
@@ -262,6 +282,7 @@ _STATIC: Dict[str, dict] = {
     "Relay_SPDT": dict(symbol=_relay, footprint="Relay_SPDT_SRD"),
     "MountingHole": dict(symbol=_mount, footprint="MountingHole_M3"),
     "ESP32-C3": dict(symbol=_esp32c3, footprint="ESP32-C3-MINI-1"),
+    "ESP32-S3": dict(symbol=_esp32s3, footprint="ESP32-S3-WROOM-1"),
     "TJA1051": dict(symbol=_tja1051, footprint="SOIC-8"),
     "MOV": dict(symbol=lambda: sym.two_pin_vertical("pcbforge:MOV", "RV", body="ferrite"),
                 footprint="MOV_Disc"),

@@ -25,21 +25,21 @@
       (place "J1" 650000 -575000 front 0)
     )
     (component "SOIC-28"
-      (place "U1" 181500 -284900 front 0)
+      (place "U1" 176500 -284900 front 0)
     )
     (component "C_0805"
-      (place "C1" 324000 -198200 back 0)
+      (place "C1" 309000 -198200 back 0)
     )
     (component "R_0805"
-      (place "R1" 368000 -198200 back 0)
-      (place "R2" 412000 -198200 back 0)
-      (place "R3" 456000 -198200 back 0)
+      (place "R1" 348000 -198200 back 0)
+      (place "R2" 387000 -198200 back 0)
+      (place "R3" 426000 -198200 back 0)
     )
     (component "D_SOD-323"
-      (place "D1" 502500 -198200 front 0)
+      (place "D1" 467500 -198200 front 0)
     )
     (component "TO-92"
-      (place "U2" 267000 -215000 front 0)
+      (place "U2" 257000 -215000 front 0)
     )
   )
   (library
