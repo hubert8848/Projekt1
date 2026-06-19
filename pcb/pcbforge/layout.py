@@ -275,11 +275,16 @@ def _place_centered_row(items: List[Component], x0: float, x1: float, center_y: 
 
 
 def _pack(items: List[Component], region, obstacles, gap=2.0):
-    """Upakowanie polkowe wewnatrz prostokata, omijajac przeszkody.
-    Sortowanie po wysokosci malejaco -> wiersze o zblizonej wysokosci (ciasno)."""
+    """Upakowanie polkowe omijajac przeszkody. Sortuje po (wysokosc, typ, wartosc)
+    -> identyczne czesci (te same R/C) trafiaja obok siebie w rownych rzedach."""
     x0, y0, x1, y1 = region
     cx, cy, row_h = x0, y0, 0.0
-    for c in sorted(items, key=lambda c: -_fp(c).body_h * 2):
+
+    def key(c):
+        fp = _fp(c)
+        return (-round(fp.body_h * 2, 1), -round(fp.body_w * 2, 1), c.part, c.value)
+
+    for c in sorted(items, key=key):
         fp = _fp(c)
         w, h = fp.body_w * 2, fp.body_h * 2
         guard = 0
