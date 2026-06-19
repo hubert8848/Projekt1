@@ -1,0 +1,1028 @@
+{
+  "name": "SmartHome230_Bottom",
+  "rules": {
+    "track_width": 0.25,
+    "clearance": 0.2,
+    "via_diameter": 0.8,
+    "via_drill": 0.4,
+    "mains_track_width": 1.5,
+    "mains_clearance": 2.5
+  },
+  "components": [
+    {
+      "ref": "H1",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 7.5,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H2",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 122.5,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H3",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 122.5,
+      "y": 92.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "H4",
+      "part": "MountingHole",
+      "value": "M3",
+      "footprint": "MountingHole_M3",
+      "connections": {},
+      "label": "otwor M3",
+      "x": 7.5,
+      "y": 92.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "mount"
+    },
+    {
+      "ref": "J1",
+      "part": "Header_2x10",
+      "value": "B2B",
+      "footprint": "Header_2x10",
+      "connections": {
+        "1": "GND",
+        "2": "GND",
+        "3": "3V3",
+        "4": "3V3",
+        "5": "SDA",
+        "6": "SCL",
+        "7": "EXP_INT",
+        "8": "EXP_RST",
+        "9": "OW",
+        "10": "BTN0",
+        "11": "BTN1",
+        "12": "BTN2",
+        "13": "BTN3",
+        "14": "BTN4",
+        "15": "BTN5",
+        "16": "BTN6",
+        "17": "BTN7",
+        "18": "GND",
+        "19": "3V3",
+        "20": "GND"
+      },
+      "label": "do plyty gornej",
+      "x": 65.0,
+      "y": 57.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "b2b"
+    },
+    {
+      "ref": "J2",
+      "part": "ScrewTerminal_1x02",
+      "value": "12V",
+      "footprint": "ScrewTerminal_1x02",
+      "connections": {
+        "1": "VIN",
+        "2": "GND"
+      },
+      "label": "Zasilanie 12V",
+      "x": 37.88,
+      "y": 5.54,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "J3",
+      "part": "RJ45",
+      "value": "Przyciski A",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN0",
+        "3": "BTN1",
+        "4": "BTN2",
+        "5": "BTN3",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      },
+      "label": "Przyciski scienne A",
+      "x": 52.96,
+      "y": 9.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "J4",
+      "part": "RJ45",
+      "value": "Przyciski B",
+      "footprint": "RJ45_8P8C",
+      "connections": {
+        "1": "3V3",
+        "2": "BTN4",
+        "3": "BTN5",
+        "4": "BTN6",
+        "5": "BTN7",
+        "6": "OW",
+        "7": "GND",
+        "8": "GND",
+        "S": "GND"
+      },
+      "label": "Przyciski scienne B",
+      "x": 69.96,
+      "y": 9.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": "io"
+    },
+    {
+      "ref": "F1",
+      "part": "F",
+      "value": "2A",
+      "footprint": "F_1206",
+      "connections": {
+        "1": "VIN",
+        "2": "_FUSED_V12"
+      },
+      "x": 51.8,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D1",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_FUSED_V12",
+        "2": "V12"
+      },
+      "x": 57.45,
+      "y": 23.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C1",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V12",
+        "2": "GND"
+      },
+      "x": 63.1,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U1",
+      "part": "MP1584",
+      "value": "MP1584",
+      "footprint": "SOIC-8",
+      "connections": {
+        "2": "V12",
+        "4": "GND",
+        "3": "_SW_V5",
+        "1": "_BST_V5",
+        "7": "V12",
+        "5": "_FB_V5"
+      },
+      "x": 18.25,
+      "y": 24.64,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "L1",
+      "part": "L_power",
+      "value": "10uH",
+      "footprint": "L_6x6",
+      "connections": {
+        "1": "_SW_V5",
+        "2": "V5"
+      },
+      "x": 69.8,
+      "y": 24.9,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D2",
+      "part": "D_Schottky",
+      "value": "SS34",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "GND",
+        "2": "_SW_V5"
+      },
+      "x": 77.05,
+      "y": 23.0,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C2",
+      "part": "C",
+      "value": "10nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "_BST_V5",
+        "2": "_SW_V5"
+      },
+      "x": 82.1,
+      "y": 22.32,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C3",
+      "part": "CP",
+      "value": "100uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V12",
+        "2": "GND"
+      },
+      "x": 86.6,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C4",
+      "part": "CP",
+      "value": "47uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 91.7,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C5",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V12",
+        "2": "GND"
+      },
+      "x": 96.2,
+      "y": 22.32,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C6",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 100.1,
+      "y": 22.32,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R1",
+      "part": "R",
+      "value": "100k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "V5",
+        "2": "_FB_V5"
+      },
+      "x": 104.0,
+      "y": 22.32,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R2",
+      "part": "R",
+      "value": "20k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "_FB_V5",
+        "2": "GND"
+      },
+      "x": 107.9,
+      "y": 22.32,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U2",
+      "part": "AMS1117-3.3",
+      "value": "AMS1117-3.3",
+      "footprint": "SOT-223",
+      "connections": {
+        "3": "V5",
+        "1": "GND",
+        "2": "3V3",
+        "4": "3V3"
+      },
+      "x": 25.5,
+      "y": 24.8,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C7",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 112.4,
+      "y": 22.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C8",
+      "part": "CP",
+      "value": "10uF",
+      "footprint": "CP_1206",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 5.8,
+      "y": 49.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C9",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "V5",
+        "2": "GND"
+      },
+      "x": 10.3,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C10",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 14.2,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "U3",
+      "part": "ESP32-WROOM-32",
+      "value": "ESP32-WROOM-32",
+      "footprint": "ESP32-WROOM-32",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "15": "GND",
+        "38": "GND",
+        "33": "SDA",
+        "36": "SCL",
+        "25": "IO0",
+        "35": "TXD0",
+        "34": "RXD0",
+        "13": "OW",
+        "6": "EXP_INT",
+        "26": "RELAY1",
+        "29": "RELAY2"
+      },
+      "x": 39.5,
+      "y": 34.25,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C11",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 22.0,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C12",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "GND"
+      },
+      "x": 25.9,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R3",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EN"
+      },
+      "x": 29.8,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "C13",
+      "part": "C",
+      "value": "100nF",
+      "footprint": "C_0805",
+      "connections": {
+        "1": "EN",
+        "2": "GND"
+      },
+      "x": 33.7,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R4",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "IO0"
+      },
+      "x": 37.6,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "SW1",
+      "part": "SW_Push",
+      "value": "EN",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "EN",
+        "2": "EN",
+        "3": "GND",
+        "4": "GND"
+      },
+      "x": 43.3,
+      "y": 51.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "SW2",
+      "part": "SW_Push",
+      "value": "BOOT",
+      "footprint": "SW_Push_6mm",
+      "connections": {
+        "1": "IO0",
+        "2": "IO0",
+        "3": "GND",
+        "4": "GND"
+      },
+      "x": 88.3,
+      "y": 51.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J5",
+      "part": "Header_1x06",
+      "value": "UART",
+      "footprint": "Header_1x06",
+      "connections": {
+        "1": "GND",
+        "2": "3V3",
+        "3": "EN",
+        "4": "IO0",
+        "5": "TXD0",
+        "6": "RXD0"
+      },
+      "x": 87.58,
+      "y": 3.27,
+      "rotation": 0,
+      "side": "top",
+      "pinned": true,
+      "role": ""
+    },
+    {
+      "ref": "R5",
+      "part": "R",
+      "value": "10k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "EXP_RST"
+      },
+      "x": 94.0,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R6",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SDA"
+      },
+      "x": 97.9,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R7",
+      "part": "R",
+      "value": "4.7k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "3V3",
+        "2": "SCL"
+      },
+      "x": 101.8,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D3",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN0",
+        "2": "GND"
+      },
+      "x": 105.95,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D4",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN1",
+        "2": "GND"
+      },
+      "x": 110.35,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D5",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN2",
+        "2": "GND"
+      },
+      "x": 114.75,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D6",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN3",
+        "2": "GND"
+      },
+      "x": 119.15,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D7",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN4",
+        "2": "GND"
+      },
+      "x": 123.55,
+      "y": 49.33,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D8",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN5",
+        "2": "GND"
+      },
+      "x": 5.45,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D9",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN6",
+        "2": "GND"
+      },
+      "x": 9.85,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D10",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "BTN7",
+        "2": "GND"
+      },
+      "x": 14.25,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D11",
+      "part": "D_TVS",
+      "value": "ESD",
+      "footprint": "D_SOD-323",
+      "connections": {
+        "1": "OW",
+        "2": "GND"
+      },
+      "x": 18.65,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J6",
+      "part": "ScrewTerminal_1x03",
+      "value": "230V IN",
+      "footprint": "ScrewTerminal_1x03",
+      "connections": {
+        "1": "L",
+        "2": "N",
+        "3": "PE"
+      },
+      "label": "Siec 230V L/N/PE",
+      "x": 45.76,
+      "y": 109.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "K1",
+      "part": "Relay_SPDT",
+      "value": "SRD-12V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V12",
+        "2": "_COIL_LAMP1",
+        "4": "L",
+        "3": "LAMP1"
+      },
+      "label": "Przekaznik 1 - oswietlenie",
+      "x": 27.5,
+      "y": 86.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": "relay"
+    },
+    {
+      "ref": "Q1",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_B_LAMP1",
+        "2": "_COIL_LAMP1",
+        "3": "GND"
+      },
+      "x": 23.2,
+      "y": 57.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R8",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "RELAY1",
+        "2": "_B_LAMP1"
+      },
+      "x": 27.5,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D12",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_COIL_LAMP1",
+        "2": "V12"
+      },
+      "x": 32.55,
+      "y": 57.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "K2",
+      "part": "Relay_SPDT",
+      "value": "SRD-12V",
+      "footprint": "Relay_SPDT_SRD",
+      "connections": {
+        "1": "V12",
+        "2": "_COIL_LAMP2",
+        "4": "L",
+        "3": "LAMP2"
+      },
+      "label": "Przekaznik 2 - gniazdo",
+      "x": 48.0,
+      "y": 86.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": "relay"
+    },
+    {
+      "ref": "Q2",
+      "part": "Q_NPN",
+      "value": "BC547",
+      "footprint": "SOT-23-3",
+      "connections": {
+        "1": "_B_LAMP2",
+        "2": "_COIL_LAMP2",
+        "3": "GND"
+      },
+      "x": 38.0,
+      "y": 57.6,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "R9",
+      "part": "R",
+      "value": "1k",
+      "footprint": "R_0805",
+      "connections": {
+        "1": "RELAY2",
+        "2": "_B_LAMP2"
+      },
+      "x": 42.3,
+      "y": 56.83,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "D13",
+      "part": "D_Rectifier",
+      "value": "1N4148",
+      "footprint": "D_SMA",
+      "connections": {
+        "1": "_COIL_LAMP2",
+        "2": "V12"
+      },
+      "x": 47.35,
+      "y": 57.5,
+      "rotation": 0,
+      "side": "top",
+      "pinned": false,
+      "role": ""
+    },
+    {
+      "ref": "J7",
+      "part": "ScrewTerminal_1x03",
+      "value": "Wyj.1",
+      "footprint": "ScrewTerminal_1x03",
+      "connections": {
+        "1": "LAMP1",
+        "2": "N",
+        "3": "PE"
+      },
+      "label": "Wyjscie 1 230V",
+      "x": 64.0,
+      "y": 109.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    },
+    {
+      "ref": "J8",
+      "part": "ScrewTerminal_1x03",
+      "value": "Wyj.2",
+      "footprint": "ScrewTerminal_1x03",
+      "connections": {
+        "1": "LAMP2",
+        "2": "N",
+        "3": "PE"
+      },
+      "label": "Wyjscie 2 230V",
+      "x": 82.24,
+      "y": 109.46,
+      "rotation": 180,
+      "side": "top",
+      "pinned": true,
+      "role": "mains"
+    }
+  ],
+  "outline": [
+    0.0,
+    0.0,
+    130.0,
+    115.0
+  ],
+  "board_w": 130.0,
+  "board_h": 115.0,
+  "mains_nets": [
+    "L",
+    "LAMP1",
+    "LAMP2",
+    "N",
+    "PE"
+  ],
+  "notes": [
+    "Plyta glowna: zasilanie + ESP32 + przekazniki 230V",
+    "UWAGA 230V! Strefa sieciowa = dolna krawedz. Grube sciezki."
+  ]
+}

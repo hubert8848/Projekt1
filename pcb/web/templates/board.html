@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>{{ design.name }}</h1>
+<p class="muted">Płytka {{ board_w }} × {{ board_h }} mm · {{ design.components|length }} komponentów ·
+   {{ nets|length }} sieci</p>
+
+<div class="row">
+  {% for f in files %}
+  <a class="btn ghost" href="{{ url_for('download', name=name, fname=f) }}">⬇ {{ f }}</a>
+  {% endfor %}
+  {% if has_ses %}<a class="btn" href="{{ url_for('download', name=name, fname=ses) }}">⬇ {{ ses }} (trasy)</a>{% endif %}
+</div>
+
+<h2>Podgląd</h2>
+<div class="card">
+  <div class="row" style="align-items:flex-start">
+    <div style="flex:1; min-width:280px">
+      <div class="muted">PCB (obrys + pady + połączenia)</div>
+      <img src="{{ url_for('preview', name=name, kind='pcb') }}" style="width:100%; border-radius:8px; background:#0f1419"/>
+    </div>
+    <div style="flex:1; min-width:280px">
+      <div class="muted">Schemat</div>
+      <img src="{{ url_for('preview', name=name, kind='sch') }}" style="width:100%; border-radius:8px; background:#0f1419"/>
+    </div>
+  </div>
+</div>
+
+<h2>ERC — kontrola schematu</h2>
+<div class="card">
+  {% if erc %}{% for i in erc %}
+    <div class="{{ 'err' if i.severity=='error' else 'warn' }} mono">{{ i }}</div>
+  {% endfor %}{% else %}<div class="ok">✓ Brak uwag.</div>{% endif %}
+</div>
+
+<h2>DRC-lite — rozmieszczenie</h2>
+<div class="card">
+  {% if drc %}{% for i in drc %}
+    <div class="{{ 'err' if i.severity=='error' else 'warn' }} mono">{{ i }}</div>
+  {% endfor %}{% else %}<div class="ok">✓ Brak kolizji.</div>{% endif %}
+</div>
+
+<h2>Produkcja (prawdziwy KiCad)</h2>
+<div class="card">
+  <p class="muted">KiCad: <code>{{ kicad_ver or 'niedostępny' }}</code>
+     {% if kicad_ver and '7.' in kicad_ver %}— ERC/DRC z CLI wymaga KiCad 8{% endif %}</p>
+  <form method="post" action="{{ url_for('fab', name=name) }}">
+    <button class="btn">⚙ Generuj produkcję (Gerbery + STEP 3D)</button>
+  </form>
+  <div class="row" style="margin-top:10px">
+    {% if has_gerbers %}<a class="btn ghost" href="{{ url_for('download', name=name, fname=gerber_zip) }}">⬇ Gerbery (zip)</a>{% endif %}
+    {% if has_step %}<a class="btn ghost" href="{{ url_for('download', name=name, fname=step) }}">⬇ Model 3D (STEP)</a>{% endif %}
+  </div>
+</div>
+
+<h2>Reguły projektowe (dobre praktyki)</h2>
+<div class="card">
+  {% if design_rules %}{% for i in design_rules %}
+    <div class="{{ 'err' if i.severity=='error' else 'warn' }} mono">{{ i }}</div>
+  {% endfor %}{% else %}<div class="ok">✓ Wszystkie reguły spełnione.</div>{% endif %}
+  <form class="row" method="post" action="{{ url_for('teach_rulelevel') }}" style="margin-top:10px">
+    <div><label>Reguła</label>
+      <select name="code">
+        <option>DECOUPLING</option><option>BULK_CAP</option><option>I2C_PULLUP</option>
+        <option>ONEWIRE_PULLUP</option><option>POWER_PIN_OPEN</option>
+      </select></div>
+    <div><label>Poziom</label>
+      <select name="level"><option>error</option><option>warning</option><option>off</option></select></div>
+    <button class="btn ghost">Ustaw poziom</button>
+  </form>
+</div>
+
+<h2>Routing (Freerouting)</h2>
+<div class="card">
+  {% if jar %}
+    <form method="post" action="{{ url_for('freeroute', name=name) }}">
+      <button class="btn">▶ Uruchom autorouting</button>
+      <span class="muted">jar: <code>{{ jar }}</code></span>
+    </form>
+  {% else %}
+    <p class="muted">Nie znaleziono <code>freerouting.jar</code>. Ustaw zmienną
+      <code>FREEROUTING_JAR</code> albo pobierz z
+      <a href="https://github.com/freerouting/freerouting/releases">github.com/freerouting</a>.
+      Plik <code>.dsn</code> jest już wygenerowany — można też zaimportować go ręcznie.</p>
+  {% endif %}
+  <p class="muted">Wynik <code>.ses</code> wczytasz w KiCad: <b>PCB Editor → File → Import → Specctra Session</b>.</p>
+</div>
+
+<h2>Komponenty</h2>
+<div class="card">
+  <table>
+    <tr><th>Ref</th><th>Część</th><th>Wartość</th><th>Footprint</th><th>Pozycja (mm)</th><th>Sieci</th></tr>
+    {% for c in design.components %}
+    <tr>
+      <td class="mono">{{ c.ref }}</td><td>{{ c.part }}</td><td>{{ c.value }}</td>
+      <td class="mono">{{ c.footprint }}</td>
+      <td class="mono">{{ c.x }}, {{ c.y }}</td>
+      <td class="mono muted">{{ c.connections.values()|unique|list|join(', ') }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<h2>Naucz mnie dla tej płytki</h2>
+<div class="card">
+  <form class="row" method="post" action="{{ url_for('teach_footprint') }}">
+    <div><label>Zmień footprint części</label><input name="part" placeholder="np. C"></div>
+    <div><label>na</label>
+      <select name="footprint">{% for f in footprints %}<option>{{ f }}</option>{% endfor %}</select></div>
+    <button class="btn">Zapisz</button>
+  </form>
+  <hr style="border-color:#222c3a; margin:14px 0">
+  <form class="row" method="post" action="{{ url_for('teach_rule') }}">
+    <div><label>Umieść część</label><input name="part" placeholder="np. C3"></div>
+    <div><label>blisko ref</label><input name="target_ref" placeholder="np. U1"></div>
+    <div><label>dystans mm</label><input name="dist" value="3" style="width:70px"></div>
+    <button class="btn">Dodaj regułę</button>
+  </form>
+  <hr style="border-color:#222c3a; margin:14px 0">
+  <form class="row" method="post" action="{{ url_for('teach_note') }}">
+    <div style="flex:1"><label>Notatka na przyszłość</label>
+      <input name="text" style="width:100%" placeholder="np. dekapy 100nF zawsze tuż przy pinach zasilania IC"></div>
+    <button class="btn ghost">Zapisz notatkę</button>
+  </form>
+</div>
+{% endblock %}

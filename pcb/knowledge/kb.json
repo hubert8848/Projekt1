@@ -1,0 +1,21 @@
+{
+  "footprint_prefs": {},
+  "placement_rules": [],
+  "design_rules": {
+    "DIODE_PER_IO": "warning",
+    "MAINS_UNMARKED": "error",
+    "POWER_PIN_OPEN": "error"
+  },
+  "notes": [
+    "ZASADA 1: kazde I/O (USB-C, RJ45, zaciski) na gornej/dolnej krawedzi plytki - dostep srubokretem.",
+    "ZASADA 2: kondensatory i rezystory upakowane w srodku lub od spodu plytki.",
+    "ZASADA 3: rozmieszczenie 'z rekami i nogami', nie chaos.",
+    "ZASADA 4: otwory montazowe w identycznych wspolrzednych na obu plytkach (skladanie).",
+    "ZASADA 5: zlacze board-to-board w identycznym miejscu na obu plytkach.",
+    "ZASADA 6: osobna dioda ochronna (TVS) na kazde I/O.",
+    "ZASADA 7: przekazniki na plytce.",
+    "ZASADA 8: przekazniki = 230V -> grube sciezki + izolacja, osobna strefa 230V.",
+    "ZASADA 9: wszystkie opisy po polsku na silkscreenie.",
+    "ZASADA +: gorna plytka wezsza o pasy I/O (gora/dol) - srubokret dochodzi do zaciskow dolnej."
+  ]
+}

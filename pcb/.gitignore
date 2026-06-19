@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.ses
+*.log
+*.png
+*.svg
+*.step
+*.zip
+out/**/gerbers/
+out/**/*_erc.json
+out/**/*_drc.json
+out/**/fp-info-cache
+.venv/

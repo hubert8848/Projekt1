@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+<h1>Twoje płytki</h1>
+<div class="card">
+  {% if specs %}
+  <table>
+    <tr><th>Nazwa</th><th></th></tr>
+    {% for s in specs %}
+    <tr><td class="mono">{{ s }}</td>
+        <td><a class="btn ghost" href="{{ url_for('board', name=s) }}">otwórz →</a></td></tr>
+    {% endfor %}
+  </table>
+  {% else %}
+  <p class="muted">Brak płytek. Powstają z opisu w czacie (Claude tworzy spec w <code>pcb/specs/</code>)
+     albo z pliku YAML/JSON.</p>
+  {% endif %}
+</div>
+
+<h2>Baza wiedzy (czego mnie nauczyłeś)</h2>
+<div class="card">
+  <p><b>Preferencje footprintów:</b>
+    {% if kb.footprint_prefs %}
+      {% for part, fp in kb.footprint_prefs.items() %}<span class="pill">{{ part }} → {{ fp }}</span>{% endfor %}
+    {% else %}<span class="muted">brak</span>{% endif %}
+  </p>
+  <p><b>Reguły rozmieszczania:</b>
+    {% if kb.placement_rules %}
+      {% for r in kb.placement_rules %}<span class="pill">{{ r.part }} {{ r.rule }} {{ r.target_ref }} ({{ r.dist }}mm)</span>{% endfor %}
+    {% else %}<span class="muted">brak</span>{% endif %}
+  </p>
+  <p><b>Notatki:</b> {{ kb.notes|length }}</p>
+</div>
+
+<h2>Naucz mnie (globalnie)</h2>
+<div class="card">
+  <form class="row" method="post" action="{{ url_for('teach_footprint') }}">
+    <div><label>Część</label><input name="part" placeholder="np. C" list="parts"></div>
+    <div><label>Domyślny footprint</label>
+      <select name="footprint">{% for f in footprints %}<option>{{ f }}</option>{% endfor %}</select></div>
+    <button class="btn">Zapisz preferencję</button>
+  </form>
+  <datalist id="parts">{% for p in parts %}<option value="{{ p }}">{% endfor %}</datalist>
+</div>
+{% endblock %}
