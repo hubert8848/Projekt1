@@ -301,7 +301,7 @@ class Builder:
     def button(self, net, p3v3, gnd, label="SW"):
         """Przycisk tact (np. nawigacja TFT): styk do masy + pull-up. Na krawedzi."""
         self.add("SW", "SW_Push", label, {"1": net, "2": net, "3": gnd, "4": gnd},
-                 role="io", label=label)
+                 role="passive", label=label)   # przy ekranie, we wnetrzu (nie kolizja z otworami)
         self.R("10k", p3v3, net)
         self.blocks.append(f"przycisk {label}")
 

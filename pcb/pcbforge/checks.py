@@ -95,8 +95,9 @@ def run_drc_lite(design: Design) -> List[Issue]:
             issues.append(Issue("warning", "UNPLACED", f"{c.ref} nie ma pozycji na plytce"))
             continue
         fp = _footprint_for(c)
-        boxes.append((c.ref, c.x - fp.body_w, c.y - fp.body_h,
-                      c.x + fp.body_w, c.y + fp.body_h))
+        bw, bh = (fp.body_h, fp.body_w) if int(getattr(c, "rotation", 0)) % 180 == 90 \
+            else (fp.body_w, fp.body_h)
+        boxes.append((c.ref, c.x - bw, c.y - bh, c.x + bw, c.y + bh))
     for i in range(len(boxes)):
         for j in range(i + 1, len(boxes)):
             r1, ax0, ay0, ax1, ay1 = boxes[i]

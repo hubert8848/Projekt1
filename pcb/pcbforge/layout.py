@@ -132,6 +132,34 @@ def _fp(c: Component):
     return footprints.get(part["footprint"])
 
 
+def _ext(c: Component):
+    """Polowa wymiarow z uwzglednieniem obrotu (dla zlacz na bokach 90/270)."""
+    fp = _fp(c)
+    if int(c.rotation) % 180 == 90:
+        return fp.body_h, fp.body_w
+    return fp.body_w, fp.body_h
+
+
+def _place_side(items, y0, y1, outer_x, side, gap=1.5, edge_inset=1.5):
+    """Zlacza wzdluz LEWEJ/PRAWEJ krawedzi (obrot 90/270). Zwraca glebokosc pasa."""
+    if not items:
+        return 0.0
+    rot = 90 if side == "left" else 270
+    depth = max(_fp(c).body_h * 2 for c in items)
+    col_h = sum(_fp(c).body_w * 2 + gap for c in items)
+    y = max(y0, (y0 + y1) / 2 - col_h / 2)
+    for c in items:
+        fp = _fp(c)
+        c.rotation = rot
+        c.x = round(outer_x + edge_inset + fp.body_h if side == "left"
+                    else outer_x - edge_inset - fp.body_h, 2)
+        c.y = round(y + fp.body_w, 2)
+        c.pinned = True
+        y += fp.body_w * 2 + gap
+    return depth + edge_inset
+
+
+
 def _role(c: Component) -> str:
     if c.role:
         return c.role
@@ -254,27 +282,25 @@ def _pack(items: List[Component], region, obstacles, gap=2.0):
     for c in sorted(items, key=lambda c: -_fp(c).body_h * 2):
         fp = _fp(c)
         w, h = fp.body_w * 2, fp.body_h * 2
-        placed = False
-        while not placed:
-            if cx + w > x1:
+        guard = 0
+        while True:
+            guard += 1
+            if cx + w > x1:               # koniec rzedu -> nowy rzad (obszar moze rosnac w dol)
                 cx = x0
                 cy += row_h + gap
                 row_h = 0.0
             box = (cx, cy, cx + w, cy + h)
-            if cy + h > y1:
-                # brak miejsca - i tak postaw (rozszerzy obszar)
-                placed = True
-            elif _overlaps(box, obstacles, gap):
-                cx += w + gap        # przeskocz przeszkode
+            if _overlaps(box, obstacles, gap) and guard < 5000:
+                cx += w + gap             # przeskocz przeszkode (NIGDY nie nakladaj)
                 continue
-            else:
-                placed = True
-            c.x = round(cx + fp.body_w, 2)
-            c.y = round(cy + fp.body_h, 2)
-            c.rotation = 0
-            obstacles.append((cx, cy, cx + w, cy + h))
-            cx += w + gap
-            row_h = max(row_h, h)
+            break
+        c.x = round(cx + fp.body_w, 2)
+        c.y = round(cy + fp.body_h, 2)
+        c.rotation = 0
+        obstacles.append((cx, cy, cx + w, cy + h))
+        cx += w + gap
+        row_h = max(row_h, h)
+    return cy + row_h   # rzeczywista dolna granica upakowania
 
 
 def place_board(design: Design, frame: Frame, is_top: bool, bottom_side_passives: int = 0):
@@ -352,3 +378,109 @@ def place_pair(bottom: Design, top: Design, frame: Frame):
     gorna wezsza o pasy I/O."""
     place_board(bottom, frame, is_top=False)
     place_board(top, frame, is_top=True, bottom_side_passives=4)
+
+
+# ---------------------------------------------------------------------------
+# Uklad na 4 krawedziach (najmniejsza, kwadratowa plytka)
+# ---------------------------------------------------------------------------
+def _dist_by_width(items, gap=1.3):
+    """Dzieli zlacza na 2 grupy rownowazac sumaryczna szerokosc."""
+    a, b, wa, wb = [], [], 0.0, 0.0
+    for c in sorted(items, key=lambda c: -_fp(c).body_w * 2):
+        w = _fp(c).body_w * 2 + gap
+        if wa <= wb:
+            a.append(c); wa += w
+        else:
+            b.append(c); wb += w
+    return a, b
+
+
+def _board_4e_dims(d, margin=3.0, gap=1.3, hole_inset=4.5):
+    io = [c for c in d.components if _role(c) == "io"
+          and not (c.role == "b2b" or (c.role == "" and c.part.startswith("Header_2x")))]
+    out = [c for c in d.components if _role(c) in ("out", "mains")]
+    inter = [c for c in d.components if _role(c) in ("ic", "passive", "relay")]
+    io_top, io_left = _dist_by_width(io, gap)
+    out_bot, out_right = _dist_by_width(out, gap)
+
+    def length(cs):
+        return sum(_fp(c).body_w * 2 + gap for c in cs)
+
+    def band(cs):
+        return (max((_fp(c).body_h * 2 for c in cs), default=0.0) + 3.0) if cs else 0.0
+
+    top_b, bot_b, left_b, right_b = band(io_top), band(out_bot), band(io_left), band(out_right)
+    # wnetrze: szerokosc ~ zrownowazona z wysokoscia (kwadrat)
+    # zapas 1.35 na przeszkody (B2B w srodku, otwory) - pakowanie musi je omijac
+    def pack_h(width):
+        return _shelf_height([(_fp(c).body_w * 2 + gap, _fp(c).body_h * 2 + gap) for c in inter],
+                             width, gap) * 1.35 if inter else 0.0
+    int_w = max(length(io_top), length(out_bot), 55.0)
+    int_h = max(length(io_left), length(out_right), pack_h(int_w), 40.0)
+    if int_h > int_w * 1.4 and inter:                       # za wysokie -> poszerz (kwadrat)
+        int_w = (int_w * int_h) ** 0.5
+        int_h = max(length(io_left), length(out_right), pack_h(int_w), 40.0)
+    w = left_b + int_w + right_b + 2 * margin
+    h = top_b + int_h + bot_b + 2 * margin
+    return (round(w, 1), round(h, 1), io_top, io_left, out_bot, out_right,
+            top_b, bot_b, left_b, right_b)
+
+
+def place_board_4e(design, W, H, holes_pts, b2b_pt, margin=3.0, gap=1.3):
+    """Rozmieszcza plyte ze zlaczami na 4 krawedziach (we: gora+lewo, wy: dol+prawo)."""
+    design.ensure_nets()
+    comps = design.components
+    holes = [c for c in comps if _role(c) == "mount"]
+    b2b = [c for c in comps if _role(c) == "b2b" or (c.role == "" and c.part.startswith("Header_2x"))]
+    obstacles: List[Tuple] = []
+
+    for c, (hx, hy) in zip(holes, holes_pts):
+        c.x, c.y, c.pinned, c.rotation = hx, hy, True, 0
+        fp = _fp(c)
+        obstacles.append((hx - fp.body_w, hy - fp.body_h, hx + fp.body_w, hy + fp.body_h))
+    for c in b2b:
+        c.x, c.y, c.pinned, c.rotation = b2b_pt[0], b2b_pt[1], True, 0
+        fp = _fp(c)
+        obstacles.append((c.x - fp.body_w, c.y - fp.body_h, c.x + fp.body_w, c.y + fp.body_h))
+
+    (_, _, io_top, io_left, out_bot, out_right,
+     top_b, bot_b, left_b, right_b) = _board_4e_dims(design, margin, gap)
+
+    ix0, iy0 = margin + left_b, margin + top_b
+    ix1, iy1 = W - margin - right_b, H - margin - bot_b
+    hc = 2 * 4.5 + 10  # odsuniecie rzedow od naroznych otworow
+    _place_edge(io_top, ix0 + hc, ix1 - hc, margin, "top", rows=1, gap=gap)
+    _place_edge(out_bot, ix0 + hc, ix1 - hc, H - margin, "bottom", rows=1, gap=gap)
+    _place_side(io_left, iy0 + hc, iy1 - hc, margin, "left", gap=gap)
+    _place_side(out_right, iy0 + hc, iy1 - hc, W - margin, "right", gap=gap)
+    for c in io_top + io_left + out_bot + out_right:
+        ew, eh = _ext(c)
+        obstacles.append((c.x - ew, c.y - eh, c.x + ew, c.y + eh))
+
+    inter = [c for c in comps if _role(c) in ("ic", "passive", "relay")]
+    _pack(inter, (ix0 + 1, iy0 + 1, ix1 - 1, iy1 - 1), obstacles, gap=1.2)
+
+    design.board_w, design.board_h = W, H
+    design.outline = (0.0, 0.0, W, H)
+
+
+def auto_layout_4e(bottom: Design, top: Design, margin: float = 3.0, gap: float = 1.3) -> "Frame":
+    """Para plyt ze zlaczami na 4 krawedziach: najmniejsza, ~kwadratowa plytka.
+    Wspolne otwory (naroza) i B2B (srodek)."""
+    for b in (bottom, top):
+        b.ensure_nets()
+    # wspolny rozmiar (max); otwory w WEWNETRZNYCH narozach (wewnatrz pasow zlacz na
+    # OBU plytach) -> zlacza krawedziowe nigdy ich nie dotkna, wnetrze je omija
+    db = _board_4e_dims(bottom, margin, gap)
+    dt = _board_4e_dims(top, margin, gap)
+    W, H = max(db[0], dt[0]), max(db[1], dt[1])
+    top_b = max(db[6], dt[6]); bot_b = max(db[7], dt[7])
+    left_b = max(db[8], dt[8]); right_b = max(db[9], dt[9])
+    i = 4.5
+    x0, y0 = margin + left_b + i, margin + top_b + i
+    x1, y1 = W - margin - right_b - i, H - margin - bot_b - i
+    holes = [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+    b2b = (W / 2, H / 2)
+    place_board_4e(bottom, W, H, holes, b2b, margin, gap)
+    place_board_4e(top, W, H, holes, b2b, margin, gap)
+    return Frame(W, H, 12.0, i, margin, holes, b2b)
